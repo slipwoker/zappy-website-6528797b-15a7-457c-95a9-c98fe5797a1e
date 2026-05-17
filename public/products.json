@@ -1,16 +1,16 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-05-17T16:42:03.836Z",
+  "generated_at": "2026-05-17T16:42:35.072Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 1,
   "products": [
     {
       "id": "d5724241-ce76-46f0-b53f-fda0f3f9cf54",
-      "slug": "gn-hprchym-dvbay-y0c4zd",
+      "slug": "gn-hprchym-dvbay-51ha48",
       "name": "גן הפרחים דובאי",
       "name_translations": {},
-      "description": "<p class=\"ql-align-right\"><br></p><p class=\"ql-align-right\"><br></p><p class=\"ql-align-right\"><br></p><p class=\"ql-align-right\"><br></p><p class=\"ql-align-right\"><br></p><p class=\"ql-align-right\"><br></p><p class=\"ql-align-right\"><br></p><p class=\"ql-align-right\"><br></p><p class=\"ql-align-right\"><br></p><p><br></p>",
+      "description": "<p class=\"ql-align-right\"><br></p><p class=\"ql-align-right\"><br></p><p class=\"ql-align-right\"><br></p><p class=\"ql-align-right\"><br></p><p class=\"ql-align-right\"><br></p><p class=\"ql-align-right\"><br></p><p class=\"ql-align-right\"><br></p><p class=\"ql-align-right\"><br></p><p class=\"ql-align-right\"><br></p>",
       "short_description": "� גן הפרחים בדובאי הוא אחד המקומות הקסומים והמרהיבים בעיר, עם מיליוני פרחים צבעוניים המעוצבים בצורות ענק ומיוחדות שלא רואים בשום מקום אחר בעולם.\nבמקום תמצאו שבילי הליכה יפהפיים, מיצגים מרהיבים, אזורי צילום מושלמים ואווירה קסומה שמתאימה לכל המשפחה. חוויה חובה למבקרים בדובאי! ",
       "sku": null,
       "brand": null,
@@ -23,9 +23,9 @@
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/gn-hprchym-dvbay-y0c4zd",
+      "url": "https://dubai-plus.co.il/product/gn-hprchym-dvbay-51ha48",
       "categories": [],
-      "updated_at": "2026-05-17T16:41:32.953Z"
+      "updated_at": "2026-05-17T16:42:03.923Z"
     }
   ]
 }
