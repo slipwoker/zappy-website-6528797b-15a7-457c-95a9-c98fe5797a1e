@@ -1,0 +1,118 @@
+# Duabi plus — Generative Engine Optimization Map
+
+> A luxury Dubai tourism website targeting Israeli travelers, offering a comprehensive one-stop platform for planning a Dubai trip. The site features direct hotel booking links via WhatsApp, curated attraction pages with individual imagery and booking options (yacht rentals, flower garden, Global Village, desert safari, Burj Khalifa, Atlantis water park, Palm Island observation), SIM card referrals, transfers booking form, and future services including car rental and nanny services. The design vision is premium and luxurious, with payment integration desired.
+
+---
+
+## Pages
+
+### בית
+https://example.com
+הפלטפורמה המובילה לישראלים לתכנון טיול דובאי יוקרתי. מלונות, אטרקציות, העברות וסים — הכל במקום אחד. הזמן עכשיו ותחווה דובאי כמו מעולם לא חווית!
+
+### מלונות
+https://example.com/hotels
+גלה מלונות חמישה כוכבים בדובאי עם הזמנה מהירה דרך וואטסאפ. מחירים מיוחדים לישראלים, מיקומים מובחרים ושירות אישי. שמור את החדר שלך עוד היום!
+
+### אטרקציות
+https://example.com/attractions
+ברג&#39; ח&#39;ליפה, ספארי מדבר, גלובל וילג&#39;, גן הפרחים ויאכטות פרטיות — הזמן כרטיסים לאטרקציות דובאי המרהיבות ביותר בקלות ובמחיר הטוב ביותר. חוויה שלא תשכח!
+
+### שירותי נסיעות
+https://example.com/travel-services
+העברות שדה תעופה, כרטיסי סים בינלאומיים, השכרת רכב ושירותי בייביסיטר בדובאי — כל מה שצריך לטיול מושלם. הזמן שירותי נסיעות פרימיום ותיהנה מכל רגע!
+
+### מסעדות
+https://example.com/restaurants
+חוויות קולינריות בלתי נשכחות בדובאי — ממסעדות שף עולמיות ועד מטבח מקומי אותנטי. גלה המלצות מסעדות נבחרות לישראלים עם תפריטים, מיקומים והזמנת מקום!
+
+### צור קשר & בקרוב
+https://example.com/contact
+יש לכם שאלות על טיול דובאי? צוות המומחים שלנו זמין עבורכם. צרו קשר עכשיו לייעוץ אישי חינם, ושירותים חדשים בדרך — השאירו פרטים ותהיו הראשונים לדעת!
+
+### Products
+https://example.com/products
+המוצרים שלנו - Duabi plus
+
+### Cart
+https://example.com/cart
+עגלת הקניות שלך
+
+### Checkout
+https://example.com/checkout
+תשלום
+
+### Login
+https://example.com/login
+התחברות לקוחות
+
+### Account
+https://example.com/account
+החשבון שלי
+
+### Order Success
+https://example.com/order-success
+תודה על ההזמנה
+
+### Product Detail
+https://example.com/product/:slug
+פרטי המוצר - Duabi plus
+
+### Category
+https://example.com/category/:slug
+מוצרים - Duabi plus
+
+## Legal & Policy
+
+### Privacy Policy
+https://example.com/privacy
+Information about how user data is collected, stored, and protected.
+
+### Terms & Conditions
+https://example.com/terms
+Legal terms describing service usage, rights, and policies.
+
+### Accessibility Statement
+https://example.com/accessibility
+Information about WCAG compliance and accessibility features.
+
+---
+
+## Products
+
+_No products are currently configured._
+
+---
+
+# Business Context (for LLM understanding)
+
+## About Duabi plus
+A luxury Dubai tourism website targeting Israeli travelers, offering a comprehensive one-stop platform for planning a Dubai trip. The site features direct hotel booking links via WhatsApp, curated attraction pages with individual imagery and booking options (yacht rentals, flower garden, Global Village, desert safari, Burj Khalifa, Atlantis water park, Palm Island observation), SIM card referrals, transfers booking form, and future services including car rental and nanny services. The design vision is premium and luxurious, with payment integration desired.
+
+## Services/Products
+- מלונות - פירוט מלונות בדובאי עם קישור להזמנה בוואטסאפ (+972522212578)
+- אטרקציות - השכרת יאכטה, גן הפרחים, גלובל וילג', טיול מדבר, בורג' חליפה, פארק מים אטלנטיס, תצפית אי הדקלים
+- סים - הפניה לאתר חיצוני (https://travelsimobile.co.il/Lobby_SaraLaloum)
+- השכרת רכב - בקרוב
+- העברות - טופס הזמנה עם תאריך, שעה, שם, שדה תעופה ומלון
+- נני - בקרוב
+- מסעדות
+
+## Target Audience
+- תיירים ישראלים המתכננים נסיעה לדובאי
+- תיירים ישראלים
+- תיירות יוקרה
+- משפחות בחופשה
+
+## Industry
+Tourism & Travel
+
+---
+
+# Machine-readable feeds
+
+- Sitemap (XML): https://example.com/sitemap.xml
+- Robots: https://example.com/robots.txt
+- Flattened page text (for LLMs): https://example.com/llms-full.txt
+- Products (JSON): https://example.com/products.json
+- Products (Google Merchant RSS): https://example.com/product-feed.xml
