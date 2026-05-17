@@ -839,7 +839,6 @@ Dubai Plus · מלונות יוקרה
 ג'ומיירה, דובאי
 
 
-
 Nad al sheba gardens, Dubai, Uae
 
 ### בורג' אל ערב
@@ -863,7 +862,6 @@ Nad al sheba gardens, Dubai, Uae
 
 
 פאלם ג'ומיירה
-
 
 
 Nad al sheba gardens, Dubai, Uae
@@ -891,7 +889,6 @@ Nad al sheba gardens, Dubai, Uae
 ג'ומיירה, דובאי
 
 
-
 Nad al sheba gardens, Dubai, Uae
 
 ### ג'ומיירה ביץ' הוטל
@@ -915,7 +912,6 @@ Nad al sheba gardens, Dubai, Uae
 
 
 דאונטאון, דובאי
-
 
 
 Nad al sheba gardens, Dubai, Uae
@@ -943,7 +939,6 @@ Nad al sheba gardens, Dubai, Uae
 אל סופוח, דובאי
 
 
-
 Nad al sheba gardens, Dubai, Uae
 
 ### One&Only רויאל מיראז'
@@ -967,7 +962,6 @@ Nad al sheba gardens, Dubai, Uae
 
 
 פאלם ג'ומיירה
-
 
 
 Nad al sheba gardens, Dubai, Uae
@@ -995,7 +989,6 @@ Nad al sheba gardens, Dubai, Uae
 DIFC, דובאי
 
 
-
 Nad al sheba gardens, Dubai, Uae
 
 ### ריץ-קרלטון DIFC
@@ -1021,7 +1014,6 @@ Nad al sheba gardens, Dubai, Uae
 פאלם ג'ומיירה
 
 
-
 Nad al sheba gardens, Dubai, Uae
 
 ### W דובאי — דה פאלם
@@ -1045,7 +1037,6 @@ Nad al sheba gardens, Dubai, Uae
 
 
 קריק דובאי
-
 
 
 Nad al sheba gardens, Dubai, Uae
@@ -4473,53 +4464,7 @@ Nad al sheba gardens, Dubai, Uae
 
 
 
-
-
-
-
-### הוסף כתובת
-
-×
-
-
-
-
-שם הכתובת
-
-בית
-עבודה
-אחר
-
-
-
-רחוב ומספר
-
-
-
-דירה, קומה, כניסה
-
-
-
-עיר
-
-
-
-מיקוד
-
-
-
-
-
-הגדר כברירת מחדל
-
-
-
-
-שמור שינויים
-ביטול
-
-
-
+Nad al sheba gardens, Dubai, Uae
 
 
 
