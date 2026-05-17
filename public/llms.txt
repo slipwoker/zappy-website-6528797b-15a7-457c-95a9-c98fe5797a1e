@@ -1,4 +1,4 @@
-# Duabi plus — Generative Engine Optimization Map
+# Sarah laloum tourism llc — Generative Engine Optimization Map
 
 > A luxury Dubai tourism website targeting Israeli travelers, offering a comprehensive one-stop platform for planning a Dubai trip. The site features direct hotel booking links via WhatsApp, curated attraction pages with individual imagery and booking options (yacht rentals, flower garden, Global Village, desert safari, Burj Khalifa, Atlantis water park, Palm Island observation), SIM card referrals, transfers booking form, and future services including car rental and nanny services. The design vision is premium and luxurious, with payment integration desired.
 
@@ -86,7 +86,7 @@ _No products are currently configured._
 
 # Business Context (for LLM understanding)
 
-## About Duabi plus
+## About Sarah laloum tourism llc
 A luxury Dubai tourism website targeting Israeli travelers, offering a comprehensive one-stop platform for planning a Dubai trip. The site features direct hotel booking links via WhatsApp, curated attraction pages with individual imagery and booking options (yacht rentals, flower garden, Global Village, desert safari, Burj Khalifa, Atlantis water park, Palm Island observation), SIM card referrals, transfers booking form, and future services including car rental and nanny services. The design vision is premium and luxurious, with payment integration desired.
 
 ## Services/Products
