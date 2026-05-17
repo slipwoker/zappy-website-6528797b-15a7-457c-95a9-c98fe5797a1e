@@ -50,4 +50,4 @@ Allow: /
 User-agent: MistralAI-User
 Allow: /
 
-Sitemap: https://sarah-laloum-tourism-llc.zappy5.app/sitemap.xml
+Sitemap: https://dubai-plus.co.il/sitemap.xml

@@ -1,105 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://sarah-laloum-tourism-llc.zappy5.app</loc>
+    <loc>https://dubai-plus.co.il</loc>
     <lastmod>2026-05-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://sarah-laloum-tourism-llc.zappy5.app/hotels</loc>
+    <loc>https://dubai-plus.co.il/hotels</loc>
     <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sarah-laloum-tourism-llc.zappy5.app/attractions</loc>
+    <loc>https://dubai-plus.co.il/attractions</loc>
     <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sarah-laloum-tourism-llc.zappy5.app/travel-services</loc>
+    <loc>https://dubai-plus.co.il/travel-services</loc>
     <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sarah-laloum-tourism-llc.zappy5.app/restaurants</loc>
+    <loc>https://dubai-plus.co.il/restaurants</loc>
     <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sarah-laloum-tourism-llc.zappy5.app/contact</loc>
+    <loc>https://dubai-plus.co.il/contact</loc>
     <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sarah-laloum-tourism-llc.zappy5.app/products</loc>
+    <loc>https://dubai-plus.co.il/products</loc>
     <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sarah-laloum-tourism-llc.zappy5.app/cart</loc>
+    <loc>https://dubai-plus.co.il/cart</loc>
     <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sarah-laloum-tourism-llc.zappy5.app/checkout</loc>
+    <loc>https://dubai-plus.co.il/checkout</loc>
     <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sarah-laloum-tourism-llc.zappy5.app/login</loc>
+    <loc>https://dubai-plus.co.il/login</loc>
     <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sarah-laloum-tourism-llc.zappy5.app/account</loc>
+    <loc>https://dubai-plus.co.il/account</loc>
     <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sarah-laloum-tourism-llc.zappy5.app/order-success</loc>
+    <loc>https://dubai-plus.co.il/order-success</loc>
     <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sarah-laloum-tourism-llc.zappy5.app/product/:slug</loc>
+    <loc>https://dubai-plus.co.il/product/:slug</loc>
     <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sarah-laloum-tourism-llc.zappy5.app/category/:slug</loc>
+    <loc>https://dubai-plus.co.il/category/:slug</loc>
     <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sarah-laloum-tourism-llc.zappy5.app/privacy</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://sarah-laloum-tourism-llc.zappy5.app/terms</loc>
+    <loc>https://dubai-plus.co.il/privacy</loc>
     <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://sarah-laloum-tourism-llc.zappy5.app/accessibility</loc>
+    <loc>https://dubai-plus.co.il/terms</loc>
     <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dubai-plus.co.il/accessibility</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dubai-plus.co.il/product/gn-hprchym-dvbay-jaekz1</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
