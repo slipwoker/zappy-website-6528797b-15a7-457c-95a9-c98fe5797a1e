@@ -15821,6 +15821,40 @@ div[id*="mic-access-tool-box"] button[class*="reset"] * {
 ._access-icon {
   display: flex !important;
 }
+
+@media (max-width: 768px) {
+.nav-ecommerce-icons.nav-icons-left {
+  display: none !important;
+}
+
+.nav-ecommerce-icons.nav-icons-right {
+  display: flex !important;
+  align-items: center !important;
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 52px !important;
+  right: auto !important;
+  height: 36px !important;
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+  z-index: 1001 !important;
+  gap: 8px !important;
+}
+
+.nav-search-toggle {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  color: var(--nav-text, #FFF7ED) !important;
+  padding: 6px !important;
+}
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
