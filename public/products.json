@@ -1,10 +1,30 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-05-18T08:21:24.626Z",
+  "generated_at": "2026-05-18T08:23:05.430Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
-  "count": 14,
+  "count": 15,
   "products": [
+    {
+      "id": "3a8154de-2df5-4d1d-b4ff-ac179450c7a9",
+      "slug": "park-hmym-atlntys-ffiuqn",
+      "name": "פארק המים אטלנטיס",
+      "name_translations": {},
+      "description": "",
+      "short_description": null,
+      "sku": null,
+      "brand": null,
+      "price": 0,
+      "base_price": 0,
+      "sale_price": null,
+      "currency": "ILS",
+      "images": [],
+      "in_stock": true,
+      "stock_status": "in_stock",
+      "url": "https://dubai-plus.co.il/product/park-hmym-atlntys-ffiuqn",
+      "categories": [],
+      "updated_at": "2026-05-18T08:22:32.754Z"
+    },
     {
       "id": "43b83bcf-ad82-4421-aa07-529088c17b68",
       "slug": "shyyt-byakth-3-shavt-am-arvchh-shkyah-dqg3g4",
