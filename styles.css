@@ -15831,6 +15831,14 @@ footer.site-footer .footer-col:nth-child(4) .footer-hours .time {
 footer.site-footer .footer-col:nth-child(4) h3.footer-heading {
   color: var(--secondary) !important;
 }
+
+.index-hero-section .index-hero-h1,
+.index-hero-section .index-hero-subtitle,
+.index-hero-section .index-hero-label,
+.index-hero-section .index-hero-trust-item span,
+.index-hero-section .index-hero-text-group {
+  color: #ffffff !important;
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
