@@ -15871,6 +15871,26 @@ main,
   justify-content: center !important;
 }
 }
+
+@media (max-width: 768px) {
+.index-hero-section .index-hero-trust {
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  text-align: center !important;
+}
+
+.index-hero-section .index-hero-trust-item {
+  justify-content: center !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.index-hero-section .index-hero-trust-sep {
+  display: none !important;
+}
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
