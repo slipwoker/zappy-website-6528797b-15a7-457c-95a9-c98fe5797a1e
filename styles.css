@@ -2404,18 +2404,18 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .index-hero-section .index-hero-text-group {
   max-width: 620px;
-  text-align: right;
+  text-align: center;
   display: flex;
   flex-direction: column;
   gap: 0;
+  align-items: center;
 }
 
-/* ── Label ── */
 .index-hero-section .index-hero-label {
   display: inline-block;
   font-family: 'Rubik', sans-serif;
@@ -2431,7 +2431,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   background: rgba(201, 168, 76, 0.08);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  align-self: flex-end;
+  align-self: center;
 }
 
 /* ── H1 ── */
@@ -2452,7 +2452,6 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   text-shadow: none;
 }
 
-/* ── Subtitle H3 ── */
 .index-hero-section .index-hero-subtitle {
   font-family: 'Rubik', sans-serif;
   font-size: 1.15rem;
@@ -2462,16 +2461,17 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   margin: 18px 0 32px 0;
   text-shadow: 0 2px 16px rgba(0,0,0,0.6);
   max-width: 520px;
-  margin-inline-start: auto;
+  margin-inline-start: 0;
+  text-align: center;
 }
 
-/* ── CTAs ── */
 .index-hero-section .index-hero-ctas {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 14px;
-  align-items: flex-end;
+  align-items: center;
   margin-bottom: 32px;
+  justify-content: center;
 }
 
 .index-hero-section .index-hero-btn-primary {
@@ -2529,13 +2529,12 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   box-shadow: 0 8px 30px rgba(0,0,0,0.3);
 }
 
-/* ── Trust Badges ── */
 .index-hero-section .index-hero-trust {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 0;
-  justify-content: flex-end;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
