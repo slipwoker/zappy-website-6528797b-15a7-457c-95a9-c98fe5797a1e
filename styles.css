@@ -15837,6 +15837,40 @@ main,
 }
 
 /* ==END ZAPPY V2 E-COMMERCE THEME CSS== */
+
+@media (max-width: 768px) {
+.index-hero-section .index-hero-text-group {
+  text-align: center !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.index-hero-section .index-hero-container {
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+.index-hero-section .index-hero-content {
+  text-align: center !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.index-hero-section .index-hero-h1,
+  .index-hero-section .index-hero-subtitle,
+  .index-hero-section .index-hero-label {
+  text-align: center !important;
+}
+
+.index-hero-section .index-hero-ctas {
+  justify-content: center !important;
+}
+
+.index-hero-section .index-hero-trust {
+  justify-content: center !important;
+}
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
