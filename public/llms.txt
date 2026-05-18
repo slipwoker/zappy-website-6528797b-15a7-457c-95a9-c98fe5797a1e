@@ -32,7 +32,7 @@ https://dubai-plus.co.il/contact
 
 ### Products
 https://dubai-plus.co.il/products
-המוצרים שלנו - Duabi plus
+המוצרים שלנו - Sarah laloum tourism llc
 
 ### Cart
 https://dubai-plus.co.il/cart
@@ -56,11 +56,11 @@ https://dubai-plus.co.il/order-success
 
 ### Product Detail
 https://dubai-plus.co.il/product/:slug
-פרטי המוצר - Duabi plus
+פרטי המוצר - Sarah laloum tourism llc
 
 ### Category
 https://dubai-plus.co.il/category/:slug
-מוצרים - Duabi plus
+מוצרים - Sarah laloum tourism llc
 
 ## Legal & Policy
 
