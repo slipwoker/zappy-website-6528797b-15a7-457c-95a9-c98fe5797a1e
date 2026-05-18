@@ -83,10 +83,11 @@ Information about WCAG compliance and accessibility features.
 **Total active products: 14**
 
 ### שייט ביאכטה 3 שעות עם ארוחה — שקיעה
-https://dubai-plus.co.il/product/shyyt-byakth-3-shavt-am-arvchh-shkyah-ffhzke
+https://dubai-plus.co.il/product/shyyt-byakth-3-shavt-am-arvchh-shkyah-dqg3g4
 - Price: 350.00 ILS
 - Availability: In stock
 - Description: שייט ביאכטה 3 שעות הכולל ארוחה — שקיעה. מחיר לאדם: 350 AED. חוויית שקיעה רומנטית ובלתי נשכחת על המים עם ארוחה יוקרתית ונוף פנורמי של דובאי.
+- Image: https://dubai-plus.co.il/assets/image-product-image-1779092415669-q4jb41.webp
 
 ### שייט ביאכטה 3 שעות עם ארוחה — שעות רגילות
 https://dubai-plus.co.il/product/shyyt-byakth-3-shavt-am-arvchh-shavt-rgylvt-z3mbit
