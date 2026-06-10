@@ -1494,6 +1494,8 @@ window.onload = function() {
 ;
 
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -7892,6 +7894,7 @@ let additionalJsSidebarFiltersConfig = {};
 let additionalJsSortingConfig = {};
 let additionalJsViewToggleEnabled = true;
 let additionalJsProductPageNote = null;
+let additionalJsSpecificationsSectionTitle = null;
 let catCurrentSortKey = 'popularity';
 let catCurrentViewMode = localStorage.getItem('zappy_view_mode_' + (window.ZAPPY_WEBSITE_ID || '')) || 'grid';
 let catActiveSidebarFilters = { categories: [], brands: [], tags: [], priceMin: null, priceMax: null, sale: false };
@@ -8041,6 +8044,7 @@ async function fetchAdditionalJsSettings(force) {
         additionalJsViewToggleEnabled = data.data.viewToggleEnabled;
       }
       additionalJsProductPageNote = data.data.productPageNote || null;
+      additionalJsSpecificationsSectionTitle = data.data.specificationsSectionTitle || null;
       // Show/hide catalog menu based on store settings
       var catalogMenu = document.getElementById('zappy-catalog-menu');
       if (catalogMenu) {
@@ -8975,21 +8979,63 @@ function initTransparentNavbarScrollEffect() {
   if (!pageHasDarkHero) {
     window.removeEventListener('scroll', onScroll);
     window.removeEventListener('resize', onScroll);
-    nb.classList.add('scrolled');
-    nb.style.setProperty('--frosted-text', scrolledTextColor);
-    nb.style.setProperty('background-image', 'none', 'important');
-    nb.style.backdropFilter = 'blur(12px)';
-    nb.style.webkitBackdropFilter = 'blur(12px)';
-    nb.style.boxShadow = '0 2px 16px rgba(0,0,0,0.12)';
-    setScrolledColors(nb, scrolledTextColor);
-    if (window.innerWidth > 768) nb.style.setProperty('background-color', frostedBg, 'important');
-    if (cm) {
-      cm.classList.add('scrolled');
-      cm.style.setProperty('background', frostedBg, 'important');
-      cm.style.setProperty('backdrop-filter', 'blur(12px)', 'important');
-      cm.style.setProperty('-webkit-backdrop-filter', 'blur(12px)', 'important');
-      setScrolledColors(cm, scrolledTextColor);
+    // Apply the locked frosted state in a WIDTH-RESPONSIVE way. The .scrolled
+    // class is added on every viewport (so the CSS solid-bg + mobile link-color
+    // rules apply), but the frosted glass + inline scrolled text color are only
+    // applied on DESKTOP. On mobile the open menu is a solid, full-screen panel
+    // whose background is independent of the navbar bar's frosted background, so
+    // stamping the desktop frosted text color (computed from the page bg) as an
+    // inline color:!important on every menu link renders the items invisible
+    // (dark-on-dark). The mobile link colors are owned by the
+    // @media(max-width:768px) CSS rules instead.
+    //
+    // CRITICAL: this must run on resize too, NOT just once. A preview/editor
+    // iframe (Preview.js loads at desktop width, then resizes to a 375px phone
+    // frame WITHOUT reloading) — and desktop devtools mobile emulation — both
+    // initialize this script at a desktop width and only later become mobile.
+    // If we stamped the desktop frosted color once and stopped listening, the
+    // dark inline color would persist onto the mobile menu panel. So re-apply
+    // the width-correct state on every resize.
+    function applyLockedState() {
+      var desktop = window.innerWidth > 768;
+      nb.classList.add('scrolled');
+      if (desktop) {
+        nb.style.setProperty('--frosted-text', scrolledTextColor);
+        nb.style.setProperty('background-image', 'none', 'important');
+        nb.style.setProperty('background-color', frostedBg, 'important');
+        nb.style.backdropFilter = 'blur(12px)';
+        nb.style.webkitBackdropFilter = 'blur(12px)';
+        nb.style.boxShadow = '0 2px 16px rgba(0,0,0,0.12)';
+        setScrolledColors(nb, scrolledTextColor);
+      } else {
+        // Mobile: hand the link colors back to CSS and drop the inline frosted
+        // styling (incl. backdrop-filter, which would re-establish a
+        // fixed-positioning containing block and collapse the open menu).
+        nb.style.removeProperty('--frosted-text');
+        nb.style.removeProperty('background-image');
+        nb.style.removeProperty('background-color');
+        nb.style.backdropFilter = '';
+        nb.style.webkitBackdropFilter = '';
+        nb.style.boxShadow = '';
+        clearScrolledColors(nb);
+      }
+      if (cm) {
+        cm.classList.add('scrolled');
+        if (desktop) {
+          cm.style.setProperty('background', frostedBg, 'important');
+          cm.style.setProperty('backdrop-filter', 'blur(12px)', 'important');
+          cm.style.setProperty('-webkit-backdrop-filter', 'blur(12px)', 'important');
+          setScrolledColors(cm, scrolledTextColor);
+        } else {
+          cm.style.removeProperty('background');
+          cm.style.removeProperty('backdrop-filter');
+          cm.style.removeProperty('-webkit-backdrop-filter');
+          clearScrolledColors(cm);
+        }
+      }
     }
+    applyLockedState();
+    window.addEventListener('resize', applyLockedState, { passive: true });
   }
 }
 
@@ -10138,7 +10184,7 @@ function renderProductDetail(container, product, t) {
         <div class="product-details-accordion collapsed">
           <div class="product-details-divider"></div>
           <button type="button" class="product-details-header" onclick="toggleProductDetails(this)">
-            <span>${getEcomText('specifications', t.specifications || 'Specifications')}</span>
+            <span>${product.custom_fields?.specificationsTitle || additionalJsSpecificationsSectionTitle || getEcomText('specifications', t.specifications || 'Specifications')}</span>
             <span class="product-details-toggle">+</span>
           </button>
           <div class="product-details-body">
@@ -12120,6 +12166,26 @@ async function loadRelatedProducts(currentProduct, t) {
 
     var answerSel = '[class*="faq-answer"], [class*="faq-content"], [class*="faq-body"], [class*="faq-item__answer"], .accordion-content, .accordion-body';
 
+    // Pick the collapsible answer element for an item WITHOUT ever choosing a
+    // wrapper that contains the question/header toggle. Some AI-generated FAQs
+    // nest the clickable question INSIDE a .faq-content wrapper; collapsing that
+    // wrapper (max-height:0/opacity:0) would hide the question itself, leaving
+    // only the number visible and nothing to click to expand. Skipping any
+    // candidate that contains the toggle keeps the header visible and collapses
+    // only the real answer body.
+    function pickAnswer(item, question) {
+      var matches = item.querySelectorAll(answerSel);
+      for (var i = 0; i < matches.length; i++) {
+        var el = matches[i];
+        if (el === question) continue;
+        if (question && el.contains(question)) continue;
+        return el;
+      }
+      // No safe collapsible found (only wrappers that hold the toggle): leave
+      // the content expanded rather than hiding the question.
+      return null;
+    }
+
     function initFaqToggle() {
       var items = document.querySelectorAll('[class*="faq-item"], .accordion-item');
       if (!items.length) return;
@@ -12147,7 +12213,7 @@ async function loadRelatedProducts(currentProduct, t) {
                 sib.classList.remove('active');
                 var sibQ = sib.querySelector('[class*="faq-question"], [class*="faq-header"], [class*="faq-item__question"], [class*="faq-item__btn"], [class*="faq-btn"], .accordion-header');
                 if (sibQ) sibQ.setAttribute('aria-expanded', 'false');
-                var sibA = sib.querySelector(answerSel);
+                var sibA = pickAnswer(sib, sibQ);
                 if (sibA) {
                   sibA.style.maxHeight = '0';
                   sibA.style.overflow = 'hidden';
@@ -12162,7 +12228,7 @@ async function loadRelatedProducts(currentProduct, t) {
           var isActive = item.classList.toggle('active');
           question.setAttribute('aria-expanded', isActive ? 'true' : 'false');
 
-          var answer = item.querySelector(answerSel);
+          var answer = pickAnswer(item, question);
           if (answer) {
             if (isActive) {
               answer.style.display = '';
@@ -12207,7 +12273,13 @@ async function loadRelatedProducts(currentProduct, t) {
       items.forEach(function(item) {
         if (item.classList.contains('active')) return;
         if (item.closest(answerSel)) return;
-        var answer = item.querySelector(answerSel);
+        var question = item.querySelector('[class*="faq-question"], [class*="faq-header"], [class*="faq-item__question"], [class*="faq-item__btn"], [class*="faq-btn"], .accordion-header, .accordion-toggle');
+        // No clickable question/header toggle exists → this is a STATIC FAQ
+        // (e.g. a grid of badge + always-visible content), not an accordion.
+        // Collapsing it here would hide the content with no way to expand it,
+        // since no click handler was bound above. Leave it fully visible.
+        if (!question) return;
+        var answer = pickAnswer(item, question);
         if (answer) {
           answer.style.maxHeight = '0';
           answer.style.overflow = 'hidden';
@@ -14671,10 +14743,10 @@ function fixContrast(){
 })();
 
 
-/* ZAPPY_ECOM_LANGUAGE_ROUTING_RUNTIME_V19 */
+/* ZAPPY_ECOM_LANGUAGE_ROUTING_RUNTIME_V20 */
 (function() {
-  if (window.__zappyEcomLanguageRoutingRuntime >= 19) return;
-  window.__zappyEcomLanguageRoutingRuntime = 19;
+  if (window.__zappyEcomLanguageRoutingRuntime >= 20) return;
+  window.__zappyEcomLanguageRoutingRuntime = 20;
 
   // Routing strategy: use path-based language URLs for ALL storefront pages
   // (including dynamic /product/:slug and /category/:slug). The publish
@@ -15087,18 +15159,18 @@ function fixContrast(){
   // declaration merging that was eating the standalone CSS injection.
   function ensureRuntimeCssInjected() {
     var existing = document.getElementById('zappy-ecom-routing-runtime-css');
-    if (existing && existing.getAttribute('data-v') === '24') return;
+    if (existing && existing.getAttribute('data-v') === '25') return;
     if (existing) existing.remove();
     var style = document.createElement('style');
     style.id = 'zappy-ecom-routing-runtime-css';
     style.setAttribute('data-zappy-runtime', 'ecom-routing');
-    style.setAttribute('data-v', '24');
+    style.setAttribute('data-v', '25');
     style.textContent =
       '@media (min-width: 769px){' +
         'html[dir="ltr"] .nav-container > .nav-brand,body[dir="ltr"] .nav-container > .nav-brand,html[dir="ltr"] .nav-right-group > .nav-brand,body[dir="ltr"] .nav-right-group > .nav-brand{order:-1!important}' +
         'html[dir="ltr"] .nav-container > .nav-menu,body[dir="ltr"] .nav-container > .nav-menu,html[dir="ltr"] .nav-right-group > .nav-menu,body[dir="ltr"] .nav-right-group > .nav-menu{order:1!important;margin-inline-start:0!important;flex:1 1 0!important;min-width:0!important;overflow:visible!important;align-items:center!important}' +
         'html[dir="ltr"] .nav-container > .nav-menu > li,body[dir="ltr"] .nav-container > .nav-menu > li,html[dir="ltr"] .nav-right-group > .nav-menu > li,body[dir="ltr"] .nav-right-group > .nav-menu > li{flex:0 0 auto!important}' +
-        'html[dir="ltr"] .nav-container > .lang-switcher,body[dir="ltr"] .nav-container > .lang-switcher,html[dir="ltr"] .nav-container > .nav-ecommerce-icons,body[dir="ltr"] .nav-container > .nav-ecommerce-icons,html[dir="ltr"] .nav-right-group > .lang-switcher,body[dir="ltr"] .nav-right-group > .lang-switcher,html[dir="ltr"] .nav-right-group > .nav-ecommerce-icons,body[dir="ltr"] .nav-right-group > .nav-ecommerce-icons{order:2!important;flex:0 0 auto!important;min-width:max-content!important}' +
+        'html[dir="ltr"] .nav-container > .lang-switcher,body[dir="ltr"] .nav-container > .lang-switcher,html[dir="ltr"] .nav-container > .nav-ecommerce-icons,body[dir="ltr"] .nav-container > .nav-ecommerce-icons,html[dir="ltr"] .nav-container > .nav-cta-container,body[dir="ltr"] .nav-container > .nav-cta-container,html[dir="ltr"] .nav-right-group > .lang-switcher,body[dir="ltr"] .nav-right-group > .lang-switcher,html[dir="ltr"] .nav-right-group > .nav-ecommerce-icons,body[dir="ltr"] .nav-right-group > .nav-ecommerce-icons,html[dir="ltr"] .nav-right-group > .nav-cta-container,body[dir="ltr"] .nav-right-group > .nav-cta-container{order:2!important;flex:0 0 auto!important;min-width:max-content!important}' +
         'html[dir="ltr"] .nav-container > .nav-ecommerce-icons.nav-icons-left,body[dir="ltr"] .nav-container > .nav-ecommerce-icons.nav-icons-left,html[dir="ltr"] .nav-right-group > .nav-ecommerce-icons.nav-icons-left,body[dir="ltr"] .nav-right-group > .nav-ecommerce-icons.nav-icons-left{margin-inline-start:auto!important;flex:0 0 auto!important;min-width:max-content!important}' +
         'html[dir="rtl"] .nav-container > .nav-menu,body[dir="rtl"] .nav-container > .nav-menu,html[dir="rtl"] .nav-right-group > .nav-menu,body[dir="rtl"] .nav-right-group > .nav-menu{flex:1 1 0!important;min-width:0!important;overflow:visible!important;align-items:center!important}' +
         'html[dir="rtl"] .nav-container > .nav-menu > li,body[dir="rtl"] .nav-container > .nav-menu > li,html[dir="rtl"] .nav-right-group > .nav-menu > li,body[dir="rtl"] .nav-right-group > .nav-menu > li{flex:0 0 auto!important}' +
@@ -15134,6 +15206,20 @@ function fixContrast(){
 
   function tuneDesktopNavWrapping() {
     if (window.innerWidth <= 768) return;
+    // The "More" overflow runtime (ZAPPY_NAV_OVERFLOW_MENU_V1) fully supersedes
+    // the legacy two-line wrapping: it collapses overflowing items into a
+    // "More" dropdown and strips zappy-desktop-wrap on every reflow. When it is
+    // active we MUST NOT re-add the wrap class here — this patch() pass runs at
+    // 1500ms, AFTER the overflow runtime's final reflow (1200ms), and nothing
+    // reflows the overflow menu again, so re-adding zappy-desktop-wrap would
+    // regress the desktop nav to the clipped/wrapped layout permanently. Defer
+    // entirely: strip any stale class and let the overflow runtime own overflow.
+    if (window.__zappyNavOverflowInit) {
+      document.querySelectorAll('.nav-menu.zappy-desktop-wrap, #navMenu.zappy-desktop-wrap').forEach(function(menu) {
+        menu.classList.remove('zappy-desktop-wrap');
+      });
+      return;
+    }
     document.querySelectorAll('.nav-container > .nav-menu, .nav-right-group > .nav-menu, .nav-container > #navMenu, .nav-right-group > #navMenu').forEach(function(menu) {
       if (!menu || !menu.querySelectorAll) return;
       menu.classList.remove('zappy-desktop-wrap');
@@ -15332,7 +15418,7 @@ function fixContrast(){
       if (document.getElementById('zappy-mobile-nav-icon-alignment-fix')) return;
       var style = document.createElement('style');
       style.id = 'zappy-mobile-nav-icon-alignment-fix';
-      style.textContent = "\n\n/* ZAPPY_MOBILE_NAV_ICON_ALIGNMENT_FIX */\n/* ZAPPY_MOBILE_NAV_ICON_ALIGNMENT_FIX_V3 */\n/* The mobile hamburger / phone buttons are absolutely positioned. Keep the\n   navbar itself as a non-collapsing containing block so auto-margin centering\n   stays aligned even when generated mobile CSS moves every nav child out of flow. */\n@media (max-width: 768px) {\n  .navbar,\n  nav.navbar {\n    min-height: 70px !important;\n  }\n\n  /* Some generated RTL nav CSS sets both left:50% and right:50% on the\n     absolute .nav-brand. That collapses it to 0px wide, so the logo flows\n     left from the center instead of being centered on it. */\n  .navbar .nav-brand,\n  nav.navbar .nav-brand,\n  html[dir=\"rtl\"] .navbar .nav-brand,\n  html[dir=\"rtl\"] nav.navbar .nav-brand,\n  html[lang=\"he\"] .navbar .nav-brand,\n  html[lang=\"he\"] nav.navbar .nav-brand,\n  html[lang=\"ar\"] .navbar .nav-brand,\n  html[lang=\"ar\"] nav.navbar .nav-brand {\n    position: absolute !important;\n    left: 50% !important;\n    right: auto !important;\n    top: 50% !important;\n    width: auto !important;\n    min-width: max-content !important;\n    max-width: calc(100% - 168px) !important;\n    transform: translate(-50%, -50%) !important;\n    margin: 0 !important;\n    text-align: center !important;\n    justify-content: center !important;\n  }\n\n  .navbar .nav-brand .logo-link,\n  nav.navbar .nav-brand .logo-link,\n  .navbar .nav-brand a,\n  nav.navbar .nav-brand a {\n    display: inline-flex !important;\n    justify-content: center !important;\n    align-items: center !important;\n    margin-left: auto !important;\n    margin-right: auto !important;\n  }\n\n  .navbar > .mobile-toggle,\n  nav.navbar > .mobile-toggle,\n  .navbar .mobile-toggle,\n  nav.navbar .mobile-toggle,\n  #mobileToggle,\n  .navbar > .phone-header-btn,\n  nav.navbar > .phone-header-btn,\n  .navbar .phone-header-btn,\n  nav.navbar .phone-header-btn {\n    position: absolute !important;\n    top: 0 !important;\n    bottom: 0 !important;\n    transform: none !important;\n    margin-top: auto !important;\n    margin-bottom: auto !important;\n    align-self: center !important;\n    align-items: center !important;\n    justify-content: center !important;\n    line-height: 0 !important;\n  }\n\n  .navbar > .mobile-toggle,\n  nav.navbar > .mobile-toggle,\n  .navbar .mobile-toggle,\n  nav.navbar .mobile-toggle,\n  #mobileToggle {\n    display: flex !important;\n  }\n\n  html:not([data-zappy-site-type=\"ecommerce\"]) .navbar > .phone-header-btn,\n  html:not([data-zappy-site-type=\"ecommerce\"]) nav.navbar > .phone-header-btn,\n  html:not([data-zappy-site-type=\"ecommerce\"]) .navbar .phone-header-btn,\n  html:not([data-zappy-site-type=\"ecommerce\"]) nav.navbar .phone-header-btn {\n    display: flex !important;\n  }\n\n  html[data-zappy-site-type=\"ecommerce\"] .phone-header-btn,\n  body[data-zappy-site-type=\"ecommerce\"] .phone-header-btn,\n  html[data-zappy-site-type=\"ecommerce\"] header .phone-header-btn,\n  html[data-zappy-site-type=\"ecommerce\"] nav .phone-header-btn {\n    display: none !important;\n    visibility: hidden !important;\n    width: 0 !important;\n    height: 0 !important;\n    min-width: 0 !important;\n    overflow: hidden !important;\n  }\n}\n";
+      style.textContent = "\n\n/* ZAPPY_MOBILE_NAV_ICON_ALIGNMENT_FIX */\n/* ZAPPY_MOBILE_NAV_ICON_ALIGNMENT_FIX_V3 */\n/* ZAPPY_MOBILE_NAV_ICON_ALIGNMENT_FIX_V4 */\n/* The mobile hamburger / phone buttons are absolutely positioned. Keep the\n   navbar itself as a non-collapsing containing block so auto-margin centering\n   stays aligned even when generated mobile CSS moves every nav child out of flow. */\n@media (max-width: 768px) {\n  .navbar,\n  nav.navbar {\n    min-height: 70px !important;\n  }\n\n  /* E-commerce mobile navbar icon-group alignment.\n     The icon couples (search after the hamburger; login+cart at the end edge)\n     are absolutely positioned with inset-inline offsets — inset-inline-start:52px\n     to clear the 36px hamburger that sits at left:12px on the .navbar, and\n     inset-inline-end:12px to hug the end edge. Those offsets are authored in the\n     NAVBAR's full-width coordinate space (the hamburger uses the same one). But\n     the offsets are resolved against the nearest positioned ancestor, and the\n     generated CSS makes .nav-container position:relative. When .nav-container is\n     ALSO inset by the navbar's horizontal padding (max-width / padding from the\n     LLM-authored navbar), the groups resolve to that inset box instead of the\n     full-width navbar: the search drifts ~20px away from the hamburger and the\n     cart leaves a fat asymmetric gap before the screen edge. Dropping\n     .nav-container out of the containing-block chain on mobile makes both couples\n     resolve to .navbar (always full-bleed) so they line up tightly with the\n     hamburger and sit symmetrically against both edges regardless of any\n     navbar/container padding. Scoped via :has() to navbars that actually carry\n     the e-commerce icon couples so non-ecommerce navs are untouched. */\n  .navbar:has(.nav-ecommerce-icons) .nav-container,\n  nav.navbar:has(.nav-ecommerce-icons) .nav-container,\n  header:has(.nav-ecommerce-icons) .nav-container {\n    position: static !important;\n  }\n\n  /* Some generated RTL nav CSS sets both left:50% and right:50% on the\n     absolute .nav-brand. That collapses it to 0px wide, so the logo flows\n     left from the center instead of being centered on it. */\n  .navbar .nav-brand,\n  nav.navbar .nav-brand,\n  html[dir=\"rtl\"] .navbar .nav-brand,\n  html[dir=\"rtl\"] nav.navbar .nav-brand,\n  html[lang=\"he\"] .navbar .nav-brand,\n  html[lang=\"he\"] nav.navbar .nav-brand,\n  html[lang=\"ar\"] .navbar .nav-brand,\n  html[lang=\"ar\"] nav.navbar .nav-brand {\n    position: absolute !important;\n    left: 50% !important;\n    right: auto !important;\n    top: 50% !important;\n    width: auto !important;\n    min-width: max-content !important;\n    max-width: calc(100% - 168px) !important;\n    transform: translate(-50%, -50%) !important;\n    margin: 0 !important;\n    text-align: center !important;\n    justify-content: center !important;\n  }\n\n  .navbar .nav-brand .logo-link,\n  nav.navbar .nav-brand .logo-link,\n  .navbar .nav-brand a,\n  nav.navbar .nav-brand a {\n    display: inline-flex !important;\n    justify-content: center !important;\n    align-items: center !important;\n    margin-left: auto !important;\n    margin-right: auto !important;\n  }\n\n  .navbar > .mobile-toggle,\n  nav.navbar > .mobile-toggle,\n  .navbar .mobile-toggle,\n  nav.navbar .mobile-toggle,\n  #mobileToggle,\n  .navbar > .phone-header-btn,\n  nav.navbar > .phone-header-btn,\n  .navbar .phone-header-btn,\n  nav.navbar .phone-header-btn {\n    position: absolute !important;\n    top: 0 !important;\n    bottom: 0 !important;\n    transform: none !important;\n    margin-top: auto !important;\n    margin-bottom: auto !important;\n    align-self: center !important;\n    align-items: center !important;\n    justify-content: center !important;\n    line-height: 0 !important;\n  }\n\n  .navbar > .mobile-toggle,\n  nav.navbar > .mobile-toggle,\n  .navbar .mobile-toggle,\n  nav.navbar .mobile-toggle,\n  #mobileToggle {\n    display: flex !important;\n  }\n\n  html:not([data-zappy-site-type=\"ecommerce\"]) .navbar > .phone-header-btn,\n  html:not([data-zappy-site-type=\"ecommerce\"]) nav.navbar > .phone-header-btn,\n  html:not([data-zappy-site-type=\"ecommerce\"]) .navbar .phone-header-btn,\n  html:not([data-zappy-site-type=\"ecommerce\"]) nav.navbar .phone-header-btn {\n    display: flex !important;\n  }\n\n  html[data-zappy-site-type=\"ecommerce\"] .phone-header-btn,\n  body[data-zappy-site-type=\"ecommerce\"] .phone-header-btn,\n  html[data-zappy-site-type=\"ecommerce\"] header .phone-header-btn,\n  html[data-zappy-site-type=\"ecommerce\"] nav .phone-header-btn {\n    display: none !important;\n    visibility: hidden !important;\n    width: 0 !important;\n    height: 0 !important;\n    min-width: 0 !important;\n    overflow: hidden !important;\n  }\n}\n";
       document.head.appendChild(style);
     }
 
