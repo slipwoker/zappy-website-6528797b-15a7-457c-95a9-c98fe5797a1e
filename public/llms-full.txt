@@ -6776,15 +6776,6 @@ Availability: In stock
 
 ---
 
-### קפיצה ממסוק מעל הפאלם
-URL: https://dubai-plus.co.il/product/kpytsh-mmsvk-mal-hpalm-dr44gj
-Price: 3100.00 ILS
-Availability: In stock
-
-קפיצת סקיידייב ממסוק מעל אי הדקלים - Palm Drop Zone. 3,100 ₪. החוויה האקסטרימית האולטימטיבית בדובאי!
-
----
-
 ### רכב על המים - 30 דקות
 URL: https://dubai-plus.co.il/product/rkb-al-hmym-30-dkvt-989q6i
 Price: 900.00 ILS
@@ -6803,6 +6794,24 @@ Availability: In stock
 
 ---
 
+### בורג׳ חליפה - קומה 148
+URL: https://dubai-plus.co.il/product/bvrg-chlyph-kvmh-148-sirdgs
+Price: 550.00 ILS
+Availability: In stock
+
+בורג׳ חליפה - קומה 148 (At The Top SKY). החל מ-550 ₪. החוויה האולטימטיבית — התצפית הגבוהה ביותר בבניין הגבוה בעולם.
+
+---
+
+### קפיצה ממסוק מעל הפאלם
+URL: https://dubai-plus.co.il/product/kpytsh-mmsvk-mal-hpalm-dr44gj
+Price: 3100.00 ILS
+Availability: In stock
+
+קפיצת סקיידייב ממסוק מעל אי הדקלים - Palm Drop Zone. 3,100 ₪. החוויה האקסטרימית האולטימטיבית בדובאי!
+
+---
+
 ### טיסה בכדור פורח - 60 דקות
 URL: https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-60-dkvt-j7o5vf
 Price: 650.00 ILS
@@ -6818,15 +6827,6 @@ Price: 550.00 ILS
 Availability: In stock
 
 טיול 10 שעות לאבו דאבי כולל אטרקציות ואוכל כשר. 550 ₪. סיור מודרך מקיף לאבו דאבי עם ארוחה כשרה.
-
----
-
-### בורג׳ חליפה - קומה 148
-URL: https://dubai-plus.co.il/product/bvrg-chlyph-kvmh-148-sirdgs
-Price: 550.00 ILS
-Availability: In stock
-
-בורג׳ חליפה - קומה 148 (At The Top SKY). החל מ-550 ₪. החוויה האולטימטיבית — התצפית הגבוהה ביותר בבניין הגבוה בעולם.
 
 ---
 
@@ -7098,15 +7098,6 @@ Availability: In stock
 SKU: PARTY-CRUISE-4H
 
 שייט לילה 4 שעות עם מסיבה וארוחה — משעה 21:00 עד 01:00. מחיר: גבר 360 AED | אישה 290 AED. כולל ארוחה, מוזיקה ואווירה בלתי נשכחת על המים.
-
----
-
-### יאכטה פרטית 60 רגל — עד 25 אנשים
-URL: https://dubai-plus.co.il/product/yakth-prtyt-60-rgl-ad-25-anshym-sjgbeg
-Price: 1300.00 ILS
-Availability: In stock
-
-יאכטה פרטית בגודל 60 רגל, עד 25 אנשים. מחיר לשעה: 1,300 AED. שייט פרטי יוקרתי בדובאי מרינה — ללא שיתוף, לכם בלבד. מושלם לאירועים ומסיבות.
 
 ---
 

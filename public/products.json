@@ -1,9 +1,9 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-06T21:19:37.975Z",
+  "generated_at": "2026-07-06T21:24:00.748Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
-  "count": 50,
+  "count": 49,
   "products": [
     {
       "id": "da598194-7288-4fc6-9507-576836626406",
@@ -25,7 +25,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/yakth-prtyt-bdvbay-cg25o1",
       "categories": [],
-      "updated_at": "2026-07-06T21:19:05.693Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "70013942-8198-4af4-b23e-60a25b128b2f",
@@ -47,7 +47,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/tyvl-spary-bmdbr-safari-desert-jqnh7k",
       "categories": [],
-      "updated_at": "2026-07-06T16:44:29.927Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "8c18b03b-f213-444d-9f55-0bcfa68ae571",
@@ -69,27 +69,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/parkym-abv-daby-yas-abu-dhabi-gdqrqv",
       "categories": [],
-      "updated_at": "2026-07-06T16:50:53.064Z"
-    },
-    {
-      "id": "c292810e-fc10-4f5c-8019-068074c6567d",
-      "slug": "kpytsh-mmsvk-mal-hpalm-dr44gj",
-      "name": "קפיצה ממסוק מעל הפאלם",
-      "name_translations": {},
-      "description": "<p>קפיצת סקיידייב ממסוק מעל אי הדקלים - Palm Drop Zone. 3,100 ₪. החוויה האקסטרימית האולטימטיבית בדובאי!</p>",
-      "short_description": null,
-      "sku": null,
-      "brand": null,
-      "price": 3100,
-      "base_price": 3100,
-      "sale_price": null,
-      "currency": "ILS",
-      "images": [],
-      "in_stock": true,
-      "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/kpytsh-mmsvk-mal-hpalm-dr44gj",
-      "categories": [],
-      "updated_at": "2026-07-06T14:37:25.174Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "49c2216e-a934-4be0-adbb-2013bbc383a2",
@@ -109,7 +89,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/rkb-al-hmym-30-dkvt-989q6i",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:07.664Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "f12769f8-2273-4006-beba-2f47b3f1d7bf",
@@ -129,47 +109,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/tysh-bmsvk-12-dkvt-auox4c",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:07.565Z"
-    },
-    {
-      "id": "0bceda7e-64e9-40ba-8fde-ce8bee1f3144",
-      "slug": "tysh-bkdvr-pvrch-60-dkvt-j7o5vf",
-      "name": "טיסה בכדור פורח - 60 דקות",
-      "name_translations": {},
-      "description": "טיסה בכדור פורח מעל דובאי - 60 דקות מלאות. 650 ₪. חוויה רומנטית ומרהיבה עם נוף פנורמי על דובאי.",
-      "short_description": null,
-      "sku": null,
-      "brand": null,
-      "price": 650,
-      "base_price": 650,
-      "sale_price": null,
-      "currency": "ILS",
-      "images": [],
-      "in_stock": true,
-      "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-60-dkvt-j7o5vf",
-      "categories": [],
-      "updated_at": "2026-05-18T10:26:07.499Z"
-    },
-    {
-      "id": "be2bf3ef-21c0-4b21-99f8-2541264dbd79",
-      "slug": "tyvl-yvm-mla-labv-daby-kshr-wvlce1",
-      "name": "טיול יום מלא לאבו דאבי - כשר",
-      "name_translations": {},
-      "description": "טיול 10 שעות לאבו דאבי כולל אטרקציות ואוכל כשר. 550 ₪. סיור מודרך מקיף לאבו דאבי עם ארוחה כשרה.",
-      "short_description": null,
-      "sku": null,
-      "brand": null,
-      "price": 550,
-      "base_price": 550,
-      "sale_price": null,
-      "currency": "ILS",
-      "images": [],
-      "in_stock": true,
-      "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/tyvl-yvm-mla-labv-daby-kshr-wvlce1",
-      "categories": [],
-      "updated_at": "2026-05-18T10:26:07.391Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "04319c4a-6967-479e-9657-1d21977932ce",
@@ -189,7 +129,67 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/bvrg-chlyph-kvmh-148-sirdgs",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:07.112Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
+    },
+    {
+      "id": "c292810e-fc10-4f5c-8019-068074c6567d",
+      "slug": "kpytsh-mmsvk-mal-hpalm-dr44gj",
+      "name": "קפיצה ממסוק מעל הפאלם",
+      "name_translations": {},
+      "description": "<p>קפיצת סקיידייב ממסוק מעל אי הדקלים - Palm Drop Zone. 3,100 ₪. החוויה האקסטרימית האולטימטיבית בדובאי!</p>",
+      "short_description": null,
+      "sku": null,
+      "brand": null,
+      "price": 3100,
+      "base_price": 3100,
+      "sale_price": null,
+      "currency": "ILS",
+      "images": [],
+      "in_stock": true,
+      "stock_status": "in_stock",
+      "url": "https://dubai-plus.co.il/product/kpytsh-mmsvk-mal-hpalm-dr44gj",
+      "categories": [],
+      "updated_at": "2026-07-06T21:22:36.566Z"
+    },
+    {
+      "id": "0bceda7e-64e9-40ba-8fde-ce8bee1f3144",
+      "slug": "tysh-bkdvr-pvrch-60-dkvt-j7o5vf",
+      "name": "טיסה בכדור פורח - 60 דקות",
+      "name_translations": {},
+      "description": "טיסה בכדור פורח מעל דובאי - 60 דקות מלאות. 650 ₪. חוויה רומנטית ומרהיבה עם נוף פנורמי על דובאי.",
+      "short_description": null,
+      "sku": null,
+      "brand": null,
+      "price": 650,
+      "base_price": 650,
+      "sale_price": null,
+      "currency": "ILS",
+      "images": [],
+      "in_stock": true,
+      "stock_status": "in_stock",
+      "url": "https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-60-dkvt-j7o5vf",
+      "categories": [],
+      "updated_at": "2026-07-06T21:22:36.566Z"
+    },
+    {
+      "id": "be2bf3ef-21c0-4b21-99f8-2541264dbd79",
+      "slug": "tyvl-yvm-mla-labv-daby-kshr-wvlce1",
+      "name": "טיול יום מלא לאבו דאבי - כשר",
+      "name_translations": {},
+      "description": "טיול 10 שעות לאבו דאבי כולל אטרקציות ואוכל כשר. 550 ₪. סיור מודרך מקיף לאבו דאבי עם ארוחה כשרה.",
+      "short_description": null,
+      "sku": null,
+      "brand": null,
+      "price": 550,
+      "base_price": 550,
+      "sale_price": null,
+      "currency": "ILS",
+      "images": [],
+      "in_stock": true,
+      "stock_status": "in_stock",
+      "url": "https://dubai-plus.co.il/product/tyvl-yvm-mla-labv-daby-kshr-wvlce1",
+      "categories": [],
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "a1426ada-b585-459e-98ee-c5050e683b3e",
@@ -209,7 +209,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:06.948Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "83987c03-69fe-426f-9309-1e4f484041cd",
@@ -229,7 +229,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/bvrg-chlyph-skyy-vvyv-mglshh-mmsbes",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:06.891Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "2b0d5b98-704e-42d5-b0df-d53492e396d9",
@@ -249,7 +249,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/mvpa-lh-prl-9x226t",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:06.778Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "dfc0c39b-4628-4dbf-929b-1ed68a71c1ce",
@@ -269,7 +269,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/shyt-byaktt-lvtvs-otf8b5",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:06.723Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "3dc6927f-c911-40fb-b641-bc2e7a714a53",
@@ -289,7 +289,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/sky-dvbay-oklyey",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:06.668Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "b662f53d-4d97-424e-b6ca-faa0a9fdc7cd",
@@ -309,7 +309,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/park-img-sdl1p4",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:06.525Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "43fbb0af-a8e6-41b2-960f-8cab0e1104bb",
@@ -329,7 +329,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/bvrg-chlyph-kvmh-124125-a6pxq0",
       "categories": [],
-      "updated_at": "2026-07-06T14:43:47.700Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "087ccefa-9045-4d4b-8013-5ba960f9f128",
@@ -349,7 +349,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-10-dkvt-hsohpm",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:06.417Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "5377a16e-4153-4833-8f12-e1f2ffa2815d",
@@ -369,7 +369,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/akvvryvm-vgn-chyvt-tt-ymy-s0lo9h",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:06.360Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "68ef4e4e-08cc-4324-a010-a17101f00955",
@@ -389,7 +389,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/tyvl-mdbr-shkyah-bvkr-mkvtsr-pdgbye",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:06.301Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "19c8a419-8c39-4705-9089-0917b234b974",
@@ -409,7 +409,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/avpnva-ym-zvgy-30-dkvt-qkzps2",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:06.246Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "f9370460-56e4-40f8-b5de-e2ef7c47b6b1",
@@ -429,7 +429,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/mvzyavn-hatyd-n7x62f",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:06.190Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "406f9578-43eb-413c-b142-6448f84a36af",
@@ -449,7 +449,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/ttspyt-skyy-vvyv-mglshh-shkvph-jvxrt1",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:06.135Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "b11f23aa-4bd7-4aed-81ff-e2e03caab93f",
@@ -469,7 +469,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/aya-chvvyh-dygytlyt-slgoik",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:06.081Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "999daca1-ed04-4ba4-ad9d-e50677ea4c93",
@@ -489,7 +489,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/ttspyt-hdklym-the-view-at-the-palm-837ywl",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:06.026Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "7bb3b8e7-38a6-4c8e-9b92-36458dd59ef1",
@@ -509,7 +509,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/ttspyt-skyy-vvyv-eqjii6",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:05.944Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "2467644c-5568-47ce-8b9b-129e37e02b81",
@@ -529,7 +529,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/kydznyh-yld-abjdae",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:05.889Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "7091f0c1-54cd-4889-bb94-e60576e56437",
@@ -549,7 +549,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/kydznyh-mbvgr-usaq3b",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:05.834Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "609ce2be-525b-400e-800a-d1366c53ab93",
@@ -569,7 +569,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/mvpa-dvlpynym-kn2h57",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:05.776Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "75d00d6b-1860-4428-89ec-f899d9ea1e10",
@@ -589,7 +589,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/gn-hprprym-0ykp0i",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:05.722Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "2b72bfe9-211a-4677-be76-4b1a4a336f01",
@@ -609,7 +609,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/ayys-lavng-g1vxri",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:05.668Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "e8275da6-11af-4c0c-8351-78f14878f660",
@@ -629,7 +629,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/hgn-hzvhr-miracle-garden-2vm3pq",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:05.613Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "d1945946-37fd-42d4-a2b7-4a799a47af9e",
@@ -649,7 +649,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/mvzyavn-hashlyvt-5cp1f0",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:05.559Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "336496ed-8111-4598-ba66-cd16d54a40c4",
@@ -669,7 +669,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/msgrt-dvbay-hr9hfv",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:05.502Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "6a7afae3-3589-4b03-87d6-1f3b8798ef3f",
@@ -689,7 +689,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/spary-mdbr-wa3gkl",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:05.445Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "9c6d9d12-9607-4aa4-9406-8d4f6ad270cc",
@@ -709,7 +709,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/glvbl-vylg-krtys-yvmy-l0ard7",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:05.390Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "3a8154de-2df5-4d1d-b4ff-ac179450c7a9",
@@ -731,7 +731,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/park-hmym-atlntys-eucwn6",
       "categories": [],
-      "updated_at": "2026-05-18T08:25:53.999Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "43b83bcf-ad82-4421-aa07-529088c17b68",
@@ -753,7 +753,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/shyyt-byakth-3-shavt-am-arvchh-shkyah-dqg3g4",
       "categories": [],
-      "updated_at": "2026-05-18T08:20:53.796Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "bb948d17-893c-48a1-85a1-b9a41573b80d",
@@ -773,7 +773,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/shyyt-byakth-3-shavt-am-arvchh-shavt-rgylvt-z3mbit",
       "categories": [],
-      "updated_at": "2026-05-18T08:15:56.359Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "9bd423a2-12da-41a9-9faa-fee67d6f508e",
@@ -793,27 +793,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/shyyt-4-shavt-msybh-varvchh-21000100-gqli8d",
       "categories": [],
-      "updated_at": "2026-05-18T08:15:56.306Z"
-    },
-    {
-      "id": "29f60289-a1b6-4fb1-859b-0393b16c5fe4",
-      "slug": "yakth-prtyt-60-rgl-ad-25-anshym-sjgbeg",
-      "name": "יאכטה פרטית 60 רגל — עד 25 אנשים",
-      "name_translations": {},
-      "description": "יאכטה פרטית בגודל 60 רגל, עד 25 אנשים. מחיר לשעה: 1,300 AED. שייט פרטי יוקרתי בדובאי מרינה — ללא שיתוף, לכם בלבד. מושלם לאירועים ומסיבות.",
-      "short_description": null,
-      "sku": null,
-      "brand": null,
-      "price": 1300,
-      "base_price": 1300,
-      "sale_price": null,
-      "currency": "ILS",
-      "images": [],
-      "in_stock": true,
-      "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/yakth-prtyt-60-rgl-ad-25-anshym-sjgbeg",
-      "categories": [],
-      "updated_at": "2026-05-18T08:15:56.255Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "5bdb4488-b02c-4cda-ae0d-760f126d9c02",
@@ -833,7 +813,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/yakth-prtyt-50-rgl-ad-17-anshym-9hox3x",
       "categories": [],
-      "updated_at": "2026-05-18T08:15:56.200Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "cfb40265-d2d6-43fa-9e31-16d190f4a77a",
@@ -853,7 +833,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/yakth-prtyt-48-rgl-ad-15-anshym-70mvu4",
       "categories": [],
-      "updated_at": "2026-05-18T08:15:56.150Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "29fa7c87-2df8-414f-8fc5-cf2e1506e055",
@@ -873,7 +853,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/yakth-prtyt-42-rgl-ad-12-anshym-b4ds4b",
       "categories": [],
-      "updated_at": "2026-05-18T08:15:56.098Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "72288ac7-07e8-4f4e-a0fc-d9efe193f15c",
@@ -893,7 +873,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/yakth-prtyt-40-rgl-ad-10-anshym-qhvgeg",
       "categories": [],
-      "updated_at": "2026-05-18T08:15:56.048Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "f53ef918-bfb7-4b6e-977c-a0976f3a6ae0",
@@ -913,7 +893,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/yakth-prtyt-34-rgl-ad-7-anshym-o47la2",
       "categories": [],
-      "updated_at": "2026-05-18T08:15:55.996Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "ae31da35-9564-47ca-b1a6-473c13d1a9fe",
@@ -933,7 +913,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/yakth-mshvtpt-shyyt-lylh-20000000-f2207o",
       "categories": [],
-      "updated_at": "2026-05-18T08:15:55.944Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "6ad3493c-6e2c-4c0c-b3c9-0f40e058a402",
@@ -953,7 +933,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/yakth-mshvtpt-shyyt-mshah-17002000-7ikaqp",
       "categories": [],
-      "updated_at": "2026-05-18T08:15:55.893Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "8c75bdeb-6cb6-4e00-bef2-2a5b22cedef5",
@@ -973,7 +953,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/yakth-mshvtpt-shyyt-tshryym-0935x4",
       "categories": [],
-      "updated_at": "2026-05-18T08:15:55.839Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "bb9674b1-4a53-4f07-b6f0-b8265fadb2af",
@@ -993,7 +973,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/yakth-mshvtpt-shyyt-bvkr-gjaa6w",
       "categories": [],
-      "updated_at": "2026-05-18T08:15:55.785Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     },
     {
       "id": "d5724241-ce76-46f0-b53f-fda0f3f9cf54",
@@ -1015,7 +995,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/gn-hprchym-dvbay-51ha48",
       "categories": [],
-      "updated_at": "2026-05-17T16:42:03.923Z"
+      "updated_at": "2026-07-06T21:22:36.566Z"
     }
   ]
 }
