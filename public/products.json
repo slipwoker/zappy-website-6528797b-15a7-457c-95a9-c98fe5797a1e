@@ -1,29 +1,31 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-06T21:17:24.446Z",
+  "generated_at": "2026-07-06T21:19:36.441Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 50,
   "products": [
     {
       "id": "da598194-7288-4fc6-9507-576836626406",
-      "slug": "yakth-prtyt-bdvbay-tf5sau",
+      "slug": "yakth-prtyt-bdvbay-cg25o1",
       "name": "יאכטה פרטית בדובאי",
       "name_translations": {},
-      "description": "<p>צאו לשייט פרטי ויוקרתי במרינה של דובאי על גבי יאכטות חדישות ומאובזרות. במהלך השייט תוכלו ליהנות מנופים מרהיבים של Dubai Marina, אי הדקלים, Atlantis The Palm, Ain Dubai, JBR ובמסלולים ארוכים גם Burj Al Arab. כל היאכטות כוללות צוות מקצועי, מערכת שמע, אזורי ישיבה מוצלים, שירותים, מקלחת, סיפון שיזוף וכל ציוד הבטיחות הנדרש. מתאים למשפחות, זוגות, קבוצות חברים, ימי הולדת, מסיבות, הצעות נישואין ואירועים פרטיים. ✔ המחיר המוצג הוא לשעת השכרה אחת. ניתן להזמין מספר שעות בהתאם לזמינות.</p>",
-      "short_description": null,
+      "description": "<p class=\"ql-align-right\">צאו לשייט פרטי ויוקרתי במרינה של דובאי על גבי יאכטות חדישות ומאובזרות. במהלך השייט תוכלו ליהנות מנופים מרהיבים של Dubai Marina, אי הדקלים, Atlantis The Palm, Ain Dubai, JBR ובמסלולים ארוכים גם Burj Al Arab.</p><p class=\"ql-align-right\">כל היאכטות כוללות צוות מקצועי, מערכת שמע, אזורי ישיבה מוצלים, שירותים, מקלחת, סיפון שיזוף וכל ציוד הבטיחות הנדרש.</p><p class=\"ql-align-right\">מתאים למשפחות, זוגות, קבוצות חברים, ימי הולדת, מסיבות, הצעות נישואין ואירועים פרטיים</p><p><br></p>",
+      "short_description": "השכרת יאכטה פרטית יוקרתית בדובאי עם צוות מקצועי. חוויה מושלמת למשפחות, זוגות, קבוצות, ימי הולדת, הצעות נישואין ואירועים מיוחדים\nשעת שקיעה חובה מינימום שעתיים",
       "sku": null,
       "brand": null,
       "price": 580,
       "base_price": 580,
       "sale_price": null,
       "currency": "ILS",
-      "images": [],
+      "images": [
+        "https://dubai-plus.co.il/assets/image-product-image-1783372707052-2ee127.webp"
+      ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/yakth-prtyt-bdvbay-tf5sau",
+      "url": "https://dubai-plus.co.il/product/yakth-prtyt-bdvbay-cg25o1",
       "categories": [],
-      "updated_at": "2026-07-06T21:14:23.244Z"
+      "updated_at": "2026-07-06T21:19:05.693Z"
     },
     {
       "id": "70013942-8198-4af4-b23e-60a25b128b2f",
