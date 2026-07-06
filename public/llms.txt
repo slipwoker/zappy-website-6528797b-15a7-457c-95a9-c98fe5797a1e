@@ -62,6 +62,26 @@ https://dubai-plus.co.il/product/:slug
 https://dubai-plus.co.il/category/:slug
 מוצרים - Sarah laloum tourism llc
 
+### מגזין דובאי למטייל הישראלי
+https://dubai-plus.co.il/blog
+Sarah laloum tourism llc - מגזין דובאי למטייל הישראלי
+
+### פעם ראשונה
+https://dubai-plus.co.il/blog/first-time-dubai
+מדריך פרקטי למטייל הישראלי שמגיע לדובאי בפעם הראשונה ורוצה לתכנן חופשה נוחה, יוקרתית ומדויקת.
+
+### מלונות
+https://dubai-plus.co.il/blog/dubai-hotels-areas
+סקירה ברורה של אזורי הלינה המרכזיים בדובאי ומה מתאים לכל סגנון חופשה.
+
+### אטרקציות
+https://dubai-plus.co.il/blog/dubai-attractions-guide
+מדריך לבחירת אטרקציות בדובאי לפי סגנון החופשה, גיל המטיילים וקצב הטיול הרצוי.
+
+### קולינריה
+https://dubai-plus.co.il/blog/dubai-dining-nightlife
+איך לבחור מסעדות בדובאי, מתי להזמין מקום, ואיך לשלב בין נוף, אוכל, אווירה וחיי ערב.
+
 ## Legal & Policy
 
 ### Privacy Policy
