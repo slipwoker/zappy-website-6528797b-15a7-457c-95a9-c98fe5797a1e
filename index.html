@@ -363,7 +363,7 @@
       <div class="search-results" id="mobile-search-results"></div>
     </div>
   
-<script>window.ZAPPY_WEBSITE_ID = "6528797b-15a7-457c-95a9-c98fe5797a1e";window.ZAPPY_API_BASE = "https://api.zappy5.com";</script><a class="skip-link" href="#main">דלג לתוכן הראשי</a>
+<script>window.ZAPPY_WEBSITE_ID = "6528797b-15a7-457c-95a9-c98fe5797a1e";window.ZAPPY_API_BASE = (window.location.pathname.includes('/preview') ? "https://api.zappy5.com" : "https://api.zappy5.com");</script><a class="skip-link" href="#main">דלג לתוכן הראשי</a>
   <nav class="navbar" dir="rtl" style="margin-bottom: 0px; position: fixed !important; top: 0px !important; left: 0px !important; right: 0px !important; z-index: 100000 !important;">
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu" style="position: absolute !important; top: 0px !important; bottom: 0px !important; margin-top: auto !important; margin-bottom: auto !important; transform: none !important; z-index: 1001 !important;" data-element-type="button" data-element-id="btn-1779032266906-wlkobwavi" data-native-element="true">
     <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="width: 24px !important; height: 24px !important; display: none !important;">
@@ -382,7 +382,7 @@
 
   <div class="nav-container">
     <div class="nav-right-group"><div class="nav-brand">
-      <a href="/" class="logo-link"><img class="logo" src="/assets/site-----image-1.webp" alt="Sarah laloum tourism llc" data-image-type="logo" ></a>
+      <a href="/" class="logo-link"><img class="logo" src="/assets/site-----image-1.webp" alt="Sarah laloum tourism llc" data-image-type="logo" style=""></a>
     </div><ul class="nav-menu" id="navMenu">
 
     <li class="menu-item-has-children zappy-products-dropdown">
@@ -870,7 +870,7 @@
 </script>
   
   <main id="main">
-    <section data-band-index="0" class="index-hero-section" data-layout-spec="בית-hero" dir="rtl" data-hero-type="fullscreen-scrim" id="index-hero-section" style="margin-top: -70px !important; padding-top: 70px !important;" data-zappy-content-align="center-center" data-zappy-bg-type="image" data-zappy-bg-color="" data-zappy-bg-image="assets/site-index-hero-image-1.webp" data-zappy-bg-overlay-color="#0d0d1a" data-zappy-bg-overlay-opacity="27" data-zappy-bg-video-type="" data-zappy-bg-video-url="">
+    <section data-band-index="0" class="index-hero-section" data-layout-spec="בית-hero" dir="rtl" data-hero-type="fullscreen-scrim" id="index-hero-section" style="margin-top: -70px !important; padding-top: 70px !important; position: relative; overflow: hidden" data-zappy-content-align="center-center" data-zappy-bg-color="" data-zappy-bg-overlay-color="#0d0d1a" data-zappy-bg-overlay-opacity="27" data-zappy-bg-video-type="" data-zappy-bg-video-url="">
   <!-- Background Image -->
   <div class="index-hero-bg">
     <img loading="eager" fetchpriority="high" data-hero-bg="true" data-placeholder="index-hero-image-1" data-context="Breathtaking Dubai skyline at golden sunset hour, Burj Khalifa towering in the center, warm amber and deep orange sky reflecting on the calm waters of Dubai Creek, luxury skyscrapers silhouetted against a dramatic gradient sky from deep violet-plum at the top to fiery tangerine and gold at the horizon, cinematic wide-angle photography, ultra high resolution, premium travel photography" width="1920" height="1080" src="/assets/site-index-hero-image-1.webp" alt="קו האופק של דובאי בשקיעה" class="index-hero-img" data-hero-background="true" data-element-type="image" data-element-id="img-1779083833933-wz16vt6gq">
@@ -880,7 +880,7 @@
   <div class="index-hero-scrim" aria-hidden="true" style="opacity: 0.28125"></div>
 
   <!-- Decorative: Arabian Lantern / Arch Motif -->
-  <div class="index-hero-lantern-motif" aria-hidden="true">
+  <div class="zappy-hero-overlay" style="position:absolute;inset:0;z-index:1;background:rgba(13, 13, 26, 0.27);pointer-events:none;"></div><div class="index-hero-lantern-motif" aria-hidden="true" style="position: relative; z-index: 2">
     <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 180 320" fill="none" xmlns="http://www.w3.org/2000/svg" width="180" height="320">
       <!-- Islamic arch outline -->
       <path d="M90 10 C40 10 10 50 10 100 C10 150 40 190 90 200 C140 190 170 150 170 100 C170 50 140 10 90 10 Z" stroke="#C9A84C" stroke-width="1.2" fill="none" opacity="0.55"></path>
@@ -902,7 +902,7 @@
   </div>
 
   <!-- Decorative: Geometric dot diamond pattern -->
-  <div class="index-hero-dots-motif" aria-hidden="true">
+  <div class="index-hero-dots-motif" aria-hidden="true" style="position: relative; z-index: 2">
     <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" width="260" height="260">
       <defs>
         <pattern id="diamondDots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -914,7 +914,7 @@
   </div>
 
   <!-- Luminous path line -->
-  <div class="index-hero-path-line" aria-hidden="true">
+  <div class="index-hero-path-line" aria-hidden="true" style="position: relative; z-index: 2">
     <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 800 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="60">
       <defs>
         <linearGradient id="pathGlow" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -929,11 +929,11 @@
   </div>
 
   <!-- Hero Content Overlay -->
-  <div class="index-hero-content" data-zappy-align-target="true" >
+  <div class="index-hero-content" data-zappy-align-target="true" style="position: relative; z-index: 2">
     <div class="index-hero-container">
       <div class="index-hero-text-group">
         <!-- Label -->
-        <p class="zappy-editable"><span class="index-hero-label">Dubai Plus — המדריך המלא לדובאי</span>
+        <p><span class="index-hero-label">Dubai Plus — המדריך המלא לדובאי</span>
 
         </p><!-- H1 -->
         <h1 class="index-hero-h1">
@@ -948,8 +948,8 @@
 
         <!-- CTA Buttons -->
         <div class="index-hero-ctas">
-          <a href="/contact" class="index-hero-btn-primary" data-element-type="button" data-element-id="btn-1779083833931-8x0920y15" data-native-element="true">
-            <span>צרו קשר עכשיו</span>
+          <a href="/contact" class="index-hero-btn-primary btn btn-primary" data-element-type="button" data-element-id="btn-1779083833931-8x0920y15" data-native-element="true" style="outline: medium; background-color: transparent !important; background-image: linear-gradient(135deg, rgb(212, 181, 92), rgb(255, 218, 96)) !important; border-color: transparent !important; color: rgb(255, 255, 255) !important;">
+            <span>הזמינו מלון</span>
             <svg data-element-type="icon" data-icon-type="svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
           </a>
           <a href="/attractions" class="index-hero-btn-secondary" data-element-type="button" data-element-id="btn-1779083833931-xe7bn8dxt" data-native-element="true">
@@ -980,7 +980,7 @@
   </div>
 
   <!-- Bottom Divider -->
-  <div class="index-hero-divider-wrapper">
+  <div class="index-hero-divider-wrapper" style="position: relative; z-index: 2">
     <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0,90 L0,55 Q120,35 240,50 T480,40 Q600,32 720,48 T960,38 Q1080,30 1200,46 T1440,42 L1440,90 Z" fill="var(--bg-light)"></path>
     </svg>
@@ -1335,7 +1335,7 @@
 
       <!-- Floating trust badge -->
       <div class="index-trust-badge">
-        <span class="index-trust-badge-number" >2500+</span>
+        <span class="index-trust-badge-number" style="">2500+</span>
         <span class="index-trust-badge-label">משפחות ישראליות<br>טסו איתנו</span>
       </div>
     </div>
@@ -1363,7 +1363,7 @@
 
     <!-- Hero Image -->
     <div class="dxb-hero-image-wrap">
-      <img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27300%27%3E%3Cdefs%3E%3ClinearGradient id=%27grad%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27%3E%3Cstop offset=%270%25%27 style=%27stop-color:%23FF0083;stop-opacity:1%27 /%3E%3Cstop offset=%27100%25%27 style=%27stop-color:%23FF008320;stop-opacity:1%27 /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27url(%23grad)%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-family=%27Arial, sans-serif%27 font-size=%2716%27 fill=%27white%27 text-anchor=%27middle%27 dy=%27.3em%27 font-weight=%27500%27%3EClick%20to%20add%20image%3C/text%3E%3C/svg%3E" alt="קו הרקיע של דובאי — בורג' חליפה ומגדלי העיר" class="dxb-hero-img" data-placeholder="dubai-skyline-hero" data-context="Stunning panoramic view of Dubai skyline at golden hour, Burj Khalifa towering above modern skyscrapers, desert city luxury" data-element-type="image" data-element-id="img-1783330509612-7x6tlmtns">
+      <img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27300%27%3E%3Cdefs%3E%3ClinearGradient id=%27grad%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27%3E%3Cstop offset=%270%25%27 style=%27stop-color:%23FF0083;stop-opacity:1%27 /%3E%3Cstop offset=%27100%25%27 style=%27stop-color:%23FF008320;stop-opacity:1%27 /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27url(%23grad)%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-family=%27Arial, sans-serif%27 font-size=%2716%27 fill=%27white%27 text-anchor=%27middle%27 dy=%27.3em%27 font-weight=%27500%27%3EClick%20to%20add%20image%3C/text%3E%3C/svg%3E" alt="קו הרקיע של דובאי — בורג' חליפה ומגדלי העיר" class="dxb-hero-img" data-placeholder="dubai-skyline-hero" data-context="Stunning panoramic view of Dubai skyline at golden hour, Burj Khalifa towering above modern skyscrapers, desert city luxury" data-zappy-editable-image="true" data-element-type="image" data-element-id="img-1783330509612-7x6tlmtns">
       <div class="dxb-hero-overlay">
         <span class="dxb-hero-badge">🏙️ דובאי, איחוד האמירויות</span>
       </div>
@@ -1439,7 +1439,7 @@
         <div class="dxb-fact-icon" aria-hidden="true">🛂</div>
         <div class="dxb-fact-content">
           <h3 class="dxb-fact-label">כניסה לישראלים</h3>
-          <p class="dxb-fact-value" >ללא ויזה (למעט דרכון זמני שמחייב ויזה)<br>שימו לב חובה לבדוק שיש לדרכון תוקף של מעל 6 חודשים</p>
+          <p class="dxb-fact-value" style="">ללא ויזה (למעט דרכון זמני שמחייב ויזה)<br>שימו לב חובה לבדוק שיש לדרכון תוקף של מעל 6 חודשים</p>
           <p class="dxb-fact-desc">עד 90 יום — הסכם אברהם</p>
         </div>
       </article>
@@ -1522,21 +1522,21 @@
     <!-- Additional Info Image Row -->
     <div class="dxb-img-row">
       <div class="dxb-img-col" data-grid-item-index="0">
-        <img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27300%27%3E%3Cdefs%3E%3ClinearGradient id=%27grad%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27%3E%3Cstop offset=%270%25%27 style=%27stop-color:%23FF0083;stop-opacity:1%27 /%3E%3Cstop offset=%27100%25%27 style=%27stop-color:%23FF008320;stop-opacity:1%27 /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27url(%23grad)%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-family=%27Arial, sans-serif%27 font-size=%2716%27 fill=%27white%27 text-anchor=%27middle%27 dy=%27.3em%27 font-weight=%27500%27%3EClick%20to%20add%20image%3C/text%3E%3C/svg%3E" alt="שוק הזהב של דובאי — Gold Souk" class="dxb-row-img" data-placeholder="dubai-gold-souk" data-context="Dubai Gold Souk market, glittering gold jewelry displays, traditional Arabic market atmosphere, warm lighting" data-element-type="image" data-element-id="img-1783330509612-xty9vvnww" >
+        <img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27300%27%3E%3Cdefs%3E%3ClinearGradient id=%27grad%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27%3E%3Cstop offset=%270%25%27 style=%27stop-color:%23FF0083;stop-opacity:1%27 /%3E%3Cstop offset=%27100%25%27 style=%27stop-color:%23FF008320;stop-opacity:1%27 /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27url(%23grad)%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-family=%27Arial, sans-serif%27 font-size=%2716%27 fill=%27white%27 text-anchor=%27middle%27 dy=%27.3em%27 font-weight=%27500%27%3EClick%20to%20add%20image%3C/text%3E%3C/svg%3E" alt="שוק הזהב של דובאי — Gold Souk" class="dxb-row-img" data-placeholder="dubai-gold-souk" data-context="Dubai Gold Souk market, glittering gold jewelry displays, traditional Arabic market atmosphere, warm lighting" data-zappy-editable-image="true" data-element-type="image" data-element-id="img-1783330509612-xty9vvnww" style="">
         <div class="dxb-img-caption">
           <h4>שוק הזהב — Gold Souk</h4>
           <p>אחד השווקים הגדולים בעולם לזהב ותכשיטים</p>
         </div>
       </div>
       <div class="dxb-img-col" data-grid-item-index="1">
-        <img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27300%27%3E%3Cdefs%3E%3ClinearGradient id=%27grad%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27%3E%3Cstop offset=%270%25%27 style=%27stop-color:%23FF0083;stop-opacity:1%27 /%3E%3Cstop offset=%27100%25%27 style=%27stop-color:%23FF008320;stop-opacity:1%27 /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27url(%23grad)%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-family=%27Arial, sans-serif%27 font-size=%2716%27 fill=%27white%27 text-anchor=%27middle%27 dy=%27.3em%27 font-weight=%27500%27%3EClick%20to%20add%20image%3C/text%3E%3C/svg%3E" alt="חוף ג'ומיירה — Jumeirah Beach" class="dxb-row-img" data-placeholder="dubai-jumeirah-beach" data-context="Jumeirah Beach Dubai with turquoise water, white sand, luxury hotels in background, Burj Al Arab visible, sunny day" data-element-type="image" data-element-id="img-1783330509613-2hmz8dgl9" >
+        <img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27300%27%3E%3Cdefs%3E%3ClinearGradient id=%27grad%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27%3E%3Cstop offset=%270%25%27 style=%27stop-color:%23FF0083;stop-opacity:1%27 /%3E%3Cstop offset=%27100%25%27 style=%27stop-color:%23FF008320;stop-opacity:1%27 /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27url(%23grad)%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-family=%27Arial, sans-serif%27 font-size=%2716%27 fill=%27white%27 text-anchor=%27middle%27 dy=%27.3em%27 font-weight=%27500%27%3EClick%20to%20add%20image%3C/text%3E%3C/svg%3E" alt="חוף ג'ומיירה — Jumeirah Beach" class="dxb-row-img" data-placeholder="dubai-jumeirah-beach" data-context="Jumeirah Beach Dubai with turquoise water, white sand, luxury hotels in background, Burj Al Arab visible, sunny day" data-zappy-editable-image="true" data-element-type="image" data-element-id="img-1783330509613-2hmz8dgl9" style="">
         <div class="dxb-img-caption">
           <h4>חוף ג'ומיירה</h4>
           <p>חופים מדהימים עם מים כחולים וחול לבן</p>
         </div>
       </div>
       <div class="dxb-img-col" data-grid-item-index="2">
-        <img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27300%27%3E%3Cdefs%3E%3ClinearGradient id=%27grad%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27%3E%3Cstop offset=%270%25%27 style=%27stop-color:%23FF0083;stop-opacity:1%27 /%3E%3Cstop offset=%27100%25%27 style=%27stop-color:%23FF008320;stop-opacity:1%27 /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27url(%23grad)%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-family=%27Arial, sans-serif%27 font-size=%2716%27 fill=%27white%27 text-anchor=%27middle%27 dy=%27.3em%27 font-weight=%27500%27%3EClick%20to%20add%20image%3C/text%3E%3C/svg%3E" alt="ספארי מדבר בדובאי — Desert Safari" class="dxb-row-img" data-placeholder="dubai-desert-safari" data-context="Dubai desert safari at sunset, golden sand dunes, camel silhouettes, orange and purple sky, luxury camp in background" data-element-type="image" data-element-id="img-1783330509613-x1w24d0f1" >
+        <img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27300%27%3E%3Cdefs%3E%3ClinearGradient id=%27grad%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27%3E%3Cstop offset=%270%25%27 style=%27stop-color:%23FF0083;stop-opacity:1%27 /%3E%3Cstop offset=%27100%25%27 style=%27stop-color:%23FF008320;stop-opacity:1%27 /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27url(%23grad)%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-family=%27Arial, sans-serif%27 font-size=%2716%27 fill=%27white%27 text-anchor=%27middle%27 dy=%27.3em%27 font-weight=%27500%27%3EClick%20to%20add%20image%3C/text%3E%3C/svg%3E" alt="ספארי מדבר בדובאי — Desert Safari" class="dxb-row-img" data-placeholder="dubai-desert-safari" data-context="Dubai desert safari at sunset, golden sand dunes, camel silhouettes, orange and purple sky, luxury camp in background" data-zappy-editable-image="true" data-element-type="image" data-element-id="img-1783330509613-x1w24d0f1" style="">
         <div class="dxb-img-caption">
           <h4>ספארי מדבר</h4>
           <p>חוויה בלתי נשכחת בין הדיונות הזהובות</p>
@@ -1638,10 +1638,10 @@
 
 
 
-<footer class="site-footer" dir="rtl" aria-label="כותרת תחתונה של האתר"> <div class="footer-container"> <!-- Top Grid --> <div class="footer-top"> <!-- Column 1: Company Info --> <div class="footer-col footer-brand"> <img src="/assets/duabi-plus-tourism-travel-logo.webp" alt="Sarah laloum tourism llc" class="logo" data-element-type="image" data-element-id="img-1779082998551-l5wmgnoez" data-zappy-footer-image="true" > <p class="footer-tagline">חוויות נסיעה יוקרתיות לדובאי — מותאמות אישית, מאוצרות בקפידה, ובלתי נשכחות.</p> <div class="footer-badge"><i class="fas fa-star" data-element-type="icon" data-element-id="icon-1779082998550-bao2u3lzy" data-icon-type="fontawesome"></i> שירות פרמיום 24/7</div> <div class="footer-social">    </div> </div> <!-- Column 2: Quick Links --> <div class="footer-col"> <h3 class="footer-heading">ניווט מהיר</h3> <ul class="footer-links"> <li><a href="/">בית</a></li> <li><a href="/hotels">מלונות</a></li> <li><a href="/attractions">אטרקציות</a></li> <li><a href="/travel-services">שירותי נסיעות</a></li> <li><a href="/restaurants">מסעדות</a></li> <li><a href="/contact">צור קשר &amp; בקרוב</a></li> </ul> </div> <!-- Column 3: Contact --> <div class="footer-col"> <h3 class="footer-heading">צור קשר</h3> <ul class="footer-contact"> <li> <span class="contact-icon"><i class="fas fa-envelope" data-element-type="icon" data-element-id="icon-1779082998550-rkuk1u1mi" data-icon-type="fontawesome"></i></span> <span class="contact-text"><a href="mailto:laloumdubai@gmail.com">laloumdubai@gmail.com</a></span> </li> <li> <span class="contact-icon"><i class="fas fa-phone" data-element-type="icon" data-element-id="icon-1779082998550-h1pdve6w2" data-icon-type="fontawesome"></i></span> <span class="contact-text"><a href="tel:+972522212578" >+972522212578</a></span> </li> <li><a href="/" style="display:flex;align-items:flex-start;gap:inherit"><span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span> <span class="contact-text">Nad al sheba gardens, Dubai, Uae</span></a></li> </ul> </div> <!-- Column 4: Hours --> <div class="footer-col"> <h3 class="footer-heading">שעות פעילות</h3> <ul class="footer-hours"> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום ראשון</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום שני</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום שלישי</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום רביעי</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום חמישי</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום שישי</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום שבת</span>&nbsp;<span class="time" style="color: #221C2F">21:00 – 23:00</span></li> </ul>  </div> </div> <!-- Divider --> <div class="footer-divider"></div> <!-- Bottom Bar --> <div class="footer-bottom"> <p class="footer-copy">© 2026 Sarah laloum tourism llc. כל הזכויות שמורות.</p> <div class="footer-legal"> <a href="/privacy">מדיניות פרטיות</a> <span class="legal-sep">·</span> <a href="/terms">תנאי שימוש</a><span class="separator">|</span>
+<footer class="site-footer" dir="rtl" aria-label="כותרת תחתונה של האתר"> <div class="footer-container"> <!-- Top Grid --> <div class="footer-top"> <!-- Column 1: Company Info --> <div class="footer-col footer-brand"> <img src="/assets/duabi-plus-tourism-travel-logo.webp" alt="Sarah laloum tourism llc" class="logo" data-element-type="image" data-element-id="img-1779082998551-l5wmgnoez" data-zappy-footer-image="true" style=""> <p class="footer-tagline">חוויות נסיעה יוקרתיות לדובאי — מותאמות אישית, מאוצרות בקפידה, ובלתי נשכחות.</p> <div class="footer-badge"><i class="fas fa-star" data-element-type="icon" data-element-id="icon-1779082998550-bao2u3lzy" data-icon-type="fontawesome"></i> שירות פרמיום 24/7</div> <div class="footer-social">    </div> </div> <!-- Column 2: Quick Links --> <div class="footer-col"> <h3 class="footer-heading">ניווט מהיר</h3> <ul class="footer-links"> <li><a href="/">בית</a></li> <li><a href="/hotels">מלונות</a></li> <li><a href="/attractions">אטרקציות</a></li> <li><a href="/travel-services">שירותי נסיעות</a></li> <li><a href="/restaurants">מסעדות</a></li> <li><a href="/contact">צור קשר &amp; בקרוב</a></li> </ul> </div> <!-- Column 3: Contact --> <div class="footer-col"> <h3 class="footer-heading">צור קשר</h3> <ul class="footer-contact"> <li> <span class="contact-icon"><i class="fas fa-envelope" data-element-type="icon" data-element-id="icon-1779082998550-rkuk1u1mi" data-icon-type="fontawesome"></i></span> <span class="contact-text"><a href="mailto:laloumdubai@gmail.com">laloumdubai@gmail.com</a></span> </li> <li> <span class="contact-icon"><i class="fas fa-phone" data-element-type="icon" data-element-id="icon-1779082998550-h1pdve6w2" data-icon-type="fontawesome"></i></span> <span class="contact-text"><a href="tel:+972522212578" style="">+972522212578</a></span> </li> <li><a href="/" style="display:flex;align-items:flex-start;gap:inherit"><span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span> <span class="contact-text">Nad al sheba gardens, Dubai, Uae</span></a></li> </ul> </div> <!-- Column 4: Hours --> <div class="footer-col"> <h3 class="footer-heading">שעות פעילות</h3> <ul class="footer-hours"> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום ראשון</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום שני</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום שלישי</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום רביעי</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום חמישי</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום שישי</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום שבת</span>&nbsp;<span class="time" style="color: #221C2F">21:00 – 23:00</span></li> </ul>  </div> </div> <!-- Divider --> <div class="footer-divider"></div> <!-- Bottom Bar --> <div class="footer-bottom"> <p class="footer-copy">© 2026 Sarah laloum tourism llc. כל הזכויות שמורות.</p> <div class="footer-legal"> <a href="/privacy">מדיניות פרטיות</a> <span class="legal-sep">·</span> <a href="/terms">תנאי שימוש</a><span class="separator">|</span>
             <a href="/return-policy" aria-label="מדיניות החזרות">
               מדיניות החזרות
-            </a> <span class="legal-sep">·</span> <a href="/accessibility">נגישות</a> <span class="legal-sep">·</span> <a href="https://zappy5.com" target="_blank" class="zappy-attribution" ><br></a> </div> </div> </div> </footer>
+            </a> <span class="legal-sep">·</span> <a href="/accessibility">נגישות</a> <span class="legal-sep">·</span> <a href="https://zappy5.com" target="_blank" class="zappy-attribution" style=""><br></a> </div> </div> </div> </footer>
   
   <a href="https://wa.me/[whatsapp_handle]" class="whatsapp-float" aria-label="WhatsApp">
     <i class="fab fa-whatsapp"></i>
