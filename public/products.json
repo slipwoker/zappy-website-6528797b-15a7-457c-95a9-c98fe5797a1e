@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-06T14:39:10.331Z",
+  "generated_at": "2026-07-06T14:40:35.947Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 53,
@@ -367,10 +367,10 @@
     },
     {
       "id": "43fbb0af-a8e6-41b2-960f-8cab0e1104bb",
-      "slug": "bvrg-chlyph-kvmh-124125-mmbpxx",
+      "slug": "bvrg-chlyph-kvmh-124125-e7zjl8",
       "name": "בורג׳ חליפה - קומה 124+125",
       "name_translations": {},
-      "description": "בורג׳ חליפה - כרטיס לקומות 124+125. החל מ-250 ₪. עלו לפסגת הבניין הגבוה בעולם ותיהנו מנוף פנורמי עוצר נשימה.",
+      "description": "<p>בורג׳ חליפה - כרטיס לקומות 124+125. החל מ-250 ₪. עלו לפסגת הבניין הגבוה בעולם ותיהנו מנוף פנורמי עוצר נשימה.</p>",
       "short_description": null,
       "sku": null,
       "brand": null,
@@ -381,9 +381,9 @@
       "images": [],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/bvrg-chlyph-kvmh-124125-mmbpxx",
+      "url": "https://dubai-plus.co.il/product/bvrg-chlyph-kvmh-124125-e7zjl8",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:06.470Z"
+      "updated_at": "2026-07-06T14:40:04.022Z"
     },
     {
       "id": "087ccefa-9045-4d4b-8013-5ba960f9f128",
