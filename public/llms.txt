@@ -80,7 +80,7 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 50**
+**Total active products: 48**
 
 ### פארקים אבו דאבי yas abu dhabi
 https://dubai-plus.co.il/product/parkym-abv-daby-yas-abu-dhabi-c6i94h
@@ -124,12 +124,6 @@ https://dubai-plus.co.il/product/bvrg-chlyph-kvmh-148-sirdgs
 - Availability: In stock
 - Description: בורג׳ חליפה - קומה 148 (At The Top SKY). החל מ-550 ₪. החוויה האולטימטיבית — התצפית הגבוהה ביותר בבניין הגבוה בעולם.
 
-### עולם הים - אבו דאבי
-https://dubai-plus.co.il/product/avlm-hym-abv-daby-wof0bs
-- Price: 330.00 ILS
-- Availability: In stock
-- Description: עולם הים באבו דאבי - SeaWorld Abu Dhabi. פארק ימי מרהיב עם לוויתני שלג, כרישים, דולפינים ואטרקציות ים.
-
 ### נהיגה עצמית במדבר
 https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv
 - Price: 150.00 ILS
@@ -141,13 +135,6 @@ https://dubai-plus.co.il/product/bvrg-chlyph-skyy-vvyv-mglshh-mmsbes
 - Price: 350.00 ILS
 - Availability: In stock
 - Description: חבילה משולבת: בורג׳ חליפה + תצפית סקיי וויו + מגלשה שקופה. החל מ-350 ₪. חוויית תצפיות מושלמת בדובאי.
-
-### עולם המים - אבו דאבי
-https://dubai-plus.co.il/product/avlm-hmym-abv-daby-1duhdx
-- Price: 269.00 ILS
-- Availability: In stock
-- Description: עולם המים באבו דאבי - Yas Waterworld. פארק מים מרגש עם מגלשות ענק, בריכות ואטרקציות מים לכל המשפחה.
-- Image: https://dubai-plus.co.il/assets/image-product-image-1783349241949-1vmdmp.webp
 
 ### מופע לה פרל
 https://dubai-plus.co.il/product/mvpa-lh-prl-9x226t

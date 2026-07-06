@@ -6791,15 +6791,6 @@ Availability: In stock
 
 ---
 
-### עולם הים - אבו דאבי
-URL: https://dubai-plus.co.il/product/avlm-hym-abv-daby-wof0bs
-Price: 330.00 ILS
-Availability: In stock
-
-עולם הים באבו דאבי - SeaWorld Abu Dhabi. פארק ימי מרהיב עם לוויתני שלג, כרישים, דולפינים ואטרקציות ים.
-
----
-
 ### נהיגה עצמית במדבר
 URL: https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv
 Price: 150.00 ILS
@@ -6815,15 +6806,6 @@ Price: 350.00 ILS
 Availability: In stock
 
 חבילה משולבת: בורג׳ חליפה + תצפית סקיי וויו + מגלשה שקופה. החל מ-350 ₪. חוויית תצפיות מושלמת בדובאי.
-
----
-
-### עולם המים - אבו דאבי
-URL: https://dubai-plus.co.il/product/avlm-hmym-abv-daby-1duhdx
-Price: 269.00 ILS
-Availability: In stock
-
-עולם המים באבו דאבי - Yas Waterworld. פארק מים מרגש עם מגלשות ענק, בריכות ואטרקציות מים לכל המשפחה.
 
 ---
 
