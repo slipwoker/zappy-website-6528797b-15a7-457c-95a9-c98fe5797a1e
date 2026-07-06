@@ -1,10 +1,30 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-06T16:51:24.978Z",
+  "generated_at": "2026-07-06T20:43:46.928Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
-  "count": 49,
+  "count": 50,
   "products": [
+    {
+      "id": "8196fa56-9387-4717-9e74-9ca6cea085a0",
+      "slug": "yakth-prtyt-qwf9w1",
+      "name": "יאכטה פרטית",
+      "name_translations": {},
+      "description": "השכרת יאכטה פרטית יוקרתית במרינה של דובאי — חוויה בלתי נשכחת על המים הכחולים מול קו הרקיע המרהיב. מתאים לזוגות, משפחות וקבוצות.",
+      "short_description": null,
+      "sku": null,
+      "brand": null,
+      "price": 0,
+      "base_price": 0,
+      "sale_price": null,
+      "currency": "ILS",
+      "images": [],
+      "in_stock": true,
+      "stock_status": "in_stock",
+      "url": "https://dubai-plus.co.il/product/yakth-prtyt-qwf9w1",
+      "categories": [],
+      "updated_at": "2026-07-06T20:43:14.489Z"
+    },
     {
       "id": "70013942-8198-4af4-b23e-60a25b128b2f",
       "slug": "tyvl-spary-bmdbr-safari-desert-jqnh7k",
