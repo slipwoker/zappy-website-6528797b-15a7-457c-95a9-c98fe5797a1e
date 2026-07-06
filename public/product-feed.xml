@@ -4,7 +4,7 @@
     <title>Sarah laloum tourism llc</title>
     <link>https://dubai-plus.co.il</link>
     <description>Product feed for Sarah laloum tourism llc</description>
-    <lastBuildDate>Mon, 06 Jul 2026 14:50:52 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jul 2026 14:53:30 GMT</lastBuildDate>
     <item>
       <g:id>c292810e-fc10-4f5c-8019-068074c6567d</g:id>
       <g:title>קפיצה ממסוק מעל הפאלם</g:title>
@@ -149,13 +149,27 @@
       <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
-      <g:id>5ae5aa8a-0a67-4129-b18e-7b79c96e0486</g:id>
-      <g:title>עולם המים - אבו דאבי</g:title>
+      <g:id>5ae5aa8a-0a67-4129-b18e-7b79c96e0486__0890cade-d45c-4575-bbc4-34ae2ba61478</g:id>
+      <g:title>עולם המים - אבו דאבי - רגיל</g:title>
       <g:description>עולם המים באבו דאבי - Yas Waterworld. פארק מים מרגש עם מגלשות ענק, בריכות ואטרקציות מים לכל המשפחה.</g:description>
       <g:link>https://dubai-plus.co.il/product/avlm-hmym-abv-daby-1duhdx</g:link>
+      <g:item_group_id>5ae5aa8a-0a67-4129-b18e-7b79c96e0486</g:item_group_id>
       <g:image_link>https://dubai-plus.co.il/assets/image-product-image-1783349241949-1vmdmp.webp</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>269.00 ILS</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Sarah laloum tourism llc</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+    </item>
+    <item>
+      <g:id>5ae5aa8a-0a67-4129-b18e-7b79c96e0486__2b633b68-125b-425c-850b-ab8edeb46832</g:id>
+      <g:title>עולם המים - אבו דאבי - VIP</g:title>
+      <g:description>עולם המים באבו דאבי - Yas Waterworld. פארק מים מרגש עם מגלשות ענק, בריכות ואטרקציות מים לכל המשפחה.</g:description>
+      <g:link>https://dubai-plus.co.il/product/avlm-hmym-abv-daby-1duhdx</g:link>
+      <g:item_group_id>5ae5aa8a-0a67-4129-b18e-7b79c96e0486</g:item_group_id>
+      <g:image_link>https://dubai-plus.co.il/assets/image-product-image-1783349241949-1vmdmp.webp</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>350.00 ILS</g:price>
       <g:condition>new</g:condition>
       <g:brand>Sarah laloum tourism llc</g:brand>
       <g:identifier_exists>no</g:identifier_exists>
