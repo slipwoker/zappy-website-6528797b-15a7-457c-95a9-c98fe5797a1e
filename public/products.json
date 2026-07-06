@@ -1,16 +1,16 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-06T10:15:50.206Z",
+  "generated_at": "2026-07-06T14:37:56.933Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 53,
   "products": [
     {
       "id": "c292810e-fc10-4f5c-8019-068074c6567d",
-      "slug": "kpytsh-mmsvk-mal-hpalm-2nll2y",
+      "slug": "kpytsh-mmsvk-mal-hpalm-dr44gj",
       "name": "קפיצה ממסוק מעל הפאלם",
       "name_translations": {},
-      "description": "קפיצת סקיידייב ממסוק מעל אי הדקלים - Palm Drop Zone. 3,100 ₪. החוויה האקסטרימית האולטימטיבית בדובאי!",
+      "description": "<p>קפיצת סקיידייב ממסוק מעל אי הדקלים - Palm Drop Zone. 3,100 ₪. החוויה האקסטרימית האולטימטיבית בדובאי!</p>",
       "short_description": null,
       "sku": null,
       "brand": null,
@@ -21,9 +21,9 @@
       "images": [],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/kpytsh-mmsvk-mal-hpalm-2nll2y",
+      "url": "https://dubai-plus.co.il/product/kpytsh-mmsvk-mal-hpalm-dr44gj",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:07.765Z"
+      "updated_at": "2026-07-06T14:37:25.174Z"
     },
     {
       "id": "49c2216e-a934-4be0-adbb-2013bbc383a2",
