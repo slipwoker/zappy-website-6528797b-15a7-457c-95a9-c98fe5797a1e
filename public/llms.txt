@@ -161,10 +161,11 @@ https://dubai-plus.co.il/product/bvrg-chlyph-skyy-vvyv-mglshh-mmsbes
 - Description: חבילה משולבת: בורג׳ חליפה + תצפית סקיי וויו + מגלשה שקופה. החל מ-350 ₪. חוויית תצפיות מושלמת בדובאי.
 
 ### עולם המים - אבו דאבי
-https://dubai-plus.co.il/product/avlm-hmym-abv-daby-ytrx2w
+https://dubai-plus.co.il/product/avlm-hmym-abv-daby-1duhdx
 - Price: 269.00 ILS
 - Availability: In stock
 - Description: עולם המים באבו דאבי - Yas Waterworld. פארק מים מרגש עם מגלשות ענק, בריכות ואטרקציות מים לכל המשפחה.
+- Image: https://dubai-plus.co.il/assets/image-product-image-1783349241949-1vmdmp.webp
 
 ### מופע לה פרל
 https://dubai-plus.co.il/product/mvpa-lh-prl-9x226t

@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-06T14:44:19.745Z",
+  "generated_at": "2026-07-06T14:50:52.615Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 53,
@@ -267,10 +267,10 @@
     },
     {
       "id": "5ae5aa8a-0a67-4129-b18e-7b79c96e0486",
-      "slug": "avlm-hmym-abv-daby-ytrx2w",
+      "slug": "avlm-hmym-abv-daby-1duhdx",
       "name": "עולם המים - אבו דאבי",
       "name_translations": {},
-      "description": "עולם המים באבו דאבי - Yas Waterworld. פארק מים מרגש עם מגלשות ענק, בריכות ואטרקציות מים לכל המשפחה.",
+      "description": "<p>עולם המים באבו דאבי - Yas Waterworld. פארק מים מרגש עם מגלשות ענק, בריכות ואטרקציות מים לכל המשפחה.</p>",
       "short_description": null,
       "sku": null,
       "brand": null,
@@ -278,12 +278,14 @@
       "base_price": 269,
       "sale_price": null,
       "currency": "ILS",
-      "images": [],
+      "images": [
+        "https://dubai-plus.co.il/assets/image-product-image-1783349241949-1vmdmp.webp"
+      ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/avlm-hmym-abv-daby-ytrx2w",
+      "url": "https://dubai-plus.co.il/product/avlm-hmym-abv-daby-1duhdx",
       "categories": [],
-      "updated_at": "2026-05-18T10:26:06.835Z"
+      "updated_at": "2026-07-06T14:50:20.916Z"
     },
     {
       "id": "2b0d5b98-704e-42d5-b0df-d53492e396d9",
