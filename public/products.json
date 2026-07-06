@@ -1,16 +1,16 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-06T20:58:19.276Z",
+  "generated_at": "2026-07-06T21:11:44.924Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 51,
   "products": [
     {
       "id": "da598194-7288-4fc6-9507-576836626406",
-      "slug": "yakth-prtyt-bdvbay-02efrn",
+      "slug": "yakth-prtyt-bdvbay-xf53de",
       "name": "יאכטה פרטית בדובאי",
       "name_translations": {},
-      "description": "צאו לשייט פרטי ויוקרתי במרינה של דובאי על גבי יאכטות חדישות ומאובזרות. במהלך השייט תוכלו ליהנות מנופים מרהיבים של Dubai Marina, אי הדקלים, Atlantis The Palm, Ain Dubai, JBR ובמסלולים ארוכים גם Burj Al Arab.\n\nכל היאכטות כוללות צוות מקצועי, מערכת שמע, אזורי ישיבה מוצלים, שירותים, מקלחת, סיפון שיזוף וכל ציוד הבטיחות הנדרש.\n\nמתאים למשפחות, זוגות, קבוצות חברים, ימי הולדת, מסיבות, הצעות נישואין ואירועים פרטיים.\n\n✔ המחיר המוצג הוא לשעת השכרה אחת. ניתן להזמין מספר שעות בהתאם לזמינות.",
+      "description": "<p>צאו לשייט פרטי ויוקרתי במרינה של דובאי על גבי יאכטות חדישות ומאובזרות. במהלך השייט תוכלו ליהנות מנופים מרהיבים של Dubai Marina, אי הדקלים, Atlantis The Palm, Ain Dubai, JBR ובמסלולים ארוכים גם Burj Al Arab. כל היאכטות כוללות צוות מקצועי, מערכת שמע, אזורי ישיבה מוצלים, שירותים, מקלחת, סיפון שיזוף וכל ציוד הבטיחות הנדרש. מתאים למשפחות, זוגות, קבוצות חברים, ימי הולדת, מסיבות, הצעות נישואין ואירועים פרטיים. ✔ המחיר המוצג הוא לשעת השכרה אחת. ניתן להזמין מספר שעות בהתאם לזמינות.</p>",
       "short_description": null,
       "sku": null,
       "brand": null,
@@ -21,9 +21,9 @@
       "images": [],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/yakth-prtyt-bdvbay-02efrn",
+      "url": "https://dubai-plus.co.il/product/yakth-prtyt-bdvbay-xf53de",
       "categories": [],
-      "updated_at": "2026-07-06T20:57:47.461Z"
+      "updated_at": "2026-07-06T21:11:29.161Z"
     },
     {
       "id": "8196fa56-9387-4717-9e74-9ca6cea085a0",
