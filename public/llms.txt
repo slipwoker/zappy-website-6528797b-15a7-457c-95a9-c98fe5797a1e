@@ -30,7 +30,7 @@ https://dubai-plus.co.il/restaurants
 https://dubai-plus.co.il/contact
 יש לכם שאלות על טיול דובאי? צוות המומחים שלנו זמין עבורכם. צרו קשר עכשיו לייעוץ אישי חינם, ושירותים חדשים בדרך — השאירו פרטים ותהיו הראשונים לדעת!
 
-### Products
+### רכישה מהירה
 https://dubai-plus.co.il/products
 המוצרים שלנו - Sarah laloum tourism llc
 
@@ -58,7 +58,7 @@ https://dubai-plus.co.il/order-success
 https://dubai-plus.co.il/product/:slug
 פרטי המוצר - Sarah laloum tourism llc
 
-### Category
+### רכישה מהירה
 https://dubai-plus.co.il/category/:slug
 מוצרים - Sarah laloum tourism llc
 
