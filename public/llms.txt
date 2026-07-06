@@ -109,11 +109,12 @@ https://dubai-plus.co.il/product/rkb-al-hmym-30-dkvt-989q6i
 - Availability: In stock
 - Description: רכב על המים - 30 דקות. החל מ-900 ₪. חוויית רכיבה ייחודית על רכב מרחף מעל פני המים של דובאי.
 
-### טיסה במסוק - 12 דקות
-https://dubai-plus.co.il/product/tysh-bmsvk-12-dkvt-auox4c
+### טיסה במסוק 
+https://dubai-plus.co.il/product/tysh-bmsvk-hayac9
 - Price: 650.00 ILS
 - Availability: In stock
-- Description: טיסה במסוק מעל דובאי - 12 דקות. 650 ₪. תצפית אווירית מרהיבה על קו הרקיע של דובאי ממסוק פרטי.
+- Description: טיסה במסוק מעל דובאי תצפית אווירית מרהיבה על קו הרקיע של דובאי ממסוק פרטי.
+- Image: https://dubai-plus.co.il/assets/image-product-image-1783373084383-2yrf3j.webp
 
 ### בורג׳ חליפה - קומה 148
 https://dubai-plus.co.il/product/bvrg-chlyph-kvmh-148-sirdgs

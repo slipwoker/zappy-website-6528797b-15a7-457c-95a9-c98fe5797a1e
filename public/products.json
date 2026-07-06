@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-06T21:27:30.214Z",
+  "generated_at": "2026-07-06T21:28:43.774Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 49,
@@ -93,10 +93,10 @@
     },
     {
       "id": "f12769f8-2273-4006-beba-2f47b3f1d7bf",
-      "slug": "tysh-bmsvk-12-dkvt-auox4c",
-      "name": "טיסה במסוק - 12 דקות",
+      "slug": "tysh-bmsvk-hayac9",
+      "name": "טיסה במסוק ",
       "name_translations": {},
-      "description": "טיסה במסוק מעל דובאי - 12 דקות. 650 ₪. תצפית אווירית מרהיבה על קו הרקיע של דובאי ממסוק פרטי.",
+      "description": "<p>טיסה במסוק מעל דובאי</p><p>תצפית אווירית מרהיבה על קו הרקיע של דובאי ממסוק פרטי.</p>",
       "short_description": null,
       "sku": null,
       "brand": null,
@@ -104,12 +104,14 @@
       "base_price": 650,
       "sale_price": null,
       "currency": "ILS",
-      "images": [],
+      "images": [
+        "https://dubai-plus.co.il/assets/image-product-image-1783373084383-2yrf3j.webp"
+      ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/tysh-bmsvk-12-dkvt-auox4c",
+      "url": "https://dubai-plus.co.il/product/tysh-bmsvk-hayac9",
       "categories": [],
-      "updated_at": "2026-07-06T21:26:58.182Z"
+      "updated_at": "2026-07-06T21:28:23.446Z"
     },
     {
       "id": "04319c4a-6967-479e-9657-1d21977932ce",
