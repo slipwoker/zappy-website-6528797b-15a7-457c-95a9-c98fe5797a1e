@@ -4508,7 +4508,7 @@ function stripHtmlToText(html) {
               zip: shippingZip
             },
             shippingMethodId: selectedShipping.id,
-            shippingCost: selectedShipping.price || 0,
+            shippingCost: (typeof getShippingCost === 'function' ? getShippingCost() : (selectedShipping.price || 0)),
             shippingMethodName: selectedShipping.name || 'משלוח',
             cart: checkoutCart,
             couponCode: appliedCoupon ? appliedCoupon.code : null,
@@ -4543,7 +4543,7 @@ function stripHtmlToText(html) {
         if (reference) {
           // Ensure numeric values are properly parsed (shipping.price may be string from DB)
           const subtotalNum = getCartSubtotal();
-          const shippingCostNum = parseFloat(selectedShipping.price) || 0;
+          const shippingCostNum = (typeof getShippingCost === 'function' ? getShippingCost() : (parseFloat(selectedShipping.price) || 0));
           const discountNum = parseFloat(couponDiscount + seasonalDiscount + bundleDiscount + firstOrderDiscount + customerCartDiscount) || 0;
           const pendingOrderData = {
             cartItems: checkoutCart,
@@ -6539,6 +6539,8 @@ function stripHtmlToText(html) {
     const orderDetailsSection = document.getElementById('order-details-section');
     const orderItemsList = document.getElementById('order-items-list');
     const orderTotalsSummary = document.getElementById('order-totals-summary');
+    const transactionDetails = document.querySelector('.order-success-details');
+    if (transactionDetails) transactionDetails.style.display = 'none';
     
     // If the i18n runtime replaced the H1's innerHTML (stripping the span),
     // re-inject the span so confirm-order and order display still work.
@@ -6560,10 +6562,13 @@ function stripHtmlToText(html) {
       return;
     }
     
-    // Extract order number from reference (format: zappy_websiteId_timestamp)
+    // Keep the receipt neutral until confirmed order/course data arrives.
+
+    
     const parts = reference.split('_');
+
+    
     const orderDisplay = parts.length >= 3 ? parts[2] : reference;
-    if (orderNumberEl) orderNumberEl.textContent = '#' + orderDisplay;
     
     // Confirm/create the order on the server (in case webhook didn't fire)
     const websiteId = window.ZAPPY_WEBSITE_ID;
@@ -6581,7 +6586,7 @@ function stripHtmlToText(html) {
             confirmedOrderData = confirmData.data.orderData;
           }
           // Update order number to the official one if available
-          if (confirmData.data.orderNumber && orderNumberEl) {
+          if (confirmData.data.orderNumber && orderNumberEl && !confirmData.data.isCoursesMode) {
             orderNumberEl.textContent = '#' + confirmData.data.orderNumber;
           }
           if (confirmData.data.loginToken) {
@@ -6643,8 +6648,14 @@ function stripHtmlToText(html) {
             var titleEl = document.querySelector('.order-success-title');
             var continueBtn = document.querySelector('.continue-home-btn');
             var detailLabels = document.querySelectorAll('.order-success-detail-label');
+            var courseTitle = orderData.primaryCourseName || (orderData.courseNames && orderData.courseNames[0]) || '';
             if (titleEl) {
-              titleEl.innerHTML = getEcomText('thankYouOrder', t.thankYouOrder || 'Thank you for your order') + ' <span class="order-number-inline" id="order-number-value">' + orderNumberEl.textContent + '</span>';
+              titleEl.textContent = getEcomText('thankYouOrder', t.thankYouOrder || 'Thank you for enrolling in') + ' ';
+              var courseSpan = document.createElement('span');
+              courseSpan.className = 'order-number-inline';
+              courseSpan.id = 'order-number-value';
+              courseSpan.textContent = courseTitle || getEcomText('yourCourse', 'your course');
+              titleEl.appendChild(courseSpan);
             }
             if (detailLabels[0]) detailLabels[0].textContent = getEcomText('transactionDate', t.transactionDate || t.orderDate || 'Date');
             if (detailLabels[1]) detailLabels[1].textContent = getEcomText('paymentMethod', t.paymentMethod || 'Payment Method');
@@ -6663,7 +6674,9 @@ function stripHtmlToText(html) {
           if (paymentEl && orderData.paymentMethodName) {
             paymentEl.textContent = orderData.paymentMethodName;
           }
-          if (shippingEl && orderData.shippingMethodName) {
+          if (shippingEl && isCourseSuccess) {
+            shippingEl.textContent = getEcomText('courseAccessMethod', t.courseAccessMethod || (isRTL ? 'גישה דיגיטלית מקוונת' : 'Online course access'));
+          } else if (shippingEl && orderData.shippingMethodName) {
             var shippingText = orderData.shippingMethodName;
             if (orderData.shippingIsPickup) {
               shippingText += '. ' + (isRTL ? 'איסוף עצמי' : 'Store pickup');
@@ -6673,6 +6686,7 @@ function stripHtmlToText(html) {
           if (emailEl && orderData.customerEmail) {
             emailEl.textContent = getEcomText('orderConfirmation', t.orderConfirmation || 'A confirmation email has been sent to') + ' ' + orderData.customerEmail;
           }
+          if (transactionDetails) transactionDetails.style.display = '';
           
           // Show order details
           if (orderDetailsSection) orderDetailsSection.style.display = 'block';
@@ -6692,7 +6706,7 @@ function stripHtmlToText(html) {
           // Render totals
           if (orderTotalsSummary) {
             let totalsHtml = '<div><span>' + (t.subtotal || 'Subtotal') + ':</span><span>' + t.currency + parseFloat(orderData.subtotal || 0).toFixed(2) + '</span></div>';
-            if (orderData.shippingCost > 0) {
+            if (!isCourseSuccess && orderData.shippingCost > 0) {
               totalsHtml += '<div><span>' + (t.shipping || 'Shipping') + ':</span><span>' + t.currency + parseFloat(orderData.shippingCost).toFixed(2) + '</span></div>';
             }
             if (orderData.discount > 0) {
@@ -11864,14 +11878,15 @@ async function loadRelatedProducts(currentProduct, t) {
         var slotCS = window.getComputedStyle(slotEl);
         var slotWidthGap = slotRect.width - wrapRect.width;
         var slotHeightGap = wrapRect.height - slotRect.height;
-        if (slotWidthGap <= 4 && !(slotHeightGap > 4 && slotRect.height > 0 && slotCS.overflow !== 'visible')) return;
+        var forceCardSlotFill = widthMode === 'card-slot' || wrapper.getAttribute('data-zappy-card-slot-fill') === '1';
+        if (!forceCardSlotFill && slotWidthGap <= 4 && !(slotHeightGap > 4 && slotRect.height > 0 && slotCS.overflow !== 'visible')) return;
         var swStr = wrapper.getAttribute('data-zappy-zoom-wrapper-width');
         var shStr = wrapper.getAttribute('data-zappy-zoom-wrapper-height');
         var swNum = parseFloat(swStr) || 0;
         var shNum = parseFloat(shStr) || 0;
         wrapper.style.setProperty('width', '100%', 'important');
         wrapper.style.setProperty('max-width', '100%', 'important');
-        if (slotHeightGap > 4 && slotRect.height > 0 && slotCS.overflow !== 'visible') {
+        if (slotRect.height > 0 && (forceCardSlotFill || (slotHeightGap > 4 && slotCS.overflow !== 'visible'))) {
           wrapper.style.setProperty('height', '100%', 'important');
           wrapper.style.setProperty('aspect-ratio', 'auto', 'important');
           wrapper.style.setProperty('padding-bottom', '0', 'important');
@@ -12240,6 +12255,67 @@ async function loadRelatedProducts(currentProduct, t) {
 /* END ZAPPY_PUBLISHED_ZOOM_WRAPPER_RUNTIME */
 
 
+/* ZAPPY_PUBLISHED_MOBILE_IMAGE_SWAP_V2 */
+(function(){
+  try {
+    if (window.__zappyMobileImageSwapInitV2) return;
+    window.__zappyMobileImageSwapInitV2 = true;
+    var SEL = 'img[data-zappy-mobile-src],img[data-zappy-mobile-object-position],img[data-zappy-mobile-zoom]';
+    var applied = false;
+    function standalone(img){ return img && !img.closest('[data-zappy-zoom-wrapper="true"]'); }
+    function applyMobile(){
+      if (applied) return; applied = true;
+      document.querySelectorAll(SEL).forEach(function(img){
+        if (!standalone(img)) return;
+        if (!img._zappyDesktop) img._zappyDesktop = { src: img.getAttribute('src'), style: img.getAttribute('style') };
+        var mSrc = img.getAttribute('data-zappy-mobile-src');
+        var mPos = img.getAttribute('data-zappy-mobile-object-position');
+        var mZoom = parseFloat(img.getAttribute('data-zappy-mobile-zoom'));
+        if (mSrc) img.src = mSrc;
+        if (mPos) img.style.setProperty('object-position', mPos, 'important');
+        if (isFinite(mZoom) && mZoom > 1) {
+          img.style.setProperty('transform', 'scale(' + mZoom + ')', 'important');
+          img.style.setProperty('transform-origin', mPos || '50% 50%', 'important');
+          var p = img.parentElement;
+          if (p) {
+            if (!p._zappyDesktop) p._zappyDesktop = { style: p.getAttribute('style') };
+            p.style.setProperty('overflow', 'hidden', 'important');
+          }
+        }
+      });
+    }
+    function revertDesktop(){
+      if (!applied) return; applied = false;
+      document.querySelectorAll(SEL).forEach(function(img){
+        if (!standalone(img)) return;
+        if (img._zappyDesktop) {
+          if (img._zappyDesktop.src != null) img.setAttribute('src', img._zappyDesktop.src);
+          if (img._zappyDesktop.style != null) img.setAttribute('style', img._zappyDesktop.style);
+          else img.removeAttribute('style');
+        }
+        var p = img.parentElement;
+        if (p && p._zappyDesktop) {
+          if (p._zappyDesktop.style != null) p.setAttribute('style', p._zappyDesktop.style);
+          else p.removeAttribute('style');
+        }
+      });
+    }
+    function init(){
+      var mq = window.matchMedia('(max-width:768px)');
+      function onChange(e){ if (e.matches) applyMobile(); else revertDesktop(); }
+      if (mq.matches) applyMobile();
+      try { mq.addEventListener('change', onChange); } catch (e) { mq.addListener(onChange); }
+    }
+    // script.js loads at end of <body>, so the <img> elements already exist —
+    // run immediately to minimise the desktop-image flash, with a
+    // DOMContentLoaded fallback for the head-loaded edge case.
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
+    else init();
+  } catch (eOuter) {}
+})();
+/* END ZAPPY_PUBLISHED_MOBILE_IMAGE_SWAP_V2 */
+
+
 /* ZAPPY_MOBILE_MENU_TOGGLE */
 (function(){
   try {
@@ -12405,6 +12481,94 @@ async function loadRelatedProducts(currentProduct, t) {
         question.__zappyFaqBound = true;
         question.style.cursor = 'pointer';
 
+        // Shared answer expand/collapse animation (used by both the <details>
+        // toggle path and the generic click path) so the two stay identical.
+        function expandFaqAnswer(answer) {
+          if (!answer) return;
+          answer.style.display = '';
+          answer.style.paddingTop = '';
+          answer.style.paddingBottom = '';
+          var inners = answer.querySelectorAll(answerSel);
+          inners.forEach(function(inn) {
+            inn.style.maxHeight = '';
+            inn.style.overflow = '';
+            inn.style.opacity = '';
+            inn.style.paddingTop = '';
+            inn.style.paddingBottom = '';
+          });
+          answer.style.transition = 'none';
+          answer.style.maxHeight = 'none';
+          answer.style.opacity = '0';
+          var realH = answer.scrollHeight;
+          answer.style.maxHeight = '0';
+          answer.offsetHeight;
+          answer.style.transition = 'max-height 0.35s ease, opacity 0.25s ease, padding 0.25s ease';
+          answer.style.maxHeight = realH + 'px';
+          answer.style.overflow = 'hidden';
+          answer.style.opacity = '1';
+        }
+        function collapseFaqAnswer(answer) {
+          if (!answer) return;
+          answer.style.transition = 'max-height 0.35s ease, opacity 0.25s ease, padding 0.25s ease';
+          answer.style.maxHeight = '0';
+          answer.style.overflow = 'hidden';
+          answer.style.opacity = '0';
+          answer.style.paddingTop = '0';
+          answer.style.paddingBottom = '0';
+        }
+
+        // Native <details>/<summary> accordions: the browser hides the answer
+        // whenever the <details> lacks the `open` attribute, so animating
+        // max-height alone is NOT enough — and a click handler that
+        // preventDefault()s the summary blocks the native open toggle, leaving
+        // the answer permanently clamped (max-height:0 inside a closed details).
+        // Drive the animation off the native `toggle` event instead — it fires
+        // no matter WHERE inside the summary the user clicks (text, icon,
+        // padding) — and let the browser own the `open` state. This is the
+        // modern FAQ markup the legacy click+preventDefault path never handled.
+        var detailsEl = (item.tagName === 'DETAILS')
+          ? item
+          : (question.closest ? question.closest('details') : null);
+        if (detailsEl) {
+          if (detailsEl.__zappyFaqToggleBound) return;
+          detailsEl.__zappyFaqToggleBound = true;
+          detailsEl.addEventListener('toggle', function() {
+            var isActive = detailsEl.open;
+            item.classList.toggle('active', isActive);
+            question.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+            if (isActive) {
+              // Single-open accordion: close the OTHER open <details> in this
+              // FAQ list. Match by the SAME faq-item selector (NOT
+              // `details[class*="faq-item"]`) and resolve each item's
+              // <details>, because the faq-item / accordion-item class
+              // frequently lives on a WRAPPER (e.g.
+              // `<div class="faq-item"><details>…</details></div>`) rather
+              // than on the <details> itself — querying for class-bearing
+              // <details> would miss those siblings and let multiple answers
+              // stay open.
+              var parent = item.parentElement;
+              if (parent) {
+                var sibItems = parent.querySelectorAll('[class*="faq-item"], .accordion-item');
+                sibItems.forEach(function(sibItem) {
+                  if (sibItem === item) return;
+                  var sibDetails = (sibItem.tagName === 'DETAILS') ? sibItem : sibItem.querySelector('details');
+                  if (sibDetails && sibDetails !== detailsEl && sibDetails.open) sibDetails.open = false;
+                });
+              }
+              expandFaqAnswer(pickAnswer(item, question));
+            } else {
+              collapseFaqAnswer(pickAnswer(item, question));
+            }
+            var chevron = question.querySelector('[class*="chevron"], [class*="icon"], svg');
+            if (chevron) {
+              chevron.style.transform = isActive ? 'rotate(180deg)' : 'rotate(0deg)';
+              chevron.style.transition = 'transform 0.3s ease';
+            }
+          });
+          if (detailsEl.open) { item.classList.add('active'); expandFaqAnswer(pickAnswer(item, question)); }
+          return;
+        }
+
         question.addEventListener('click', function(e) {
           e.preventDefault();
           e.stopPropagation();
@@ -12476,6 +12640,9 @@ async function loadRelatedProducts(currentProduct, t) {
 
       items.forEach(function(item) {
         if (item.classList.contains('active')) return;
+        // Native <details> manage their own open/closed visibility; never clamp
+        // an open one to max-height:0 (its toggle handler already expanded it).
+        if (item.tagName === 'DETAILS' && item.open) return;
         if (item.closest(answerSel)) return;
         var question = item.querySelector('[class*="faq-question"], [class*="faq-header"], [class*="faq-item__question"], [class*="faq-item__btn"], [class*="faq-btn"], .accordion-header, .accordion-toggle');
         // No clickable question/header toggle exists → this is a STATIC FAQ
@@ -12610,6 +12777,85 @@ function resolveVar(val){
   return getComputedStyle(document.documentElement).getPropertyValue('--'+m[1]).trim()||val;
 }
 
+// An explicit inline `color:` on the element itself means the colour is
+// intentional and must not be auto-"fixed" (handled in the loop). The SAME
+// intent applies when an ANCESTOR set an explicit inline colour and this element
+// merely inherits it (e.g. a panel whose <h3 style="color:#fff"> wraps a <span>
+// that inherits white). Without this, removing a child's own colour to let it
+// inherit would make the child eligible for the fixer, which on a mid-tone
+// background can compute black > white contrast and flip intentional white text
+// to black with !important (the "white flash then black" bug). Respecting the
+// ancestor's explicit colour keeps the fixer for genuinely un-styled text only.
+function ancestorHasExplicitColor(el){
+  var n=el&&el.parentElement;
+  while(n&&n!==document.body){
+    var st=n.getAttribute&&n.getAttribute('style');
+    if(st&&/(?:^|;)\s*color\s*:/i.test(st))return true;
+    n=n.parentElement;
+  }
+  return false;
+}
+
+// Respect deliberate author-level `color: ... !important` rules. The runtime
+// fixer runs late and writes inline `!important`, so without this check it can
+// override an explicit user/AI styling request (e.g. white FAQ text on a brand
+// orange card) simply because black has a slightly higher WCAG ratio. We still
+// fix ordinary generated CSS, but an author `!important` colour is intentional.
+function elementMatchesColorRule(el, importantOnly){
+  if(!el||!el.matches)return false;
+  function ruleApplies(rule){
+    if(!rule)return false;
+    if(rule.type===1){
+      try{
+        if(rule.style&&rule.style.getPropertyValue('color')&&
+          (!importantOnly||rule.style.getPropertyPriority('color')==='important')&&
+          el.matches(rule.selectorText)){
+          return true;
+        }
+      }catch(e){return false;}
+    }
+    if(rule.cssRules){
+      try{
+        for(var ri=0;ri<rule.cssRules.length;ri++){
+          if(ruleApplies(rule.cssRules[ri]))return true;
+        }
+      }catch(e2){return false;}
+    }
+    return false;
+  }
+  for(var si=0;si<document.styleSheets.length;si++){
+    var rules=null;
+    try{rules=document.styleSheets[si].cssRules;}catch(e3){continue;}
+    if(!rules)continue;
+    for(var i=0;i<rules.length;i++){
+      if(ruleApplies(rules[i]))return true;
+    }
+  }
+  return false;
+}
+function elementMatchesImportantColorRule(el){
+  return elementMatchesColorRule(el,true);
+}
+function elementMatchesAuthorColorRule(el){
+  return elementMatchesColorRule(el,false);
+}
+function selfOrAncestorHasImportantAuthorColor(el){
+  var n=el;
+  while(n&&n!==document.body){
+    if(elementMatchesImportantColorRule(n))return true;
+    n=n.parentElement;
+  }
+  return false;
+}
+function selfOrAncestorHasAuthorColor(el){
+  var n=el;
+  while(n&&n!==document.body){
+    if(elementMatchesAuthorColorRule(n))return true;
+    n=n.parentElement;
+  }
+  return false;
+}
+
 function isDecorativeAccentText(el){
   if(!el||!el.matches)return false;
   if(el.matches('.font-accent,.hero-logotype,.hero-logotype-line,[class*="script"],[class*="accent-line"],[class*="subheadline"]'))return true;
@@ -12637,16 +12883,51 @@ function fixContrast(){
   if(!darkRGB)darkRGB={r:26,g:26,b:26};
   if(!lightRGB)lightRGB={r:255,g:255,b:255};
 
+  var TEXT_SEL='h1,h2,h3,h4,h5,h6,p,span,a,button,li,label,td,th,dt,dd,figcaption';
   var mainEl=document.querySelector('main')||document.body;
-  var els=mainEl.querySelectorAll('h1,h2,h3,h4,h5,h6,p,span,a,button,li,label,td,th,dt,dd,figcaption');
+  var els=[];
+  var mainNodes=mainEl.querySelectorAll(TEXT_SEL);
+  for(var mi=0;mi<mainNodes.length;mi++)els.push(mainNodes[mi]);
+  // The page footer (e.g. <footer class="site-footer">) usually lives OUTSIDE
+  // <main>, so it would never be scanned otherwise. Pull in any footer not
+  // already covered by mainEl so its (often muted-on-dark) text is fixed too.
+  var extraFooters=document.querySelectorAll('footer,.site-footer,.zappy-footer');
+  for(var fi=0;fi<extraFooters.length;fi++){
+    var ft=extraFooters[fi];
+    if(mainEl.contains(ft))continue;
+    var fNodes=ft.querySelectorAll(TEXT_SEL);
+    for(var fj=0;fj<fNodes.length;fj++)els.push(fNodes[fj]);
+  }
+  // The navbar CTA pill (.nav-cta-btn / .cta-button) is a SOLID-FILL button, so
+  // unlike plain nav links (which are transparent over the managed navbar bg and
+  // are intentionally skipped below) its text contrast is well-defined against
+  // its own fill. It lives OUTSIDE <main>, so add it + its text nodes explicitly.
+  var ctaPills=document.querySelectorAll('.nav-cta-btn,.cta-button');
+  for(var ci=0;ci<ctaPills.length;ci++){
+    var cp=ctaPills[ci];
+    if(mainEl.contains(cp))continue;
+    els.push(cp);
+    var cpNodes=cp.querySelectorAll(TEXT_SEL);
+    for(var cj=0;cj<cpNodes.length;cj++)els.push(cpNodes[cj]);
+  }
   var fixed=0;
   for(var i=0;i<els.length;i++){
     var el=els[i];
-    if(el.closest('nav,header,.zappy-header,footer,.zappy-footer'))continue;
+    // Skip the navbar/header only — those are managed by the navbar contrast
+    // helpers. Footers are NOT skipped: the page footer (e.g. .site-footer) is
+    // often a dark band with muted/grey text, AND the LLM frequently uses a
+    // semantic <footer> for citation/role text INSIDE testimonial/blockquote
+    // cards — both need the same computed-background contrast fix as body text.
+    // The navbar CTA pill is the ONE nav element we DO fix: it's a solid-fill
+    // button whose text/bg contrast is self-contained (the AI sometimes paints
+    // the label the same hue as the fill → invisible until hover).
+    if(el.closest('nav,header,.zappy-header')&&!el.closest('.nav-cta-btn,.cta-button'))continue;
     if(isDecorativeAccentText(el))continue;
     if(hasImageOrVideoBackground(el))continue;
     var inlineStyle=el.getAttribute('style')||'';
     if(/(?:^|;\s*)color\s*:/i.test(inlineStyle))continue;
+    if(ancestorHasExplicitColor(el))continue;
+    if(selfOrAncestorHasImportantAuthorColor(el))continue;
     if(el.tagName==='FONT'&&el.hasAttribute('color'))continue;
     var txt=el.textContent?el.textContent.trim():'';
     if(!txt)continue;
@@ -12659,6 +12940,7 @@ function fixContrast(){
     if(!cRGB||!bRGB)continue;
     var ratio=contrastRatio(cRGB,bRGB);
     if(ratio<4.5){
+      if(ratio>=3&&selfOrAncestorHasAuthorColor(el))continue;
       var darkC=contrastRatio(darkRGB,bRGB);
       var lightC=contrastRatio(lightRGB,bRGB);
       var best=darkC>=lightC?dark:light;
@@ -12941,6 +13223,14 @@ function fixContrast(){
             container.removeAttribute('data-zappy-grid-centered');
           }
 
+          // List grids (<ul>/<ol>) read in document order and align to the start
+          // (first column); centering a checklist's lonely last item breaks its
+          // column alignment with the rows above. Cards (div grids) still center.
+          // The cleanup above already reverted any prior centering, so a list
+          // centered before this runtime shipped snaps back to its natural spot.
+          var containerTag = (container.tagName || '').toLowerCase();
+          if (containerTag === 'ul' || containerTag === 'ol') continue;
+
           var items = [];
           for (var c = 0; c < container.children.length; c++) {
             var ch = container.children[c];
@@ -13098,6 +13388,11 @@ function fixContrast(){
       }
 
       var c = ['justify-content:center!important'];
+      if (hAlign === 'center') {
+        c.push('margin-left:auto!important');
+        c.push('margin-right:auto!important');
+        c.push('text-align:center!important');
+      }
       if (!isFlex && hAlign !== 'center') {
         c.push('min-width:33.33%!important');
         c.push('text-align:start!important');
@@ -13105,6 +13400,10 @@ function fixContrast(){
 
       var css = '';
       if (hPx !== 0 || vPx !== 0) css += sel + '{overflow:hidden!important}';
+      if (hAlign === 'center') {
+        css += sel + '{display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:center!important;text-align:center!important}';
+        t.push('text-align:center!important');
+      }
       css += sel + ' [data-zappy-align-target]{' + t.join(';') + '}';
       css += sel + ' [data-zappy-align-target]>*{' + c.join(';') + '}';
       css += '@media(max-width:768px){' +
@@ -13508,7 +13807,7 @@ function fixContrast(){
   setTimeout(fix, 3000);
 })();
 
-/* ZAPPY_CART_ITEM_NAME_I18N_V1 */
+/* ZAPPY_CART_ITEM_NAME_I18N_V2 */
 (function(){
   function getWebsiteId() {
     return window.ZAPPY_WEBSITE_ID || document.body.getAttribute('data-website-id') || document.documentElement.getAttribute('data-website-id') || '';
@@ -13561,8 +13860,8 @@ function fixContrast(){
     var lang = getLang();
     if (!websiteId || !lang) return;
     var key = 'zappy_cart_' + websiteId;
-    var cart = readCart(key);
-    var courseItems = cart.filter(function(item) { return item && (item.isCourse === true || item.custom_fields); });
+    var requestCart = readCart(key);
+    var courseItems = requestCart.filter(function(item) { return item && (item.isCourse === true || item.custom_fields); });
     if (!courseItems.length) return;
     var apiBase = (window.ZAPPY_API_BASE || window.zappyApiBase || '').replace(/\/$/, '');
     var url = apiBase + '/api/ecommerce/storefront/products?websiteId=' + encodeURIComponent(websiteId) + '&lang=' + encodeURIComponent(lang);
@@ -13573,8 +13872,9 @@ function fixContrast(){
         if (!Array.isArray(products) || !products.length) return;
         var byId = {};
         products.forEach(function(product) { if (product && product.id) byId[String(product.id)] = product; });
+        var latestCart = readCart(key);
         var changed = false;
-        cart.forEach(function(item) {
+        latestCart.forEach(function(item) {
           if (!item || !(item.isCourse === true || item.custom_fields)) return;
           var product = byId[String(item.id)];
           if (!product) return;
@@ -13587,8 +13887,8 @@ function fixContrast(){
             changed = true;
           }
         });
-        if (changed) writeCart(key, cart);
-        applyTranslatedNamesToDom(cart);
+        if (changed) writeCart(key, latestCart);
+        applyTranslatedNamesToDom(latestCart);
       })
       .catch(function(){});
   }
@@ -14523,7 +14823,47 @@ function fixContrast(){
       }
     }
 
-    function getCartTotalTarget(drawer, currency) {
+    function convertDisplayAmount(baseAmount, exchangeRate) {
+      var n = parseFloat(baseAmount);
+      if (!isFinite(n)) n = 0;
+      var rate = parseFloat(exchangeRate);
+      if (!isFinite(rate) || rate <= 0) rate = 1;
+      var converted = n * rate;
+      if (rate === 1) return Math.round(converted * 100) / 100;
+      return Math.round(converted * 10) / 10;
+    }
+
+    function formatCartDisplayAmount(amount) {
+      if (typeof window.zappyFormatMoney === 'function') {
+        return window.zappyFormatMoney(amount);
+      }
+      var n = parseFloat(amount);
+      if (!isFinite(n)) n = 0;
+      var sym = (window.ZAPPY_CURRENCY_SYMBOL || '').trim() || '₪';
+      var rate = 1;
+      try {
+        if (window.ZAPPY_MULTI_CURRENCY && window.ZAPPY_MULTI_CURRENCY.enabled) {
+          var lang = '';
+          try { lang = new URLSearchParams(window.location.search).get('lang') || ''; } catch (e) {}
+          if (!lang && window.zappyI18n && typeof window.zappyI18n.getCurrentLanguage === 'function') {
+            lang = window.zappyI18n.getCurrentLanguage();
+          }
+          if (!lang) lang = document.documentElement.getAttribute('lang') || '';
+          lang = String(lang).split('-')[0].toLowerCase();
+          var langs = window.ZAPPY_MULTI_CURRENCY.languages || {};
+          if (lang && langs[lang]) {
+            if (langs[lang].symbol) sym = langs[lang].symbol;
+            var r = parseFloat(langs[lang].exchangeRate);
+            if (isFinite(r) && r > 0) rate = r;
+          } else if (window.ZAPPY_MULTI_CURRENCY.base && window.ZAPPY_MULTI_CURRENCY.base.symbol) {
+            sym = window.ZAPPY_MULTI_CURRENCY.base.symbol;
+          }
+        }
+      } catch (e) {}
+      return sym + convertDisplayAmount(n, rate).toFixed(2);
+    }
+
+    function getCartTotalTarget(drawer) {
       if (!drawer) return null;
       var totalEl = document.getElementById('cart-drawer-total');
       if (totalEl) return totalEl;
@@ -14533,7 +14873,7 @@ function fixContrast(){
       var labelMatch = existingText.match(/^([^:]+):/);
       var label = labelMatch ? labelMatch[1].trim() : (window.zappyI18n && window.zappyI18n.t ? window.zappyI18n.t('ecom_total') : 'Total');
       if (!label || label === 'ecom_total') label = existingText.indexOf('סה') !== -1 ? 'סה"כ' : 'Total';
-      legacyTotal.innerHTML = '<span>' + label + ':</span><span id="cart-drawer-total">' + (currency || '₪') + '0</span>';
+      legacyTotal.innerHTML = '<span>' + label + ':</span><span id="cart-drawer-total">' + formatCartDisplayAmount(0) + '</span>';
       return document.getElementById('cart-drawer-total');
     }
 
@@ -14542,26 +14882,21 @@ function fixContrast(){
       if (!drawer) return;
       var items = getCartItems();
       if (!items.length) return;
-      var currency = (window.ZAPPY_CURRENCY_SYMBOL || '').trim();
-      var totalEl = getCartTotalTarget(drawer, currency);
-      if (!currency && totalEl) {
-        var match = (totalEl.textContent || '').match(/^[^\d\s-]+/);
-        currency = match ? match[0] : '₪';
-      }
+      var totalEl = getCartTotalTarget(drawer);
       var total = 0;
       var priceEls = drawer.querySelectorAll('.cart-item-price, .cart-drawer-item-price');
       items.forEach(function(item, index) {
         var lineTotal = getLineTotal(item);
         total += lineTotal;
         if (priceEls[index]) {
-          var nextText = currency + lineTotal.toFixed(2);
+          var nextText = formatCartDisplayAmount(lineTotal);
           if (priceEls[index].textContent !== nextText) {
             priceEls[index].textContent = nextText;
           }
         }
       });
       if (totalEl) {
-        var nextTotal = currency + total.toFixed(2);
+        var nextTotal = formatCartDisplayAmount(total);
         if (totalEl.textContent !== nextTotal) totalEl.textContent = nextTotal;
       }
     }
@@ -14789,7 +15124,7 @@ function fixContrast(){
         { key: 'subtotal', id: 'subtotal', fallback: '₪0' },
         { key: 'vatIncluded', id: 'vat-amount', fallback: '₪0' },
         { key: 'shipping', id: 'shipping-cost', fallback: '₪0' },
-        { key: 'discount', id: 'discount', fallback: '₪0' },
+        { key: 'discount', id: 'checkout-discount-amount', fallback: '₪0.00' },
         { key: 'totalToPay', id: 'order-total', fallback: '₪0' }
       ];
       specs.forEach(function(spec, index) {
@@ -14808,13 +15143,35 @@ function fixContrast(){
       return isFinite(parsed) ? parsed : 0;
     }
 
+    function getCheckoutDisplaySymbol() {
+      var subtotalEl = document.getElementById('subtotal');
+      if (subtotalEl) {
+        var m = (subtotalEl.textContent || '').match(/^[^\d\s.-]+/);
+        if (m && m[0]) return m[0];
+      }
+      try {
+        if (window.ZAPPY_MULTI_CURRENCY && window.ZAPPY_MULTI_CURRENCY.enabled) {
+          var lang = getLang();
+          var langs = window.ZAPPY_MULTI_CURRENCY.languages || {};
+          if (lang && langs[lang] && langs[lang].symbol) return langs[lang].symbol;
+          if (window.ZAPPY_MULTI_CURRENCY.base && window.ZAPPY_MULTI_CURRENCY.base.symbol) {
+            return window.ZAPPY_MULTI_CURRENCY.base.symbol;
+          }
+        }
+      } catch (e) {}
+      return window.ZAPPY_CURRENCY_SYMBOL || '₪';
+    }
+
     function normalizeCheckoutValues() {
-      var discountEl = document.getElementById('discount');
+      var discountEl = document.getElementById('checkout-discount-amount') || document.getElementById('discount');
       var discountRow = document.getElementById('discount-row') || (discountEl && discountEl.closest('.discount-row, .order-totals-row'));
       if (discountEl && Math.abs(parseMoney(discountEl.textContent)) < 0.005) {
-        var zeroDiscountText = (window.ZAPPY_CURRENCY_SYMBOL || '₪') + '0';
+        if (discountRow) discountRow.classList.add('zappy-discount-hidden');
+        var sym = getCheckoutDisplaySymbol();
+        var zeroDiscountText = sym + '0.00';
         if (discountEl.textContent !== zeroDiscountText) discountEl.textContent = zeroDiscountText;
-        if (discountRow && discountRow.style.display !== 'none') discountRow.style.display = 'none';
+      } else if (discountRow) {
+        discountRow.classList.remove('zappy-discount-hidden');
       }
       var shippingCost = document.getElementById('shipping-cost');
       if (shippingCost && /^(חינם|FREE)$/i.test((shippingCost.textContent || '').trim())) {
@@ -14855,6 +15212,7 @@ function fixContrast(){
       setLabelForValue('#subtotal', 'subtotal');
       setLabelForValue('#vat-amount', 'vatIncluded');
       setLabelForValue('#shipping-cost', 'shipping');
+      setLabelForValue('#checkout-discount-amount', 'discount');
       setLabelForValue('#discount', 'discount');
       setLabelForValue('#order-total', 'totalToPay');
       var shippingCost = document.getElementById('shipping-cost');
@@ -14917,7 +15275,7 @@ function fixContrast(){
 
     var style = document.createElement('style');
     style.id = 'zappy-checkout-runtime-i18n-css';
-    style.textContent = '.checkout-order-details .order-totals-row{display:flex!important;justify-content:space-between!important;align-items:baseline!important;gap:12px!important}.checkout-order-details .order-totals-row span:first-child{flex:1 1 auto;min-width:0}.checkout-order-details .order-totals-row span:last-child{flex:0 0 auto;text-align:end}';
+    style.textContent = '.checkout-order-details .order-totals-row{display:flex!important;justify-content:space-between!important;align-items:baseline!important;gap:12px!important}.checkout-order-details .order-totals-row.zappy-discount-hidden{display:none!important}.checkout-order-details .order-totals-row span:first-child{flex:1 1 auto;min-width:0}.checkout-order-details .order-totals-row span:last-child{flex:0 0 auto;text-align:end}';
     if (!document.getElementById(style.id)) document.head.appendChild(style);
 
     if (document.readyState === 'complete') {
@@ -14944,13 +15302,74 @@ function fixContrast(){
     }
   })();
 
+  function reviveCanonicalHeroBackgroundWrappers() {
+    try {
+      var imgs = document.querySelectorAll('img[data-hero-bg], img[data-hero-background="true"]');
+      for (var i = 0; i < imgs.length; i++) {
+        var img = imgs[i];
+        var parent = img.parentElement;
+        while (parent && parent !== document.body && parent.tagName !== 'SECTION') {
+          parent.style.display = '';
+          parent.removeAttribute('data-zappy-original-bg');
+          parent.removeAttribute('data-zappy-preview-hidden');
+          parent = parent.parentElement;
+        }
+        img.removeAttribute('data-zappy-original-bg');
+      }
+    } catch (e) {}
+  }
+
+  function scheduleCanonicalHeroWrapperRevival() {
+    reviveCanonicalHeroBackgroundWrappers();
+    [100, 500, 1500, 3000, 6000, 10000].forEach(function(delay) {
+      setTimeout(reviveCanonicalHeroBackgroundWrappers, delay);
+    });
+    try {
+      if (window.__zappyHeroWrapperRevivalObserver) return;
+      var observer = new MutationObserver(function(mutations) {
+        for (var i = 0; i < mutations.length; i++) {
+          var target = mutations[i].target;
+          if (!target || !target.querySelector) continue;
+          if (
+            (target.matches && target.matches('img[data-hero-bg], img[data-hero-background="true"]')) ||
+            target.querySelector('img[data-hero-bg], img[data-hero-background="true"]')
+          ) {
+            reviveCanonicalHeroBackgroundWrappers();
+            break;
+          }
+        }
+      });
+      observer.observe(document.documentElement, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['style', 'data-zappy-original-bg', 'data-zappy-preview-hidden']
+      });
+      window.__zappyHeroWrapperRevivalObserver = observer;
+      setTimeout(function() {
+        try {
+          observer.disconnect();
+          if (window.__zappyHeroWrapperRevivalObserver === observer) {
+            window.__zappyHeroWrapperRevivalObserver = null;
+          }
+        } catch (e) {}
+      }, 15000);
+    } catch (e) {}
+  }
+
+  scheduleCanonicalHeroWrapperRevival();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', scheduleCanonicalHeroWrapperRevival, { once: true });
+  }
+  window.addEventListener('load', scheduleCanonicalHeroWrapperRevival, { once: true });
+
 })();
 
 
-/* ZAPPY_ECOM_LANGUAGE_ROUTING_RUNTIME_V20 */
+/* ZAPPY_ECOM_LANGUAGE_ROUTING_RUNTIME_V21 */
 (function() {
-  if (window.__zappyEcomLanguageRoutingRuntime >= 20) return;
-  window.__zappyEcomLanguageRoutingRuntime = 20;
+  if (window.__zappyEcomLanguageRoutingRuntime >= 21) return;
+  window.__zappyEcomLanguageRoutingRuntime = 21;
 
   // Routing strategy: use path-based language URLs for ALL storefront pages
   // (including dynamic /product/:slug and /category/:slug). The publish
@@ -15363,12 +15782,12 @@ function fixContrast(){
   // declaration merging that was eating the standalone CSS injection.
   function ensureRuntimeCssInjected() {
     var existing = document.getElementById('zappy-ecom-routing-runtime-css');
-    if (existing && existing.getAttribute('data-v') === '25') return;
+    if (existing && existing.getAttribute('data-v') === '26') return;
     if (existing) existing.remove();
     var style = document.createElement('style');
     style.id = 'zappy-ecom-routing-runtime-css';
     style.setAttribute('data-zappy-runtime', 'ecom-routing');
-    style.setAttribute('data-v', '25');
+    style.setAttribute('data-v', '26');
     style.textContent =
       '@media (min-width: 769px){' +
         'html[dir="ltr"] .nav-container > .nav-brand,body[dir="ltr"] .nav-container > .nav-brand,html[dir="ltr"] .nav-right-group > .nav-brand,body[dir="ltr"] .nav-right-group > .nav-brand{order:-1!important}' +
@@ -15388,6 +15807,11 @@ function fixContrast(){
         'html[dir="ltr"] .zappy-catalog-menu .catalog-menu-categories{display:flex!important;align-items:flex-start!important;align-content:flex-start!important;row-gap:4px!important;column-gap:2px!important}' +
         'html[dir="ltr"] .zappy-catalog-menu .catalog-menu-item{padding-inline:10px!important}' +
         'html[dir="ltr"] .zappy-catalog-menu .catalog-menu-all{margin-top:0!important;align-self:flex-start!important}' +
+        '.navbar .nav-menu>li:has(>.sub-menu),nav.navbar .nav-menu>li:has(>.sub-menu),#navMenu>li:has(>.sub-menu){position:relative!important}' +
+        '.navbar .nav-menu>li>.sub-menu,nav.navbar .nav-menu>li>.sub-menu,#navMenu>li>.sub-menu{display:block!important;position:absolute!important;top:100%!important;inset-inline-start:0!important;inset-inline-end:auto!important;min-width:200px!important;max-width:min(280px,calc(100vw - 32px))!important;width:max-content!important;max-height:calc(100vh - 150px)!important;overflow-y:auto!important;background:var(--background-color,var(--background,#fff))!important;border-radius:12px!important;box-shadow:0 8px 30px rgba(0,0,0,.15),0 2px 8px rgba(0,0,0,.06)!important;padding:8px!important;margin:0!important;list-style:none!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;transform:translateY(6px)!important;z-index:100001!important}' +
+        '.navbar .nav-menu>li:hover>.sub-menu,.navbar .nav-menu>li:focus-within>.sub-menu,nav.navbar .nav-menu>li:hover>.sub-menu,nav.navbar .nav-menu>li:focus-within>.sub-menu,#navMenu>li:hover>.sub-menu,#navMenu>li:focus-within>.sub-menu{opacity:1!important;visibility:visible!important;pointer-events:auto!important;transform:translateY(0)!important}' +
+        '.navbar .nav-menu>li>.sub-menu>li,nav.navbar .nav-menu>li>.sub-menu>li,#navMenu>li>.sub-menu>li{display:block!important;width:100%!important;list-style:none!important;margin:0!important;padding:0!important}' +
+        '.navbar .nav-menu>li>.sub-menu a,nav.navbar .nav-menu>li>.sub-menu a,#navMenu>li>.sub-menu a{display:block!important;white-space:nowrap!important;padding:10px 16px!important;border-radius:8px!important;text-decoration:none!important}' +
         '.nav-menu .zappy-products-dropdown>.sub-menu,#navMenu .zappy-products-dropdown>.sub-menu{left:50%!important;right:auto!important;transform:translateX(-50%) translateY(8px)!important}' +
         '.nav-menu .zappy-products-dropdown:hover>.sub-menu,#navMenu .zappy-products-dropdown:hover>.sub-menu,.nav-menu .zappy-products-dropdown:focus-within>.sub-menu,#navMenu .zappy-products-dropdown:focus-within>.sub-menu{transform:translateX(-50%) translateY(0)!important}' +
         '.nav-menu.zappy-desktop-wrap,#navMenu.zappy-desktop-wrap{flex-wrap:wrap!important;max-height:44px!important;align-content:flex-start!important;row-gap:4px!important}' +
@@ -15499,6 +15923,8 @@ function fixContrast(){
   setTimeout(patch, 1500);
 })();
 /* ZAPPY_COURSE_ORDER_SUCCESS_RECEIPT_V1 */
+
+/* ZAPPY_COURSE_ORDER_SUCCESS_TERMINOLOGY_V1 */
 
 /* ZAPPY_CHECKOUT_FOCUS_UX_V2 */
 (function(){
@@ -15637,8 +16063,211 @@ function fixContrast(){
   } catch (e) {}
 })();
 
+/* ZAPPY_ANNOUNCEMENT_HEADER_SYNC_V1 */
+(function(){
+  if (window.__zappyAnnouncementHeaderSyncV1) return;
+  window.__zappyAnnouncementHeaderSyncV1 = true;
+
+  function primaryHeader() {
+    var selectors = [
+      'nav#navbar',
+      'nav.navbar',
+      '.navbar:not(.zappy-catalog-menu)',
+      'nav[class*="nav"]',
+      'header.navbar',
+      'header:not([class*="gallery"]):not([class*="hero"]):not([class*="section"])'
+    ];
+    for (var i = 0; i < selectors.length; i++) {
+      var el = document.querySelector(selectors[i]);
+      if (!el) continue;
+      if (el.classList && el.classList.contains('zappy-catalog-menu')) continue;
+      if (el.id === 'zappy-catalog-menu') continue;
+      if (el.classList && el.classList.contains('mobile-search-panel')) continue;
+      if (el.tagName === 'HEADER' && el.closest('section')) continue;
+      if (el.classList && (
+        el.classList.contains('lookbook-gallery-header') ||
+        el.classList.contains('hero-header') ||
+        el.classList.contains('section-header') ||
+        el.classList.contains('page-header')
+      )) continue;
+      return el;
+    }
+    return null;
+  }
+
+  function visibleHeight(el) {
+    if (!el) return 0;
+    var cs;
+    try { cs = window.getComputedStyle(el); } catch (e) {}
+    if (cs && (cs.display === 'none' || cs.visibility === 'hidden')) return 0;
+    var r = el.getBoundingClientRect ? el.getBoundingClientRect() : null;
+    return Math.ceil((r && r.height) || el.offsetHeight || 0);
+  }
+
+  function sync() {
+    var header = primaryHeader();
+    var bar = document.querySelector('.zappy-announcement-bar');
+    var catalog = document.querySelector('.zappy-catalog-menu');
+    var barHeight = visibleHeight(bar);
+    if (!header) {
+      if (barHeight > 0) document.body.style.setProperty('padding-top', barHeight + 'px', 'important');
+      return;
+    }
+
+    header.style.setProperty('position', 'fixed', 'important');
+    header.style.setProperty('top', barHeight + 'px', 'important');
+    header.style.setProperty('left', '0', 'important');
+    header.style.setProperty('right', '0', 'important');
+    header.style.setProperty('z-index', '100000', 'important');
+    header.style.marginBottom = '0';
+
+    var headerHeight = visibleHeight(header);
+    var totalHeight = barHeight + headerHeight;
+    if (catalog && visibleHeight(catalog) > 0) {
+      catalog.style.marginTop = '0';
+      catalog.style.setProperty('top', totalHeight + 'px', 'important');
+      totalHeight += visibleHeight(catalog);
+    }
+
+    document.documentElement.style.setProperty('--header-height', headerHeight + 'px');
+    document.documentElement.style.setProperty('--total-header-height', totalHeight + 'px');
+    document.documentElement.style.setProperty('--zappy-mobile-menu-top', (barHeight + headerHeight) + 'px');
+    document.body.style.setProperty('padding-top', totalHeight + 'px', 'important');
+  }
+
+  var timer = null;
+  function schedule(delay) {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(sync, delay || 0);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function(){ schedule(0); });
+  } else {
+    schedule(0);
+  }
+  window.addEventListener('load', function(){ schedule(0); });
+  window.addEventListener('resize', function(){ schedule(50); }, { passive: true });
+  window.addEventListener('zappy:languageChanged', function(){ schedule(50); });
+  window.addEventListener('languageChanged', function(){ schedule(50); });
+  [50, 150, 350, 750, 1500, 3000].forEach(function(ms){ setTimeout(sync, ms); });
+
+  try {
+    new MutationObserver(function(mutations) {
+      for (var i = 0; i < mutations.length; i++) {
+        var mutation = mutations[i];
+        var t = mutation.target;
+        var classes = t && t.classList;
+        if (mutation.type === 'childList') {
+          for (var j = 0; j < mutation.addedNodes.length; j++) {
+            var node = mutation.addedNodes[j];
+            var nodeClasses = node && node.classList;
+            if (nodeClasses && (
+              nodeClasses.contains('zappy-announcement-bar') ||
+              nodeClasses.contains('zappy-catalog-menu') ||
+              nodeClasses.contains('navbar')
+            )) {
+              schedule(0);
+              return;
+            }
+          }
+        }
+        if (
+          (t === document.body && mutation.attributeName === 'class') ||
+          (classes && (
+          classes.contains('zappy-announcement-bar') ||
+          classes.contains('zappy-catalog-menu')
+        ))
+        ) {
+          schedule(0);
+          return;
+        }
+      }
+    }).observe(document.body || document.documentElement, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['class', 'style']
+    });
+  } catch (e) {}
+})();
+
 /* ZAPPY_CUSTOMER_DISCOUNT_CONFIG_FALLBACK_V3 */
 
 /* ZAPPY_CUSTOMER_DISCOUNT_PRODUCT_DETAIL_RACE_V1 */
 
 /* ZAPPY_CUSTOMER_DISCOUNT_DELAYED_REFRESH_V1 */
+
+/* ZAPPY_CHECKOUT_SHIPPING_THRESHOLD_PAYLOAD_V1 */
+
+/* ZAPPY_CHECKOUT_BUTTON_CONTRAST_RUNTIME_V1 */
+;(function() {
+  if (window.__zappyCheckoutButtonContrastRuntimeV1) return;
+  window.__zappyCheckoutButtonContrastRuntimeV1 = true;
+
+  function parseRgb(color) {
+    var match = String(color || '').match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+    return match ? { r: parseInt(match[1], 10), g: parseInt(match[2], 10), b: parseInt(match[3], 10) } : null;
+  }
+
+  function luminance(rgb) {
+    var vals = [rgb.r, rgb.g, rgb.b].map(function(v) {
+      v = v / 255;
+      return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+    });
+    return 0.2126 * vals[0] + 0.7152 * vals[1] + 0.0722 * vals[2];
+  }
+
+  function contrast(a, b) {
+    var l1 = luminance(a);
+    var l2 = luminance(b);
+    return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
+  }
+
+  function effectiveBg(el) {
+    var node = el;
+    while (node) {
+      var bg = window.getComputedStyle(node).backgroundColor;
+      var rgb = parseRgb(bg);
+      if (rgb && !/rgba\([^)]*,\s*0\s*\)/.test(bg)) return rgb;
+      node = node.parentElement;
+    }
+    return { r: 255, g: 255, b: 255 };
+  }
+
+  function fixButton(btn) {
+    if (!btn) return;
+    var bg = effectiveBg(btn);
+    var dark = { r: 17, g: 17, b: 17 };
+    var light = { r: 255, g: 255, b: 255 };
+    var nextColor = contrast(light, bg) >= contrast(dark, bg) ? '#FFFFFF' : '#111111';
+    if (btn.style.getPropertyValue('color') !== nextColor || btn.style.getPropertyPriority('color') !== 'important') {
+      btn.style.setProperty('color', nextColor, 'important');
+    }
+  }
+
+  function sync() {
+    document.querySelectorAll('#place-order-btn, .checkout-place-order-btn').forEach(fixButton);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', sync);
+  } else {
+    sync();
+  }
+
+  if (typeof MutationObserver !== 'undefined') {
+    var observer = new MutationObserver(sync);
+    function observeButtons() {
+      document.querySelectorAll('#place-order-btn, .checkout-place-order-btn').forEach(function(btn) {
+        observer.observe(btn, { attributes: true, attributeFilter: ['class', 'style', 'disabled'] });
+      });
+      sync();
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', observeButtons);
+    } else {
+      observeButtons();
+    }
+  }
+})();
