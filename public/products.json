@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-07T08:24:50.869Z",
+  "generated_at": "2026-07-07T08:34:10.348Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 49,
@@ -77,23 +77,27 @@
     },
     {
       "id": "49c2216e-a934-4be0-adbb-2013bbc383a2",
-      "slug": "rkb-al-hmym-30-dkvt-989q6i",
-      "name": "רכב על המים - 30 דקות",
+      "slug": "rkb-al-hmym-wn0jiv",
+      "name": "רכב על המים ",
       "name_translations": {},
-      "description": "רכב על המים - 30 דקות. החל מ-900 ₪. חוויית רכיבה ייחודית על רכב מרחף מעל פני המים של דובאי.",
+      "description": "<p>רכב על המים -  חוויית רכיבה ייחודית על רכב מרחף מעל פני המים של דובאי.</p>",
       "short_description": null,
       "sku": null,
       "brand": null,
-      "price": 900,
-      "base_price": 900,
+      "price": 399,
+      "base_price": 399,
       "sale_price": null,
       "currency": "ILS",
-      "images": [],
+      "images": [
+        "https://dubai-plus.co.il/assets/image-product-image-1783413123847-etbitg.webp"
+      ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/rkb-al-hmym-30-dkvt-989q6i",
-      "categories": [],
-      "updated_at": "2026-07-07T08:24:18.802Z"
+      "url": "https://dubai-plus.co.il/product/rkb-al-hmym-wn0jiv",
+      "categories": [
+        "שייט ופעילות ימית"
+      ],
+      "updated_at": "2026-07-07T08:33:38.525Z"
     },
     {
       "id": "f12769f8-2273-4006-beba-2f47b3f1d7bf",

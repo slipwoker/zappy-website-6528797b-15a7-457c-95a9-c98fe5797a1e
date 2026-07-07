@@ -133,11 +133,13 @@ https://dubai-plus.co.il/product/parkym-abv-daby-yas-abu-dhabi-gdqrqv
 - Description: פארקי אבו דאבי מציעים חוויה בלתי נשכחת לכל המשפחה עם מגוון פארקי שעשועים מהטובים בעולם. בחרו בין פארקי האקסטרים, פארקי המים ועולמות הדמויות האהובות, ותיהנו מיום מלא באטרקציות, מתקנים מרהיבים ובידור ברמה עולמית. מושלם לילדים, למשפחות ולחובבי אדרנלין.
 - Image: https://dubai-plus.co.il/assets/product-1783356638006-zxr0g7.webp
 
-### רכב על המים - 30 דקות
-https://dubai-plus.co.il/product/rkb-al-hmym-30-dkvt-989q6i
-- Price: 900.00 ILS
+### רכב על המים 
+https://dubai-plus.co.il/product/rkb-al-hmym-wn0jiv
+- Price: 399.00 ILS
 - Availability: In stock
-- Description: רכב על המים - 30 דקות. החל מ-900 ₪. חוויית רכיבה ייחודית על רכב מרחף מעל פני המים של דובאי.
+- Category: שייט ופעילות ימית
+- Description: רכב על המים - חוויית רכיבה ייחודית על רכב מרחף מעל פני המים של דובאי.
+- Image: https://dubai-plus.co.il/assets/image-product-image-1783413123847-etbitg.webp
 
 ### טיסה במסוק 
 https://dubai-plus.co.il/product/tysh-bmsvk-ue670g
