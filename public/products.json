@@ -1,13 +1,13 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-07T09:08:33.299Z",
+  "generated_at": "2026-07-07T09:12:00.900Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 49,
   "products": [
     {
       "id": "da598194-7288-4fc6-9507-576836626406",
-      "slug": "yakth-prtyt-bdvbay-pijlis",
+      "slug": "yakth-prtyt-bdvbay-yfqafp",
       "name": "יאכטה פרטית בדובאי",
       "name_translations": {},
       "description": "<p class=\"ql-align-right\">צאו לשייט פרטי ויוקרתי במרינה של דובאי על גבי יאכטות חדישות ומאובזרות. במהלך השייט תוכלו ליהנות מנופים מרהיבים של Dubai Marina, אי הדקלים, Atlantis The Palm, Ain Dubai, JBR ובמסלולים ארוכים גם Burj Al Arab.</p><p class=\"ql-align-right\">כל היאכטות כוללות צוות מקצועי, מערכת שמע, אזורי ישיבה מוצלים, שירותים, מקלחת, סיפון שיזוף וכל ציוד הבטיחות הנדרש.</p><p class=\"ql-align-right\">מתאים למשפחות, זוגות, קבוצות חברים, ימי הולדת, מסיבות, הצעות נישואין ואירועים פרטיים</p>",
@@ -23,11 +23,11 @@
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/yakth-prtyt-bdvbay-pijlis",
+      "url": "https://dubai-plus.co.il/product/yakth-prtyt-bdvbay-yfqafp",
       "categories": [
         "שייט ופעילות ימית"
       ],
-      "updated_at": "2026-07-07T07:02:51.268Z"
+      "updated_at": "2026-07-07T09:11:42.910Z"
     },
     {
       "id": "70013942-8198-4af4-b23e-60a25b128b2f",
