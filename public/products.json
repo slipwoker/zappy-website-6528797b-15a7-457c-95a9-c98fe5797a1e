@@ -1,9 +1,9 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-07T14:12:07.505Z",
+  "generated_at": "2026-07-07T14:27:57.912Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
-  "count": 49,
+  "count": 47,
   "products": [
     {
       "id": "993c441a-d7ec-4c09-945d-42f8b1167369",
@@ -256,26 +256,6 @@
       "updated_at": "2026-07-07T13:36:29.862Z"
     },
     {
-      "id": "83987c03-69fe-426f-9309-1e4f484041cd",
-      "slug": "bvrg-chlyph-skyy-vvyv-mglshh-mmsbes",
-      "name": "בורג׳ חליפה + סקיי וויו + מגלשה",
-      "name_translations": {},
-      "description": "חבילה משולבת: בורג׳ חליפה + תצפית סקיי וויו + מגלשה שקופה. החל מ-350 ₪. חוויית תצפיות מושלמת בדובאי.",
-      "short_description": null,
-      "sku": null,
-      "brand": null,
-      "price": 350,
-      "base_price": 350,
-      "sale_price": null,
-      "currency": "ILS",
-      "images": [],
-      "in_stock": true,
-      "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/bvrg-chlyph-skyy-vvyv-mglshh-mmsbes",
-      "categories": [],
-      "updated_at": "2026-07-07T13:36:29.862Z"
-    },
-    {
       "id": "dfc0c39b-4628-4dbf-929b-1ed68a71c1ce",
       "slug": "shyt-byaktt-lvtvs-otf8b5",
       "name": "שיט ביאכטת לוטוס",
@@ -332,26 +312,6 @@
       "in_stock": true,
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/park-img-sdl1p4",
-      "categories": [],
-      "updated_at": "2026-07-07T13:36:29.862Z"
-    },
-    {
-      "id": "43fbb0af-a8e6-41b2-960f-8cab0e1104bb",
-      "slug": "bvrg-chlyph-kvmh-124125-a6pxq0",
-      "name": "בורג׳ חליפה - קומה 124+125",
-      "name_translations": {},
-      "description": "<p>בורג׳ חליפה - כרטיס לקומות 124+125. החל מ-250 ₪. עלו לפסגת הבניין הגבוה בעולם ותיהנו מנוף פנורמי עוצר נשימה.</p>",
-      "short_description": null,
-      "sku": null,
-      "brand": null,
-      "price": 250,
-      "base_price": 250,
-      "sale_price": null,
-      "currency": "ILS",
-      "images": [],
-      "in_stock": true,
-      "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/bvrg-chlyph-kvmh-124125-a6pxq0",
       "categories": [],
       "updated_at": "2026-07-07T13:36:29.862Z"
     },

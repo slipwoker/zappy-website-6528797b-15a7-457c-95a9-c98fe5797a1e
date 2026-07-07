@@ -108,7 +108,7 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 49**
+**Total active products: 47**
 
 ### שייט הלוטוס – Lotus Mega Yacht Dinner Cruise
 https://dubai-plus.co.il/product/shyyt-hlvtvs-lotus-mega-yacht-dinner-cruise-unzev9
@@ -190,12 +190,6 @@ https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv
 - Availability: In stock
 - Description: נהיגה עצמית במדבר דובאי. החל מ-150 ₪. חוויית נהיגה עצמאית בדיונות המדבר הזהובות.
 
-### בורג׳ חליפה + סקיי וויו + מגלשה
-https://dubai-plus.co.il/product/bvrg-chlyph-skyy-vvyv-mglshh-mmsbes
-- Price: 350.00 ILS
-- Availability: In stock
-- Description: חבילה משולבת: בורג׳ חליפה + תצפית סקיי וויו + מגלשה שקופה. החל מ-350 ₪. חוויית תצפיות מושלמת בדובאי.
-
 ### שיט ביאכטת לוטוס
 https://dubai-plus.co.il/product/shyt-byaktt-lvtvs-otf8b5
 - Price: 300.00 ILS
@@ -213,12 +207,6 @@ https://dubai-plus.co.il/product/park-img-sdl1p4
 - Price: 199.00 ILS
 - Availability: In stock
 - Description: פארק IMG דובאי - IMG Worlds of Adventure. פארק שעשועים מקורה ענק עם אזורי Marvel, Cartoon Network ועוד. מ-199 ₪.
-
-### בורג׳ חליפה - קומה 124+125
-https://dubai-plus.co.il/product/bvrg-chlyph-kvmh-124125-a6pxq0
-- Price: 250.00 ILS
-- Availability: In stock
-- Description: בורג׳ חליפה - כרטיס לקומות 124+125. החל מ-250 ₪. עלו לפסגת הבניין הגבוה בעולם ותיהנו מנוף פנורמי עוצר נשימה.
 
 ### טיסה בכדור פורח - 10 דקות
 https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-10-dkvt-hsohpm
