@@ -108,7 +108,7 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 48**
+**Total active products: 47**
 
 ### יאכטה פרטית בדובאי
 https://dubai-plus.co.il/product/yakth-prtyt-bdvbay-yfqafp
@@ -179,12 +179,6 @@ https://dubai-plus.co.il/product/bvrg-chlyph-skyy-vvyv-mglshh-mmsbes
 - Price: 350.00 ILS
 - Availability: In stock
 - Description: חבילה משולבת: בורג׳ חליפה + תצפית סקיי וויו + מגלשה שקופה. החל מ-350 ₪. חוויית תצפיות מושלמת בדובאי.
-
-### מופע לה פרל 
-https://dubai-plus.co.il/product/mvpa-lh-prl-johbna
-- Price: 265.00 ILS
-- Availability: In stock
-- Description: מופע לה פרל - La Perle by Dragone. החל מ-265 ₪. מופע אקרובטיקה ומים מרהיב בתיאטרון הייחודי של דובאי.
 
 ### שיט ביאכטת לוטוס
 https://dubai-plus.co.il/product/shyt-byaktt-lvtvs-otf8b5
