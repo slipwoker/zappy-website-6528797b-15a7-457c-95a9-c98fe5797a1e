@@ -108,7 +108,7 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 40**
+**Total active products: 39**
 
 ### שייט הלוטוס – Lotus Mega Yacht Dinner Cruise
 https://dubai-plus.co.il/product/shyyt-hlvtvs-lotus-mega-yacht-dinner-cruise-unzev9
@@ -213,12 +213,6 @@ https://dubai-plus.co.il/product/akvvryvm-vgn-chyvt-tt-ymy-s0lo9h
 - Price: 160.00 ILS
 - Availability: In stock
 - Description: אקווריום דובאי וגן חיות תת-ימי - Dubai Aquarium. אחד האקווריומים הגדולים בעולם עם מאות סוגי דגים ויצורי ים מרהיבים.
-
-### טיול מדבר שקיעה / בוקר מקוצר
-https://dubai-plus.co.il/product/tyvl-mdbr-shkyah-bvkr-mkvtsr-pdgbye
-- Price: 169.00 ILS
-- Availability: In stock
-- Description: טיול מדבר שקיעה או בוקר מקוצר. נסיעת ג׳יפ בדיונות הזהובות, שקיעה מרהיבה, אווירה בדואית אותנטית.
 
 ### אופנוע ים JET SKI
 https://dubai-plus.co.il/product/avpnva-ym-jet-ski-p9x0ko
