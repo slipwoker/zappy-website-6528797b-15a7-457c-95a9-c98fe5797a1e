@@ -108,7 +108,7 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 43**
+**Total active products: 41**
 
 ### שייט הלוטוס – Lotus Mega Yacht Dinner Cruise
 https://dubai-plus.co.il/product/shyyt-hlvtvs-lotus-mega-yacht-dinner-cruise-unzev9
@@ -344,18 +344,6 @@ https://dubai-plus.co.il/product/shyyt-4-shavt-msybh-varvchh-21000100-gqli8d
 - Availability: In stock
 - SKU: PARTY-CRUISE-4H
 - Description: שייט לילה 4 שעות עם מסיבה וארוחה — משעה 21:00 עד 01:00. מחיר: גבר 360 AED | אישה 290 AED. כולל ארוחה, מוזיקה ואווירה בלתי נשכחת על המים.
-
-### יאכטה פרטית 40 רגל — עד 10 אנשים
-https://dubai-plus.co.il/product/yakth-prtyt-40-rgl-ad-10-anshym-qhvgeg
-- Price: 750.00 ILS
-- Availability: In stock
-- Description: יאכטה פרטית בגודל 40 רגל, עד 10 אנשים. מחיר לשעה: 750 AED. שייט פרטי יוקרתי בדובאי מרינה — ללא שיתוף, לכם בלבד.
-
-### יאכטה פרטית 34 רגל — עד 7 אנשים
-https://dubai-plus.co.il/product/yakth-prtyt-34-rgl-ad-7-anshym-o47la2
-- Price: 650.00 ILS
-- Availability: In stock
-- Description: יאכטה פרטית בגודל 34 רגל, עד 7 אנשים. מחיר לשעה: 650 AED. שייט פרטי יוקרתי בדובאי מרינה — ללא שיתוף, לכם בלבד.
 
 ### יאכטה משותפת — שייט לילה 20:00–00:00
 https://dubai-plus.co.il/product/yakth-mshvtpt-shyyt-lylh-20000000-f2207o
