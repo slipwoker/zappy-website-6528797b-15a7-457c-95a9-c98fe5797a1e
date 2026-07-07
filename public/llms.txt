@@ -107,9 +107,10 @@ Information about WCAG compliance and accessibility features.
 **Total active products: 49**
 
 ### יאכטה פרטית בדובאי
-https://dubai-plus.co.il/product/yakth-prtyt-bdvbay-cg25o1
+https://dubai-plus.co.il/product/yakth-prtyt-bdvbay-rov7ym
 - Price: 580.00 ILS
 - Availability: In stock
+- Category: שייט ופעילות ימית
 - Description: השכרת יאכטה פרטית יוקרתית בדובאי עם צוות מקצועי. חוויה מושלמת למשפחות, זוגות, קבוצות, ימי הולדת, הצעות נישואין ואירועים מיוחדים שעת שקיעה חובה מינימום שעתיים
 - Image: https://dubai-plus.co.il/assets/image-product-image-1783372707052-2ee127.webp
 

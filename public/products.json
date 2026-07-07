@@ -1,16 +1,16 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-07T06:58:53.653Z",
+  "generated_at": "2026-07-07T07:01:51.294Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 49,
   "products": [
     {
       "id": "da598194-7288-4fc6-9507-576836626406",
-      "slug": "yakth-prtyt-bdvbay-cg25o1",
+      "slug": "yakth-prtyt-bdvbay-rov7ym",
       "name": "יאכטה פרטית בדובאי",
       "name_translations": {},
-      "description": "<p class=\"ql-align-right\">צאו לשייט פרטי ויוקרתי במרינה של דובאי על גבי יאכטות חדישות ומאובזרות. במהלך השייט תוכלו ליהנות מנופים מרהיבים של Dubai Marina, אי הדקלים, Atlantis The Palm, Ain Dubai, JBR ובמסלולים ארוכים גם Burj Al Arab.</p><p class=\"ql-align-right\">כל היאכטות כוללות צוות מקצועי, מערכת שמע, אזורי ישיבה מוצלים, שירותים, מקלחת, סיפון שיזוף וכל ציוד הבטיחות הנדרש.</p><p class=\"ql-align-right\">מתאים למשפחות, זוגות, קבוצות חברים, ימי הולדת, מסיבות, הצעות נישואין ואירועים פרטיים</p><p><br></p>",
+      "description": "<p class=\"ql-align-right\">צאו לשייט פרטי ויוקרתי במרינה של דובאי על גבי יאכטות חדישות ומאובזרות. במהלך השייט תוכלו ליהנות מנופים מרהיבים של Dubai Marina, אי הדקלים, Atlantis The Palm, Ain Dubai, JBR ובמסלולים ארוכים גם Burj Al Arab.</p><p class=\"ql-align-right\">כל היאכטות כוללות צוות מקצועי, מערכת שמע, אזורי ישיבה מוצלים, שירותים, מקלחת, סיפון שיזוף וכל ציוד הבטיחות הנדרש.</p><p class=\"ql-align-right\">מתאים למשפחות, זוגות, קבוצות חברים, ימי הולדת, מסיבות, הצעות נישואין ואירועים פרטיים</p>",
       "short_description": "השכרת יאכטה פרטית יוקרתית בדובאי עם צוות מקצועי. חוויה מושלמת למשפחות, זוגות, קבוצות, ימי הולדת, הצעות נישואין ואירועים מיוחדים\nשעת שקיעה חובה מינימום שעתיים",
       "sku": null,
       "brand": null,
@@ -23,9 +23,11 @@
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/yakth-prtyt-bdvbay-cg25o1",
-      "categories": [],
-      "updated_at": "2026-07-06T21:22:36.566Z"
+      "url": "https://dubai-plus.co.il/product/yakth-prtyt-bdvbay-rov7ym",
+      "categories": [
+        "שייט ופעילות ימית"
+      ],
+      "updated_at": "2026-07-07T07:01:19.101Z"
     },
     {
       "id": "70013942-8198-4af4-b23e-60a25b128b2f",
