@@ -108,7 +108,7 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 41**
+**Total active products: 40**
 
 ### שייט הלוטוס – Lotus Mega Yacht Dinner Cruise
 https://dubai-plus.co.il/product/shyyt-hlvtvs-lotus-mega-yacht-dinner-cruise-unzev9
@@ -189,12 +189,6 @@ https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv
 - Price: 150.00 ILS
 - Availability: In stock
 - Description: נהיגה עצמית במדבר דובאי. החל מ-150 ₪. חוויית נהיגה עצמאית בדיונות המדבר הזהובות.
-
-### שיט ביאכטת לוטוס
-https://dubai-plus.co.il/product/shyt-byaktt-lvtvs-otf8b5
-- Price: 300.00 ILS
-- Availability: In stock
-- Description: שיט ביאכטת הלוטוס היוקרתית. החל מ-300 ₪. הפליגו על המים הכחולים של דובאי מרינה עם יאכטת הלוטוס המפורסמת.
 
 ### סקי דובאי
 https://dubai-plus.co.il/product/sky-dvbay-oklyey
