@@ -1,37 +1,6 @@
 # Clean URL redirects for Render static hosting
-# Generated: 2026-07-07T17:59:26.138Z
-# NOTE: Render uses render.yaml for routing, not _redirects (that is Netlify)
-# This file is kept for reference only
-
-/hotels  /hotels.html  200!
-/attractions  /attractions.html  200!
-/travel-services  /travel-services.html  200!
-/restaurants  /restaurants.html  200!
-/contact  /contact.html  200!
-/products  /products.html  200!
-/cart  /cart.html  200!
-/checkout  /checkout.html  200!
-/login  /login.html  200!
-/account  /account.html  200!
-/order-success  /order-success.html  200!
-/return-policy  /return-policy.html  200!
-/privacy  /privacy.html  200!
-/accessibility  /accessibility.html  200!
-/terms  /terms.html  200!
-/blog  /blog.html  200!
-/blog/first-time-dubai  /blog/first-time-dubai.html  200!
-/blog/dubai-hotels-areas  /blog/dubai-hotels-areas.html  200!
-/blog/dubai-attractions-guide  /blog/dubai-attractions-guide.html  200!
-/blog/dubai-dining-nightlife  /blog/dubai-dining-nightlife.html  200!
-/blog/dubai-shopping-guide  /blog/dubai-shopping-guide.html  200!
-/blog/dubai-transportation-smart-guide  /blog/dubai-transportation-smart-guide.html  200!
-
-# Legal pages - redirect old .html URLs to friendly URLs
-/privacy.html  /privacy  301
-/accessibility.html  /accessibility  301
-/terms.html  /terms  301
-
-/  /index.html  200!
+# Generated: 2026-07-07T18:00:17.329Z
+# Generated during publish asset refresh
 
 # Dynamic routes - serve dedicated HTML templates for dynamic paths
 /product/*  /product.html  200!
