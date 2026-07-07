@@ -1,9 +1,9 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-07T09:25:46.920Z",
+  "generated_at": "2026-07-07T09:27:29.209Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
-  "count": 49,
+  "count": 48,
   "products": [
     {
       "id": "da598194-7288-4fc6-9507-576836626406",
@@ -184,26 +184,6 @@
       "in_stock": true,
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-60-dkvt-j7o5vf",
-      "categories": [],
-      "updated_at": "2026-07-06T21:22:36.566Z"
-    },
-    {
-      "id": "be2bf3ef-21c0-4b21-99f8-2541264dbd79",
-      "slug": "tyvl-yvm-mla-labv-daby-kshr-wvlce1",
-      "name": "טיול יום מלא לאבו דאבי - כשר",
-      "name_translations": {},
-      "description": "טיול 10 שעות לאבו דאבי כולל אטרקציות ואוכל כשר. 550 ₪. סיור מודרך מקיף לאבו דאבי עם ארוחה כשרה.",
-      "short_description": null,
-      "sku": null,
-      "brand": null,
-      "price": 550,
-      "base_price": 550,
-      "sale_price": null,
-      "currency": "ILS",
-      "images": [],
-      "in_stock": true,
-      "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/tyvl-yvm-mla-labv-daby-kshr-wvlce1",
       "categories": [],
       "updated_at": "2026-07-06T21:22:36.566Z"
     },
