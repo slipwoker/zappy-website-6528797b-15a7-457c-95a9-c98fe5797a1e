@@ -12199,6 +12199,907 @@ footer.site-footer .footer-col:nth-child(4) h3.footer-heading {
   }
 }
 
+
+
+
+
+/* AI-generated section */
+/* ===== WEATHER SECTION ===== */
+.weather-section {
+  background-color: var(--primary, #201A2E);
+  padding: 70px 20px 80px;
+  position: relative;
+  overflow: hidden;
+  direction: rtl;
+  font-family: system-ui, sans-serif;
+}
+
+/* Subtle background pattern overlay */
+.weather-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(ellipse at 20% 50%, rgba(201, 168, 76, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(245, 200, 66, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.weather-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== HEADER ===== */
+.weather-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.weather-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 16px;
+  color: #C9A84C;
+  background: rgba(201, 168, 76, 0.1);
+  border-radius: 50%;
+  padding: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.weather-icon:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 24px rgba(201, 168, 76, 0.2);
+}
+
+.weather-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.weather-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 10px;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  background: var(--gradient-primary, linear-gradient(135deg, #C9A84C 0%, #F5C842 50%, #C9A84C 100%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.weather-subtitle {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== WIDGET WRAPPER ===== */
+.weather-widget-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.weather-frame {
+  width: 100%;
+  max-width: 750px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1.5px solid rgba(201, 168, 76, 0.35);
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(201, 168, 76, 0.08) inset,
+    0 0 40px rgba(201, 168, 76, 0.06);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+/* Golden shimmer on hover */
+.weather-frame::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 168, 76, 0.08),
+    transparent
+  );
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+
+.weather-frame:hover {
+  border-color: rgba(201, 168, 76, 0.6);
+  box-shadow: 
+    0 6px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(201, 168, 76, 0.12) inset,
+    0 0 60px rgba(201, 168, 76, 0.1);
+}
+
+.weather-frame:hover::after {
+  left: 100%;
+}
+
+.weather-frame iframe {
+  display: block;
+  width: 100%;
+  height: 350px;
+  border: none;
+  background: #ffffff;
+}
+
+/* ===== FOOTER ===== */
+.weather-footer {
+  text-align: center;
+}
+
+.weather-note {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.weather-credit {
+  color: #C9A84C;
+  font-weight: 500;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .weather-section {
+    padding: 50px 16px 60px;
+  }
+  
+  .weather-title {
+    font-size: 1.7rem;
+  }
+  
+  .weather-subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .weather-icon {
+    width: 46px;
+    height: 46px;
+  }
+  
+  .weather-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .weather-frame {
+    border-radius: 12px;
+  }
+  
+  .weather-frame iframe {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .weather-section {
+    padding: 40px 12px 48px;
+  }
+  
+  .weather-title {
+    font-size: 1.4rem;
+  }
+  
+  .weather-subtitle {
+    font-size: 0.85rem;
+  }
+  
+  .weather-header {
+    margin-bottom: 24px;
+  }
+  
+  .weather-icon {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+  }
+  
+  .weather-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .weather-frame {
+    border-radius: 10px;
+    border-width: 1px;
+  }
+  
+  .weather-frame iframe {
+    height: 260px;
+  }
+  
+  .weather-note {
+    font-size: 0.78rem;
+  }
+}
+
+/* AI-generated section */
+/* =============================================
+   DUBAI GUIDE SECTION - Dark Elegant Theme
+   ============================================= */
+.dg-guide-section {
+  background: var(--primary, #201A2E);
+  padding: 80px 20px 100px;
+  direction: rtl;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background pattern overlay */
+.dg-guide-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(201, 168, 76, 0.06) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 20%, rgba(201, 168, 76, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.dg-guide-container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.dg-guide-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.dg-guide-badge {
+  display: inline-block;
+  background: var(--gradient-primary, linear-gradient(135deg, #C9A84C 0%, #F5C842 50%, #C9A84C 100%));
+  color: #201A2E;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 6px 18px;
+  border-radius: 50px;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+
+.dg-guide-heading {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 12px;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.dg-guide-subtitle {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* FAQ Grid */
+.dg-guide-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* FAQ Item Card */
+.dg-faq-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.dg-faq-item:hover {
+  border-color: rgba(201, 168, 76, 0.4);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  transform: translateY(-1px);
+}
+
+.dg-faq-item.active {
+  border-color: rgba(201, 168, 76, 0.6);
+  box-shadow: 0 8px 35px rgba(201, 168, 76, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Question Button */
+.dg-faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-align: right;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.dg-faq-question:hover {
+  color: #F5C842;
+}
+
+.dg-faq-question:focus-visible {
+  outline: 2px solid #C9A84C;
+  outline-offset: -2px;
+  border-radius: 14px;
+}
+
+.dg-faq-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.dg-faq-label {
+  flex: 1;
+}
+
+.dg-faq-chevron {
+  flex-shrink: 0;
+  color: rgba(201, 168, 76, 0.7);
+  transition: transform 0.35s ease;
+  display: flex;
+  align-items: center;
+}
+
+.dg-faq-item.active .dg-faq-chevron {
+  transform: rotate(180deg);
+  color: #F5C842;
+}
+
+/* Answer Panel */
+.dg-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.dg-faq-item.active .dg-faq-answer {
+  max-height: 1200px;
+  opacity: 1;
+  padding-top: 0;
+  padding-bottom: 20px;
+}
+
+.dg-faq-answer-inner {
+  padding: 0 24px 10px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.98rem;
+  line-height: 1.8;
+  border-right: 3px solid rgba(201, 168, 76, 0.5);
+  margin-right: 24px;
+  margin-left: 24px;
+}
+
+.dg-faq-answer-inner p {
+  margin: 0 0 12px;
+}
+
+.dg-faq-answer-inner p:last-child {
+  margin-bottom: 0;
+}
+
+.dg-faq-answer-inner strong {
+  color: #F5C842;
+  font-weight: 600;
+}
+
+.dg-faq-answer-inner ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+}
+
+.dg-faq-answer-inner ul li {
+  position: relative;
+  padding-right: 20px;
+  margin-bottom: 8px;
+}
+
+.dg-faq-answer-inner ul li::before {
+  content: '✦';
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #C9A84C;
+  font-size: 0.6rem;
+  line-height: 1.8;
+}
+
+.dg-faq-answer-inner ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* FAQ Image */
+.dg-faq-image-wrap {
+  margin-bottom: 16px;
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.dg-faq-image {
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+/* =============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================= */
+@media (max-width: 768px) {
+  .dg-guide-section {
+    padding: 50px 16px 70px;
+  }
+
+  .dg-guide-heading {
+    font-size: 1.9rem;
+  }
+
+  .dg-guide-subtitle {
+    font-size: 1rem;
+  }
+
+  .dg-faq-question {
+    padding: 16px 18px;
+    font-size: 1rem;
+    gap: 10px;
+  }
+
+  .dg-faq-icon {
+    font-size: 1.3rem;
+  }
+
+  .dg-faq-answer-inner {
+    padding: 0 16px 8px;
+    margin-right: 16px;
+    margin-left: 16px;
+    font-size: 0.93rem;
+  }
+
+  .dg-guide-badge {
+    font-size: 0.78rem;
+    padding: 5px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dg-guide-heading {
+    font-size: 1.6rem;
+  }
+
+  .dg-guide-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .dg-faq-question {
+    padding: 14px 14px;
+    font-size: 0.95rem;
+    gap: 8px;
+  }
+
+  .dg-faq-answer-inner {
+    padding: 0 12px 6px;
+    margin-right: 12px;
+    margin-left: 12px;
+    font-size: 0.88rem;
+  }
+
+  .dg-faq-image {
+    max-height: 160px;
+  }
+}
+
+/* AI-generated section */
+/* ============================================
+   KOSHER RESTAURANTS SECTION
+   Dark theme with gold accents
+   ============================================ */
+
+.kosher-restaurants {
+  background: var(--primary, #201A2E);
+  padding: 80px 20px;
+  direction: rtl;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Heebo', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background pattern */
+.kosher-restaurants::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at 20% 50%, rgba(201, 168, 76, 0.06) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 20%, rgba(201, 168, 76, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.kosher-restaurants__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== HEADER ========== */
+.kosher-restaurants__header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.kosher-restaurants__title {
+  font-family: 'Playfair Display', 'Heebo', system-ui, serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.kosher-restaurants__subtitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0 0 24px 0;
+  letter-spacing: 0.3px;
+}
+
+.kosher-restaurants__divider {
+  width: 80px;
+  height: 3px;
+  background: var(--gradient-primary, linear-gradient(135deg, #C9A84C 0%, #F5C842 50%, #C9A84C 100%));
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* ========== RESTAURANT GRID ========== */
+.kosher-restaurants__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 28px;
+  margin-bottom: 70px;
+}
+
+/* ========== RESTAURANT CARD ========== */
+.restaurant-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(201, 168, 76, 0.3);
+  border-color: rgba(201, 168, 76, 0.5);
+}
+
+.restaurant-card__image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.restaurant-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.restaurant-card:hover .restaurant-card__image {
+  transform: scale(1.06);
+}
+
+.restaurant-card__badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--gradient-primary, linear-gradient(135deg, #C9A84C 0%, #F5C842 50%, #C9A84C 100%));
+  color: #201A2E;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.restaurant-card__content {
+  padding: 24px 22px 22px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant-card__name {
+  font-family: 'Playfair Display', 'Heebo', system-ui, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #F5C842;
+  margin: 0 0 10px 0;
+  letter-spacing: 0.3px;
+  line-height: 1.3;
+}
+
+.restaurant-card__description {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin: 0 0 18px 0;
+  flex: 1;
+}
+
+.restaurant-card__details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 16px;
+}
+
+.restaurant-card__detail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.restaurant-card__icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: #C9A84C;
+}
+
+/* ========== TIPS SECTION ========== */
+.kosher-restaurants__tips {
+  margin-bottom: 60px;
+}
+
+.kosher-restaurants__tips-title {
+  text-align: center;
+  font-family: 'Playfair Display', 'Heebo', system-ui, serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 36px 0;
+}
+
+.kosher-restaurants__tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.tip-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 14px;
+  padding: 28px 24px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.tip-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  border-color: rgba(201, 168, 76, 0.4);
+}
+
+.tip-card__icon-wrapper {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 18px;
+  background: rgba(201, 168, 76, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tip-card__icon {
+  width: 28px;
+  height: 28px;
+  color: #C9A84C;
+}
+
+.tip-card__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #F5C842;
+  margin: 0 0 10px 0;
+}
+
+.tip-card__text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ========== CTA ========== */
+.kosher-restaurants__cta {
+  text-align: center;
+}
+
+.kosher-restaurants__cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--gradient-primary, linear-gradient(135deg, #C9A84C 0%, #F5C842 50%, #C9A84C 100%));
+  color: #201A2E;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 18px 36px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  box-shadow: 0 8px 25px rgba(201, 168, 76, 0.3);
+  letter-spacing: 0.3px;
+}
+
+.kosher-restaurants__cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 35px rgba(201, 168, 76, 0.45);
+  filter: brightness(1.05);
+}
+
+.kosher-restaurants__cta-button:focus-visible {
+  outline: 3px solid #F5C842;
+  outline-offset: 4px;
+}
+
+.kosher-restaurants__cta-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.kosher-restaurants__cta-button:hover .kosher-restaurants__cta-icon {
+  transform: translateX(-4px);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 992px) {
+  .kosher-restaurants {
+    padding: 60px 20px;
+  }
+  
+  .kosher-restaurants__title {
+    font-size: 2.2rem;
+  }
+  
+  .kosher-restaurants__grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .kosher-restaurants {
+    padding: 50px 16px;
+  }
+  
+  .kosher-restaurants__header {
+    margin-bottom: 40px;
+  }
+  
+  .kosher-restaurants__title {
+    font-size: 1.9rem;
+  }
+  
+  .kosher-restaurants__subtitle {
+    font-size: 1.05rem;
+  }
+  
+  .kosher-restaurants__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 50px;
+  }
+  
+  .restaurant-card__image-wrapper {
+    height: 200px;
+  }
+  
+  .kosher-restaurants__tips-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .kosher-restaurants__tips-title {
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+  }
+  
+  .kosher-restaurants__cta-button {
+    font-size: 1rem;
+    padding: 16px 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .kosher-restaurants__title {
+    font-size: 1.6rem;
+  }
+  
+  .kosher-restaurants__subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .restaurant-card__content {
+    padding: 18px 16px 16px;
+  }
+  
+  .restaurant-card__name {
+    font-size: 1.2rem;
+  }
+  
+  .tip-card {
+    padding: 22px 18px;
+  }
+  
+  .kosher-restaurants__cta-button {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 24px;
+    font-size: 0.95rem;
+  }
+}
+
 /* ==ZAPPY V2 E-COMMERCE THEME CSS== */
 /* ═══════════════════════════════════════════════════════════════════════════ */
 /* V2 E-COMMERCE CSS - Clean V2 Variables Only                                  */
@@ -12574,6 +13475,10 @@ a, button {
 .product-card .card-cart-btn { flex-shrink: 0; width: 40px; height: 40px; border-radius: 10px; border: none; cursor: pointer; background: var(--accent, var(--primary, #ff0083)); color: var(--text-light, #fff); display: inline-flex; align-items: center; justify-content: center; transition: filter 0.18s, transform 0.12s; }
 .product-card .card-cart-btn:hover { filter: brightness(0.92); transform: translateY(-1px); }
 .product-card a.card-cart-btn { text-decoration: none; }
+/* Out of stock: the cart button is visibly disabled (muted, not-allowed) and
+   the title attribute surfaces an "Out of Stock" tooltip on hover. */
+.product-card .card-cart-btn.out-of-stock { background: #d1d5db; color: #fff; cursor: default; opacity: 0.65; }
+.product-card .card-cart-btn.out-of-stock:hover { filter: none; transform: none; }
 @media (max-width: 768px) {
   .product-card .product-card-size-overlay { display: none !important; }
   .product-card .card-quickview-btn { opacity: 1; pointer-events: auto; }
@@ -16719,6 +17624,13 @@ body[data-zappy-site-type="ecommerce"] {
 
 /* Base page styling - matches hero section theme */
 .ecommerce-page {
+  /* width:100% + box-sizing is REQUIRED: V2 sites set body to display:flex;
+     flex-direction:column (sticky-footer guard). Without an explicit width the
+     margin:0 auto auto cross-axis margins stop this flex item from stretching,
+     so main collapses to its min-content (about one 250px product column) and
+     the products grid renders as a single mobile-like column. */
+  width: 100%;
+  box-sizing: border-box;
   padding: 60px 24px;
   padding-top: 24px;
   max-width: 1440px;
@@ -18136,13 +19048,13 @@ a, button {
   padding: 24px;
   margin-bottom: 24px;
 }
-.section-header {
+.account-section .section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
-.section-header h2 { font-size: 1.25rem; color: var(--text-dark); margin: 0; }
+.account-section .section-header h2 { font-size: 1.25rem; color: var(--text-dark); margin: 0; }
 .btn-text {
   background: none;
   border: none;
@@ -19923,7 +20835,11 @@ html[lang="ar"] .mobile-search-panel .search-wrapper,
   /* Products menu: normalize link height so dropdown item doesn't look like “two rows” */
   .navbar, .nav-container, .nav-menu, .nav-menu > li { overflow: visible !important; }
   .navbar .nav-menu { align-items: center !important; }
-  .navbar .nav-menu > li { display: flex !important; align-items: center !important; }
+  /* Exclude the mobile-only Contact mirror (.mobile-contact-link / .nav-cta-mobile-item):
+     it must stay desktop-hidden via the min-width:769px .nav-menu .mobile-contact-link
+     display:none rule. Without the :not() guards this higher-specificity !important rule
+     out-specifics that hide and leaks the leftover Contact CTA button onto the desktop navbar. */
+  .navbar .nav-menu > li:not(.mobile-contact-link):not(.nav-cta-mobile-item) { display: flex !important; align-items: center !important; }
   .navbar .nav-menu > li > a {
     display: inline-flex !important;
     align-items: center !important;
@@ -21208,903 +22124,6 @@ main,
 }
 
 /* ==END ZAPPY V2 E-COMMERCE THEME CSS== */
-
-/* AI-generated section */
-/* ===== WEATHER SECTION ===== */
-.weather-section {
-  background-color: var(--primary, #201A2E);
-  padding: 70px 20px 80px;
-  position: relative;
-  overflow: hidden;
-  direction: rtl;
-  font-family: system-ui, sans-serif;
-}
-
-/* Subtle background pattern overlay */
-.weather-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: 
-    radial-gradient(ellipse at 20% 50%, rgba(201, 168, 76, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(245, 200, 66, 0.04) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-.weather-container {
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-/* ===== HEADER ===== */
-.weather-header {
-  text-align: center;
-  margin-bottom: 36px;
-}
-
-.weather-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  margin-bottom: 16px;
-  color: #C9A84C;
-  background: rgba(201, 168, 76, 0.1);
-  border-radius: 50%;
-  padding: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.weather-icon:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 24px rgba(201, 168, 76, 0.2);
-}
-
-.weather-icon svg {
-  width: 28px;
-  height: 28px;
-}
-
-.weather-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #FFFFFF;
-  margin: 0 0 10px;
-  letter-spacing: -0.02em;
-  line-height: 1.3;
-  background: var(--gradient-primary, linear-gradient(135deg, #C9A84C 0%, #F5C842 50%, #C9A84C 100%));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.weather-subtitle {
-  font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.7);
-  margin: 0;
-  font-weight: 400;
-  line-height: 1.6;
-  max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* ===== WIDGET WRAPPER ===== */
-.weather-widget-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.weather-frame {
-  width: 100%;
-  max-width: 750px;
-  border-radius: 16px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1.5px solid rgba(201, 168, 76, 0.35);
-  box-shadow: 
-    0 4px 24px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(201, 168, 76, 0.08) inset,
-    0 0 40px rgba(201, 168, 76, 0.06);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-}
-
-/* Golden shimmer on hover */
-.weather-frame::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(201, 168, 76, 0.08),
-    transparent
-  );
-  transition: left 0.6s ease;
-  pointer-events: none;
-}
-
-.weather-frame:hover {
-  border-color: rgba(201, 168, 76, 0.6);
-  box-shadow: 
-    0 6px 32px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(201, 168, 76, 0.12) inset,
-    0 0 60px rgba(201, 168, 76, 0.1);
-}
-
-.weather-frame:hover::after {
-  left: 100%;
-}
-
-.weather-frame iframe {
-  display: block;
-  width: 100%;
-  height: 350px;
-  border: none;
-  background: #ffffff;
-}
-
-/* ===== FOOTER ===== */
-.weather-footer {
-  text-align: center;
-}
-
-.weather-note {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.5);
-  margin: 0;
-  line-height: 1.5;
-}
-
-.weather-credit {
-  color: #C9A84C;
-  font-weight: 500;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .weather-section {
-    padding: 50px 16px 60px;
-  }
-  
-  .weather-title {
-    font-size: 1.7rem;
-  }
-  
-  .weather-subtitle {
-    font-size: 0.95rem;
-  }
-  
-  .weather-icon {
-    width: 46px;
-    height: 46px;
-  }
-  
-  .weather-icon svg {
-    width: 22px;
-    height: 22px;
-  }
-  
-  .weather-frame {
-    border-radius: 12px;
-  }
-  
-  .weather-frame iframe {
-    height: 300px;
-  }
-}
-
-@media (max-width: 480px) {
-  .weather-section {
-    padding: 40px 12px 48px;
-  }
-  
-  .weather-title {
-    font-size: 1.4rem;
-  }
-  
-  .weather-subtitle {
-    font-size: 0.85rem;
-  }
-  
-  .weather-header {
-    margin-bottom: 24px;
-  }
-  
-  .weather-icon {
-    width: 40px;
-    height: 40px;
-    padding: 10px;
-  }
-  
-  .weather-icon svg {
-    width: 18px;
-    height: 18px;
-  }
-  
-  .weather-frame {
-    border-radius: 10px;
-    border-width: 1px;
-  }
-  
-  .weather-frame iframe {
-    height: 260px;
-  }
-  
-  .weather-note {
-    font-size: 0.78rem;
-  }
-}
-
-/* AI-generated section */
-/* =============================================
-   DUBAI GUIDE SECTION - Dark Elegant Theme
-   ============================================= */
-.dg-guide-section {
-  background: var(--primary, #201A2E);
-  padding: 80px 20px 100px;
-  direction: rtl;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Subtle background pattern overlay */
-.dg-guide-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 20% 50%, rgba(201, 168, 76, 0.06) 0%, transparent 60%),
-              radial-gradient(ellipse at 80% 20%, rgba(201, 168, 76, 0.04) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-.dg-guide-container {
-  max-width: 900px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-/* Header */
-.dg-guide-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.dg-guide-badge {
-  display: inline-block;
-  background: var(--gradient-primary, linear-gradient(135deg, #C9A84C 0%, #F5C842 50%, #C9A84C 100%));
-  color: #201A2E;
-  font-weight: 700;
-  font-size: 0.85rem;
-  padding: 6px 18px;
-  border-radius: 50px;
-  letter-spacing: 0.5px;
-  margin-bottom: 16px;
-}
-
-.dg-guide-heading {
-  font-size: 2.6rem;
-  font-weight: 800;
-  color: #FFFFFF;
-  margin: 0 0 12px;
-  line-height: 1.2;
-  letter-spacing: -0.5px;
-}
-
-.dg-guide-subtitle {
-  font-size: 1.15rem;
-  color: rgba(255, 255, 255, 0.7);
-  margin: 0;
-  font-weight: 400;
-  line-height: 1.6;
-}
-
-/* FAQ Grid */
-.dg-guide-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-/* FAQ Item Card */
-.dg-faq-item {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(201, 168, 76, 0.2);
-  border-radius: 14px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-}
-
-.dg-faq-item:hover {
-  border-color: rgba(201, 168, 76, 0.4);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-  transform: translateY(-1px);
-}
-
-.dg-faq-item.active {
-  border-color: rgba(201, 168, 76, 0.6);
-  box-shadow: 0 8px 35px rgba(201, 168, 76, 0.1);
-  background: rgba(255, 255, 255, 0.06);
-}
-
-/* Question Button */
-.dg-faq-question {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 20px 24px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #FFFFFF;
-  text-align: right;
-  transition: color 0.2s ease;
-  position: relative;
-}
-
-.dg-faq-question:hover {
-  color: #F5C842;
-}
-
-.dg-faq-question:focus-visible {
-  outline: 2px solid #C9A84C;
-  outline-offset: -2px;
-  border-radius: 14px;
-}
-
-.dg-faq-icon {
-  font-size: 1.5rem;
-  flex-shrink: 0;
-  line-height: 1;
-}
-
-.dg-faq-label {
-  flex: 1;
-}
-
-.dg-faq-chevron {
-  flex-shrink: 0;
-  color: rgba(201, 168, 76, 0.7);
-  transition: transform 0.35s ease;
-  display: flex;
-  align-items: center;
-}
-
-.dg-faq-item.active .dg-faq-chevron {
-  transform: rotate(180deg);
-  color: #F5C842;
-}
-
-/* Answer Panel */
-.dg-faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
-}
-
-.dg-faq-item.active .dg-faq-answer {
-  max-height: 1200px;
-  opacity: 1;
-  padding-top: 0;
-  padding-bottom: 20px;
-}
-
-.dg-faq-answer-inner {
-  padding: 0 24px 10px;
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 0.98rem;
-  line-height: 1.8;
-  border-right: 3px solid rgba(201, 168, 76, 0.5);
-  margin-right: 24px;
-  margin-left: 24px;
-}
-
-.dg-faq-answer-inner p {
-  margin: 0 0 12px;
-}
-
-.dg-faq-answer-inner p:last-child {
-  margin-bottom: 0;
-}
-
-.dg-faq-answer-inner strong {
-  color: #F5C842;
-  font-weight: 600;
-}
-
-.dg-faq-answer-inner ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 12px;
-}
-
-.dg-faq-answer-inner ul li {
-  position: relative;
-  padding-right: 20px;
-  margin-bottom: 8px;
-}
-
-.dg-faq-answer-inner ul li::before {
-  content: '✦';
-  position: absolute;
-  right: 0;
-  top: 0;
-  color: #C9A84C;
-  font-size: 0.6rem;
-  line-height: 1.8;
-}
-
-.dg-faq-answer-inner ul li:last-child {
-  margin-bottom: 0;
-}
-
-/* FAQ Image */
-.dg-faq-image-wrap {
-  margin-bottom: 16px;
-  border-radius: 10px;
-  overflow: hidden;
-  max-width: 100%;
-}
-
-.dg-faq-image {
-  width: 100%;
-  height: auto;
-  max-height: 220px;
-  object-fit: cover;
-  display: block;
-  border-radius: 10px;
-}
-
-/* =============================================
-   RESPONSIVE BREAKPOINTS
-   ============================================= */
-@media (max-width: 768px) {
-  .dg-guide-section {
-    padding: 50px 16px 70px;
-  }
-
-  .dg-guide-heading {
-    font-size: 1.9rem;
-  }
-
-  .dg-guide-subtitle {
-    font-size: 1rem;
-  }
-
-  .dg-faq-question {
-    padding: 16px 18px;
-    font-size: 1rem;
-    gap: 10px;
-  }
-
-  .dg-faq-icon {
-    font-size: 1.3rem;
-  }
-
-  .dg-faq-answer-inner {
-    padding: 0 16px 8px;
-    margin-right: 16px;
-    margin-left: 16px;
-    font-size: 0.93rem;
-  }
-
-  .dg-guide-badge {
-    font-size: 0.78rem;
-    padding: 5px 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .dg-guide-heading {
-    font-size: 1.6rem;
-  }
-
-  .dg-guide-subtitle {
-    font-size: 0.9rem;
-  }
-
-  .dg-faq-question {
-    padding: 14px 14px;
-    font-size: 0.95rem;
-    gap: 8px;
-  }
-
-  .dg-faq-answer-inner {
-    padding: 0 12px 6px;
-    margin-right: 12px;
-    margin-left: 12px;
-    font-size: 0.88rem;
-  }
-
-  .dg-faq-image {
-    max-height: 160px;
-  }
-}
-
-/* AI-generated section */
-/* ============================================
-   KOSHER RESTAURANTS SECTION
-   Dark theme with gold accents
-   ============================================ */
-
-.kosher-restaurants {
-  background: var(--primary, #201A2E);
-  padding: 80px 20px;
-  direction: rtl;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Heebo', sans-serif;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Subtle background pattern */
-.kosher-restaurants::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(ellipse at 20% 50%, rgba(201, 168, 76, 0.06) 0%, transparent 50%),
-              radial-gradient(ellipse at 80% 20%, rgba(201, 168, 76, 0.04) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-.kosher-restaurants__container {
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-/* ========== HEADER ========== */
-.kosher-restaurants__header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.kosher-restaurants__title {
-  font-family: 'Playfair Display', 'Heebo', system-ui, serif;
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 0 0 12px 0;
-  letter-spacing: -0.5px;
-  line-height: 1.2;
-}
-
-.kosher-restaurants__subtitle {
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.75);
-  margin: 0 0 24px 0;
-  letter-spacing: 0.3px;
-}
-
-.kosher-restaurants__divider {
-  width: 80px;
-  height: 3px;
-  background: var(--gradient-primary, linear-gradient(135deg, #C9A84C 0%, #F5C842 50%, #C9A84C 100%));
-  margin: 0 auto;
-  border-radius: 2px;
-}
-
-/* ========== RESTAURANT GRID ========== */
-.kosher-restaurants__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 28px;
-  margin-bottom: 70px;
-}
-
-/* ========== RESTAURANT CARD ========== */
-.restaurant-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(201, 168, 76, 0.2);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.restaurant-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(201, 168, 76, 0.3);
-  border-color: rgba(201, 168, 76, 0.5);
-}
-
-.restaurant-card__image-wrapper {
-  position: relative;
-  width: 100%;
-  height: 220px;
-  overflow: hidden;
-}
-
-.restaurant-card__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease;
-}
-
-.restaurant-card:hover .restaurant-card__image {
-  transform: scale(1.06);
-}
-
-.restaurant-card__badge {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: var(--gradient-primary, linear-gradient(135deg, #C9A84C 0%, #F5C842 50%, #C9A84C 100%));
-  color: #201A2E;
-  font-size: 0.8rem;
-  font-weight: 700;
-  padding: 6px 14px;
-  border-radius: 20px;
-  letter-spacing: 0.5px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.restaurant-card__content {
-  padding: 24px 22px 22px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.restaurant-card__name {
-  font-family: 'Playfair Display', 'Heebo', system-ui, serif;
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #F5C842;
-  margin: 0 0 10px 0;
-  letter-spacing: 0.3px;
-  line-height: 1.3;
-}
-
-.restaurant-card__description {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.6;
-  margin: 0 0 18px 0;
-  flex: 1;
-}
-
-.restaurant-card__details {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 16px;
-}
-
-.restaurant-card__detail {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.restaurant-card__icon {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-  color: #C9A84C;
-}
-
-/* ========== TIPS SECTION ========== */
-.kosher-restaurants__tips {
-  margin-bottom: 60px;
-}
-
-.kosher-restaurants__tips-title {
-  text-align: center;
-  font-family: 'Playfair Display', 'Heebo', system-ui, serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 0 0 36px 0;
-}
-
-.kosher-restaurants__tips-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-}
-
-.tip-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(201, 168, 76, 0.15);
-  border-radius: 14px;
-  padding: 28px 24px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.tip-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-  border-color: rgba(201, 168, 76, 0.4);
-}
-
-.tip-card__icon-wrapper {
-  width: 56px;
-  height: 56px;
-  margin: 0 auto 18px;
-  background: rgba(201, 168, 76, 0.1);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tip-card__icon {
-  width: 28px;
-  height: 28px;
-  color: #C9A84C;
-}
-
-.tip-card__title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #F5C842;
-  margin: 0 0 10px 0;
-}
-
-.tip-card__text {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.65);
-  line-height: 1.65;
-  margin: 0;
-}
-
-/* ========== CTA ========== */
-.kosher-restaurants__cta {
-  text-align: center;
-}
-
-.kosher-restaurants__cta-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  background: var(--gradient-primary, linear-gradient(135deg, #C9A84C 0%, #F5C842 50%, #C9A84C 100%));
-  color: #201A2E;
-  font-size: 1.1rem;
-  font-weight: 700;
-  padding: 18px 36px;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-  box-shadow: 0 8px 25px rgba(201, 168, 76, 0.3);
-  letter-spacing: 0.3px;
-}
-
-.kosher-restaurants__cta-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 35px rgba(201, 168, 76, 0.45);
-  filter: brightness(1.05);
-}
-
-.kosher-restaurants__cta-button:focus-visible {
-  outline: 3px solid #F5C842;
-  outline-offset: 4px;
-}
-
-.kosher-restaurants__cta-icon {
-  width: 20px;
-  height: 20px;
-  transition: transform 0.3s ease;
-}
-
-.kosher-restaurants__cta-button:hover .kosher-restaurants__cta-icon {
-  transform: translateX(-4px);
-}
-
-/* ========== RESPONSIVE ========== */
-@media (max-width: 992px) {
-  .kosher-restaurants {
-    padding: 60px 20px;
-  }
-  
-  .kosher-restaurants__title {
-    font-size: 2.2rem;
-  }
-  
-  .kosher-restaurants__grid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .kosher-restaurants {
-    padding: 50px 16px;
-  }
-  
-  .kosher-restaurants__header {
-    margin-bottom: 40px;
-  }
-  
-  .kosher-restaurants__title {
-    font-size: 1.9rem;
-  }
-  
-  .kosher-restaurants__subtitle {
-    font-size: 1.05rem;
-  }
-  
-  .kosher-restaurants__grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin-bottom: 50px;
-  }
-  
-  .restaurant-card__image-wrapper {
-    height: 200px;
-  }
-  
-  .kosher-restaurants__tips-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  
-  .kosher-restaurants__tips-title {
-    font-size: 1.5rem;
-    margin-bottom: 24px;
-  }
-  
-  .kosher-restaurants__cta-button {
-    font-size: 1rem;
-    padding: 16px 28px;
-  }
-}
-
-@media (max-width: 480px) {
-  .kosher-restaurants__title {
-    font-size: 1.6rem;
-  }
-  
-  .kosher-restaurants__subtitle {
-    font-size: 0.95rem;
-  }
-  
-  .restaurant-card__content {
-    padding: 18px 16px 16px;
-  }
-  
-  .restaurant-card__name {
-    font-size: 1.2rem;
-  }
-  
-  .tip-card {
-    padding: 22px 18px;
-  }
-  
-  .kosher-restaurants__cta-button {
-    width: 100%;
-    justify-content: center;
-    padding: 16px 24px;
-    font-size: 0.95rem;
-  }
-}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
