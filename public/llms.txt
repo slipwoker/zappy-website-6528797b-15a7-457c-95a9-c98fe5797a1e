@@ -143,9 +143,10 @@ https://dubai-plus.co.il/product/tyvl-spary-bmdbr-safari-desert-rdwao5
 - Image: https://dubai-plus.co.il/assets/product-1783445465948-oym4oo.webp
 
 ### פארקים אבו דאבי yas abu dhabi
-https://dubai-plus.co.il/product/parkym-abv-daby-yas-abu-dhabi-shxax7
+https://dubai-plus.co.il/product/parkym-abv-daby-yas-abu-dhabi-7atb13
 - Price: 270.00 ILS
 - Availability: In stock
+- Category: פארקים אבו דאבי
 - Description: פארקי אבו דאבי מציעים חוויה בלתי נשכחת לכל המשפחה עם מגוון פארקי שעשועים מהטובים בעולם. בחרו בין פארקי האקסטרים, פארקי המים ועולמות הדמויות האהובות, ותיהנו מיום מלא באטרקציות, מתקנים מרהיבים ובידור ברמה עולמית. מושלם לילדים, למשפחות ולחובבי אדרנלין.
 - Image: https://dubai-plus.co.il/assets/product-1783356638006-zxr0g7.webp
 
@@ -171,6 +172,21 @@ https://dubai-plus.co.il/product/bvrg-chlyph-burj-khalifa-bgcvf8
 - Availability: In stock
 - Category: מגדלים ותצפיות
 - Image: https://dubai-plus.co.il/assets/product-ai-fit-1783447685631-sdq9k8.webp
+
+### אקווריום וגן חיות תת-ימי Dubai Aquarium And Underwater Zoo
+https://dubai-plus.co.il/product/akvvryvm-vgn-chyvt-tt-ymy-dubai-aquarium-and-underwater-zoo-3i8pgx
+- Price: 137.00 ILS
+- Availability: In stock
+- Description: אקווריום דובאי הוא אחד האקווריומים הגדולים והמרשימים בעולם, הממוקם בתוך קניון דובאי. במהלך הביקור תוכלו לצעוד במנהרת זכוכית מרהיבה, לצפות באלפי בעלי חיים ימיים, כרישים וחתולי ים, וליהנות מחוויה מרתקת לכל המשפחה
+- Image: https://dubai-plus.co.il/assets/product-ai-fit-1783460041359-l8p8lc.webp
+
+### אופנוע ים JET SKI
+https://dubai-plus.co.il/product/avpnva-ym-jet-ski-p9x0ko
+- Price: 280.00 ILS
+- Availability: In stock
+- Category: שייט ופעילות ימית
+- Description: חוויית אופנוע ים מהנה ועוצמתית באחד החופים היפים ביותר של דובאי. ניתן לבחור יציאה ממרינת דובאי או מאזור בורג' אל ערב, עם אופנועי ים חדישים, ציוד בטיחות מלא והדרכה מקצועית. מתאים לזוגות, משפחות וחובבי אקסטרים – ללא צורך בניסיון קודם.
+- Image: https://dubai-plus.co.il/assets/product-1783430928197-llbwhi.webp
 
 ### טיסה בכדור פורח - 60 דקות
 https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-60-dkvt-j7o5vf
@@ -201,21 +217,6 @@ https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-10-dkvt-hsohpm
 - Price: 179.00 ILS
 - Availability: In stock
 - Description: טיסה בכדור פורח מעל דובאי - 10 דקות. נוף אווירי מרהיב על דובאי מגובה ייחודי.
-
-### אקווריום וגן חיות תת-ימי Dubai Aquarium And Underwater Zoo
-https://dubai-plus.co.il/product/akvvryvm-vgn-chyvt-tt-ymy-dubai-aquarium-and-underwater-zoo-3i8pgx
-- Price: 137.00 ILS
-- Availability: In stock
-- Description: אקווריום דובאי הוא אחד האקווריומים הגדולים והמרשימים בעולם, הממוקם בתוך קניון דובאי. במהלך הביקור תוכלו לצעוד במנהרת זכוכית מרהיבה, לצפות באלפי בעלי חיים ימיים, כרישים וחתולי ים, וליהנות מחוויה מרתקת לכל המשפחה
-- Image: https://dubai-plus.co.il/assets/product-ai-fit-1783460041359-l8p8lc.webp
-
-### אופנוע ים JET SKI
-https://dubai-plus.co.il/product/avpnva-ym-jet-ski-p9x0ko
-- Price: 280.00 ILS
-- Availability: In stock
-- Category: שייט ופעילות ימית
-- Description: חוויית אופנוע ים מהנה ועוצמתית באחד החופים היפים ביותר של דובאי. ניתן לבחור יציאה ממרינת דובאי או מאזור בורג' אל ערב, עם אופנועי ים חדישים, ציוד בטיחות מלא והדרכה מקצועית. מתאים לזוגות, משפחות וחובבי אקסטרים – ללא צורך בניסיון קודם.
-- Image: https://dubai-plus.co.il/assets/product-1783430928197-llbwhi.webp
 
 ### מוזיאון העתיד
 https://dubai-plus.co.il/product/mvzyavn-hatyd-n7x62f
