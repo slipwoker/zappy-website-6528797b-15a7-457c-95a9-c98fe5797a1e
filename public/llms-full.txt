@@ -10135,24 +10135,6 @@ SKU: PARTY-CRUISE-4H
 
 ---
 
-### יאכטה פרטית 48 רגל — עד 15 אנשים
-URL: https://dubai-plus.co.il/product/yakth-prtyt-48-rgl-ad-15-anshym-70mvu4
-Price: 1000.00 ILS
-Availability: In stock
-
-יאכטה פרטית בגודל 48 רגל, עד 15 אנשים. מחיר לשעה: 1,000 AED. שייט פרטי יוקרתי בדובאי מרינה — ללא שיתוף, לכם בלבד.
-
----
-
-### יאכטה פרטית 42 רגל — עד 12 אנשים
-URL: https://dubai-plus.co.il/product/yakth-prtyt-42-rgl-ad-12-anshym-b4ds4b
-Price: 900.00 ILS
-Availability: In stock
-
-יאכטה פרטית בגודל 42 רגל, עד 12 אנשים. מחיר לשעה: 900 AED. שייט פרטי יוקרתי בדובאי מרינה — ללא שיתוף, לכם בלבד.
-
----
-
 ### יאכטה פרטית 40 רגל — עד 10 אנשים
 URL: https://dubai-plus.co.il/product/yakth-prtyt-40-rgl-ad-10-anshym-qhvgeg
 Price: 750.00 ILS
