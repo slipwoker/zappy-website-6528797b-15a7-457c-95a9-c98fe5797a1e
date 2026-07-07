@@ -6163,7 +6163,7 @@ function stripHtmlToText(html) {
       var eligibleSubtotal = 0;
       for (var j = 0; j < cart.length; j++) {
         var item = cart[j];
-        if (appliesToAll || ids.indexOf(item.id) !== -1) {
+        if (appliesToAll || ids.indexOf(item.productId || item.id) !== -1) {
           eligibleSubtotal += getCartLineTotal(item);
         }
       }
@@ -6179,7 +6179,7 @@ function stripHtmlToText(html) {
         if (requireAllEligible && !appliesToAll) {
           var allEligible = cart.length > 0;
           for (var k = 0; k < cart.length; k++) {
-            if (ids.indexOf(cart[k].id) === -1) { allEligible = false; break; }
+            if (ids.indexOf(cart[k].productId || cart[k].id) === -1) { allEligible = false; break; }
           }
           if (allEligible) seasonalFreeShipping = true;
         } else {
@@ -17648,10 +17648,10 @@ function fixContrast(){
 
 /* ZAPPY_CUSTOMER_DISCOUNT_DELAYED_REFRESH_V1 */
 
-/* ZAPPY_CART_BUNDLE_DISCOUNT_V2 */
+/* ZAPPY_CART_BUNDLE_DISCOUNT_V3 */
 ;(function() {
-  if (window.__zappyCartAutomaticDiscountRuntimeV2) return;
-  window.__zappyCartAutomaticDiscountRuntimeV2 = true;
+  if (window.__zappyCartAutomaticDiscountRuntimeV3) return;
+  window.__zappyCartAutomaticDiscountRuntimeV3 = true;
 
   function getWebsiteId() {
     return window.ZAPPY_WEBSITE_ID || document.body.getAttribute('data-website-id') || document.documentElement.getAttribute('data-website-id') || '';
@@ -17739,39 +17739,62 @@ function fixContrast(){
     return total;
   }
 
+  function calcBestBundleGroupDiscount(groupBundles, unitPrices) {
+    if (!groupBundles.length || !unitPrices.length) return 0;
+    unitPrices.sort(function(a, c) { return c - a; });
+
+    var prefixSums = [0];
+    for (var i = 0; i < unitPrices.length; i++) {
+      prefixSums.push(prefixSums[prefixSums.length - 1] + unitPrices[i]);
+    }
+
+    var dp = [0];
+    for (var n = 1; n <= unitPrices.length; n++) {
+      var best = dp[n - 1] || 0;
+      for (var b = 0; b < groupBundles.length; b++) {
+        var tier = groupBundles[b];
+        if (n < tier.qty) continue;
+        var groupSum = prefixSums[n] - prefixSums[n - tier.qty];
+        var saving = Math.max(0, groupSum - tier.bPrice);
+        if (saving <= 0) continue;
+        best = Math.max(best, (dp[n - tier.qty] || 0) + saving);
+      }
+      dp[n] = best;
+    }
+    return dp[unitPrices.length] || 0;
+  }
+
   function calcBundleDiscount(bundles, cart) {
-    var totalDiscount = 0;
+    var groups = {};
     for (var i = 0; i < bundles.length; i++) {
       var b = bundles[i];
       var qty = parseInt(b.quantity, 10);
       var bPrice = parseFloat(b.bundlePrice);
       if (!qty || qty < 2 || !Number.isFinite(bPrice) || bPrice < 0) continue;
 
-      var ids = Array.isArray(b.eligibleProductIds) ? b.eligibleProductIds : [];
+      var ids = Array.isArray(b.eligibleProductIds) ? b.eligibleProductIds.map(function(id) { return String(id || ''); }).filter(Boolean).sort() : [];
       var appliesToAll = b.appliesTo === 'all';
       if (!appliesToAll && ids.length === 0) continue;
 
+      var key = appliesToAll ? 'all' : ('products:' + ids.join('|'));
+      if (!groups[key]) groups[key] = { appliesToAll: appliesToAll, ids: ids, bundles: [] };
+      groups[key].bundles.push({ qty: qty, bPrice: bPrice });
+    }
+
+    var totalDiscount = 0;
+    Object.keys(groups).forEach(function(key) {
+      var group = groups[key];
       var unitPrices = [];
       for (var j = 0; j < cart.length; j++) {
         var item = cart[j];
         var itemId = getProductId(item);
-        if (!appliesToAll && !idListContains(ids, itemId)) continue;
+        if (!group.appliesToAll && !idListContains(group.ids, itemId)) continue;
         var uPrice = getUnitPrice(item);
         var itemQty = parseInt(item.quantity, 10) || 1;
         for (var k = 0; k < itemQty; k++) unitPrices.push(uPrice);
       }
-
-      if (unitPrices.length < qty) continue;
-      unitPrices.sort(function(a, c) { return c - a; });
-
-      var fullGroups = Math.floor(unitPrices.length / qty);
-      for (var g = 0; g < fullGroups; g++) {
-        var groupSum = 0;
-        for (var m = g * qty; m < (g + 1) * qty; m++) groupSum += unitPrices[m];
-        var saving = groupSum - bPrice;
-        if (saving > 0) totalDiscount += saving;
-      }
-    }
+      totalDiscount += calcBestBundleGroupDiscount(group.bundles, unitPrices);
+    });
     return totalDiscount;
   }
 
@@ -18057,25 +18080,25 @@ function fixContrast(){
 
   function wrapRenderCartDrawer() {
     var orig = window.zappyRenderCartDrawer;
-    if (typeof orig === 'function' && !orig.__zappyAutomaticDiscountWrappedV2) {
+    if (typeof orig === 'function' && !orig.__zappyAutomaticDiscountWrappedV3) {
       window.zappyRenderCartDrawer = function() {
         var result = orig.apply(this, arguments);
         refreshSummary();
         return result;
       };
-      window.zappyRenderCartDrawer.__zappyAutomaticDiscountWrappedV2 = true;
+      window.zappyRenderCartDrawer.__zappyAutomaticDiscountWrappedV3 = true;
     }
   }
 
   function wrapFn(name) {
     var orig = window[name];
-    if (typeof orig !== 'function' || orig.__zappyAutomaticDiscountWrappedV2) return;
+    if (typeof orig !== 'function' || orig.__zappyAutomaticDiscountWrappedV3) return;
     window[name] = function() {
       var result = orig.apply(this, arguments);
       refreshSummary();
       return result;
     };
-    window[name].__zappyAutomaticDiscountWrappedV2 = true;
+    window[name].__zappyAutomaticDiscountWrappedV3 = true;
   }
 
   function wrapCartMutators() {
@@ -18086,8 +18109,8 @@ function fixContrast(){
 
   function watchCartDrawer() {
     var drawer = document.getElementById('cart-drawer');
-    if (!drawer || drawer.__zappyAutomaticDiscountObservedV2) return;
-    drawer.__zappyAutomaticDiscountObservedV2 = true;
+    if (!drawer || drawer.__zappyAutomaticDiscountObservedV3) return;
+    drawer.__zappyAutomaticDiscountObservedV3 = true;
     var obs = new MutationObserver(function() {
       if (drawer.classList.contains('active')) refreshSummary();
     });
