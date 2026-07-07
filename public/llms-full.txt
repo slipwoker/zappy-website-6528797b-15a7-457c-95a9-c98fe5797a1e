@@ -10086,19 +10086,10 @@ Availability: In stock
 
 ---
 
-### אייס לאונג׳
-URL: https://dubai-plus.co.il/product/ayys-lavng-g1vxri
-Price: 79.00 ILS
-Availability: In stock
-
-אייס לאונג׳ דובאי - Ice Lounge. חוויה קרירה ומיוחדת בבר הקרח הייחודי של דובאי.
-
----
-
 ### הגן הזוהר - Miracle Garden
-URL: https://dubai-plus.co.il/product/hgn-hzvhr-miracle-garden-2vm3pq
+URL: https://dubai-plus.co.il/product/hgn-hzvhr-miracle-garden-ch3dx5
 Price: 79.00 ILS
-Availability: In stock
+Availability: Out of stock
 
 הגן הזוהר של דובאי - Dubai Miracle Garden. מיליוני פרחים בצבעים עזים יוצרים שטיחי פרחים מרהיבים — הגן הטבעי הגדול בעולם.
 

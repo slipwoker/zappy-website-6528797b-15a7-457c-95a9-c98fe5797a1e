@@ -1,9 +1,9 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-07T17:28:26.257Z",
+  "generated_at": "2026-07-07T17:29:18.889Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
-  "count": 29,
+  "count": 28,
   "products": [
     {
       "id": "993c441a-d7ec-4c09-945d-42f8b1167369",
@@ -504,31 +504,11 @@
       "updated_at": "2026-07-07T13:36:29.862Z"
     },
     {
-      "id": "2b72bfe9-211a-4677-be76-4b1a4a336f01",
-      "slug": "ayys-lavng-g1vxri",
-      "name": "אייס לאונג׳",
-      "name_translations": {},
-      "description": "אייס לאונג׳ דובאי - Ice Lounge. חוויה קרירה ומיוחדת בבר הקרח הייחודי של דובאי.",
-      "short_description": null,
-      "sku": null,
-      "brand": null,
-      "price": 79,
-      "base_price": 79,
-      "sale_price": null,
-      "currency": "ILS",
-      "images": [],
-      "in_stock": true,
-      "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/ayys-lavng-g1vxri",
-      "categories": [],
-      "updated_at": "2026-07-07T13:36:29.862Z"
-    },
-    {
       "id": "e8275da6-11af-4c0c-8351-78f14878f660",
-      "slug": "hgn-hzvhr-miracle-garden-2vm3pq",
+      "slug": "hgn-hzvhr-miracle-garden-ch3dx5",
       "name": "הגן הזוהר - Miracle Garden",
       "name_translations": {},
-      "description": "הגן הזוהר של דובאי - Dubai Miracle Garden. מיליוני פרחים בצבעים עזים יוצרים שטיחי פרחים מרהיבים — הגן הטבעי הגדול בעולם.",
+      "description": "<p>הגן הזוהר של דובאי - Dubai Miracle Garden. מיליוני פרחים בצבעים עזים יוצרים שטיחי פרחים מרהיבים — הגן הטבעי הגדול בעולם.</p>",
       "short_description": null,
       "sku": null,
       "brand": null,
@@ -537,11 +517,11 @@
       "sale_price": null,
       "currency": "ILS",
       "images": [],
-      "in_stock": true,
-      "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/hgn-hzvhr-miracle-garden-2vm3pq",
+      "in_stock": false,
+      "stock_status": "out_of_stock",
+      "url": "https://dubai-plus.co.il/product/hgn-hzvhr-miracle-garden-ch3dx5",
       "categories": [],
-      "updated_at": "2026-07-07T13:36:29.862Z"
+      "updated_at": "2026-07-07T17:28:26.356Z"
     },
     {
       "id": "d1945946-37fd-42d4-a2b7-4a799a47af9e",
