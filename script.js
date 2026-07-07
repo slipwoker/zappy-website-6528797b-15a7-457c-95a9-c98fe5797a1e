@@ -2095,6 +2095,7 @@ function stripHtmlToText(html) {
     localStorage.setItem('zappy_cart_' + websiteId, JSON.stringify(cart));
     updateCartCount();
     renderCartDrawer(); // Keep drawer in sync
+    ensureCartDiscountDataLoadedForCart();
     // Keep the checkout order summary in sync with ANY cart mutation (remove /
     // qty change / add) that happens while the shopper is on the checkout page —
     // e.g. opening the cart drawer from checkout and removing an item. Without
@@ -2110,7 +2111,50 @@ function stripHtmlToText(html) {
     }
   }
   
-  function updateCartCount() {
+  
+
+  var cartDiscountDataLoadPromise = null;
+  var cartDiscountDataLoaded = false;
+  var cartDiscountCustomerTokenLoaded = '';
+  function ensureCartDiscountDataLoadedForCart() {
+    if (!Array.isArray(cart) || cart.length === 0) return Promise.resolve();
+    var customerToken = '';
+    try { customerToken = localStorage.getItem('zappy_customer_token_' + websiteId) || ''; } catch (e) {}
+    var customerDiscountInSync = customerToken
+      ? (cartDiscountCustomerTokenLoaded === customerToken)
+      : (!cartDiscountCustomerTokenLoaded);
+    if (cartDiscountDataLoaded && customerDiscountInSync) return Promise.resolve();
+    if (cartDiscountDataLoadPromise) return cartDiscountDataLoadPromise;
+
+    var tasks = [];
+    if (!cartDiscountDataLoaded) {
+      tasks.push(fetchSeasonalDiscounts());
+      tasks.push(fetchQuantityBundles());
+    }
+    if (customerToken && cartDiscountCustomerTokenLoaded !== customerToken) {
+      tasks.push(fetchCustomerDiscount());
+    } else if (!customerToken && cartDiscountCustomerTokenLoaded) {
+      tasks.push(fetchCustomerDiscount());
+    }
+
+    cartDiscountDataLoadPromise = Promise.allSettled(tasks).then(function() {
+      cartDiscountDataLoaded = true;
+      if (customerToken) {
+        cartDiscountCustomerTokenLoaded = customerToken;
+      } else {
+        cartDiscountCustomerTokenLoaded = '';
+      }
+      updateCartDrawerSummary();
+      if (typeof updateOrderTotals === 'function' &&
+          (document.getElementById('order-items') || document.getElementById('subtotal'))) {
+        updateOrderTotals();
+      }
+    }).finally(function() {
+      cartDiscountDataLoadPromise = null;
+    });
+    return cartDiscountDataLoadPromise;
+  }
+function updateCartCount() {
     // Count distinct cart entries (not sum of quantities) so unit-based items count as 1 each
     const count = cart.length;
     // Update all cart count badges (our injected one and any existing ones)
@@ -8748,11 +8792,13 @@ function stripHtmlToText(html) {
   function initAll() {
     tryMagicLoginFromUrl();
     updateCartCount();
-    loadProducts();
+    if (shouldLoadProductsOnBoot()) loadProducts();
     initFilterButtons();
     renderCart();
-    loadShippingMethods();
-    loadPaymentMethods();
+    if (shouldLoadCheckoutDataOnBoot()) {
+      loadShippingMethods();
+      loadPaymentMethods();
+    }
     updateOrderTotals();
     initSearch();
     initMobileSearch();
@@ -8762,14 +8808,57 @@ function stripHtmlToText(html) {
     initCartDrawer();
     initCheckout();
     initCoupon();
-    fetchSeasonalDiscounts();
-    fetchQuantityBundles();
-    fetchCustomerDiscount();
+    if (shouldLoadCartDiscountDataOnBoot()) {
+      fetchSeasonalDiscounts();
+      fetchQuantityBundles();
+    }
+    if (shouldFetchCustomerDiscountOnBoot()) {
+      fetchCustomerDiscount();
+    }
     initOrderSuccess();
     initLogin();
     initAccount();
     updateHeaderAuthState();
   }
+
+  function hasCartItemsOnBoot() {
+    return Array.isArray(cart) && cart.length > 0;
+  }
+
+  function shouldLoadProductsOnBoot() {
+    return !!document.getElementById('zappy-product-grid');
+  }
+
+  function shouldLoadCheckoutDataOnBoot() {
+    return !!(
+      document.getElementById('shipping-methods') ||
+      document.getElementById('payment-container') ||
+      document.getElementById('place-order-btn')
+    );
+  }
+
+  function hasProductPricingGridOnBoot() {
+    return !!(
+      document.getElementById('zappy-product-grid') ||
+      document.getElementById('zappy-featured-products') ||
+      document.getElementById('zappy-category-products') ||
+      document.getElementById('product-detail')
+    );
+  }
+
+  function shouldLoadCartDiscountDataOnBoot() {
+    return hasCartItemsOnBoot() ||
+      shouldLoadCheckoutDataOnBoot() ||
+      hasProductPricingGridOnBoot();
+  }
+
+  function shouldFetchCustomerDiscountOnBoot() {
+    var token = '';
+    try { token = localStorage.getItem('zappy_customer_token_' + websiteId) || ''; } catch (e) {}
+    if (!token) return false;
+    return shouldLoadCartDiscountDataOnBoot();
+  }
+
   
   // Add categories submenu to Products link in mobile menu
   function initMobileCategoriesSubmenu() {
@@ -8795,11 +8884,12 @@ function stripHtmlToText(html) {
     if (categories.length === 0) {
       const websiteId = window.ZAPPY_WEBSITE_ID;
       if (websiteId) {
-        fetch(buildApiUrl('/api/ecommerce/' + websiteId + '/categories'))
+        fetch(buildApiUrlWithLang('/api/ecommerce/storefront/categories?websiteId=' + websiteId))
           .then(function(r) { return r.json(); })
           .then(function(data) {
-            if (data.categories && data.categories.length > 0) {
-              categories = data.categories.map(function(c) {
+            var categoryRows = Array.isArray(data.data) ? data.data : (Array.isArray(data.categories) ? data.categories : []);
+            if (categoryRows.length > 0) {
+              categories = categoryRows.map(function(c) {
                 // Use SEO-friendly slug URL, fallback to id for backward compatibility
                 return { name: c.name, href: buildStorefrontPath('/category/' + (c.slug || c.id)) };
               });
@@ -18207,6 +18297,10 @@ function fixContrast(){
 /* ZAPPY_CUSTOMER_DISCOUNT_PRODUCT_DETAIL_RACE_V1 */
 
 /* ZAPPY_CUSTOMER_DISCOUNT_DELAYED_REFRESH_V1 */
+
+/* ZAPPY_ECOM_STARTUP_PERF_GUARDS_V2 */
+
+/* ZAPPY_ECOM_STARTUP_PERF_GUARDS_V1 */
 
 /* ZAPPY_CART_BUNDLE_DISCOUNT_V3 — non-stacking quantity bundle tiers */
 /* ZAPPY_CART_BUNDLE_SUMMARY_COLOR_V3 */
