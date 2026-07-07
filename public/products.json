@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-07T08:34:10.348Z",
+  "generated_at": "2026-07-07T08:37:50.795Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 49,
@@ -125,10 +125,10 @@
     },
     {
       "id": "04319c4a-6967-479e-9657-1d21977932ce",
-      "slug": "bvrg-chlyph-kvmh-148-sirdgs",
-      "name": "בורג׳ חליפה - קומה 148",
+      "slug": "bvrg-chlyph-burj-khalifa-a1j7td",
+      "name": "בורג׳ חליפה burj khalifa",
       "name_translations": {},
-      "description": "בורג׳ חליפה - קומה 148 (At The Top SKY). החל מ-550 ₪. החוויה האולטימטיבית — התצפית הגבוהה ביותר בבניין הגבוה בעולם.",
+      "description": "<p><br></p>",
       "short_description": null,
       "sku": null,
       "brand": null,
@@ -136,12 +136,16 @@
       "base_price": 550,
       "sale_price": null,
       "currency": "ILS",
-      "images": [],
+      "images": [
+        "https://dubai-plus.co.il/assets/image-product-image-1783413374416-tk78y6.webp"
+      ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/bvrg-chlyph-kvmh-148-sirdgs",
-      "categories": [],
-      "updated_at": "2026-07-06T21:22:36.566Z"
+      "url": "https://dubai-plus.co.il/product/bvrg-chlyph-burj-khalifa-a1j7td",
+      "categories": [
+        "מגדלים ותצפיות"
+      ],
+      "updated_at": "2026-07-07T08:37:18.685Z"
     },
     {
       "id": "c292810e-fc10-4f5c-8019-068074c6567d",
