@@ -174,9 +174,10 @@ https://dubai-plus.co.il/product/bvrg-chlyph-burj-khalifa-bgcvf8
 - Image: https://dubai-plus.co.il/assets/product-ai-fit-1783447685631-sdq9k8.webp
 
 ### אקווריום וגן חיות תת-ימי Dubai Aquarium And Underwater Zoo
-https://dubai-plus.co.il/product/akvvryvm-vgn-chyvt-tt-ymy-dubai-aquarium-and-underwater-zoo-3i8pgx
+https://dubai-plus.co.il/product/akvvryvm-vgn-chyvt-tt-ymy-dubai-aquarium-and-underwater-zoo-1u1ok1
 - Price: 137.00 ILS
 - Availability: In stock
+- Category: פארקים וגנים
 - Description: אקווריום דובאי הוא אחד האקווריומים הגדולים והמרשימים בעולם, הממוקם בתוך קניון דובאי. במהלך הביקור תוכלו לצעוד במנהרת זכוכית מרהיבה, לצפות באלפי בעלי חיים ימיים, כרישים וחתולי ים, וליהנות מחוויה מרתקת לכל המשפחה
 - Image: https://dubai-plus.co.il/assets/product-ai-fit-1783460041359-l8p8lc.webp
 
@@ -187,6 +188,14 @@ https://dubai-plus.co.il/product/avpnva-ym-jet-ski-p9x0ko
 - Category: שייט ופעילות ימית
 - Description: חוויית אופנוע ים מהנה ועוצמתית באחד החופים היפים ביותר של דובאי. ניתן לבחור יציאה ממרינת דובאי או מאזור בורג' אל ערב, עם אופנועי ים חדישים, ציוד בטיחות מלא והדרכה מקצועית. מתאים לזוגות, משפחות וחובבי אקסטרים – ללא צורך בניסיון קודם.
 - Image: https://dubai-plus.co.il/assets/product-1783430928197-llbwhi.webp
+
+### מופע דולפינים 
+https://dubai-plus.co.il/product/mvpa-dvlpynym-hnfdj9
+- Price: 89.00 ILS
+- Availability: In stock
+- Category: מופעים ומוזיאונים
+- Description: מופע הדולפינים בדובאי הוא אחת האטרקציות המשפחתיות האהובות בעיר. במהלך המופע תיהנו מדולפינים וכלבי ים המבצעים קפיצות מרהיבות, תרגילים מרשימים ומופעי בידור בליווי מוזיקה, תאורה ואפקטים מיוחדים. חוויה מהנה לכל המשפחה המתאימה לילדים ולמבוגרים כאחד.
+- Image: https://dubai-plus.co.il/assets/product-ai-fit-1783444275128-c6xqcx.webp
 
 ### טיסה בכדור פורח - 60 דקות
 https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-60-dkvt-j7o5vf
@@ -247,14 +256,6 @@ https://dubai-plus.co.il/product/kydznyh-yld-abjdae
 - Price: 179.00 ILS
 - Availability: In stock
 - Description: קידזניה דובאי - כרטיס ילד. עיר מיניאטורית אינטראקטיבית שבה ילדים יכולים לגלות עשרות מקצועות בצורה מהנה.
-
-### מופע דולפינים 
-https://dubai-plus.co.il/product/mvpa-dvlpynym-hnfdj9
-- Price: 89.00 ILS
-- Availability: In stock
-- Category: מופעים ומוזיאונים
-- Description: מופע הדולפינים בדובאי הוא אחת האטרקציות המשפחתיות האהובות בעיר. במהלך המופע תיהנו מדולפינים וכלבי ים המבצעים קפיצות מרהיבות, תרגילים מרשימים ומופעי בידור בליווי מוזיקה, תאורה ואפקטים מיוחדים. חוויה מהנה לכל המשפחה המתאימה לילדים ולמבוגרים כאחד.
-- Image: https://dubai-plus.co.il/assets/product-ai-fit-1783444275128-c6xqcx.webp
 
 ### גן הפרפרים
 https://dubai-plus.co.il/product/gn-hprprym-sniteu
