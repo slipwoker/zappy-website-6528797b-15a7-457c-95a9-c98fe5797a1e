@@ -108,7 +108,15 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 47**
+**Total active products: 48**
+
+### מופע לה פרל דובאי La Perle By Dragone
+https://dubai-plus.co.il/product/mvpa-lh-prl-dvbay-la-perle-by-dragone-229m2k
+- Price: 159.00 ILS
+- Availability: In stock
+- Category: מופעים ומוזיאונים
+- Description: מופע לה פרל (La Perle by Dragone) הוא אחד המופעים המרשימים והיוקרתיים ביותר בדובאי. שילוב יוצא דופן של אקרובטיקה, צלילות מגובה רב, אפקטים מיוחדים, מים, תאורה ומוזיקה – לחוויה בלתי נשכחת המתאימה לכל המשפחה.
+- Image: https://dubai-plus.co.il/assets/image-product-image-1783424333432-uwq2qe.webp
 
 ### יאכטה פרטית בדובאי
 https://dubai-plus.co.il/product/yakth-prtyt-bdvbay-yfqafp
