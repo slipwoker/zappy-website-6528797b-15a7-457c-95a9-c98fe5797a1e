@@ -108,7 +108,15 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 48**
+**Total active products: 49**
+
+### שייט הלוטוס – Lotus Mega Yacht Dinner Cruise
+https://dubai-plus.co.il/product/shyyt-hlvtvs-lotus-mega-yacht-dinner-cruise-unzev9
+- Price: 229.00 ILS
+- Availability: In stock
+- Category: שייט ופעילות ימית
+- Description: שייט הלוטוס – Lotus Mega Yacht Dinner Cruise חוויית ערב יוקרתית על אחת היאכטות המרשימות ביותר בדובאי. במהלך השייט תיהנו מארוחת בופה עשירה עם עמדות הכנה חיות, מופעי בידור, DJ חי, נופים מרהיבים של קו החוף של דובאי ואווירה בלתי נשכחת. השייט יוצא ממרינת דובאי ונמשך כ-3 שעות.
+- Image: https://dubai-plus.co.il/assets/product-1783426028874-y4vimu.webp
 
 ### מופע לה פרל דובאי La Perle By Dragone
 https://dubai-plus.co.il/product/mvpa-lh-prl-dvbay-la-perle-by-dragone-229m2k
