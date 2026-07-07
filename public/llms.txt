@@ -108,7 +108,7 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 28**
+**Total active products: 27**
 
 ### שייט הלוטוס – Lotus Mega Yacht Dinner Cruise
 https://dubai-plus.co.il/product/shyyt-hlvtvs-lotus-mega-yacht-dinner-cruise-unzev9
@@ -177,12 +177,6 @@ https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-60-dkvt-j7o5vf
 - Price: 650.00 ILS
 - Availability: In stock
 - Description: טיסה בכדור פורח מעל דובאי - 60 דקות מלאות. 650 ₪. חוויה רומנטית ומרהיבה עם נוף פנורמי על דובאי.
-
-### קפיצה ממסוק מעל הפאלם
-https://dubai-plus.co.il/product/kpytsh-mmsvk-mal-hpalm-dr44gj
-- Price: 3100.00 ILS
-- Availability: In stock
-- Description: קפיצת סקיידייב ממסוק מעל אי הדקלים - Palm Drop Zone. 3,100 ₪. החוויה האקסטרימית האולטימטיבית בדובאי!
 
 ### נהיגה עצמית במדבר
 https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv
