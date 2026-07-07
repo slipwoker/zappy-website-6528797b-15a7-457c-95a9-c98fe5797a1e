@@ -412,9 +412,12 @@
 
   <script>
     window.ZAPPY_WEBSITE_ID = "6528797b-15a7-457c-95a9-c98fe5797a1e";
-    // Preview pages are served by the Zappy server itself (localhost in dev), so use that base.
+    // Preview pages are served by the current Zappy origin, which may be a
+    // remote tunnel/QA host rather than this server's baked SERVER_URL.
     // Deployed sites are static and must call the public Zappy API (never localhost).
-    window.ZAPPY_API_BASE = "https://api.zappy5.com";
+    window.ZAPPY_API_BASE = (window.location.pathname.includes('/preview'))
+      ? window.location.origin
+      : "https://api.zappy5.com";
   </script>
   
     <div class="mobile-search-panel" id="mobile-search-panel">
@@ -454,7 +457,7 @@
       <a href="/products">
         מוצרים
         <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M6 9l6 6 6-6"/>
+          <path d="M6 9l6 6 6-6"></path>
         </svg>
       </a>
       <ul class="sub-menu" id="zappy-nav-category-links">
@@ -462,6 +465,9 @@
         <!-- Categories will be loaded dynamically -->
       </ul>
     </li>
+  
+
+    
   
 
     
@@ -554,6 +560,22 @@
     <div class="empty-cart">העגלה ריקה</div>
   </div>
   <div class="cart-drawer-footer">
+    <div class="cart-drawer-subtotal zappy-cart-summary-row">
+      <span>סכום ביניים:</span>
+      <span id="cart-drawer-subtotal">₪0</span>
+    </div>
+    <div class="cart-drawer-bundle-discount zappy-cart-summary-row zappy-cart-discount-row">
+      <span>הנחת חבילה:</span>
+      <span id="cart-drawer-bundle-discount">-₪0</span>
+    </div>
+    <div class="cart-drawer-seasonal-discount zappy-cart-summary-row zappy-cart-discount-row">
+      <span>הנחה עונתית:</span>
+      <span id="cart-drawer-seasonal-discount">-₪0</span>
+    </div>
+    <div class="cart-drawer-customer-discount zappy-cart-summary-row zappy-cart-discount-row">
+      <span>הנחת לקוח:</span>
+      <span id="cart-drawer-customer-discount">-₪0</span>
+    </div>
     <div class="cart-drawer-total">
       <span>סה"כ:</span>
       <span id="cart-drawer-total">₪0</span>
