@@ -271,10 +271,11 @@ https://dubai-plus.co.il/product/kydznyh-mbvgr-usaq3b
 - Description: קידזניה דובאי - כרטיס מבוגר. עיר מיניאטורית אינטראקטיבית שבה ילדים ומבוגרים יכולים לגלות עשרות מקצועות בצורה מהנה.
 
 ### מופע דולפינים 
-https://dubai-plus.co.il/product/mvpa-dvlpynym-ycr8f5
+https://dubai-plus.co.il/product/mvpa-dvlpynym-zw90k8
 - Price: 89.00 ILS
 - Availability: In stock
-- Description: מופע דולפינים בדובאי. צפו בדולפינים המדהימים בהופעה בלתי נשכחת — חוויה מרגשת לכל המשפחה.
+- Description: מופע הדולפינים בדובאי הוא אחת האטרקציות המשפחתיות האהובות בעיר. במהלך המופע תיהנו מדולפינים וכלבי ים המבצעים קפיצות מרהיבות, תרגילים מרשימים ומופעי בידור בליווי מוזיקה, תאורה ואפקטים מיוחדים. חוויה מהנה לכל המשפחה המתאימה לילדים ולמבוגרים כאחד.
+- Image: https://dubai-plus.co.il/assets/product-ai-fit-1783444275128-c6xqcx.webp
 
 ### גן הפרפרים
 https://dubai-plus.co.il/product/gn-hprprym-0ykp0i
