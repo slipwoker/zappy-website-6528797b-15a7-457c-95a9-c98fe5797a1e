@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-07T09:43:51.757Z",
+  "generated_at": "2026-07-07T11:26:53.876Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 48,
@@ -229,10 +229,10 @@
     },
     {
       "id": "2b0d5b98-704e-42d5-b0df-d53492e396d9",
-      "slug": "mvpa-lh-prl-9x226t",
-      "name": "מופע לה פרל",
+      "slug": "mvpa-lh-prl-johbna",
+      "name": "מופע לה פרל ",
       "name_translations": {},
-      "description": "מופע לה פרל - La Perle by Dragone. החל מ-265 ₪. מופע אקרובטיקה ומים מרהיב בתיאטרון הייחודי של דובאי.",
+      "description": "<p>מופע לה פרל - La Perle by Dragone. החל מ-265 ₪. מופע אקרובטיקה ומים מרהיב בתיאטרון הייחודי של דובאי.</p>",
       "short_description": null,
       "sku": null,
       "brand": null,
@@ -243,9 +243,9 @@
       "images": [],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/mvpa-lh-prl-9x226t",
+      "url": "https://dubai-plus.co.il/product/mvpa-lh-prl-johbna",
       "categories": [],
-      "updated_at": "2026-07-06T21:22:36.566Z"
+      "updated_at": "2026-07-07T11:26:21.838Z"
     },
     {
       "id": "dfc0c39b-4628-4dbf-929b-1ed68a71c1ce",
