@@ -1,9 +1,9 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-07T14:30:38.018Z",
+  "generated_at": "2026-07-07T14:31:47.212Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
-  "count": 47,
+  "count": 45,
   "products": [
     {
       "id": "993c441a-d7ec-4c09-945d-42f8b1167369",
@@ -660,26 +660,6 @@
       "updated_at": "2026-07-07T13:36:29.862Z"
     },
     {
-      "id": "6a7afae3-3589-4b03-87d6-1f3b8798ef3f",
-      "slug": "spary-mdbr-wa3gkl",
-      "name": "ספארי מדבר",
-      "name_translations": {},
-      "description": "טיול ספארי מדבר בדובאי. נסיעת ג׳יפ על גבעות חול זהובות, רכיבה על גמלים, ארוחת ערב בדואית מסורתית תחת כוכבים.",
-      "short_description": null,
-      "sku": null,
-      "brand": null,
-      "price": 49,
-      "base_price": 49,
-      "sale_price": null,
-      "currency": "ILS",
-      "images": [],
-      "in_stock": true,
-      "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/spary-mdbr-wa3gkl",
-      "categories": [],
-      "updated_at": "2026-07-07T13:36:29.862Z"
-    },
-    {
       "id": "9c6d9d12-9607-4aa4-9406-8d4f6ad270cc",
       "slug": "glvbl-vylg-krtys-yvmy-l0ard7",
       "name": "גלובל וילג - כרטיס יומי",
@@ -780,26 +760,6 @@
       "in_stock": true,
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/shyyt-4-shavt-msybh-varvchh-21000100-gqli8d",
-      "categories": [],
-      "updated_at": "2026-07-07T13:36:29.862Z"
-    },
-    {
-      "id": "5bdb4488-b02c-4cda-ae0d-760f126d9c02",
-      "slug": "yakth-prtyt-50-rgl-ad-17-anshym-9hox3x",
-      "name": "יאכטה פרטית 50 רגל — עד 17 אנשים",
-      "name_translations": {},
-      "description": "יאכטה פרטית בגודל 50 רגל, עד 17 אנשים. מחיר לשעה: 1,250 AED. שייט פרטי יוקרתי בדובאי מרינה — ללא שיתוף, לכם בלבד.",
-      "short_description": null,
-      "sku": null,
-      "brand": null,
-      "price": 1250,
-      "base_price": 1250,
-      "sale_price": null,
-      "currency": "ILS",
-      "images": [],
-      "in_stock": true,
-      "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/yakth-prtyt-50-rgl-ad-17-anshym-9hox3x",
       "categories": [],
       "updated_at": "2026-07-07T13:36:29.862Z"
     },

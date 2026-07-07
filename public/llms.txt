@@ -108,7 +108,7 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 47**
+**Total active products: 45**
 
 ### שייט הלוטוס – Lotus Mega Yacht Dinner Cruise
 https://dubai-plus.co.il/product/shyyt-hlvtvs-lotus-mega-yacht-dinner-cruise-unzev9
@@ -312,12 +312,6 @@ https://dubai-plus.co.il/product/msgrt-dvbay-hr9hfv
 - Availability: In stock
 - Description: מסגרת דובאי - Dubai Frame. מבנה אדריכלי מרשים בצורת מסגרת ענקית המציע נוף פנורמי ייחודי לדובאי הישנה והחדשה.
 
-### ספארי מדבר
-https://dubai-plus.co.il/product/spary-mdbr-wa3gkl
-- Price: 49.00 ILS
-- Availability: In stock
-- Description: טיול ספארי מדבר בדובאי. נסיעת ג׳יפ על גבעות חול זהובות, רכיבה על גמלים, ארוחת ערב בדואית מסורתית תחת כוכבים.
-
 ### גלובל וילג - כרטיס יומי
 https://dubai-plus.co.il/product/glvbl-vylg-krtys-yvmy-l0ard7
 - Price: 25.00 ILS
@@ -350,12 +344,6 @@ https://dubai-plus.co.il/product/shyyt-4-shavt-msybh-varvchh-21000100-gqli8d
 - Availability: In stock
 - SKU: PARTY-CRUISE-4H
 - Description: שייט לילה 4 שעות עם מסיבה וארוחה — משעה 21:00 עד 01:00. מחיר: גבר 360 AED | אישה 290 AED. כולל ארוחה, מוזיקה ואווירה בלתי נשכחת על המים.
-
-### יאכטה פרטית 50 רגל — עד 17 אנשים
-https://dubai-plus.co.il/product/yakth-prtyt-50-rgl-ad-17-anshym-9hox3x
-- Price: 1250.00 ILS
-- Availability: In stock
-- Description: יאכטה פרטית בגודל 50 רגל, עד 17 אנשים. מחיר לשעה: 1,250 AED. שייט פרטי יוקרתי בדובאי מרינה — ללא שיתוף, לכם בלבד.
 
 ### יאכטה פרטית 48 רגל — עד 15 אנשים
 https://dubai-plus.co.il/product/yakth-prtyt-48-rgl-ad-15-anshym-70mvu4
