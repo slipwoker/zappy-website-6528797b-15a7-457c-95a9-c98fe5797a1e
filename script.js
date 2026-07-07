@@ -15262,6 +15262,30 @@ function fixContrast(){
 })();
 
 
+/* ZAPPY_SERVICE_BOOKING_DATE_ONLY_SUMMARY_V1 */
+;(function() {
+  var previous = window.zappyBookingSummary;
+  window.zappyBookingSummary = function(item) {
+    if (!item || !item.booking || !item.booking.startsAt) return '';
+    var b = item.booking;
+    var dateOnly = !!b.dateOnly || !b.endsAt;
+    if (!dateOnly) {
+      return typeof previous === 'function' ? previous(item) : '';
+    }
+    try {
+      return new Intl.DateTimeFormat(undefined, {
+        timeZone: b.timezone || undefined,
+        weekday: 'short',
+        month: 'short',
+        day: 'numeric'
+      }).format(new Date(b.startsAt));
+    } catch (e) {
+      try { return new Date(b.startsAt).toLocaleDateString(); } catch (e2) { return ''; }
+    }
+  };
+})();
+
+
 /* ZAPPY_PRODUCTS_MENU_LABEL_LANG_GUARD */
 (function(){
   var RTL_RE = /[\u0590-\u05FF\u0600-\u06FF]/;
