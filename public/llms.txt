@@ -172,17 +172,17 @@ https://dubai-plus.co.il/product/bvrg-chlyph-burj-khalifa-uge813
 - Category: מגדלים ותצפיות
 - Image: https://dubai-plus.co.il/assets/image-product-image-1783413374416-tk78y6.webp
 
-### קפיצה ממסוק מעל הפאלם
-https://dubai-plus.co.il/product/kpytsh-mmsvk-mal-hpalm-dr44gj
-- Price: 3100.00 ILS
-- Availability: In stock
-- Description: קפיצת סקיידייב ממסוק מעל אי הדקלים - Palm Drop Zone. 3,100 ₪. החוויה האקסטרימית האולטימטיבית בדובאי!
-
 ### טיסה בכדור פורח - 60 דקות
 https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-60-dkvt-j7o5vf
 - Price: 650.00 ILS
 - Availability: In stock
 - Description: טיסה בכדור פורח מעל דובאי - 60 דקות מלאות. 650 ₪. חוויה רומנטית ומרהיבה עם נוף פנורמי על דובאי.
+
+### קפיצה ממסוק מעל הפאלם
+https://dubai-plus.co.il/product/kpytsh-mmsvk-mal-hpalm-dr44gj
+- Price: 3100.00 ILS
+- Availability: In stock
+- Description: קפיצת סקיידייב ממסוק מעל אי הדקלים - Palm Drop Zone. 3,100 ₪. החוויה האקסטרימית האולטימטיבית בדובאי!
 
 ### נהיגה עצמית במדבר
 https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv
@@ -239,7 +239,7 @@ https://dubai-plus.co.il/product/tyvl-mdbr-shkyah-bvkr-mkvtsr-pdgbye
 - Description: טיול מדבר שקיעה או בוקר מקוצר. נסיעת ג׳יפ בדיונות הזהובות, שקיעה מרהיבה, אווירה בדואית אותנטית.
 
 ### אופנוע ים זוגי - 30 דקות
-https://dubai-plus.co.il/product/avpnva-ym-zvgy-30-dkvt-6579ki
+https://dubai-plus.co.il/product/avpnva-ym-zvgy-30-dkvt-8atsra
 - Price: 280.00 ILS
 - Availability: In stock
 - Description: חוויית אופנוע ים מהנה ועוצמתית באחד החופים היפים ביותר של דובאי. ניתן לבחור יציאה ממרינת דובאי או מאזור בורג' אל ערב, עם אופנועי ים חדישים, ציוד בטיחות מלא והדרכה מקצועית. מתאים לזוגות, משפחות וחובבי אקסטרים – ללא צורך בניסיון קודם.
