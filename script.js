@@ -1512,6 +1512,8 @@ window.onload = function() {
 ;
 
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -2114,12 +2116,10 @@ function stripHtmlToText(html) {
       try { updateOrderTotals(); } catch (e) {}
     }
   }
-  
-  
 
-  var cartDiscountDataLoadPromise = null;
-  var cartDiscountDataLoaded = false;
-  var cartDiscountCustomerTokenLoaded = '';
+  let cartDiscountDataLoadPromise = null;
+  let cartDiscountDataLoaded = false;
+  let cartDiscountCustomerTokenLoaded = '';
   function ensureCartDiscountDataLoadedForCart() {
     if (!Array.isArray(cart) || cart.length === 0) return Promise.resolve();
     var customerToken = '';
@@ -2158,7 +2158,8 @@ function stripHtmlToText(html) {
     });
     return cartDiscountDataLoadPromise;
   }
-function updateCartCount() {
+  
+  function updateCartCount() {
     // Count distinct cart entries (not sum of quantities) so unit-based items count as 1 each
     const count = cart.length;
     // Update all cart count badges (our injected one and any existing ones)
@@ -5740,6 +5741,8 @@ function updateCartCount() {
       logoutBtn.addEventListener('click', function() {
         localStorage.removeItem(tokenKey);
         localStorage.removeItem(emailKey);
+        cartDiscountCustomerTokenLoaded = '';
+        if (typeof fetchCustomerDiscount === 'function') fetchCustomerDiscount();
         showLoggedOut();
       });
     }
@@ -8862,7 +8865,6 @@ function updateCartCount() {
     if (!token) return false;
     return shouldLoadCartDiscountDataOnBoot();
   }
-
   
   // Add categories submenu to Products link in mobile menu
   function initMobileCategoriesSubmenu() {
@@ -18301,10 +18303,6 @@ function fixContrast(){
 /* ZAPPY_CUSTOMER_DISCOUNT_PRODUCT_DETAIL_RACE_V1 */
 
 /* ZAPPY_CUSTOMER_DISCOUNT_DELAYED_REFRESH_V1 */
-
-/* ZAPPY_ECOM_STARTUP_PERF_GUARDS_V2 */
-
-/* ZAPPY_ECOM_STARTUP_PERF_GUARDS_V1 */
 
 /* ZAPPY_CART_BUNDLE_DISCOUNT_V3 — non-stacking quantity bundle tiers */
 /* ZAPPY_CART_BUNDLE_SUMMARY_COLOR_V3 */
