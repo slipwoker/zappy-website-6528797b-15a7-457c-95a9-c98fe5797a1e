@@ -4,7 +4,7 @@
     <title>Sarah laloum tourism llc</title>
     <link>https://dubai-plus.co.il</link>
     <description>Product feed for Sarah laloum tourism llc</description>
-    <lastBuildDate>Wed, 08 Jul 2026 12:20:40 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 08 Jul 2026 12:29:29 GMT</lastBuildDate>
     <item>
       <g:id>fa6b9894-6d36-465c-ae2b-4c7592658fb8</g:id>
       <g:title>שייט הלוטוס – Lotus Mega Yacht Dinner Cruise - שייט ערב + ארוחה / מבוגר</g:title>
@@ -1066,17 +1066,6 @@
       <g:product_type>אקסטרים וטיול מדבר</g:product_type>
     </item>
     <item>
-      <g:id>a1426ada-b585-459e-98ee-c5050e683b3e</g:id>
-      <g:title>נהיגה עצמית במדבר</g:title>
-      <g:description>נהיגה עצמית במדבר דובאי. החל מ-150 ₪. חוויית נהיגה עצמאית בדיונות המדבר הזהובות.</g:description>
-      <g:link>https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv</g:link>
-      <g:availability>in_stock</g:availability>
-      <g:price>150.00 ILS</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Sarah laloum tourism llc</g:brand>
-      <g:identifier_exists>no</g:identifier_exists>
-    </item>
-    <item>
       <g:id>f9370460-56e4-40f8-b5de-e2ef7c47b6b1</g:id>
       <g:title>מוזיאון העתיד MUSEUM OF THE FUTURE</g:title>
       <g:description>מוזיאון העתיד הוא אחד מסמליה המרשימים של דובאי ואחת האטרקציות החדשניות בעולם. המוזיאון משלב טכנולוגיה, בינה מלאכותית, חקר החלל, קיימות וחדשנות בחוויה אינטראקטיבית מרהיבה המתאימה לכל המשפחה.</g:description>
@@ -1088,6 +1077,17 @@
       <g:brand>Sarah laloum tourism llc</g:brand>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>מופעים ומוזיאונים</g:product_type>
+    </item>
+    <item>
+      <g:id>a1426ada-b585-459e-98ee-c5050e683b3e</g:id>
+      <g:title>נהיגה עצמית במדבר</g:title>
+      <g:description>נהיגה עצמית במדבר דובאי. החל מ-150 ₪. חוויית נהיגה עצמאית בדיונות המדבר הזהובות.</g:description>
+      <g:link>https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv</g:link>
+      <g:availability>in_stock</g:availability>
+      <g:price>150.00 ILS</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Sarah laloum tourism llc</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>406f9578-43eb-413c-b142-6448f84a36af</g:id>

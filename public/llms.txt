@@ -249,12 +249,6 @@ https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-bmdbr-1q0621
 - Description: כדור פורח במדבר דובאי הוא אחת החוויות היוקרתיות והמרהיבות ביותר באמירויות. עם הזריחה תמריאו מעל דיונות הזהב של המדבר ותיהנו מנופים עוצרי נשימה של המדבר האינסופי, עדרי אוריקס וגמלים באווירה שקטה ובלתי נשכחת. הטיול כולל איסוף והחזרה מהמלון איסוף משוער 03-04 בבוקר
 - Image: https://dubai-plus.co.il/assets/product-1783512352004-ipm6zy.webp
 
-### נהיגה עצמית במדבר
-https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv
-- Price: 150.00 ILS
-- Availability: In stock
-- Description: נהיגה עצמית במדבר דובאי. החל מ-150 ₪. חוויית נהיגה עצמאית בדיונות המדבר הזהובות.
-
 ### מוזיאון העתיד MUSEUM OF THE FUTURE
 https://dubai-plus.co.il/product/mvzyavn-hatyd-museum-of-the-future-ns97zs
 - Price: 150.00 ILS
@@ -262,6 +256,12 @@ https://dubai-plus.co.il/product/mvzyavn-hatyd-museum-of-the-future-ns97zs
 - Category: מופעים ומוזיאונים
 - Description: מוזיאון העתיד הוא אחד מסמליה המרשימים של דובאי ואחת האטרקציות החדשניות בעולם. המוזיאון משלב טכנולוגיה, בינה מלאכותית, חקר החלל, קיימות וחדשנות בחוויה אינטראקטיבית מרהיבה המתאימה לכל המשפחה.
 - Image: https://dubai-plus.co.il/assets/product-ai-fit-1783510125521-cj2nzq.webp
+
+### נהיגה עצמית במדבר
+https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv
+- Price: 150.00 ILS
+- Availability: In stock
+- Description: נהיגה עצמית במדבר דובאי. החל מ-150 ₪. חוויית נהיגה עצמאית בדיונות המדבר הזהובות.
 
 ### תצפית סקיי וויו + מגלשה שקופה
 https://dubai-plus.co.il/product/ttspyt-skyy-vvyv-mglshh-shkvph-jvxrt1
