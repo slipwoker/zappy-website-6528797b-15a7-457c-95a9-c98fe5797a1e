@@ -131,7 +131,7 @@ Information about WCAG compliance and accessibility features.
 **Total active products: 27**
 
 ### שייט הלוטוס – Lotus Mega Yacht Dinner Cruise
-https://dubai-plus.co.il/product/shyyt-hlvtvs-lotus-mega-yacht-dinner-cruise-unzev9
+https://dubai-plus.co.il/product/shyyt-hlvtvs-lotus-mega-yacht-dinner-cruise-wiu91z
 - Price: 229.00 ILS
 - Availability: In stock
 - Category: שייט ופעילות ימית
@@ -218,9 +218,10 @@ https://dubai-plus.co.il/product/mvpa-dvlpynym-hnfdj9
 - Image: https://dubai-plus.co.il/assets/product-ai-fit-1783444275128-c6xqcx.webp
 
 ### סקי דובאי
-https://dubai-plus.co.il/product/sky-dvbay-3vy3fp
+https://dubai-plus.co.il/product/sky-dvbay-4h3jmz
 - Price: 230.00 ILS
 - Availability: In stock
+- Category: פארקים וגנים
 - Description: סקי דובאי הוא אתר הסקי המקורה הראשון במזרח התיכון, הממוקם בתוך קניון Mall of the Emirates. המקום מציע חוויית חורף אמיתית לאורך כל השנה עם מסלולי סקי וסנובורד, פארק שלג ענק, רכבל, מתקני שלג, מפגש עם פינגווינים ושלל אטרקציות לכל המשפחה. ניתן לבחור בין מספר סוגי כרטיסים – החל מכניסה לפארק השלג ועד חוויית פרימיום הכוללת מפגש עם פינגווינים וגלישה
 - Image: https://dubai-plus.co.il/assets/product-ai-fit-1783499540562-tqu82f.webp
 
