@@ -317,12 +317,13 @@ https://dubai-plus.co.il/product/glvbl-vylg-krtys-yvmy-wxh8fp
 - Availability: Out of stock
 - Description: גלובל וילג דובאי - כרטיס כניסה Any Day. מסע תרבותי סביב העולם במקום אחד — ביתנים, מסעדות, בידור ואטרקציות מ-90 מדינות.
 
-### פארק המים אטלנטיס
-https://dubai-plus.co.il/product/park-hmym-atlntys-eucwn6
-- Price: 90.00 ILS (sale, was 350.00 ILS)
+### פארק המים אטלנטיס  Aquaventure Waterpark
+https://dubai-plus.co.il/product/park-hmym-atlntys-aquaventure-waterpark-mqykj5
+- Price: 185.00 ILS
 - Availability: In stock
-- Description: פארק המים אטלנטיס דובאי
-- Image: https://dubai-plus.co.il/assets/image-product-image-1779092742147-66vybs.webp
+- Category: פארקים וגנים
+- Description: פארק המים אטלנטיס – Aquaventure Waterpark הוא פארק המים הגדול ביותר בעולם ומציע יום מלא באדרנלין, מגלשות ענק, נהרות אבובים, חוף פרטי ואטרקציות לכל המשפחה. חוויה מושלמת לילדים, זוגות ומבוגרים באחד הפארקים הטובים בעולם.
+- Image: https://dubai-plus.co.il/assets/product-1783521351890-9kxnks.webp
 
 ---
 
