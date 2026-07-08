@@ -197,6 +197,13 @@ https://dubai-plus.co.il/product/mvpa-dvlpynym-hnfdj9
 - Description: מופע הדולפינים בדובאי הוא אחת האטרקציות המשפחתיות האהובות בעיר. במהלך המופע תיהנו מדולפינים וכלבי ים המבצעים קפיצות מרהיבות, תרגילים מרשימים ומופעי בידור בליווי מוזיקה, תאורה ואפקטים מיוחדים. חוויה מהנה לכל המשפחה המתאימה לילדים ולמבוגרים כאחד.
 - Image: https://dubai-plus.co.il/assets/product-ai-fit-1783444275128-c6xqcx.webp
 
+### סקי דובאי
+https://dubai-plus.co.il/product/sky-dvbay-3vy3fp
+- Price: 230.00 ILS
+- Availability: In stock
+- Description: סקי דובאי הוא אתר הסקי המקורה הראשון במזרח התיכון, הממוקם בתוך קניון Mall of the Emirates. המקום מציע חוויית חורף אמיתית לאורך כל השנה עם מסלולי סקי וסנובורד, פארק שלג ענק, רכבל, מתקני שלג, מפגש עם פינגווינים ושלל אטרקציות לכל המשפחה. ניתן לבחור בין מספר סוגי כרטיסים – החל מכניסה לפארק השלג ועד חוויית פרימיום הכוללת מפגש עם פינגווינים וגלישה
+- Image: https://dubai-plus.co.il/assets/product-ai-fit-1783499540562-tqu82f.webp
+
 ### טיסה בכדור פורח - 60 דקות
 https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-60-dkvt-j7o5vf
 - Price: 650.00 ILS
@@ -208,13 +215,6 @@ https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv
 - Price: 150.00 ILS
 - Availability: In stock
 - Description: נהיגה עצמית במדבר דובאי. החל מ-150 ₪. חוויית נהיגה עצמאית בדיונות המדבר הזהובות.
-
-### סקי דובאי
-https://dubai-plus.co.il/product/sky-dvbay-3y5q0n
-- Price: 230.00 ILS
-- Availability: In stock
-- Description: סקי דובאי הוא אתר הסקי המקורה הראשון במזרח התיכון, הממוקם בתוך קניון Mall of the Emirates. המקום מציע חוויית חורף אמיתית לאורך כל השנה עם מסלולי סקי וסנובורד, פארק שלג ענק, רכבל, מתקני שלג, מפגש עם פינגווינים ושלל אטרקציות לכל המשפחה. ניתן לבחור בין מספר סוגי כרטיסים – החל מכניסה לפארק השלג ועד חוויית פרימיום הכוללת מפגש עם פינגווינים וגלישה
-- Image: https://dubai-plus.co.il/assets/product-ai-fit-1783498897095-dbh36a.webp
 
 ### פארק IMG
 https://dubai-plus.co.il/product/park-img-sdl1p4
