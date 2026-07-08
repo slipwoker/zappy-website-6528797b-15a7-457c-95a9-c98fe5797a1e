@@ -128,7 +128,12 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 27**
+**Total active products: 28**
+
+### מוזיאון OLIOLI
+https://dubai-plus.co.il/product/mvzyavn-olioli-4ers5o
+- Price: 0.00 ILS
+- Availability: In stock
 
 ### כוכב הלכת הירוק
 https://dubai-plus.co.il/product/kvkb-hlkt-hyrvk-61q9cz

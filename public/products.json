@@ -1,10 +1,30 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-08T17:36:57.684Z",
+  "generated_at": "2026-07-08T17:37:38.362Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
-  "count": 27,
+  "count": 28,
   "products": [
+    {
+      "id": "a0f38ed9-c444-4f7f-8b0c-1d79d9e324c8",
+      "slug": "mvzyavn-olioli-4ers5o",
+      "name": "מוזיאון OLIOLI",
+      "name_translations": {},
+      "description": "",
+      "short_description": null,
+      "sku": null,
+      "brand": null,
+      "price": 0,
+      "base_price": 0,
+      "sale_price": null,
+      "currency": "ILS",
+      "images": [],
+      "in_stock": true,
+      "stock_status": "in_stock",
+      "url": "https://dubai-plus.co.il/product/mvzyavn-olioli-4ers5o",
+      "categories": [],
+      "updated_at": "2026-07-08T17:37:06.484Z"
+    },
     {
       "id": "858e0306-35dd-44d1-a44a-400b8a6016b0",
       "slug": "kvkb-hlkt-hyrvk-61q9cz",
