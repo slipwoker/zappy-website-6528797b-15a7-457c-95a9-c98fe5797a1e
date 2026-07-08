@@ -4,7 +4,7 @@
     <title>Sarah laloum tourism llc</title>
     <link>https://dubai-plus.co.il</link>
     <description>Product feed for Sarah laloum tourism llc</description>
-    <lastBuildDate>Wed, 08 Jul 2026 16:56:12 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 08 Jul 2026 17:24:08 GMT</lastBuildDate>
     <item>
       <g:id>fa6b9894-6d36-465c-ae2b-4c7592658fb8</g:id>
       <g:title>שייט הלוטוס – Lotus Mega Yacht Dinner Cruise - שייט ערב + ארוחה / מבוגר</g:title>
@@ -1709,12 +1709,27 @@
       <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
-      <g:id>d1945946-37fd-42d4-a2b7-4a799a47af9e</g:id>
-      <g:title>מוזיאון האשליות</g:title>
-      <g:description>מוזיאון האשליות דובאי. חוויה אינטראקטיבית מרתקת עם אשליות אופטיות, חדרי מראות ותערוכות מדהימות.</g:description>
-      <g:link>https://dubai-plus.co.il/product/mvzyavn-hashlyvt-5cp1f0</g:link>
+      <g:id>8cc8e817-8c2c-45ac-8e94-bc1304cfb114</g:id>
+      <g:title>מוזיאון האשליות - מבוגר</g:title>
+      <g:description>מוזיאון האשליות דובאי (Museum of Illusions Dubai) הוא אחת האטרקציות הייחודיות והמהנות ביותר בעיר. המוזיאון מציע עשרות אשליות אופטיות, חדרים אינטראקטיביים, משחקי חשיבה ותצוגות מרתקות שישאירו אתכם מופתעים – וחיוך גדול על הפנים. חוויה מושלמת למשפחות, זוגות וחובבי צילום.</g:description>
+      <g:link>https://dubai-plus.co.il/product/mvzyavn-hashlyvt-kf6iih</g:link>
+      <g:item_group_id>d1945946-37fd-42d4-a2b7-4a799a47af9e</g:item_group_id>
+      <g:image_link>https://dubai-plus.co.il/assets/product-1783530951541-ewzoam.webp</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>79.00 ILS</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Sarah laloum tourism llc</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+    </item>
+    <item>
+      <g:id>d8cb97b7-97c0-436a-a44a-d19701793494</g:id>
+      <g:title>מוזיאון האשליות - ילד</g:title>
+      <g:description>מוזיאון האשליות דובאי (Museum of Illusions Dubai) הוא אחת האטרקציות הייחודיות והמהנות ביותר בעיר. המוזיאון מציע עשרות אשליות אופטיות, חדרים אינטראקטיביים, משחקי חשיבה ותצוגות מרתקות שישאירו אתכם מופתעים – וחיוך גדול על הפנים. חוויה מושלמת למשפחות, זוגות וחובבי צילום.</g:description>
+      <g:link>https://dubai-plus.co.il/product/mvzyavn-hashlyvt-kf6iih</g:link>
+      <g:item_group_id>d1945946-37fd-42d4-a2b7-4a799a47af9e</g:item_group_id>
+      <g:image_link>https://dubai-plus.co.il/assets/product-1783530951541-ewzoam.webp</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>49.00 ILS</g:price>
       <g:condition>new</g:condition>
       <g:brand>Sarah laloum tourism llc</g:brand>
       <g:identifier_exists>no</g:identifier_exists>
