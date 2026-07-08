@@ -131,9 +131,10 @@ Information about WCAG compliance and accessibility features.
 **Total active products: 27**
 
 ### כוכב הלכת הירוק
-https://dubai-plus.co.il/product/kvkb-hlkt-hyrvk-e3zyam
+https://dubai-plus.co.il/product/kvkb-hlkt-hyrvk-w3k3bm
 - Price: 0.00 ILS
 - Availability: In stock
+- Category: פארקים וגנים
 - Description: The Green Planet Dubai הוא יער גשם טרופי מקורה בלב דובאי, שבו חיים למעלה מ-3,000 בעלי חיים וצמחים אקזוטיים. זוהי חוויה ייחודית לכל המשפחה המשלבת טבע, חינוך והרפתקה באחד המקומות המיוחדים ביותר בעיר.
 - Image: https://dubai-plus.co.il/assets/product-1783531803994-cid689.webp
 
