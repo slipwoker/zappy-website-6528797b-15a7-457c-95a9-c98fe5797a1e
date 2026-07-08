@@ -281,17 +281,27 @@ https://dubai-plus.co.il/product/ttspyt-hdklym-the-view-at-the-palm-8r3pv8
 - Description: The View at The Palm היא אחת מנקודות התצפית היפות ביותר בדובאי, הממוקמת בגובה של כ-240 מטר בראש מגדל Palm Tower. מהתצפית נשקף נוף פנורמי מרהיב של אי הדקלים, מלון אטלנטיס, המרינה, קו החוף והמפרץ הערבי.
 - Image: https://dubai-plus.co.il/assets/product-1783518884326-y5yane.webp
 
+### פארק המים אטלנטיס  Aquaventure Waterpark
+https://dubai-plus.co.il/product/park-hmym-atlntys-aquaventure-waterpark-wsjn1y
+- Price: 185.00 ILS
+- Availability: In stock
+- Category: פארקים וגנים
+- Description: פארק המים אטלנטיס – Aquaventure Waterpark הוא פארק המים הגדול ביותר בעולם ומציע יום מלא באדרנלין, מגלשות ענק, נהרות אבובים, חוף פרטי ואטרקציות לכל המשפחה. חוויה מושלמת לילדים, זוגות ומבוגרים באחד הפארקים הטובים בעולם.
+- Image: https://dubai-plus.co.il/assets/product-1783521351890-9kxnks.webp
+
 ### נהיגה עצמית במדבר
 https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv
 - Price: 150.00 ILS
 - Availability: In stock
 - Description: נהיגה עצמית במדבר דובאי. החל מ-150 ₪. חוויית נהיגה עצמאית בדיונות המדבר הזהובות.
 
-### קידזניה - ילד
-https://dubai-plus.co.il/product/kydznyh-yld-abjdae
+### קידזניה KIDZANYA DUBAI
+https://dubai-plus.co.il/product/kydznyh-kidzanya-dubai-l9y9g5
 - Price: 179.00 ILS
 - Availability: In stock
-- Description: קידזניה דובאי - כרטיס ילד. עיר מיניאטורית אינטראקטיבית שבה ילדים יכולים לגלות עשרות מקצועות בצורה מהנה.
+- Category: אטרקציות לילדים
+- Description: KidZania Dubai היא עיר אינטראקטיבית לילדים הממוקמת בקניון דובאי, שבה הילדים יכולים להתנסות בעשרות מקצועות אמיתיים כמו טייסים, כבאים, רופאים ושפים. חוויה חינוכית, מהנה ומעשירה המשלבת משחק, למידה ופיתוח כישורי חיים – ומתאימה לילדים בגילאי 4–16.
+- Image: https://dubai-plus.co.il/assets/product-1783525786305-nhhoy3.webp
 
 ### גן הפרפרים
 https://dubai-plus.co.il/product/gn-hprprym-sniteu
@@ -316,14 +326,6 @@ https://dubai-plus.co.il/product/glvbl-vylg-krtys-yvmy-wxh8fp
 - Price: 25.00 ILS
 - Availability: Out of stock
 - Description: גלובל וילג דובאי - כרטיס כניסה Any Day. מסע תרבותי סביב העולם במקום אחד — ביתנים, מסעדות, בידור ואטרקציות מ-90 מדינות.
-
-### פארק המים אטלנטיס  Aquaventure Waterpark
-https://dubai-plus.co.il/product/park-hmym-atlntys-aquaventure-waterpark-wsjn1y
-- Price: 185.00 ILS
-- Availability: In stock
-- Category: פארקים וגנים
-- Description: פארק המים אטלנטיס – Aquaventure Waterpark הוא פארק המים הגדול ביותר בעולם ומציע יום מלא באדרנלין, מגלשות ענק, נהרות אבובים, חוף פרטי ואטרקציות לכל המשפחה. חוויה מושלמת לילדים, זוגות ומבוגרים באחד הפארקים הטובים בעולם.
-- Image: https://dubai-plus.co.il/assets/product-1783521351890-9kxnks.webp
 
 ---
 
