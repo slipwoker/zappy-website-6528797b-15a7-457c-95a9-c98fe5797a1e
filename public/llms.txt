@@ -224,6 +224,13 @@ https://dubai-plus.co.il/product/sky-dvbay-3vy3fp
 - Description: סקי דובאי הוא אתר הסקי המקורה הראשון במזרח התיכון, הממוקם בתוך קניון Mall of the Emirates. המקום מציע חוויית חורף אמיתית לאורך כל השנה עם מסלולי סקי וסנובורד, פארק שלג ענק, רכבל, מתקני שלג, מפגש עם פינגווינים ושלל אטרקציות לכל המשפחה. ניתן לבחור בין מספר סוגי כרטיסים – החל מכניסה לפארק השלג ועד חוויית פרימיום הכוללת מפגש עם פינגווינים וגלישה
 - Image: https://dubai-plus.co.il/assets/product-ai-fit-1783499540562-tqu82f.webp
 
+### פארק IMG Worlds of Adventure
+https://dubai-plus.co.il/product/park-img-worlds-of-adventure-po9h68
+- Price: 165.00 ILS
+- Availability: In stock
+- Description: IMG Worlds of Adventure הוא פארק השעשועים המקורה הגדול בעולם, המציע יום מלא של מתקנים, רכבות הרים, דמויות אהובות כמו מארוול וקריקטון נטוורק, אזורי דינוזאורים, מסעדות וחנויות – והכול באולם ממוזג המתאים לכל עונות השנה.
+- Image: https://dubai-plus.co.il/assets/product-1783509278391-0xxtl.webp
+
 ### טיסה בכדור פורח - 60 דקות
 https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-60-dkvt-j7o5vf
 - Price: 650.00 ILS
@@ -236,24 +243,19 @@ https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv
 - Availability: In stock
 - Description: נהיגה עצמית במדבר דובאי. החל מ-150 ₪. חוויית נהיגה עצמאית בדיונות המדבר הזהובות.
 
-### פארק IMG Worlds of Adventure
-https://dubai-plus.co.il/product/park-img-worlds-of-adventure-po9h68
-- Price: 165.00 ILS
-- Availability: In stock
-- Description: IMG Worlds of Adventure הוא פארק השעשועים המקורה הגדול בעולם, המציע יום מלא של מתקנים, רכבות הרים, דמויות אהובות כמו מארוול וקריקטון נטוורק, אזורי דינוזאורים, מסעדות וחנויות – והכול באולם ממוזג המתאים לכל עונות השנה.
-- Image: https://dubai-plus.co.il/assets/product-1783509278391-0xxtl.webp
-
 ### טיסה בכדור פורח - 10 דקות
 https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-10-dkvt-hsohpm
 - Price: 179.00 ILS
 - Availability: In stock
 - Description: טיסה בכדור פורח מעל דובאי - 10 דקות. נוף אווירי מרהיב על דובאי מגובה ייחודי.
 
-### מוזיאון העתיד
-https://dubai-plus.co.il/product/mvzyavn-hatyd-n7x62f
+### מוזיאון העתיד MUSEUM OF THE FUTURE
+https://dubai-plus.co.il/product/mvzyavn-hatyd-museum-of-the-future-ginzo6
 - Price: 150.00 ILS
 - Availability: In stock
-- Description: מוזיאון העתיד דובאי - Museum of the Future. אחד הבניינים היפים בעולם. חוויה עתידנית מרתקת עם תערוכות טכנולוגיה וחדשנות.
+- Category: מופעים ומוזיאונים
+- Description: מוזיאון העתיד הוא אחד מסמליה המרשימים של דובאי ואחת האטרקציות החדשניות בעולם. המוזיאון משלב טכנולוגיה, בינה מלאכותית, חקר החלל, קיימות וחדשנות בחוויה אינטראקטיבית מרהיבה המתאימה לכל המשפחה.
+- Image: https://dubai-plus.co.il/assets/product-ai-fit-1783510125521-cj2nzq.webp
 
 ### תצפית סקיי וויו + מגלשה שקופה
 https://dubai-plus.co.il/product/ttspyt-skyy-vvyv-mglshh-shkvph-jvxrt1

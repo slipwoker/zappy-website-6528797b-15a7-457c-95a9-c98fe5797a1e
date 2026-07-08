@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-08T11:20:06.934Z",
+  "generated_at": "2026-07-08T11:32:00.175Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 27,
@@ -27,7 +27,7 @@
       "categories": [
         "שייט ופעילות ימית"
       ],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "44dd5553-9444-4881-820d-7e31029dacdc",
@@ -51,7 +51,7 @@
       "categories": [
         "מופעים ומוזיאונים"
       ],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "da598194-7288-4fc6-9507-576836626406",
@@ -75,7 +75,7 @@
       "categories": [
         "שייט ופעילות ימית"
       ],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "70013942-8198-4af4-b23e-60a25b128b2f",
@@ -99,7 +99,7 @@
       "categories": [
         "אקסטרים וטיול מדבר"
       ],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "8c18b03b-f213-444d-9f55-0bcfa68ae571",
@@ -123,7 +123,7 @@
       "categories": [
         "פארקים אבו דאבי"
       ],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "49c2216e-a934-4be0-adbb-2013bbc383a2",
@@ -147,7 +147,7 @@
       "categories": [
         "שייט ופעילות ימית"
       ],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "f12769f8-2273-4006-beba-2f47b3f1d7bf",
@@ -171,7 +171,7 @@
       "categories": [
         "אקסטרים וטיול מדבר"
       ],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "04319c4a-6967-479e-9657-1d21977932ce",
@@ -195,7 +195,7 @@
       "categories": [
         "מגדלים ותצפיות"
       ],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "5377a16e-4153-4833-8f12-e1f2ffa2815d",
@@ -219,7 +219,7 @@
       "categories": [
         "פארקים וגנים"
       ],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "19c8a419-8c39-4705-9089-0917b234b974",
@@ -243,7 +243,7 @@
       "categories": [
         "שייט ופעילות ימית"
       ],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "609ce2be-525b-400e-800a-d1366c53ab93",
@@ -267,7 +267,7 @@
       "categories": [
         "מופעים ומוזיאונים"
       ],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "3dc6927f-c911-40fb-b641-bc2e7a714a53",
@@ -289,47 +289,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/sky-dvbay-3vy3fp",
       "categories": [],
-      "updated_at": "2026-07-08T08:32:43.317Z"
-    },
-    {
-      "id": "0bceda7e-64e9-40ba-8fde-ce8bee1f3144",
-      "slug": "tysh-bkdvr-pvrch-60-dkvt-j7o5vf",
-      "name": "טיסה בכדור פורח - 60 דקות",
-      "name_translations": {},
-      "description": "טיסה בכדור פורח מעל דובאי - 60 דקות מלאות. 650 ₪. חוויה רומנטית ומרהיבה עם נוף פנורמי על דובאי.",
-      "short_description": null,
-      "sku": null,
-      "brand": null,
-      "price": 650,
-      "base_price": 650,
-      "sale_price": null,
-      "currency": "ILS",
-      "images": [],
-      "in_stock": true,
-      "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-60-dkvt-j7o5vf",
-      "categories": [],
-      "updated_at": "2026-07-08T08:32:43.317Z"
-    },
-    {
-      "id": "a1426ada-b585-459e-98ee-c5050e683b3e",
-      "slug": "nhygh-atsmyt-bmdbr-wn6ojv",
-      "name": "נהיגה עצמית במדבר",
-      "name_translations": {},
-      "description": "נהיגה עצמית במדבר דובאי. החל מ-150 ₪. חוויית נהיגה עצמאית בדיונות המדבר הזהובות.",
-      "short_description": null,
-      "sku": null,
-      "brand": null,
-      "price": 150,
-      "base_price": 150,
-      "sale_price": null,
-      "currency": "ILS",
-      "images": [],
-      "in_stock": true,
-      "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv",
-      "categories": [],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "b662f53d-4d97-424e-b6ca-faa0a9fdc7cd",
@@ -351,7 +311,47 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/park-img-worlds-of-adventure-po9h68",
       "categories": [],
-      "updated_at": "2026-07-08T11:19:34.254Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
+    },
+    {
+      "id": "0bceda7e-64e9-40ba-8fde-ce8bee1f3144",
+      "slug": "tysh-bkdvr-pvrch-60-dkvt-j7o5vf",
+      "name": "טיסה בכדור פורח - 60 דקות",
+      "name_translations": {},
+      "description": "טיסה בכדור פורח מעל דובאי - 60 דקות מלאות. 650 ₪. חוויה רומנטית ומרהיבה עם נוף פנורמי על דובאי.",
+      "short_description": null,
+      "sku": null,
+      "brand": null,
+      "price": 650,
+      "base_price": 650,
+      "sale_price": null,
+      "currency": "ILS",
+      "images": [],
+      "in_stock": true,
+      "stock_status": "in_stock",
+      "url": "https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-60-dkvt-j7o5vf",
+      "categories": [],
+      "updated_at": "2026-07-08T11:23:43.636Z"
+    },
+    {
+      "id": "a1426ada-b585-459e-98ee-c5050e683b3e",
+      "slug": "nhygh-atsmyt-bmdbr-wn6ojv",
+      "name": "נהיגה עצמית במדבר",
+      "name_translations": {},
+      "description": "נהיגה עצמית במדבר דובאי. החל מ-150 ₪. חוויית נהיגה עצמאית בדיונות המדבר הזהובות.",
+      "short_description": null,
+      "sku": null,
+      "brand": null,
+      "price": 150,
+      "base_price": 150,
+      "sale_price": null,
+      "currency": "ILS",
+      "images": [],
+      "in_stock": true,
+      "stock_status": "in_stock",
+      "url": "https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv",
+      "categories": [],
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "087ccefa-9045-4d4b-8013-5ba960f9f128",
@@ -371,27 +371,31 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-10-dkvt-hsohpm",
       "categories": [],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "f9370460-56e4-40f8-b5de-e2ef7c47b6b1",
-      "slug": "mvzyavn-hatyd-n7x62f",
-      "name": "מוזיאון העתיד",
+      "slug": "mvzyavn-hatyd-museum-of-the-future-ginzo6",
+      "name": "מוזיאון העתיד MUSEUM OF THE FUTURE",
       "name_translations": {},
-      "description": "מוזיאון העתיד דובאי - Museum of the Future. אחד הבניינים היפים בעולם. חוויה עתידנית מרתקת עם תערוכות טכנולוגיה וחדשנות.",
-      "short_description": null,
+      "description": "<p><strong>מוזיאון העתיד</strong> הוא אחד המבנים האייקוניים והמפורסמים ביותר בדובאי, ונחשב לאחד המוזיאונים החדשניים בעולם. המבנה הייחודי, המעוצב בצורת טבעת ומעוטר בקליגרפיה ערבית, הפך לאחד מסמלי העיר ולאתר חובה לכל מבקר.</p><p>במהלך הביקור תצאו למסע אל העתיד ותגלו כיצד עשויה להיראות האנושות בעוד עשרות שנים. התערוכות משלבות טכנולוגיות מתקדמות, מציאות מדומה, אינטראקטיביות ואפקטים מרשימים, ומציגות נושאים כמו חקר החלל, בינה מלאכותית, רובוטיקה, בריאות, קיימות, שינויי אקלים וחדשנות.</p><p>בין המתחמים השונים תוכלו לחוות משימות חלל עתידיות, להכיר טכנולוגיות שעדיין נמצאות בשלבי פיתוח, לבקר במעבדות חדשנות ולהיחשף לרעיונות פורצי דרך שעשויים לעצב את העולם של המחר. בנוסף, קיים מתחם ייעודי לילדים המעודד סקרנות, יצירתיות ולמידה באמצעות משחקים וחוויות אינטראקטיביות.</p><p>מה כולל הכרטיס?</p><ul><li>🎟️ כניסה למוזיאון העתיד בשעה שנבחרה בעת ההזמנה.</li><li>🚀 גישה לכל אזורי התצוגה והתערוכות הפתוחות לקהל.</li><li>🤖 חוויה אינטראקטיבית עם מיצגים וטכנולוגיות מתקדמות.</li><li>👨‍👩‍👧 מתחם ייעודי לילדים ולמשפחות.</li></ul><p>מידע חשוב</p><ul><li>⏰ הכניסה מתבצעת בשעה שנבחרה מראש ויש להגיע כ-15–30 דקות לפני מועד הכניסה.</li><li>🕒 משך הביקור המומלץ הוא בין שעתיים לשלוש שעות.</li><li>📸 הצילום במוזיאון מותר ומומלץ.</li><li>🚇 ניתן להגיע בקלות באמצעות המטרו של דובאי או במונית.</li><li>♿ המקום נגיש לעגלות ילדים ולכיסאות גלגלים.</li><li>🍽️ במתחם קיימים בית קפה, חנות מזכרות ושירותים.</li><li>🎫 הביקוש גבוה מאוד, ולכן מומלץ להזמין כרטיסים מראש כדי להבטיח זמינות.</li></ul><p><strong>מוזיאון העתיד</strong> הוא הרבה יותר ממוזיאון רגיל – זוהי חוויה חדשנית ומעוררת השראה המשלבת מדע, טכנולוגיה ודמיון. אם אתם מחפשים אטרקציה ייחודית ושונה מכל מה שהכרתם, זהו אחד המקומות שאסור לפספס במהלך הביקור בדובאי.</p>",
+      "short_description": "מוזיאון העתיד הוא אחד מסמליה המרשימים של דובאי ואחת האטרקציות החדשניות בעולם. המוזיאון משלב טכנולוגיה, בינה מלאכותית, חקר החלל, קיימות וחדשנות בחוויה אינטראקטיבית מרהיבה המתאימה לכל המשפחה.",
       "sku": null,
       "brand": null,
       "price": 150,
       "base_price": 150,
       "sale_price": null,
       "currency": "ILS",
-      "images": [],
+      "images": [
+        "https://dubai-plus.co.il/assets/product-ai-fit-1783510125521-cj2nzq.webp"
+      ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/mvzyavn-hatyd-n7x62f",
-      "categories": [],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "url": "https://dubai-plus.co.il/product/mvzyavn-hatyd-museum-of-the-future-ginzo6",
+      "categories": [
+        "מופעים ומוזיאונים"
+      ],
+      "updated_at": "2026-07-08T11:31:28.092Z"
     },
     {
       "id": "406f9578-43eb-413c-b142-6448f84a36af",
@@ -411,7 +415,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/ttspyt-skyy-vvyv-mglshh-shkvph-jvxrt1",
       "categories": [],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "b11f23aa-4bd7-4aed-81ff-e2e03caab93f",
@@ -431,7 +435,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/aya-chvvyh-dygytlyt-slgoik",
       "categories": [],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "999daca1-ed04-4ba4-ad9d-e50677ea4c93",
@@ -451,7 +455,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/ttspyt-hdklym-the-view-at-the-palm-837ywl",
       "categories": [],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "2467644c-5568-47ce-8b9b-129e37e02b81",
@@ -471,7 +475,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/kydznyh-yld-abjdae",
       "categories": [],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "75d00d6b-1860-4428-89ec-f899d9ea1e10",
@@ -491,7 +495,7 @@
       "stock_status": "out_of_stock",
       "url": "https://dubai-plus.co.il/product/gn-hprprym-sniteu",
       "categories": [],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "e8275da6-11af-4c0c-8351-78f14878f660",
@@ -511,7 +515,7 @@
       "stock_status": "out_of_stock",
       "url": "https://dubai-plus.co.il/product/hgn-hzvhr-miracle-garden-ch3dx5",
       "categories": [],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "d1945946-37fd-42d4-a2b7-4a799a47af9e",
@@ -531,7 +535,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/mvzyavn-hashlyvt-5cp1f0",
       "categories": [],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "336496ed-8111-4598-ba66-cd16d54a40c4",
@@ -551,7 +555,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/msgrt-dvbay-hr9hfv",
       "categories": [],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "9c6d9d12-9607-4aa4-9406-8d4f6ad270cc",
@@ -571,7 +575,7 @@
       "stock_status": "out_of_stock",
       "url": "https://dubai-plus.co.il/product/glvbl-vylg-krtys-yvmy-wxh8fp",
       "categories": [],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     },
     {
       "id": "3a8154de-2df5-4d1d-b4ff-ac179450c7a9",
@@ -593,7 +597,7 @@
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/park-hmym-atlntys-eucwn6",
       "categories": [],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:23:43.636Z"
     }
   ]
 }
