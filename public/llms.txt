@@ -210,10 +210,11 @@ https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv
 - Description: נהיגה עצמית במדבר דובאי. החל מ-150 ₪. חוויית נהיגה עצמאית בדיונות המדבר הזהובות.
 
 ### סקי דובאי
-https://dubai-plus.co.il/product/sky-dvbay-oklyey
+https://dubai-plus.co.il/product/sky-dvbay-3y5q0n
 - Price: 230.00 ILS
 - Availability: In stock
-- Description: סקי דובאי - Ski Dubai. החל מ-230 ₪. גלישה על שלג אמיתי בלב המדבר! פארק שלג מקורה עם מגלשות לכל הרמות.
+- Description: סקי דובאי הוא אתר הסקי המקורה הראשון במזרח התיכון, הממוקם בתוך קניון Mall of the Emirates. המקום מציע חוויית חורף אמיתית לאורך כל השנה עם מסלולי סקי וסנובורד, פארק שלג ענק, רכבל, מתקני שלג, מפגש עם פינגווינים ושלל אטרקציות לכל המשפחה. ניתן לבחור בין מספר סוגי כרטיסים – החל מכניסה לפארק השלג ועד חוויית פרימיום הכוללת מפגש עם פינגווינים וגלישה
+- Image: https://dubai-plus.co.il/assets/product-ai-fit-1783498897095-dbh36a.webp
 
 ### פארק IMG
 https://dubai-plus.co.il/product/park-img-sdl1p4
