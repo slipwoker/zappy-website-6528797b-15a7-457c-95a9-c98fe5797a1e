@@ -128,7 +128,7 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 27**
+**Total active products: 26**
 
 ### שייט הלוטוס – Lotus Mega Yacht Dinner Cruise
 https://dubai-plus.co.il/product/shyyt-hlvtvs-lotus-mega-yacht-dinner-cruise-wiu91z
@@ -308,12 +308,6 @@ https://dubai-plus.co.il/product/mvzyavn-hashlyvt-5cp1f0
 - Price: 79.00 ILS
 - Availability: In stock
 - Description: מוזיאון האשליות דובאי. חוויה אינטראקטיבית מרתקת עם אשליות אופטיות, חדרי מראות ותערוכות מדהימות.
-
-### מסגרת דובאי
-https://dubai-plus.co.il/product/msgrt-dvbay-hr9hfv
-- Price: 50.00 ILS
-- Availability: In stock
-- Description: מסגרת דובאי - Dubai Frame. מבנה אדריכלי מרשים בצורת מסגרת ענקית המציע נוף פנורמי ייחודי לדובאי הישנה והחדשה.
 
 ### גלובל וילג - כרטיס יומי
 https://dubai-plus.co.il/product/glvbl-vylg-krtys-yvmy-wxh8fp

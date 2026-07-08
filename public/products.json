@@ -1,9 +1,9 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-08T13:19:40.447Z",
+  "generated_at": "2026-07-08T13:28:13.905Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
-  "count": 27,
+  "count": 26,
   "products": [
     {
       "id": "993c441a-d7ec-4c09-945d-42f8b1167369",
@@ -572,26 +572,6 @@
       "in_stock": true,
       "stock_status": "in_stock",
       "url": "https://dubai-plus.co.il/product/mvzyavn-hashlyvt-5cp1f0",
-      "categories": [],
-      "updated_at": "2026-07-08T12:51:22.064Z"
-    },
-    {
-      "id": "336496ed-8111-4598-ba66-cd16d54a40c4",
-      "slug": "msgrt-dvbay-hr9hfv",
-      "name": "מסגרת דובאי",
-      "name_translations": {},
-      "description": "מסגרת דובאי - Dubai Frame. מבנה אדריכלי מרשים בצורת מסגרת ענקית המציע נוף פנורמי ייחודי לדובאי הישנה והחדשה.",
-      "short_description": null,
-      "sku": null,
-      "brand": null,
-      "price": 50,
-      "base_price": 50,
-      "sale_price": null,
-      "currency": "ILS",
-      "images": [],
-      "in_stock": true,
-      "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/msgrt-dvbay-hr9hfv",
       "categories": [],
       "updated_at": "2026-07-08T12:51:22.064Z"
     },
