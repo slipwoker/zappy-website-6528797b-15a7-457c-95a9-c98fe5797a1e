@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-08T11:39:38.847Z",
+  "generated_at": "2026-07-08T11:39:55.781Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 27,
@@ -182,7 +182,7 @@
     },
     {
       "id": "04319c4a-6967-479e-9657-1d21977932ce",
-      "slug": "bvrg-chlyph-burj-khalifa-bgcvf8",
+      "slug": "bvrg-chlyph-burj-khalifa-cruyze",
       "name": "בורג׳ חליפה burj khalifa",
       "name_translations": {},
       "description": "<p><br></p>",
@@ -198,11 +198,12 @@
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/bvrg-chlyph-burj-khalifa-bgcvf8",
+      "url": "https://dubai-plus.co.il/product/bvrg-chlyph-burj-khalifa-cruyze",
       "categories": [
-        "מגדלים ותצפיות"
+        "מגדלים ותצפיות",
+        "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-08T11:23:43.636Z"
+      "updated_at": "2026-07-08T11:39:53.054Z"
     },
     {
       "id": "5377a16e-4153-4833-8f12-e1f2ffa2815d",
