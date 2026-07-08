@@ -4,7 +4,19 @@
     <title>Sarah laloum tourism llc</title>
     <link>https://dubai-plus.co.il</link>
     <description>Product feed for Sarah laloum tourism llc</description>
-    <lastBuildDate>Wed, 08 Jul 2026 17:24:44 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 08 Jul 2026 17:31:37 GMT</lastBuildDate>
+    <item>
+      <g:id>858e0306-35dd-44d1-a44a-400b8a6016b0</g:id>
+      <g:title>כוכב הלכת הירוק</g:title>
+      <g:description>The Green Planet Dubai הוא יער גשם טרופי מקורה בלב דובאי, שבו חיים למעלה מ-3,000 בעלי חיים וצמחים אקזוטיים. זוהי חוויה ייחודית לכל המשפחה המשלבת טבע, חינוך והרפתקה באחד המקומות המיוחדים ביותר בעיר.</g:description>
+      <g:link>https://dubai-plus.co.il/product/kvkb-hlkt-hyrvk-e3zyam</g:link>
+      <g:image_link>https://dubai-plus.co.il/assets/product-1783531803994-cid689.webp</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>0.00 ILS</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Sarah laloum tourism llc</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+    </item>
     <item>
       <g:id>fa6b9894-6d36-465c-ae2b-4c7592658fb8</g:id>
       <g:title>שייט הלוטוס – Lotus Mega Yacht Dinner Cruise - שייט ערב + ארוחה / מבוגר</g:title>
@@ -1687,28 +1699,6 @@
       <g:product_type>אקסטרים וטיול מדבר</g:product_type>
     </item>
     <item>
-      <g:id>75d00d6b-1860-4428-89ec-f899d9ea1e10</g:id>
-      <g:title>גן הפרפרים</g:title>
-      <g:description>גן הפרפרים דובאי - Butterfly Garden. מאות סוגי פרפרים צבעוניים בסביבה טרופית מרהיבה — חוויה קסומה לכל המשפחה.</g:description>
-      <g:link>https://dubai-plus.co.il/product/gn-hprprym-sniteu</g:link>
-      <g:availability>out_of_stock</g:availability>
-      <g:price>59.00 ILS</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Sarah laloum tourism llc</g:brand>
-      <g:identifier_exists>no</g:identifier_exists>
-    </item>
-    <item>
-      <g:id>e8275da6-11af-4c0c-8351-78f14878f660</g:id>
-      <g:title>הגן הזוהר - Miracle Garden</g:title>
-      <g:description>הגן הזוהר של דובאי - Dubai Miracle Garden. מיליוני פרחים בצבעים עזים יוצרים שטיחי פרחים מרהיבים — הגן הטבעי הגדול בעולם.</g:description>
-      <g:link>https://dubai-plus.co.il/product/hgn-hzvhr-miracle-garden-ch3dx5</g:link>
-      <g:availability>out_of_stock</g:availability>
-      <g:price>79.00 ILS</g:price>
-      <g:condition>new</g:condition>
-      <g:brand>Sarah laloum tourism llc</g:brand>
-      <g:identifier_exists>no</g:identifier_exists>
-    </item>
-    <item>
       <g:id>8cc8e817-8c2c-45ac-8e94-bc1304cfb114</g:id>
       <g:title>מוזיאון האשליות - מבוגר</g:title>
       <g:description>מוזיאון האשליות דובאי (Museum of Illusions Dubai) הוא אחת האטרקציות הייחודיות והמהנות ביותר בעיר. המוזיאון מציע עשרות אשליות אופטיות, חדרים אינטראקטיביים, משחקי חשיבה ותצוגות מרתקות שישאירו אתכם מופתעים – וחיוך גדול על הפנים. חוויה מושלמת למשפחות, זוגות וחובבי צילום.</g:description>
@@ -1735,6 +1725,28 @@
       <g:brand>Sarah laloum tourism llc</g:brand>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>מופעים ומוזיאונים</g:product_type>
+    </item>
+    <item>
+      <g:id>75d00d6b-1860-4428-89ec-f899d9ea1e10</g:id>
+      <g:title>גן הפרפרים</g:title>
+      <g:description>גן הפרפרים דובאי - Butterfly Garden. מאות סוגי פרפרים צבעוניים בסביבה טרופית מרהיבה — חוויה קסומה לכל המשפחה.</g:description>
+      <g:link>https://dubai-plus.co.il/product/gn-hprprym-sniteu</g:link>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>59.00 ILS</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Sarah laloum tourism llc</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+    </item>
+    <item>
+      <g:id>e8275da6-11af-4c0c-8351-78f14878f660</g:id>
+      <g:title>הגן הזוהר - Miracle Garden</g:title>
+      <g:description>הגן הזוהר של דובאי - Dubai Miracle Garden. מיליוני פרחים בצבעים עזים יוצרים שטיחי פרחים מרהיבים — הגן הטבעי הגדול בעולם.</g:description>
+      <g:link>https://dubai-plus.co.il/product/hgn-hzvhr-miracle-garden-ch3dx5</g:link>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>79.00 ILS</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Sarah laloum tourism llc</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>9c6d9d12-9607-4aa4-9406-8d4f6ad270cc</g:id>

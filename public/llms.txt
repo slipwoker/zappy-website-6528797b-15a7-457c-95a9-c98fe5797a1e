@@ -128,7 +128,14 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 26**
+**Total active products: 27**
+
+### כוכב הלכת הירוק
+https://dubai-plus.co.il/product/kvkb-hlkt-hyrvk-e3zyam
+- Price: 0.00 ILS
+- Availability: In stock
+- Description: The Green Planet Dubai הוא יער גשם טרופי מקורה בלב דובאי, שבו חיים למעלה מ-3,000 בעלי חיים וצמחים אקזוטיים. זוהי חוויה ייחודית לכל המשפחה המשלבת טבע, חינוך והרפתקה באחד המקומות המיוחדים ביותר בעיר.
+- Image: https://dubai-plus.co.il/assets/product-1783531803994-cid689.webp
 
 ### שייט הלוטוס – Lotus Mega Yacht Dinner Cruise
 https://dubai-plus.co.il/product/shyyt-hlvtvs-lotus-mega-yacht-dinner-cruise-81ygew
@@ -305,6 +312,14 @@ https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-j0vurf
 - Description: נהיגה עצמית במדבר דובאי היא אחת מחוויות האקסטרים המלהיבות ביותר באמירויות. בחרו בין טרקטורונים, רכבי RZR, באגי ורכבי שטח עוצמתיים, וצאו לנהיגה עצמית בין דיונות החול המרהיבות בליווי מדריכים מקצועיים.
 - Image: https://dubai-plus.co.il/assets/product-1783526370225-mwy4pn.webp
 
+### מוזיאון האשליות
+https://dubai-plus.co.il/product/mvzyavn-hashlyvt-v7sy7l
+- Price: 79.00 ILS
+- Availability: In stock
+- Category: מופעים ומוזיאונים
+- Description: מוזיאון האשליות דובאי (Museum of Illusions Dubai) הוא אחת האטרקציות הייחודיות והמהנות ביותר בעיר. המוזיאון מציע עשרות אשליות אופטיות, חדרים אינטראקטיביים, משחקי חשיבה ותצוגות מרתקות שישאירו אתכם מופתעים – וחיוך גדול על הפנים. חוויה מושלמת למשפחות, זוגות וחובבי צילום.
+- Image: https://dubai-plus.co.il/assets/product-1783530951541-ewzoam.webp
+
 ### גן הפרפרים
 https://dubai-plus.co.il/product/gn-hprprym-sniteu
 - Price: 59.00 ILS
@@ -316,14 +331,6 @@ https://dubai-plus.co.il/product/hgn-hzvhr-miracle-garden-ch3dx5
 - Price: 79.00 ILS
 - Availability: Out of stock
 - Description: הגן הזוהר של דובאי - Dubai Miracle Garden. מיליוני פרחים בצבעים עזים יוצרים שטיחי פרחים מרהיבים — הגן הטבעי הגדול בעולם.
-
-### מוזיאון האשליות
-https://dubai-plus.co.il/product/mvzyavn-hashlyvt-v7sy7l
-- Price: 79.00 ILS
-- Availability: In stock
-- Category: מופעים ומוזיאונים
-- Description: מוזיאון האשליות דובאי (Museum of Illusions Dubai) הוא אחת האטרקציות הייחודיות והמהנות ביותר בעיר. המוזיאון מציע עשרות אשליות אופטיות, חדרים אינטראקטיביים, משחקי חשיבה ותצוגות מרתקות שישאירו אתכם מופתעים – וחיוך גדול על הפנים. חוויה מושלמת למשפחות, זוגות וחובבי צילום.
-- Image: https://dubai-plus.co.il/assets/product-1783530951541-ewzoam.webp
 
 ### גלובל וילג - כרטיס יומי
 https://dubai-plus.co.il/product/glvbl-vylg-krtys-yvmy-wxh8fp
