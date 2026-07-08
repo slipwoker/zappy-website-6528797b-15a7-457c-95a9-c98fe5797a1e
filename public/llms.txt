@@ -257,19 +257,19 @@ https://dubai-plus.co.il/product/mvzyavn-hatyd-museum-of-the-future-ns97zs
 - Description: מוזיאון העתיד הוא אחד מסמליה המרשימים של דובאי ואחת האטרקציות החדשניות בעולם. המוזיאון משלב טכנולוגיה, בינה מלאכותית, חקר החלל, קיימות וחדשנות בחוויה אינטראקטיבית מרהיבה המתאימה לכל המשפחה.
 - Image: https://dubai-plus.co.il/assets/product-ai-fit-1783510125521-cj2nzq.webp
 
-### נהיגה עצמית במדבר
-https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv
-- Price: 150.00 ILS
-- Availability: In stock
-- Description: נהיגה עצמית במדבר דובאי. החל מ-150 ₪. חוויית נהיגה עצמאית בדיונות המדבר הזהובות.
-
 ### תצפית סקיי וויו  Sky Views Observatory
-https://dubai-plus.co.il/product/ttspyt-skyy-vvyv-sky-views-observatory-jy8w01
+https://dubai-plus.co.il/product/ttspyt-skyy-vvyv-sky-views-observatory-fkfo7w
 - Price: 75.00 ILS
 - Availability: In stock
 - Category: מגדלים ותצפיות
 - Description: Sky Views Observatory היא אחת התצפיות המרשימות ביותר בדובאי, הממוקמת בגובה של כ-220 מטר במלון Address Sky View. מהתצפית נשקף נוף פנורמי עוצר נשימה של בורג' ח'ליפה, מרכז העיר דובאי וקו הרקיע המפורסם של העיר.
 - Image: https://dubai-plus.co.il/assets/product-1783513535295-f0iap.webp
+
+### נהיגה עצמית במדבר
+https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv
+- Price: 150.00 ILS
+- Availability: In stock
+- Description: נהיגה עצמית במדבר דובאי. החל מ-150 ₪. חוויית נהיגה עצמאית בדיונות המדבר הזהובות.
 
 ### AYA - חוויה דיגיטלית
 https://dubai-plus.co.il/product/aya-chvvyh-dygytlyt-slgoik
