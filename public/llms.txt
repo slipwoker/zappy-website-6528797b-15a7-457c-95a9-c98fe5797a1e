@@ -280,10 +280,12 @@ https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv
 - Description: נהיגה עצמית במדבר דובאי. החל מ-150 ₪. חוויית נהיגה עצמאית בדיונות המדבר הזהובות.
 
 ### תצפית הדקלים - The View at The Palm
-https://dubai-plus.co.il/product/ttspyt-hdklym-the-view-at-the-palm-837ywl
-- Price: 99.00 ILS
+https://dubai-plus.co.il/product/ttspyt-hdklym-the-view-at-the-palm-cdr0sd
+- Price: 84.00 ILS
 - Availability: In stock
-- Description: תצפית הדקלים - The View at The Palm. עלו ל-The View at The Palm וצפו בנוף מלמעלה על צורת הדקל האיקונית. החל מ-99 ₪.
+- Category: מגדלים ותצפיות
+- Description: The View at The Palm היא אחת מנקודות התצפית היפות ביותר בדובאי, הממוקמת בגובה של כ-240 מטר בראש מגדל Palm Tower. מהתצפית נשקף נוף פנורמי מרהיב של אי הדקלים, מלון אטלנטיס, המרינה, קו החוף והמפרץ הערבי.
+- Image: https://dubai-plus.co.il/assets/product-1783518884326-y5yane.webp
 
 ### קידזניה - ילד
 https://dubai-plus.co.il/product/kydznyh-yld-abjdae
