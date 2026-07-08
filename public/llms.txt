@@ -273,12 +273,6 @@ https://dubai-plus.co.il/product/aya-universe-dubai-4jkax7
 - Description: AYA Universe Dubai היא אחת האטרקציות החדשניות והמיוחדות ביותר בדובאי. מדובר בעולם דיגיטלי אינטראקטיבי הכולל חדרים מרהיבים עם אורות, הקרנות, מוזיקה ואפקטים מיוחדים, היוצרים חוויה קסומה המתאימה לכל המשפחה.
 - Image: https://dubai-plus.co.il/assets/product-1783514674207-lll82.webp
 
-### נהיגה עצמית במדבר
-https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv
-- Price: 150.00 ILS
-- Availability: In stock
-- Description: נהיגה עצמית במדבר דובאי. החל מ-150 ₪. חוויית נהיגה עצמאית בדיונות המדבר הזהובות.
-
 ### תצפית הדקלים - The View at The Palm
 https://dubai-plus.co.il/product/ttspyt-hdklym-the-view-at-the-palm-8r3pv8
 - Price: 84.00 ILS
@@ -286,6 +280,12 @@ https://dubai-plus.co.il/product/ttspyt-hdklym-the-view-at-the-palm-8r3pv8
 - Category: מגדלים ותצפיות
 - Description: The View at The Palm היא אחת מנקודות התצפית היפות ביותר בדובאי, הממוקמת בגובה של כ-240 מטר בראש מגדל Palm Tower. מהתצפית נשקף נוף פנורמי מרהיב של אי הדקלים, מלון אטלנטיס, המרינה, קו החוף והמפרץ הערבי.
 - Image: https://dubai-plus.co.il/assets/product-1783518884326-y5yane.webp
+
+### נהיגה עצמית במדבר
+https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv
+- Price: 150.00 ILS
+- Availability: In stock
+- Description: נהיגה עצמית במדבר דובאי. החל מ-150 ₪. חוויית נהיגה עצמאית בדיונות המדבר הזהובות.
 
 ### קידזניה - ילד
 https://dubai-plus.co.il/product/kydznyh-yld-abjdae
