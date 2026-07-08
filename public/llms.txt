@@ -237,10 +237,11 @@ https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv
 - Description: נהיגה עצמית במדבר דובאי. החל מ-150 ₪. חוויית נהיגה עצמאית בדיונות המדבר הזהובות.
 
 ### פארק IMG
-https://dubai-plus.co.il/product/park-img-sdl1p4
-- Price: 199.00 ILS
+https://dubai-plus.co.il/product/park-img-09nzle
+- Price: 165.00 ILS
 - Availability: In stock
 - Description: פארק IMG דובאי - IMG Worlds of Adventure. פארק שעשועים מקורה ענק עם אזורי Marvel, Cartoon Network ועוד. מ-199 ₪.
+- Image: https://dubai-plus.co.il/assets/product-1783509278391-0xxtl.webp
 
 ### טיסה בכדור פורח - 10 דקות
 https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-10-dkvt-hsohpm

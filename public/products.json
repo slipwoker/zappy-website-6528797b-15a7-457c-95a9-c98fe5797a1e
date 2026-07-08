@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-08T11:08:02.966Z",
+  "generated_at": "2026-07-08T11:17:17.515Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 27,
@@ -333,23 +333,25 @@
     },
     {
       "id": "b662f53d-4d97-424e-b6ca-faa0a9fdc7cd",
-      "slug": "park-img-sdl1p4",
+      "slug": "park-img-09nzle",
       "name": "פארק IMG",
       "name_translations": {},
-      "description": "פארק IMG דובאי - IMG Worlds of Adventure. פארק שעשועים מקורה ענק עם אזורי Marvel, Cartoon Network ועוד. מ-199 ₪.",
+      "description": "<p>פארק IMG דובאי - IMG Worlds of Adventure. פארק שעשועים מקורה ענק עם אזורי Marvel, Cartoon Network ועוד. מ-199 ₪.</p>",
       "short_description": null,
       "sku": null,
       "brand": null,
-      "price": 199,
-      "base_price": 199,
+      "price": 165,
+      "base_price": 165,
       "sale_price": null,
       "currency": "ILS",
-      "images": [],
+      "images": [
+        "https://dubai-plus.co.il/assets/product-1783509278391-0xxtl.webp"
+      ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/park-img-sdl1p4",
+      "url": "https://dubai-plus.co.il/product/park-img-09nzle",
       "categories": [],
-      "updated_at": "2026-07-08T08:32:43.317Z"
+      "updated_at": "2026-07-08T11:16:45.686Z"
     },
     {
       "id": "087ccefa-9045-4d4b-8013-5ba960f9f128",
