@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-08T12:29:29.472Z",
+  "generated_at": "2026-07-08T12:30:39.478Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 27,
@@ -427,23 +427,28 @@
     },
     {
       "id": "406f9578-43eb-413c-b142-6448f84a36af",
-      "slug": "ttspyt-skyy-vvyv-mglshh-shkvph-jvxrt1",
-      "name": "תצפית סקיי וויו + מגלשה שקופה",
+      "slug": "ttspyt-skyy-vvyv-sky-views-observatory-jy8w01",
+      "name": "תצפית סקיי וויו  Sky Views Observatory",
       "name_translations": {},
-      "description": "תצפית סקיי וויו עם מגלשה שקופה - Sky Views Edge Walk. חוויה מרגשת ועוצרת נשימה — תצפית פנורמית + גלישה על המגלשה השקופה.",
-      "short_description": null,
+      "description": "<p><strong>Sky Views Observatory</strong> היא אחת האטרקציות המבוקשות ביותר בדובאי ומציעה חוויית תצפית יוקרתית מגובה של כ-220 מטר. התצפית ממוקמת בקומות העליונות של מלון <strong>Address Sky View</strong>, מול בורג' ח'ליפה ובמרחק הליכה קצר מקניון דובאי.</p><p>במהלך הביקור תוכלו ליהנות מנוף פנורמי של 360° על מרכז העיר דובאי, בורג' ח'ליפה, מזרקות דובאי, שדרת שייח' זאיד וקו הרקיע המרשים של העיר. גולת הכותרת של המקום היא רצפת הזכוכית השקופה, המאפשרת להביט ישירות אל הרחוב שמתחתיכם ולחוות תחושת ריחוף ייחודית.</p><p>למי שמחפש אקסטרים, ניתן להוסיף בתוספת תשלום את <strong>Sky Glass Slide</strong> – מגלשת זכוכית חיצונית המחברת בין שתי קומות הבניין – ואת <strong>Sky Edge Walk</strong>, הליכה על שפת המבנה ללא מעקה, כשהמשתתפים מחוברים ברתמות בטיחות מקצועיות.</p><p>מה כולל הכרטיס?</p><ul><li>🎟️ כניסה ל־Sky Views Observatory.</li><li>🌇 תצפית פנורמית בגובה של כ-220 מטר.</li><li>🪟 גישה לרצפת הזכוכית השקופה.</li><li>📸 זמן חופשי לצילומים וליהנות מהנוף.</li></ul><p>מידע חשוב</p><ul><li>⏱️ משך הביקור המומלץ הוא כשעה.</li><li>📍 ממוקם במלון Address Sky View, בסמוך לקניון דובאי ולבורג' ח'ליפה.</li><li>🚇 ניתן להגיע בקלות באמצעות המטרו, מונית או רכב פרטי.</li><li>📸 מומלץ להגיע בשעות השקיעה או בשעות הערב, כאשר העיר מוארת באלפי אורות.</li><li>👨‍👩‍👧 מתאים למשפחות, זוגות וקבוצות.</li><li>🎫 המגלשה וההליכה על שפת המבנה אינן כלולות בכרטיס הכניסה הבסיסי, אלא אם צוין אחרת בעת ההזמנה.</li><li>♿ המקום נגיש לעגלות ילדים ולכיסאות גלגלים (למעט פעילויות האקסטרים).</li></ul><p><strong>Sky Views Observatory</strong> הוא אחד המקומות הטובים ביותר לצפות בקו הרקיע של דובאי ולצלם תמונות מרהיבות של בורג' ח'ליפה. בין אם תבחרו ליהנות מהנוף בלבד או להוסיף חוויות אקסטרים – מדובר באטרקציה שאסור לפספס במהלך הביקור בעיר.</p><p><br></p><p><br></p><p><br></p><p>ט.ל.ח</p><p>התמונות להמחשה בלבד</p>",
+      "short_description": "Sky Views Observatory היא אחת התצפיות המרשימות ביותר בדובאי, הממוקמת בגובה של כ-220 מטר במלון Address Sky View. מהתצפית נשקף נוף פנורמי עוצר נשימה של בורג' ח'ליפה, מרכז העיר דובאי וקו הרקיע המפורסם של העיר.",
       "sku": null,
       "brand": null,
-      "price": 110,
-      "base_price": 110,
+      "price": 75,
+      "base_price": 75,
       "sale_price": null,
       "currency": "ILS",
-      "images": [],
+      "images": [
+        "https://dubai-plus.co.il/assets/product-1783513535295-f0iap.webp"
+      ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/ttspyt-skyy-vvyv-mglshh-shkvph-jvxrt1",
-      "categories": [],
-      "updated_at": "2026-07-08T12:29:17.465Z"
+      "url": "https://dubai-plus.co.il/product/ttspyt-skyy-vvyv-sky-views-observatory-jy8w01",
+      "categories": [
+        "מגדלים ותצפיות",
+        "אטרקציות בדובאי"
+      ],
+      "updated_at": "2026-07-08T12:30:07.040Z"
     },
     {
       "id": "b11f23aa-4bd7-4aed-81ff-e2e03caab93f",
