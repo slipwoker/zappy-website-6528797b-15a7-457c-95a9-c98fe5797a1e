@@ -265,12 +265,6 @@ https://dubai-plus.co.il/product/ttspyt-skyy-vvyv-sky-views-observatory-fkfo7w
 - Description: Sky Views Observatory היא אחת התצפיות המרשימות ביותר בדובאי, הממוקמת בגובה של כ-220 מטר במלון Address Sky View. מהתצפית נשקף נוף פנורמי עוצר נשימה של בורג' ח'ליפה, מרכז העיר דובאי וקו הרקיע המפורסם של העיר.
 - Image: https://dubai-plus.co.il/assets/product-1783513535295-f0iap.webp
 
-### נהיגה עצמית במדבר
-https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv
-- Price: 150.00 ILS
-- Availability: In stock
-- Description: נהיגה עצמית במדבר דובאי. החל מ-150 ₪. חוויית נהיגה עצמאית בדיונות המדבר הזהובות.
-
 ### AYA UNIVERSE DUBAI
 https://dubai-plus.co.il/product/aya-universe-dubai-4jkax7
 - Price: 94.00 ILS
@@ -278,6 +272,12 @@ https://dubai-plus.co.il/product/aya-universe-dubai-4jkax7
 - Category: פארקים וגנים
 - Description: AYA Universe Dubai היא אחת האטרקציות החדשניות והמיוחדות ביותר בדובאי. מדובר בעולם דיגיטלי אינטראקטיבי הכולל חדרים מרהיבים עם אורות, הקרנות, מוזיקה ואפקטים מיוחדים, היוצרים חוויה קסומה המתאימה לכל המשפחה.
 - Image: https://dubai-plus.co.il/assets/product-1783514674207-lll82.webp
+
+### נהיגה עצמית במדבר
+https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv
+- Price: 150.00 ILS
+- Availability: In stock
+- Description: נהיגה עצמית במדבר דובאי. החל מ-150 ₪. חוויית נהיגה עצמאית בדיונות המדבר הזהובות.
 
 ### תצפית הדקלים - The View at The Palm
 https://dubai-plus.co.il/product/ttspyt-hdklym-the-view-at-the-palm-837ywl
