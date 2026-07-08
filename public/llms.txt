@@ -289,19 +289,19 @@ https://dubai-plus.co.il/product/park-hmym-atlntys-aquaventure-waterpark-wsjn1y
 - Description: פארק המים אטלנטיס – Aquaventure Waterpark הוא פארק המים הגדול ביותר בעולם ומציע יום מלא באדרנלין, מגלשות ענק, נהרות אבובים, חוף פרטי ואטרקציות לכל המשפחה. חוויה מושלמת לילדים, זוגות ומבוגרים באחד הפארקים הטובים בעולם.
 - Image: https://dubai-plus.co.il/assets/product-1783521351890-9kxnks.webp
 
+### קידזניה KIDZANYA DUBAI
+https://dubai-plus.co.il/product/kydznyh-kidzanya-dubai-6inl0u
+- Price: 153.00 ILS
+- Availability: In stock
+- Category: אטרקציות לילדים
+- Description: KidZania Dubai היא עיר אינטראקטיבית לילדים הממוקמת בקניון דובאי, שבה הילדים יכולים להתנסות בעשרות מקצועות אמיתיים כמו טייסים, כבאים, רופאים ושפים. חוויה חינוכית, מהנה ומעשירה המשלבת משחק, למידה ופיתוח כישורי חיים – ומתאימה לילדים בגילאי 4–16.
+- Image: https://dubai-plus.co.il/assets/product-1783525786305-nhhoy3.webp
+
 ### נהיגה עצמית במדבר
 https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-wn6ojv
 - Price: 150.00 ILS
 - Availability: In stock
 - Description: נהיגה עצמית במדבר דובאי. החל מ-150 ₪. חוויית נהיגה עצמאית בדיונות המדבר הזהובות.
-
-### קידזניה KIDZANYA DUBAI
-https://dubai-plus.co.il/product/kydznyh-kidzanya-dubai-l9y9g5
-- Price: 179.00 ILS
-- Availability: In stock
-- Category: אטרקציות לילדים
-- Description: KidZania Dubai היא עיר אינטראקטיבית לילדים הממוקמת בקניון דובאי, שבה הילדים יכולים להתנסות בעשרות מקצועות אמיתיים כמו טייסים, כבאים, רופאים ושפים. חוויה חינוכית, מהנה ומעשירה המשלבת משחק, למידה ופיתוח כישורי חיים – ומתאימה לילדים בגילאי 4–16.
-- Image: https://dubai-plus.co.il/assets/product-1783525786305-nhhoy3.webp
 
 ### גן הפרפרים
 https://dubai-plus.co.il/product/gn-hprprym-sniteu
