@@ -127,6 +127,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dubai-plus.co.il/blog/kosher-dubai</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dubai-plus.co.il/blog/kosher-dubai/kosher-restaurants</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dubai-plus.co.il/blog/kosher-dubai/jewish-life</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dubai-plus.co.il/blog/kosher-dubai/shabbat-guide</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dubai-plus.co.il/blog/kosher-dubai/jewish-holidays</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dubai-plus.co.il/privacy</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
