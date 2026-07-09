@@ -58,30 +58,6 @@ https://dubai-plus.co.il/category/:slug
 https://dubai-plus.co.il/restaurants
 חוויות קולינריות בלתי נשכחות בדובאי — ממסעדות שף עולמיות ועד מטבח מקומי אותנטי. גלה המלצות מסעדות נבחרות לישראלים עם תפריטים, מיקומים והזמנת מקום!
 
-### דובאי בפעם הראשונה: איך לבנות חופשה חכמה, נעימה ויוקרתית
-https://dubai-plus.co.il/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt
-מדריך פרקטי למטייל הישראלי שמגיע לדובאי בפעם הראשונה ורוצה לתכנן חופשה נוחה, יוקרתית ומדויקת.
-
-### המלונות בדובאי: איך לבחור נכון בין חוף, מרינה, דאונטאון ופאלם
-https://dubai-plus.co.il/dubai-hotels-marina-downtown-palm
-סקירה ברורה של אזורי הלינה המרכזיים בדובאי ומה מתאים לכל סגנון חופשה.
-
-### אטרקציות בדובאי שלא כדאי לפספס — ומה מתאים לכל סוג מטייל
-https://dubai-plus.co.il/dubai-must-see-attractions
-מדריך לבחירת אטרקציות בדובאי לפי סגנון החופשה, גיל המטיילים וקצב הטיול הרצוי.
-
-### מסעדות וחיי ערב בדובאי: מדריך אלגנטי לחוויה קולינרית בלתי נשכחת
-https://dubai-plus.co.il/blog/dubai-dining-nightlife
-איך לבחור מסעדות בדובאי, מתי להזמין מקום, ואיך לשלב בין נוף, אוכל, אווירה וחיי ערב.
-
-### שופינג בדובאי: איך ליהנות מקניונים, שווקים ובוטיקים בלי להתפזר
-https://dubai-plus.co.il/blog/dubai-shopping-guide
-Sarah laloum tourism llc - שופינג בדובאי: איך ליהנות מקניונים, שווקים ובוטיקים בלי להתפזר
-
-### התניידות בדובאי: איך לעבור בין אזורים, חופים וקניונים בצורה חכמה
-https://dubai-plus.co.il/blog/dubai-transportation-smart-guide
-Sarah laloum tourism llc - התניידות בדובאי: איך לעבור בין אזורים, חופים וקניונים בצורה חכמה
-
 ### כשרות בדובאי
 https://dubai-plus.co.il/blog/kosher-dubai
 Sarah laloum tourism llc - כשרות בדובאי
@@ -102,9 +78,33 @@ https://dubai-plus.co.il/blog/kosher-dubai/shabbat-guide
 https://dubai-plus.co.il/blog/kosher-dubai/jewish-holidays
 מדריך לתכנון חגים ואירועים יהודיים בדובאי, כולל פסח, ראש השנה, חנוכה, בר מצווה, שבת חתן ואירועים משפחתיים.
 
+### דובאי בפעם הראשונה: איך לבנות חופשה חכמה, נעימה ויוקרתית
+https://dubai-plus.co.il/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt
+מדריך פרקטי למטייל הישראלי שמגיע לדובאי בפעם הראשונה ורוצה לתכנן חופשה נוחה, יוקרתית ומדויקת.
+
+### המלונות בדובאי: איך לבחור נכון בין חוף, מרינה, דאונטאון ופאלם
+https://dubai-plus.co.il/dubai-hotels-marina-downtown-palm
+סקירה ברורה של אזורי הלינה המרכזיים בדובאי ומה מתאים לכל סגנון חופשה.
+
+### אטרקציות בדובאי שלא כדאי לפספס — ומה מתאים לכל סוג מטייל
+https://dubai-plus.co.il/dubai-must-see-attractions
+מדריך לבחירת אטרקציות בדובאי לפי סגנון החופשה, גיל המטיילים וקצב הטיול הרצוי.
+
+### מסעדות וחיי ערב בדובאי: מדריך אלגנטי לחוויה קולינרית בלתי נשכחת
+https://dubai-plus.co.il/blog/dubai-dining-nightlife
+איך לבחור מסעדות בדובאי, מתי להזמין מקום, ואיך לשלב בין נוף, אוכל, אווירה וחיי ערב.
+
 ### מגזין דובאי למטייל הישראלי
 https://dubai-plus.co.il/dubai-magazine-for-israeli-travelers
 Sarah laloum tourism llc - מגזין דובאי למטייל הישראלי
+
+### שופינג בדובאי: איך ליהנות מקניונים, שווקים ובוטיקים בלי להתפזר
+https://dubai-plus.co.il/blog/dubai-shopping-guide
+Sarah laloum tourism llc - שופינג בדובאי: איך ליהנות מקניונים, שווקים ובוטיקים בלי להתפזר
+
+### התניידות בדובאי: איך לעבור בין אזורים, חופים וקניונים בצורה חכמה
+https://dubai-plus.co.il/blog/dubai-transportation-smart-guide
+Sarah laloum tourism llc - התניידות בדובאי: איך לעבור בין אזורים, חופים וקניונים בצורה חכמה
 
 ### דברו איתנו ותכננו את הטיול המושלם — Duabi plus
 https://dubai-plus.co.il/contact
