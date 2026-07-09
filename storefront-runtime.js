@@ -1577,6 +1577,8 @@ window.onload = function() {
 ;
 
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -2082,13 +2084,29 @@ function stripHtmlToText(html) {
   let minimumOrderAmount = null;
 
   // Fetch store settings (including tax rate and product layout) from API
-  async function fetchStoreSettings() {
-    if (storeSettingsFetched) return;
+  async function fetchStoreSettings(force) {
+    if (storeSettingsFetched && !force) return;
     if (storeSettingsPromise) return storeSettingsPromise;
+    var settingsUrl = buildApiUrlWithLang('/api/ecommerce/storefront/settings?websiteId=' + websiteId);
     storeSettingsPromise = (async function() {
     try {
-      const res = await fetch(buildApiUrlWithLang('/api/ecommerce/storefront/settings?websiteId=' + websiteId));
-      const data = await res.json();
+      if (!force && window.__zappyStoreSettingsData && window.__zappyStoreSettingsCacheKey === settingsUrl) {
+        return window.__zappyStoreSettingsData;
+      }
+      if (!force && window.__zappyStoreSettingsPromise && window.__zappyStoreSettingsCacheKey === settingsUrl) {
+        return await window.__zappyStoreSettingsPromise;
+      }
+      window.__zappyStoreSettingsCacheKey = settingsUrl;
+      window.__zappyStoreSettingsPromise = fetch(settingsUrl)
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          window.__zappyStoreSettingsData = data;
+          return data;
+        })
+        .finally(function() {
+          window.__zappyStoreSettingsPromise = null;
+        });
+      const data = await window.__zappyStoreSettingsPromise;
       if (data.success && data.data) {
         if (data.data.taxRate && data.data.taxRate > 0) {
           vatRate = data.data.taxRate;
@@ -2132,6 +2150,7 @@ function stripHtmlToText(html) {
         }
         storeSettingsFetched = true;
       }
+      return data;
     } catch (e) {
       console.warn('Failed to fetch store settings, using defaults:', e);
     } finally {
@@ -2140,9 +2159,6 @@ function stripHtmlToText(html) {
     })();
     return storeSettingsPromise;
   }
-  
-  // Fetch settings on page load
-  fetchStoreSettings();
   
   
   var ZAPPY_STATE_MAP = {"US":[["AL","Alabama"],["AK","Alaska"],["AS","American Samoa"],["AZ","Arizona"],["AR","Arkansas"],["UM-81","Baker Island"],["CA","California"],["CO","Colorado"],["CT","Connecticut"],["DE","Delaware"],["DC","District of Columbia"],["FL","Florida"],["GA","Georgia"],["GU","Guam"],["HI","Hawaii"],["UM-84","Howland Island"],["ID","Idaho"],["IL","Illinois"],["IN","Indiana"],["IA","Iowa"],["UM-86","Jarvis Island"],["UM-67","Johnston Atoll"],["KS","Kansas"],["KY","Kentucky"],["UM-89","Kingman Reef"],["LA","Louisiana"],["ME","Maine"],["MD","Maryland"],["MA","Massachusetts"],["MI","Michigan"],["UM-71","Midway Atoll"],["MN","Minnesota"],["MS","Mississippi"],["MO","Missouri"],["MT","Montana"],["UM-76","Navassa Island"],["NE","Nebraska"],["NV","Nevada"],["NH","New Hampshire"],["NJ","New Jersey"],["NM","New Mexico"],["NY","New York"],["NC","North Carolina"],["ND","North Dakota"],["MP","Northern Mariana Islands"],["OH","Ohio"],["OK","Oklahoma"],["OR","Oregon"],["UM-95","Palmyra Atoll"],["PA","Pennsylvania"],["PR","Puerto Rico"],["RI","Rhode Island"],["SC","South Carolina"],["SD","South Dakota"],["TN","Tennessee"],["TX","Texas"],["UM","United States Minor Outlying Islands"],["VI","United States Virgin Islands"],["UT","Utah"],["VT","Vermont"],["VA","Virginia"],["UM-79","Wake Island"],["WA","Washington"],["WV","West Virginia"],["WI","Wisconsin"],["WY","Wyoming"]],"CA":[["AB","Alberta"],["BC","British Columbia"],["MB","Manitoba"],["NB","New Brunswick"],["NL","Newfoundland and Labrador"],["NT","Northwest Territories"],["NS","Nova Scotia"],["NU","Nunavut"],["ON","Ontario"],["PE","Prince Edward Island"],["QC","Quebec"],["SK","Saskatchewan"],["YT","Yukon"]],"AU":[["ACT","Australian Capital Territory"],["NSW","New South Wales"],["NT","Northern Territory"],["QLD","Queensland"],["SA","South Australia"],["TAS","Tasmania"],["VIC","Victoria"],["WA","Western Australia"]],"IN":[["AN","Andaman and Nicobar Islands"],["AP","Andhra Pradesh"],["AR","Arunachal Pradesh"],["AS","Assam"],["BR","Bihar"],["CH","Chandigarh"],["CT","Chhattisgarh"],["DH","Dadra and Nagar Haveli and Daman and Diu"],["DL","Delhi"],["GA","Goa"],["GJ","Gujarat"],["HR","Haryana"],["HP","Himachal Pradesh"],["JK","Jammu and Kashmir"],["JH","Jharkhand"],["KA","Karnataka"],["KL","Kerala"],["LA","Ladakh"],["LD","Lakshadweep"],["MP","Madhya Pradesh"],["MH","Maharashtra"],["MN","Manipur"],["ML","Meghalaya"],["MZ","Mizoram"],["NL","Nagaland"],["OR","Odisha"],["PY","Puducherry"],["PB","Punjab"],["RJ","Rajasthan"],["SK","Sikkim"],["TN","Tamil Nadu"],["TG","Telangana"],["TR","Tripura"],["UP","Uttar Pradesh"],["UT","Uttarakhand"],["WB","West Bengal"]],"BR":[["AC","Acre"],["AL","Alagoas"],["AP","Amapá"],["AM","Amazonas"],["BA","Bahia"],["CE","Ceará"],["DF","Distrito Federal"],["ES","Espírito Santo"],["GO","Goiás"],["MA","Maranhão"],["MT","Mato Grosso"],["MS","Mato Grosso do Sul"],["MG","Minas Gerais"],["PR","Paraná"],["PB","Paraíba"],["PA","Pará"],["PE","Pernambuco"],["PI","Piauí"],["RN","Rio Grande do Norte"],["RS","Rio Grande do Sul"],["RJ","Rio de Janeiro"],["RO","Rondônia"],["RR","Roraima"],["SC","Santa Catarina"],["SE","Sergipe"],["SP","São Paulo"],["TO","Tocantins"]],"MX":[["AGU","Aguascalientes"],["BCN","Baja California"],["BCS","Baja California Sur"],["CAM","Campeche"],["CHP","Chiapas"],["CHH","Chihuahua"],["CDMX","Ciudad de México"],["COA","Coahuila de Zaragoza"],["COL","Colima"],["DUR","Durango"],["MEX","Estado de México"],["GUA","Guanajuato"],["GRO","Guerrero"],["HID","Hidalgo"],["JAL","Jalisco"],["MIC","Michoacán de Ocampo"],["MOR","Morelos"],["NAY","Nayarit"],["NLE","Nuevo León"],["OAX","Oaxaca"],["PUE","Puebla"],["QUE","Querétaro"],["ROO","Quintana Roo"],["SLP","San Luis Potosí"],["SIN","Sinaloa"],["SON","Sonora"],["TAB","Tabasco"],["TAM","Tamaulipas"],["TLA","Tlaxcala"],["VER","Veracruz de Ignacio de la Llave"],["YUC","Yucatán"],["ZAC","Zacatecas"]],"CN":[["AH","Anhui"],["BJ","Beijing"],["CQ","Chongqing"],["FJ","Fujian"],["GS","Gansu"],["GD","Guangdong"],["GX","Guangxi Zhuang"],["GZ","Guizhou"],["HI","Hainan"],["HE","Hebei"],["HL","Heilongjiang"],["HA","Henan"],["HK","Hong Kong SAR"],["HB","Hubei"],["HN","Hunan"],["NM","Inner Mongolia"],["JS","Jiangsu"],["JX","Jiangxi"],["JL","Jilin"],["LN","Liaoning"],["MO","Macau SAR"],["NX","Ningxia Huizu"],["QH","Qinghai"],["SN","Shaanxi"],["SD","Shandong"],["SH","Shanghai"],["SX","Shanxi"],["SC","Sichuan"],["TW","Taiwan"],["TJ","Tianjin"],["XJ","Xinjiang"],["XZ","Xizang"],["YN","Yunnan"],["ZJ","Zhejiang"]],"JP":[["23","Aichi Prefecture"],["05","Akita Prefecture"],["02","Aomori Prefecture"],["12","Chiba Prefecture"],["38","Ehime Prefecture"],["18","Fukui Prefecture"],["40","Fukuoka Prefecture"],["07","Fukushima Prefecture"],["21","Gifu Prefecture"],["10","Gunma Prefecture"],["34","Hiroshima Prefecture"],["01","Hokkaidō Prefecture"],["28","Hyōgo Prefecture"],["08","Ibaraki Prefecture"],["17","Ishikawa Prefecture"],["03","Iwate Prefecture"],["37","Kagawa Prefecture"],["46","Kagoshima Prefecture"],["14","Kanagawa Prefecture"],["43","Kumamoto Prefecture"],["26","Kyōto Prefecture"],["39","Kōchi Prefecture"],["24","Mie Prefecture"],["04","Miyagi Prefecture"],["45","Miyazaki Prefecture"],["20","Nagano Prefecture"],["42","Nagasaki Prefecture"],["29","Nara Prefecture"],["15","Niigata Prefecture"],["33","Okayama Prefecture"],["47","Okinawa Prefecture"],["41","Saga Prefecture"],["11","Saitama Prefecture"],["25","Shiga Prefecture"],["32","Shimane Prefecture"],["22","Shizuoka Prefecture"],["09","Tochigi Prefecture"],["36","Tokushima Prefecture"],["13","Tokyo"],["31","Tottori Prefecture"],["16","Toyama Prefecture"],["30","Wakayama Prefecture"],["06","Yamagata Prefecture"],["35","Yamaguchi Prefecture"],["19","Yamanashi Prefecture"],["44","Ōita Prefecture"],["27","Ōsaka Prefecture"]],"ID":[["AC","Aceh"],["BA","Bali"],["BT","Banten"],["BE","Bengkulu"],["YO","DI Yogyakarta"],["JK","DKI Jakarta"],["GO","Gorontalo"],["JA","Jambi"],["JB","Jawa Barat"],["JT","Jawa Tengah"],["JI","Jawa Timur"],["KA","Kalimantan Barat"],["KS","Kalimantan Selatan"],["KT","Kalimantan Tengah"],["KI","Kalimantan Timur"],["KU","Kalimantan Utara"],["BB","Kepulauan Bangka Belitung"],["KR","Kepulauan Riau"],["LA","Lampung"],["MA","Maluku"],["MU","Maluku Utara"],["NB","Nusa Tenggara Barat"],["NT","Nusa Tenggara Timur"],["PA","Papua"],["PB","Papua Barat"],["RI","Riau"],["SR","Sulawesi Barat"],["SN","Sulawesi Selatan"],["ST","Sulawesi Tengah"],["SG","Sulawesi Tenggara"],["SA","Sulawesi Utara"],["SB","Sumatera Barat"],["SS","Sumatera Selatan"],["SU","Sumatera Utara"]],"MY":[["01","Johor"],["02","Kedah"],["03","Kelantan"],["14","Kuala Lumpur"],["15","Labuan"],["04","Malacca"],["05","Negeri Sembilan"],["06","Pahang"],["07","Penang"],["08","Perak"],["09","Perlis"],["16","Putrajaya"],["12","Sabah"],["13","Sarawak"],["10","Selangor"],["11","Terengganu"]],"NG":[["AB","Abia"],["FC","Abuja Federal Capital Territory"],["AD","Adamawa"],["AK","Akwa Ibom"],["AN","Anambra"],["BA","Bauchi"],["BY","Bayelsa"],["BE","Benue"],["BO","Borno"],["CR","Cross River"],["DE","Delta"],["EB","Ebonyi"],["ED","Edo"],["EK","Ekiti"],["EN","Enugu"],["GO","Gombe"],["IM","Imo"],["JI","Jigawa"],["KD","Kaduna"],["KN","Kano"],["KT","Katsina"],["KE","Kebbi"],["KO","Kogi"],["KW","Kwara"],["LA","Lagos"],["NA","Nasarawa"],["NI","Niger"],["OG","Ogun"],["ON","Ondo"],["OS","Osun"],["OY","Oyo"],["PL","Plateau"],["RI","Rivers"],["SO","Sokoto"],["TA","Taraba"],["YO","Yobe"],["ZA","Zamfara"]],"PH":[["ABR","Abra"],["AGN","Agusan del Norte"],["AGS","Agusan del Sur"],["AKL","Aklan"],["ALB","Albay"],["ANT","Antique"],["APA","Apayao"],["AUR","Aurora"],["14","Autonomous Region in Muslim Mindanao"],["BAS","Basilan"],["BAN","Bataan"],["BTN","Batanes"],["BTG","Batangas"],["BEN","Benguet"],["05","Bicol Region"],["BIL","Biliran"],["BOH","Bohol"],["BUK","Bukidnon"],["BUL","Bulacan"],["CAG","Cagayan"],["02","Cagayan Valley"],["40","Calabarzon"],["CAN","Camarines Norte"],["CAS","Camarines Sur"],["CAM","Camiguin"],["CAP","Capiz"],["13","Caraga"],["CAT","Catanduanes"],["CAV","Cavite"],["CEB","Cebu"],["03","Central Luzon"],["07","Central Visayas"],["COM","Compostela Valley"],["15","Cordillera Administrative Region"],["NCO","Cotabato"],["DVO","Davao Occidental"],["DAO","Davao Oriental"],["11","Davao Region"],["DAV","Davao del Norte"],["DAS","Davao del Sur"],["DIN","Dinagat Islands"],["EAS","Eastern Samar"],["08","Eastern Visayas"],["GUI","Guimaras"],["IFU","Ifugao"],["ILN","Ilocos Norte"],["01","Ilocos Region"],["ILS","Ilocos Sur"],["ILI","Iloilo"],["ISA","Isabela"],["KAL","Kalinga"],["LUN","La Union"],["LAG","Laguna"],["LAN","Lanao del Norte"],["LAS","Lanao del Sur"],["LEY","Leyte"],["MAG","Maguindanao"],["MAD","Marinduque"],["MAS","Masbate"],["NCR","Metro Manila"],["41","Mimaropa"],["MSC","Misamis Occidental"],["MSR","Misamis Oriental"],["MOU","Mountain Province"],["NEC","Negros Occidental"],["NER","Negros Oriental"],["10","Northern Mindanao"],["NSA","Northern Samar"],["NUE","Nueva Ecija"],["NUV","Nueva Vizcaya"],["MDC","Occidental Mindoro"],["MDR","Oriental Mindoro"],["PLW","Palawan"],["PAM","Pampanga"],["PAN","Pangasinan"],["QUE","Quezon"],["QUI","Quirino"],["RIZ","Rizal"],["ROM","Romblon"],["SAR","Sarangani"],["SIG","Siquijor"],["12","Soccsksargen"],["SOR","Sorsogon"],["SCO","South Cotabato"],["SLE","Southern Leyte"],["SUK","Sultan Kudarat"],["SLU","Sulu"],["SUN","Surigao del Norte"],["SUR","Surigao del Sur"],["TAR","Tarlac"],["TAW","Tawi-Tawi"],["06","Western Visayas"],["ZMB","Zambales"],["09","Zamboanga Peninsula"],["ZSI","Zamboanga Sibugay"],["ZAN","Zamboanga del Norte"],["ZAS","Zamboanga del Sur"]],"TH":[["37","Amnat Charoen"],["15","Ang Thong"],["10","Bangkok"],["38","Bueng Kan"],["31","Buri Ram"],["24","Chachoengsao"],["18","Chai Nat"],["36","Chaiyaphum"],["22","Chanthaburi"],["50","Chiang Mai"],["57","Chiang Rai"],["20","Chon Buri"],["86","Chumphon"],["46","Kalasin"],["62","Kamphaeng Phet"],["71","Kanchanaburi"],["40","Khon Kaen"],["81","Krabi"],["52","Lampang"],["51","Lamphun"],["42","Loei"],["16","Lop Buri"],["58","Mae Hong Son"],["44","Maha Sarakham"],["49","Mukdahan"],["26","Nakhon Nayok"],["73","Nakhon Pathom"],["48","Nakhon Phanom"],["30","Nakhon Ratchasima"],["60","Nakhon Sawan"],["80","Nakhon Si Thammarat"],["55","Nan"],["96","Narathiwat"],["39","Nong Bua Lam Phu"],["43","Nong Khai"],["12","Nonthaburi"],["13","Pathum Thani"],["94","Pattani"],["S","Pattaya"],["82","Phangnga"],["93","Phatthalung"],["56","Phayao"],["67","Phetchabun"],["76","Phetchaburi"],["66","Phichit"],["65","Phitsanulok"],["14","Phra Nakhon Si Ayutthaya"],["54","Phrae"],["83","Phuket"],["25","Prachin Buri"],["77","Prachuap Khiri Khan"],["85","Ranong"],["70","Ratchaburi"],["21","Rayong"],["45","Roi Et"],["27","Sa Kaeo"],["47","Sakon Nakhon"],["11","Samut Prakan"],["74","Samut Sakhon"],["75","Samut Songkhram"],["19","Saraburi"],["91","Satun"],["33","Si Sa Ket"],["17","Sing Buri"],["90","Songkhla"],["64","Sukhothai"],["72","Suphan Buri"],["84","Surat Thani"],["32","Surin"],["63","Tak"],["92","Trang"],["23","Trat"],["34","Ubon Ratchathani"],["41","Udon Thani"],["61","Uthai Thani"],["53","Uttaradit"],["95","Yala"],["35","Yasothon"]],"DE":[["BW","Baden-Württemberg"],["BY","Bavaria"],["BE","Berlin"],["BB","Brandenburg"],["HB","Bremen"],["HH","Hamburg"],["HE","Hesse"],["NI","Lower Saxony"],["MV","Mecklenburg-Vorpommern"],["NW","North Rhine-Westphalia"],["RP","Rhineland-Palatinate"],["SL","Saarland"],["SN","Saxony"],["ST","Saxony-Anhalt"],["SH","Schleswig-Holstein"],["TH","Thuringia"]],"IT":[["65","Abruzzo"],["23","Aosta Valley"],["75","Apulia"],["77","Basilicata"],["BN","Benevento Province"],["78","Calabria"],["72","Campania"],["45","Emilia-Romagna"],["36","Friuli–Venezia Giulia"],["62","Lazio"],["AG","Libero consorzio comunale di Agrigento"],["CL","Libero consorzio comunale di Caltanissetta"],["EN","Libero consorzio comunale di Enna"],["RG","Libero consorzio comunale di Ragusa"],["SR","Libero consorzio comunale di Siracusa"],["TP","Libero consorzio comunale di Trapani"],["42","Liguria"],["25","Lombardy"],["57","Marche"],["BA","Metropolitan City of Bari"],["BO","Metropolitan City of Bologna"],["CA","Metropolitan City of Cagliari"],["CT","Metropolitan City of Catania"],["FI","Metropolitan City of Florence"],["GE","Metropolitan City of Genoa"],["ME","Metropolitan City of Messina"],["MI","Metropolitan City of Milan"],["NA","Metropolitan City of Naples"],["PA","Metropolitan City of Palermo"],["RC","Metropolitan City of Reggio Calabria"],["RM","Metropolitan City of Rome"],["TO","Metropolitan City of Turin"],["VE","Metropolitan City of Venice"],["67","Molise"],["PU","Pesaro and Urbino Province"],["21","Piedmont"],["AL","Province of Alessandria"],["AN","Province of Ancona"],["AP","Province of Ascoli Piceno"],["AT","Province of Asti"],["AV","Province of Avellino"],["BT","Province of Barletta-Andria-Trani"],["BL","Province of Belluno"],["BG","Province of Bergamo"],["BI","Province of Biella"],["BS","Province of Brescia"],["BR","Province of Brindisi"],["CB","Province of Campobasso"],["CI","Province of Carbonia-Iglesias"],["CE","Province of Caserta"],["CZ","Province of Catanzaro"],["CH","Province of Chieti"],["CO","Province of Como"],["CS","Province of Cosenza"],["CR","Province of Cremona"],["KR","Province of Crotone"],["CN","Province of Cuneo"],["FM","Province of Fermo"],["FE","Province of Ferrara"],["FG","Province of Foggia"],["FC","Province of Forlì-Cesena"],["FR","Province of Frosinone"],["GO","Province of Gorizia"],["GR","Province of Grosseto"],["IM","Province of Imperia"],["IS","Province of Isernia"],["AQ","Province of L'Aquila"],["SP","Province of La Spezia"],["LT","Province of Latina"],["LE","Province of Lecce"],["LC","Province of Lecco"],["LI","Province of Livorno"],["LO","Province of Lodi"],["LU","Province of Lucca"],["MC","Province of Macerata"],["MN","Province of Mantua"],["MS","Province of Massa and Carrara"],["MT","Province of Matera"],["VS","Province of Medio Campidano"],["MO","Province of Modena"],["MB","Province of Monza and Brianza"],["NO","Province of Novara"],["NU","Province of Nuoro"],["OG","Province of Ogliastra"],["OT","Province of Olbia-Tempio"],["OR","Province of Oristano"],["PD","Province of Padua"],["PR","Province of Parma"],["PV","Province of Pavia"],["PG","Province of Perugia"],["PE","Province of Pescara"],["PC","Province of Piacenza"],["PI","Province of Pisa"],["PT","Province of Pistoia"],["PN","Province of Pordenone"],["PZ","Province of Potenza"],["PO","Province of Prato"],["RA","Province of Ravenna"],["RE","Province of Reggio Emilia"],["RI","Province of Rieti"],["RN","Province of Rimini"],["RO","Province of Rovigo"],["SA","Province of Salerno"],["SS","Province of Sassari"],["SV","Province of Savona"],["SI","Province of Siena"],["SO","Province of Sondrio"],["TA","Province of Taranto"],["TE","Province of Teramo"],["TR","Province of Terni"],["TV","Province of Treviso"],["TS","Province of Trieste"],["UD","Province of Udine"],["VA","Province of Varese"],["VB","Province of Verbano-Cusio-Ossola"],["VC","Province of Vercelli"],["VR","Province of Verona"],["VV","Province of Vibo Valentia"],["VI","Province of Vicenza"],["VT","Province of Viterbo"],["88","Sardinia"],["82","Sicily"],["BZ","South Tyrol"],["TN","Trentino"],["32","Trentino-South Tyrol"],["52","Tuscany"],["55","Umbria"],["34","Veneto"]],"ES":[["AN","Andalusia"],["AR","Aragon"],["AS","Asturias"],["PM","Balearic Islands"],["PV","Basque Country"],["BU","Burgos Province"],["CN","Canary Islands"],["CB","Cantabria"],["CL","Castile and León"],["CM","Castilla La Mancha"],["CT","Catalonia"],["CE","Ceuta"],["EX","Extremadura"],["GA","Galicia"],["RI","La Rioja"],["LE","Léon"],["MD","Madrid"],["ML","Melilla"],["MC","Murcia"],["NC","Navarra"],["P","Palencia Province"],["SA","Salamanca Province"],["SG","Segovia Province"],["SO","Soria Province"],["VC","Valencia"],["VA","Valladolid Province"],["ZA","Zamora Province"],["AV","Ávila"]],"AR":[["B","Buenos Aires"],["K","Catamarca"],["H","Chaco"],["U","Chubut"],["C","Ciudad Autónoma de Buenos Aires"],["W","Corrientes"],["X","Córdoba"],["E","Entre Ríos"],["P","Formosa"],["Y","Jujuy"],["L","La Pampa"],["F","La Rioja"],["M","Mendoza"],["N","Misiones"],["Q","Neuquén"],["R","Río Negro"],["A","Salta"],["J","San Juan"],["D","San Luis"],["Z","Santa Cruz"],["S","Santa Fe"],["G","Santiago del Estero"],["V","Tierra del Fuego"],["T","Tucumán"]],"CL":[["AI","Aisén del General Carlos Ibañez del Campo"],["AN","Antofagasta"],["AP","Arica y Parinacota"],["AT","Atacama"],["BI","Biobío"],["CO","Coquimbo"],["AR","La Araucanía"],["LI","Libertador General Bernardo O'Higgins"],["LL","Los Lagos"],["LR","Los Ríos"],["MA","Magallanes y de la Antártica Chilena"],["ML","Maule"],["RM","Región Metropolitana de Santiago"],["TA","Tarapacá"],["VS","Valparaíso"],["NB","Ñuble"]],"CO":[["AMA","Amazonas"],["ANT","Antioquia"],["ARA","Arauca"],["SAP","Archipiélago de San Andrés, Providencia y Santa Catalina"],["ATL","Atlántico"],["DC","Bogotá D.C."],["BOL","Bolívar"],["BOY","Boyacá"],["CAL","Caldas"],["CAQ","Caquetá"],["CAS","Casanare"],["CAU","Cauca"],["CES","Cesar"],["CHO","Chocó"],["CUN","Cundinamarca"],["COR","Córdoba"],["GUA","Guainía"],["GUV","Guaviare"],["HUI","Huila"],["LAG","La Guajira"],["MAG","Magdalena"],["MET","Meta"],["NAR","Nariño"],["NSA","Norte de Santander"],["PUT","Putumayo"],["QUI","Quindío"],["RIS","Risaralda"],["SAN","Santander"],["SUC","Sucre"],["TOL","Tolima"],["VAC","Valle del Cauca"],["VAU","Vaupés"],["VID","Vichada"]],"PE":[["AMA","Amazonas"],["APU","Apurímac"],["ARE","Arequipa"],["AYA","Ayacucho"],["CAJ","Cajamarca"],["CAL","Callao"],["CUS","Cusco"],["HUV","Huancavelica"],["HUC","Huanuco"],["ICA","Ica"],["JUN","Junín"],["LAL","La Libertad"],["LAM","Lambayeque"],["LIM","Lima"],["LOR","Loreto"],["MDD","Madre de Dios"],["MOQ","Moquegua"],["PAS","Pasco"],["PIU","Piura"],["PUN","Puno"],["SAM","San Martín"],["TAC","Tacna"],["TUM","Tumbes"],["UCA","Ucayali"],["ANC","Áncash"]],"VE":[["Z","Amazonas"],["B","Anzoátegui"],["C","Apure"],["D","Aragua"],["E","Barinas"],["F","Bolívar"],["G","Carabobo"],["H","Cojedes"],["Y","Delta Amacuro"],["A","Distrito Capital"],["I","Falcón"],["W","Federal Dependencies of Venezuela"],["J","Guárico"],["X","La Guaira"],["K","Lara"],["M","Miranda"],["N","Monagas"],["L","Mérida"],["O","Nueva Esparta"],["P","Portuguesa"],["R","Sucre"],["T","Trujillo"],["S","Táchira"],["U","Yaracuy"],["V","Zulia"]]};
@@ -9030,6 +9046,7 @@ function stripHtmlToText(html) {
   function initAll() {
     tryMagicLoginFromUrl();
     updateCartCount();
+    if (shouldFetchStoreSettingsOnBoot()) fetchStoreSettings();
     if (shouldLoadProductsOnBoot()) loadProducts();
     initFilterButtons();
     renderCart();
@@ -9075,6 +9092,18 @@ function stripHtmlToText(html) {
     );
   }
 
+  function shouldFetchStoreSettingsOnBoot() {
+    return shouldLoadProductsOnBoot() ||
+      shouldLoadCheckoutDataOnBoot() ||
+      !!(
+        document.getElementById('cart-items') ||
+        document.getElementById('order-success') ||
+        document.getElementById('product-detail') ||
+        document.getElementById('zappy-category-products') ||
+        document.querySelector('.cart-page,.checkout-page,.order-success-page,.product-detail-page')
+      );
+  }
+
   function hasProductPricingGridOnBoot() {
     return !!(
       document.getElementById('zappy-product-grid') ||
@@ -9096,6 +9125,30 @@ function stripHtmlToText(html) {
     if (!token) return false;
     return shouldLoadCartDiscountDataOnBoot();
   }
+
+  function fetchStorefrontCategoriesCached() {
+    const websiteId = window.ZAPPY_WEBSITE_ID;
+    if (!websiteId) return Promise.resolve([]);
+    const categoriesUrl = buildApiUrlWithLang('/api/ecommerce/storefront/categories?websiteId=' + websiteId);
+    if (window.__zappyStorefrontCategoriesData && window.__zappyStorefrontCategoriesCacheKey === categoriesUrl) {
+      return Promise.resolve(window.__zappyStorefrontCategoriesData);
+    }
+    if (!window.__zappyStorefrontCategoriesPromise || window.__zappyStorefrontCategoriesCacheKey !== categoriesUrl) {
+      window.__zappyStorefrontCategoriesCacheKey = categoriesUrl;
+      window.__zappyStorefrontCategoriesPromise = fetch(categoriesUrl)
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          var categoryRows = Array.isArray(data.data) ? data.data : (Array.isArray(data.categories) ? data.categories : []);
+          window.__zappyStorefrontCategoriesData = categoryRows;
+          return categoryRows;
+        })
+        .finally(function() {
+          window.__zappyStorefrontCategoriesPromise = null;
+        });
+    }
+    return window.__zappyStorefrontCategoriesPromise;
+  }
+  window.__zappyFetchStorefrontCategories = fetchStorefrontCategoriesCached;
   
   // Add categories submenu to Products link in mobile menu
   function initMobileCategoriesSubmenu() {
@@ -9119,22 +9172,17 @@ function stripHtmlToText(html) {
     
     // If no categories from DOM, try to fetch them
     if (categories.length === 0) {
-      const websiteId = window.ZAPPY_WEBSITE_ID;
-      if (websiteId) {
-        fetch(buildApiUrlWithLang('/api/ecommerce/storefront/categories?websiteId=' + websiteId))
-          .then(function(r) { return r.json(); })
-          .then(function(data) {
-            var categoryRows = Array.isArray(data.data) ? data.data : (Array.isArray(data.categories) ? data.categories : []);
-            if (categoryRows.length > 0) {
-              categories = categoryRows.map(function(c) {
-                // Use SEO-friendly slug URL, fallback to id for backward compatibility
-                return { name: c.name, href: buildStorefrontPath('/category/' + (c.slug || c.id)) };
-              });
-              addSubmenuToProductsLinks(productsLinks, categories);
-            }
-          })
-          .catch(function() {});
-      }
+      fetchStorefrontCategoriesCached()
+        .then(function(categoryRows) {
+          if (categoryRows.length > 0) {
+            categories = categoryRows.map(function(c) {
+              // Use SEO-friendly slug URL, fallback to id for backward compatibility
+              return { name: c.name, href: buildStorefrontPath('/category/' + (c.slug || c.id)) };
+            });
+            addSubmenuToProductsLinks(productsLinks, categories);
+          }
+        })
+        .catch(function() {});
     } else {
       addSubmenuToProductsLinks(productsLinks, categories);
     }
@@ -9643,10 +9691,32 @@ async function fetchAdditionalJsSettings(force) {
   if (additionalJsSettingsPromise && !force) return additionalJsSettingsPromise;
   const websiteId = window.ZAPPY_WEBSITE_ID;
   if (!websiteId) return;
+  const settingsUrl = buildApiUrlWithLang('/api/ecommerce/storefront/settings?websiteId=' + websiteId);
   additionalJsSettingsPromise = (async function() {
   try {
-    const res = await fetch(buildApiUrlWithLang('/api/ecommerce/storefront/settings?websiteId=' + websiteId));
-    const data = await res.json();
+    if (force) {
+      window.__zappyStoreSettingsData = null;
+      window.__zappyStoreSettingsPromise = null;
+      window.__zappyStoreSettingsCacheKey = '';
+    }
+    var data;
+    if (!force && window.__zappyStoreSettingsData && window.__zappyStoreSettingsCacheKey === settingsUrl) {
+      data = window.__zappyStoreSettingsData;
+    } else {
+      if (!window.__zappyStoreSettingsPromise || window.__zappyStoreSettingsCacheKey !== settingsUrl) {
+        window.__zappyStoreSettingsCacheKey = settingsUrl;
+        window.__zappyStoreSettingsPromise = fetch(settingsUrl)
+          .then(function(res) { return res.json(); })
+          .then(function(payload) {
+            window.__zappyStoreSettingsData = payload;
+            return payload;
+          })
+          .finally(function() {
+            window.__zappyStoreSettingsPromise = null;
+          });
+      }
+      data = await window.__zappyStoreSettingsPromise;
+    }
     if (data.success && data.data) {
       if (data.data.productLayout) {
         additionalJsProductLayout = data.data.productLayout;
@@ -9863,6 +9933,68 @@ function scheduleFixedHeaderRecalc() {
   if (typeof recalc !== 'function') return;
   [0, 50, 150, 350].forEach(function(delay) {
     setTimeout(recalc, delay);
+  });
+}
+
+function scheduleStorefrontIdleWork(fn) {
+  if (typeof fn !== 'function') return;
+  var run = function() {
+    if (typeof window.requestIdleCallback === 'function') {
+      window.requestIdleCallback(fn, { timeout: 1600 });
+    } else {
+      setTimeout(fn, 700);
+    }
+  };
+  if (document.readyState === 'complete') {
+    setTimeout(run, 0);
+  } else {
+    window.addEventListener('load', run, { once: true });
+  }
+}
+
+function scheduleHomeDynamicSectionLoad(elementId, loader) {
+  if (typeof loader !== 'function') return;
+  var target = document.getElementById(elementId);
+  if (!target) return;
+  var loaded = false;
+  function run() {
+    if (loaded) return;
+    loaded = true;
+    loader();
+  }
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      if (entries.some(function(entry) { return entry.isIntersecting; })) {
+        observer.disconnect();
+        run();
+      }
+    }, { rootMargin: '200px 0px' });
+    observer.observe(target);
+  } else {
+    scheduleStorefrontIdleWork(run);
+  }
+  ['pointerenter', 'focusin', 'touchstart'].forEach(function(eventName) {
+    target.addEventListener(eventName, run, { once: true, passive: true });
+  });
+}
+
+function scheduleCatalogCategoriesOnDemand() {
+  var loaded = false;
+  function run() {
+    if (loaded) return;
+    loaded = true;
+    loadCatalogCategories();
+  }
+  var targets = [
+    document.querySelector('.zappy-products-dropdown'),
+    document.getElementById('zappy-catalog-menu'),
+    document.getElementById('mobileToggle')
+  ].filter(Boolean);
+  if (!targets.length) return;
+  targets.forEach(function(target) {
+    ['pointerenter', 'focusin', 'click', 'touchstart'].forEach(function(eventName) {
+      target.addEventListener(eventName, run, { once: true, passive: eventName !== 'click' });
+    });
   });
 }
 
@@ -10527,14 +10659,14 @@ async function loadCatalogCategories() {
   });
   
   try {
-    var res = await fetch(buildApiUrlWithLang('/api/ecommerce/storefront/categories?websiteId=' + websiteId));
-    var data = await res.json();
-    if (!data.success || !data.data?.length) {
+    var allCats = typeof window.__zappyFetchStorefrontCategories === 'function'
+      ? await window.__zappyFetchStorefrontCategories()
+      : [];
+    if (!allCats.length) {
       collapseEmptyProductsDropdown();
       return;
     }
 
-    var allCats = data.data;
     var childrenMap = {};
     var topLevel = [];
     allCats.forEach(function(cat) {
@@ -10921,13 +11053,21 @@ document.addEventListener('DOMContentLoaded', function() {
   // Activate frosted glass scroll effect for transparent navbars
   initTransparentNavbarScrollEffect();
 
-  // Fetch store settings first (handles announcement bar, product layout, etc.)
-  fetchAdditionalJsSettings();
-  loadFeaturedProducts();
-  loadFeaturedCategories();
-  loadCatalogCategories();
+  // Fetch store settings only on pages that need e-commerce data at startup.
+  // Homepage featured sections call this through their own viewport/interaction
+  // loaders so Lighthouse doesn't pay the settings request before content is visible.
+  // Lean ecommerce homepages still need a deferred settings fetch for header
+  // chrome (announcement bar / catalog menu visibility) even without product grids.
+  if (shouldFetchAdditionalJsSettingsOnBoot()) {
+    fetchAdditionalJsSettings();
+  } else if (needsStorefrontHeaderSettings()) {
+    scheduleStorefrontIdleWork(function() { fetchAdditionalJsSettings(); });
+  }
   loadProductDetailPage();
   loadCategoryPage();
+  scheduleHomeDynamicSectionLoad('zappy-featured-products', loadFeaturedProducts);
+  scheduleHomeDynamicSectionLoad('zappy-featured-categories', loadFeaturedCategories);
+  scheduleCatalogCategoriesOnDemand();
   repairCatalogSubmenuLabel();
   
   // Register language change callback to refresh e-commerce content
@@ -11110,6 +11250,25 @@ document.addEventListener('DOMContentLoaded', function() {
   updateStaticEcommerceUI();
   scheduleProductsListingTitleRepair();
 });
+
+function needsStorefrontHeaderSettings() {
+  return !!(
+    document.getElementById('zappy-catalog-menu') ||
+    document.querySelector('.zappy-announcement-bar')
+  );
+}
+
+function shouldFetchAdditionalJsSettingsOnBoot() {
+  return !!(
+    document.getElementById('product-detail') ||
+    document.getElementById('zappy-category-products') ||
+    document.getElementById('zappy-product-grid') ||
+    document.getElementById('cart-items') ||
+    document.getElementById('checkout-form') ||
+    document.getElementById('order-success') ||
+    document.querySelector('.cart-page,.checkout-page,.order-success-page,.product-detail-page,.category-page,.products-page')
+  );
+}
 
 // Load product detail page
 async function loadProductDetailPage() {

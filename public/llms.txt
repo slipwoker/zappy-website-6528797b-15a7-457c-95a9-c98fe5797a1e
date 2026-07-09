@@ -22,35 +22,35 @@ https://dubai-plus.co.il/attractions
 https://dubai-plus.co.il/travel-services
 העברות שדה תעופה, כרטיסי סים בינלאומיים, השכרת רכב ושירותי בייביסיטר בדובאי — כל מה שצריך לטיול מושלם. הזמן שירותי נסיעות פרימיום ותיהנה מכל רגע!
 
-### מוצרים
+### Products
 https://dubai-plus.co.il/products
 המוצרים שלנו - Sarah laloum tourism llc
 
-### עגלת קניות
+### Cart
 https://dubai-plus.co.il/cart
 עגלת הקניות שלך
 
-### תשלום
+### Checkout
 https://dubai-plus.co.il/checkout
 תשלום
 
-### התחברות
+### Login
 https://dubai-plus.co.il/login
 התחברות לקוחות
 
-### החשבון שלי
+### Account
 https://dubai-plus.co.il/account
 החשבון שלי
 
-### ההזמנה התקבלה!
+### Order Success
 https://dubai-plus.co.il/order-success
 תודה על ההזמנה
 
-### פרטי המוצר
+### Product Detail
 https://dubai-plus.co.il/product/:slug
 פרטי המוצר - Sarah laloum tourism llc
 
-### מוצרים
+### Category
 https://dubai-plus.co.il/category/:slug
 מוצרים - Sarah laloum tourism llc
 
