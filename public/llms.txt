@@ -62,8 +62,8 @@ https://dubai-plus.co.il/product/:slug
 https://dubai-plus.co.il/category/:slug
 מוצרים - Sarah laloum tourism llc
 
-### מגזין דובאי למטייל הישראלי
-https://dubai-plus.co.il/blog
+### מגזין עידו טסט דובאי למטייל הישראלי
+https://dubai-plus.co.il/mgzyn-aydv-tst-dvbay-lmtyyl-hyshraly
 Sarah laloum tourism llc - מגזין דובאי למטייל הישראלי
 
 ### פעם ראשונה
