@@ -1,16 +1,16 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-09T11:11:05.385Z",
+  "generated_at": "2026-07-09T11:12:13.820Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 31,
   "products": [
     {
       "id": "ba56f8cf-1227-4f41-ac03-03ebdac9f2f9",
-      "slug": "habrh-mhshdh-vchzrh-6hw3rw",
+      "slug": "habrh-mhshdh-vchzrh-txbgic",
       "name": "העברה מהשדה וחזרה",
       "name_translations": {},
-      "description": "<p>נא לציין את תאריך ההגעה והשעה </p>",
+      "description": "<p>נא לציין את תאריך ההגעה והשעה</p>",
       "short_description": null,
       "sku": null,
       "brand": null,
@@ -23,9 +23,9 @@
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/habrh-mhshdh-vchzrh-6hw3rw",
+      "url": "https://dubai-plus.co.il/product/habrh-mhshdh-vchzrh-txbgic",
       "categories": [],
-      "updated_at": "2026-07-09T11:10:33.511Z"
+      "updated_at": "2026-07-09T11:11:41.832Z"
     },
     {
       "id": "1f88e754-5aa2-4343-8ece-65a5e8b9ab87",
