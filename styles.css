@@ -13482,7 +13482,7 @@ a, button {
    region, so the ring looked cut off at the top for ~half a second before settling. The
    selected ring must appear instantly in its final, non-clipped state. */
 .zc-swatch { width: 20px; height: 20px; min-width: 20px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.12); background: none; padding: 0; cursor: pointer; position: relative; display: inline-flex; align-items: center; justify-content: center; }
-.zc-swatch .zc-swatch-dot { width: 100%; height: 100%; border-radius: 50%; display: block; }
+.zc-swatch .zc-swatch-dot { width: 100%; height: 100%; border-radius: 50%; display: block; background-size: cover; background-position: center; }
 .zc-swatch.selected { box-shadow: 0 0 0 2px var(--accent, var(--primary, #ff0083)); border-color: transparent; }
 .zc-swatch.out-of-stock { opacity: 0.45; }
 .zc-swatch.out-of-stock::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: linear-gradient(to top left, transparent calc(50% - 1px), rgba(0,0,0,0.55) 50%, transparent calc(50% + 1px)); pointer-events: none; }
@@ -13566,7 +13566,7 @@ a, button {
 .zappy-qv-vlabel { font-size: 13px; font-weight: 600; color: var(--text, #374151); }
 .zappy-qv-vvalues { display: flex; flex-wrap: wrap; gap: 8px; }
 .zappy-qv-swatch { width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.12); background: none; padding: 0; cursor: pointer; position: relative; }
-.zappy-qv-swatch .zappy-qv-swatch-dot { width: 100%; height: 100%; border-radius: 50%; display: block; }
+.zappy-qv-swatch .zappy-qv-swatch-dot { width: 100%; height: 100%; border-radius: 50%; display: block; background-size: cover; background-position: center; }
 .zappy-qv-swatch.selected { box-shadow: 0 0 0 2px var(--accent, var(--primary, #ff0083)); border-color: transparent; }
 .zappy-qv-swatch.out-of-stock { opacity: 0.45; }
 .zappy-qv-swatch.out-of-stock::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: linear-gradient(to top left, transparent calc(50% - 1px), rgba(0,0,0,0.55) 50%, transparent calc(50% + 1px)); }
@@ -15215,6 +15215,8 @@ a, button {
   padding: 0;
   border-radius: 50%;
   position: relative;
+  background-size: cover;
+  background-position: center;
 }
 .variant-option.color-swatch.selected::after {
   content: '✓';
@@ -18075,7 +18077,7 @@ a, button {
    region, so the ring looked cut off at the top for ~half a second before settling. The
    selected ring must appear instantly in its final, non-clipped state. */
 .zc-swatch { width: 20px; height: 20px; min-width: 20px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.12); background: none; padding: 0; cursor: pointer; position: relative; display: inline-flex; align-items: center; justify-content: center; }
-.zc-swatch .zc-swatch-dot { width: 100%; height: 100%; border-radius: 50%; display: block; }
+.zc-swatch .zc-swatch-dot { width: 100%; height: 100%; border-radius: 50%; display: block; background-size: cover; background-position: center; }
 .zc-swatch.selected { box-shadow: 0 0 0 2px var(--accent, var(--primary, #ff0083)); border-color: transparent; }
 .zc-swatch.out-of-stock { opacity: 0.45; }
 .zc-swatch.out-of-stock::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: linear-gradient(to top left, transparent calc(50% - 1px), rgba(0,0,0,0.55) 50%, transparent calc(50% + 1px)); pointer-events: none; }
@@ -18159,7 +18161,7 @@ a, button {
 .zappy-qv-vlabel { font-size: 13px; font-weight: 600; color: var(--text, #374151); }
 .zappy-qv-vvalues { display: flex; flex-wrap: wrap; gap: 8px; }
 .zappy-qv-swatch { width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.12); background: none; padding: 0; cursor: pointer; position: relative; }
-.zappy-qv-swatch .zappy-qv-swatch-dot { width: 100%; height: 100%; border-radius: 50%; display: block; }
+.zappy-qv-swatch .zappy-qv-swatch-dot { width: 100%; height: 100%; border-radius: 50%; display: block; background-size: cover; background-position: center; }
 .zappy-qv-swatch.selected { box-shadow: 0 0 0 2px var(--accent, var(--primary, #ff0083)); border-color: transparent; }
 .zappy-qv-swatch.out-of-stock { opacity: 0.45; }
 .zappy-qv-swatch.out-of-stock::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: linear-gradient(to top left, transparent calc(50% - 1px), rgba(0,0,0,0.55) 50%, transparent calc(50% + 1px)); }
@@ -19808,6 +19810,8 @@ a, button {
   padding: 0;
   border-radius: 50%;
   position: relative;
+  background-size: cover;
+  background-position: center;
 }
 .variant-option.color-swatch.selected::after {
   content: '✓';
