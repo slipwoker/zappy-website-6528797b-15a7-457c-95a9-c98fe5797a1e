@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-09T13:11:43.635Z",
+  "generated_at": "2026-07-09T13:13:20.410Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 30,
@@ -258,7 +258,7 @@
     },
     {
       "id": "f12769f8-2273-4006-beba-2f47b3f1d7bf",
-      "slug": "tysh-bmsvk-wvgvj1",
+      "slug": "tysh-bmsvk-00kz1c",
       "name": "טיסה במסוק ",
       "name_translations": {},
       "description": "<p>טיסה במסוק מעל דובאי</p><p>תצפית אווירית מרהיבה על קו הרקיע של דובאי ממסוק פרטי.</p>",
@@ -274,12 +274,12 @@
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/tysh-bmsvk-wvgvj1",
+      "url": "https://dubai-plus.co.il/product/tysh-bmsvk-00kz1c",
       "categories": [
         "אקסטרים וטיול מדבר",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-08T17:24:55.871Z"
+      "updated_at": "2026-07-09T13:12:48.145Z"
     },
     {
       "id": "04319c4a-6967-479e-9657-1d21977932ce",
