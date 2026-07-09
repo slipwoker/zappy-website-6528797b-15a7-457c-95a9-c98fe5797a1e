@@ -1,5 +1,5 @@
 # Clean URL redirects for Render static hosting
-# Generated: 2026-07-09T14:21:46.116Z
+# Generated: 2026-07-09T14:24:23.129Z
 # NOTE: Render uses render.yaml for routing, not _redirects (that is Netlify)
 # This file is kept for reference only
 
@@ -28,8 +28,8 @@
 /blog/kosher-dubai/jewish-life  /blog/kosher-dubai/jewish-life.html  200!
 /blog/kosher-dubai/shabbat-guide  /blog/kosher-dubai/shabbat-guide.html  200!
 /blog/kosher-dubai/jewish-holidays  /blog/kosher-dubai/jewish-holidays.html  200!
-/contact  /contact.html  200!
 /dubai-magazine-for-israeli-travelers  /dubai-magazine-for-israeli-travelers.html  200!
+/contact  /contact.html  200!
 
 # Legal pages - redirect old .html URLs to friendly URLs
 /privacy.html  /privacy  301

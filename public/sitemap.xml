@@ -145,15 +145,15 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dubai-plus.co.il/contact</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://dubai-plus.co.il/dubai-magazine-for-israeli-travelers</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dubai-plus.co.il/contact</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
