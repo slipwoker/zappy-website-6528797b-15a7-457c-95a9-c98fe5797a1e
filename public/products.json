@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-09T12:57:22.297Z",
+  "generated_at": "2026-07-09T13:11:43.635Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 30,
@@ -233,7 +233,7 @@
     },
     {
       "id": "49c2216e-a934-4be0-adbb-2013bbc383a2",
-      "slug": "rkb-al-hmym-1u2aty",
+      "slug": "rkb-al-hmym-kw7194",
       "name": "רכב על המים ",
       "name_translations": {},
       "description": "<p>רכב על המים - חוויית רכיבה ייחודית על רכב מרחף מעל פני המים של דובאי.</p>",
@@ -249,12 +249,12 @@
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/rkb-al-hmym-1u2aty",
+      "url": "https://dubai-plus.co.il/product/rkb-al-hmym-kw7194",
       "categories": [
         "שייט ופעילות ימית",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-08T17:24:55.871Z"
+      "updated_at": "2026-07-09T13:11:10.985Z"
     },
     {
       "id": "f12769f8-2273-4006-beba-2f47b3f1d7bf",
