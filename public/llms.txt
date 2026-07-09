@@ -131,7 +131,7 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 30**
+**Total active products: 31**
 
 ### שייט משותף שעה במרינה
 https://dubai-plus.co.il/product/shyyt-mshvtp-shah-bmrynh-gm6ag4
@@ -308,6 +308,14 @@ https://dubai-plus.co.il/product/aya-universe-dubai-iivvdj
 - Category: פארקים וגנים
 - Description: AYA Universe Dubai היא אחת האטרקציות החדשניות והמיוחדות ביותר בדובאי. מדובר בעולם דיגיטלי אינטראקטיבי הכולל חדרים מרהיבים עם אורות, הקרנות, מוזיקה ואפקטים מיוחדים, היוצרים חוויה קסומה המתאימה לכל המשפחה.
 - Image: https://dubai-plus.co.il/assets/product-1783514674207-lll82.webp
+
+### מסגרת דובאי DUBAI FRAME
+https://dubai-plus.co.il/product/msgrt-dvbay-dubai-frame-vi7i8r
+- Price: 45.00 ILS
+- Availability: In stock
+- Category: מגדלים ותצפיות
+- Description: Dubai Frame היא אחת האטרקציות האייקוניות ביותר בדובאי. המסגרת הענקית, המתנשאת לגובה של 150 מטר, מציעה תצפית פנורמית מרהיבה על העיר ומאפשרת לראות את הניגוד המיוחד בין דובאי הישנה לדובאי החדשה – כולל רצפת זכוכית מרשימה וחוויה בלתי נשכחת.
+- Image: https://dubai-plus.co.il/assets/product-1783517133930-szldwf.webp
 
 ### תצפית הדקלים - The View at The Palm
 https://dubai-plus.co.il/product/ttspyt-hdklym-the-view-at-the-palm-8r3pv8
