@@ -759,8 +759,8 @@
     <style id="zappy-announcement-bar-styles">
     /* Announcement Bar Styles */
     .zappy-announcement-bar {
-      background-color: #ed1e07 !important;
-      color: #141414 !important;
+      background-color: #0e0c0c !important;
+      color: #fffafa !important;
       position: fixed !important;
       top: 0 !important;
       left: 0 !important;
@@ -835,6 +835,8 @@
 
 <div class="zappy-announcement-bar">
       <span class="zappy-announcement-message active">קוד הנחה ייעודי למלונות FIVE בדובאי שלחו הודעה בוואצאפ 0507681777 לקבלת ההטבה</span>
+      <span class="zappy-announcement-message">מחירים מוזלים לכל המלונות בדובאי שלחו הודעה בוואצאפ 0507681777 להצעת מחיר משתלמת</span>
+      <span class="zappy-announcement-message">שובר 10% הנחה למסעדות כשרות מתנה בהזמנת מלון או אטרקציות</span>
     </div>
 <script>window.ZAPPY_PRODUCTS_LISTING_PATH = "/products";</script>
 
@@ -886,6 +888,12 @@
         <!-- Categories will be loaded dynamically -->
       </ul>
     </li>
+  
+
+    
+  
+
+    
   
 
     
@@ -1743,6 +1751,17 @@
   </button>
   <div class="zappy-qv-content" id="zappy-qv-content"></div>
 </div>
+<script>
+(function() {
+  var messages = document.querySelectorAll('.zappy-announcement-message');
+  if (messages.length <= 1) return;
+  var current = 0;
+  setInterval(function() {
+    messages[current].classList.remove('active');
+    current = (current + 1) % messages.length;
+    messages[current].classList.add('active');
+  }, 4000);
+})();</script>
 
     <script src="/script.js"></script>
 
