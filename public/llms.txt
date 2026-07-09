@@ -22,10 +22,6 @@ https://dubai-plus.co.il/attractions
 https://dubai-plus.co.il/travel-services
 העברות שדה תעופה, כרטיסי סים בינלאומיים, השכרת רכב ושירותי בייביסיטר בדובאי — כל מה שצריך לטיול מושלם. הזמן שירותי נסיעות פרימיום ותיהנה מכל רגע!
 
-### מסעדות דובאי שישאירו אותך פעור פה — Duabi plus
-https://dubai-plus.co.il/restaurants
-חוויות קולינריות בלתי נשכחות בדובאי — ממסעדות שף עולמיות ועד מטבח מקומי אותנטי. גלה המלצות מסעדות נבחרות לישראלים עם תפריטים, מיקומים והזמנת מקום!
-
 ### מוצרים
 https://dubai-plus.co.il/products
 המוצרים שלנו - Sarah laloum tourism llc
@@ -58,25 +54,9 @@ https://dubai-plus.co.il/product/:slug
 https://dubai-plus.co.il/category/:slug
 מוצרים - Sarah laloum tourism llc
 
-### כשרות בדובאי
-https://dubai-plus.co.il/blog/kosher-dubai
-Sarah laloum tourism llc - כשרות בדובאי
-
-### מסעדות כשרות בדובאי: איך לבחור נכון ולאכול בראש שקט
-https://dubai-plus.co.il/blog/kosher-dubai/kosher-restaurants
-מדריך פרקטי למטייל הישראלי שמחפש אוכל כשר בדובאי, עם דגש על תכנון, אזורים, הזמנות ושאלות שכדאי לשאול מראש.
-
-### יהדות בדובאי: קהילה, בתי כנסת וחוויה יהודית בעיר מודרנית
-https://dubai-plus.co.il/blog/kosher-dubai/jewish-life
-היכרות עם החיים היהודיים בדובאי עבור מטיילים ישראלים, כולל קהילה, תפילה, אירוח וכללי התנהלות מכבדת.
-
-### שבת בדובאי: מדריך רגוע לתכנון חופשה שומרת שבת
-https://dubai-plus.co.il/blog/kosher-dubai/shabbat-guide
-טיפים לתכנון שבת בדובאי: בחירת מלון, מרחקים, אוכל כשר, מפתחות, מעליות ואווירה משפחתית נוחה.
-
-### חגים ואירועים יהודיים בדובאי: מה חשוב לדעת לפני שמזמינים
-https://dubai-plus.co.il/blog/kosher-dubai/jewish-holidays
-מדריך לתכנון חגים ואירועים יהודיים בדובאי, כולל פסח, ראש השנה, חנוכה, בר מצווה, שבת חתן ואירועים משפחתיים.
+### מסעדות דובאי שישאירו אותך פעור פה — Duabi plus
+https://dubai-plus.co.il/restaurants
+חוויות קולינריות בלתי נשכחות בדובאי — ממסעדות שף עולמיות ועד מטבח מקומי אותנטי. גלה המלצות מסעדות נבחרות לישראלים עם תפריטים, מיקומים והזמנת מקום!
 
 ### דובאי בפעם הראשונה: איך לבנות חופשה חכמה, נעימה ויוקרתית
 https://dubai-plus.co.il/blog/first-time-dubai
@@ -104,6 +84,26 @@ Sarah laloum tourism llc - התניידות בדובאי: איך לעבור בי
 
 ### Page
 https://dubai-plus.co.il/xxx
+
+### כשרות בדובאי
+https://dubai-plus.co.il/blog/kosher-dubai
+Sarah laloum tourism llc - כשרות בדובאי
+
+### מסעדות כשרות בדובאי: איך לבחור נכון ולאכול בראש שקט
+https://dubai-plus.co.il/blog/kosher-dubai/kosher-restaurants
+מדריך פרקטי למטייל הישראלי שמחפש אוכל כשר בדובאי, עם דגש על תכנון, אזורים, הזמנות ושאלות שכדאי לשאול מראש.
+
+### יהדות בדובאי: קהילה, בתי כנסת וחוויה יהודית בעיר מודרנית
+https://dubai-plus.co.il/blog/kosher-dubai/jewish-life
+היכרות עם החיים היהודיים בדובאי עבור מטיילים ישראלים, כולל קהילה, תפילה, אירוח וכללי התנהלות מכבדת.
+
+### שבת בדובאי: מדריך רגוע לתכנון חופשה שומרת שבת
+https://dubai-plus.co.il/blog/kosher-dubai/shabbat-guide
+טיפים לתכנון שבת בדובאי: בחירת מלון, מרחקים, אוכל כשר, מפתחות, מעליות ואווירה משפחתית נוחה.
+
+### חגים ואירועים יהודיים בדובאי: מה חשוב לדעת לפני שמזמינים
+https://dubai-plus.co.il/blog/kosher-dubai/jewish-holidays
+מדריך לתכנון חגים ואירועים יהודיים בדובאי, כולל פסח, ראש השנה, חנוכה, בר מצווה, שבת חתן ואירועים משפחתיים.
 
 ### דברו איתנו ותכננו את הטיול המושלם — Duabi plus
 https://dubai-plus.co.il/contact

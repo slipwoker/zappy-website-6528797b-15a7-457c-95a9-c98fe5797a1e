@@ -1,12 +1,11 @@
 # Clean URL redirects for Render static hosting
-# Generated: 2026-07-09T10:51:09.359Z
+# Generated: 2026-07-09T10:52:23.353Z
 # NOTE: Render uses render.yaml for routing, not _redirects (that is Netlify)
 # This file is kept for reference only
 
 /hotels  /hotels.html  200!
 /attractions  /attractions.html  200!
 /travel-services  /travel-services.html  200!
-/restaurants  /restaurants.html  200!
 /products  /products.html  200!
 /cart  /cart.html  200!
 /checkout  /checkout.html  200!
@@ -17,11 +16,7 @@
 /privacy  /privacy.html  200!
 /accessibility  /accessibility.html  200!
 /terms  /terms.html  200!
-/blog/kosher-dubai  /blog/kosher-dubai.html  200!
-/blog/kosher-dubai/kosher-restaurants  /blog/kosher-dubai/kosher-restaurants.html  200!
-/blog/kosher-dubai/jewish-life  /blog/kosher-dubai/jewish-life.html  200!
-/blog/kosher-dubai/shabbat-guide  /blog/kosher-dubai/shabbat-guide.html  200!
-/blog/kosher-dubai/jewish-holidays  /blog/kosher-dubai/jewish-holidays.html  200!
+/restaurants  /restaurants.html  200!
 /blog/first-time-dubai  /blog/first-time-dubai.html  200!
 /blog/dubai-hotels-areas  /blog/dubai-hotels-areas.html  200!
 /blog/dubai-attractions-guide  /blog/dubai-attractions-guide.html  200!
@@ -29,6 +24,11 @@
 /blog/dubai-shopping-guide  /blog/dubai-shopping-guide.html  200!
 /blog/dubai-transportation-smart-guide  /blog/dubai-transportation-smart-guide.html  200!
 /xxx  /xxx.html  200!
+/blog/kosher-dubai  /blog/kosher-dubai.html  200!
+/blog/kosher-dubai/kosher-restaurants  /blog/kosher-dubai/kosher-restaurants.html  200!
+/blog/kosher-dubai/jewish-life  /blog/kosher-dubai/jewish-life.html  200!
+/blog/kosher-dubai/shabbat-guide  /blog/kosher-dubai/shabbat-guide.html  200!
+/blog/kosher-dubai/jewish-holidays  /blog/kosher-dubai/jewish-holidays.html  200!
 /contact  /contact.html  200!
 /mgzyn-aydv-tst-dvbay-lmtyyl-hyshraly  /mgzyn-aydv-tst-dvbay-lmtyyl-hyshraly.html  200!
 
