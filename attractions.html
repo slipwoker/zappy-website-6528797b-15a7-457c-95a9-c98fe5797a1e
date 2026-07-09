@@ -318,57 +318,443 @@
         right: 0;
       }
     </style>
-    <link rel="stylesheet" href="/styles.css">
+          <style id="zappy-cta-mobile-style">
+            /* Hide CTA list item on desktop (tablets and up) */
+            @media (min-width: 769px) {
+              .nav-cta-item-mobile {
+                display: none !important;
+              }
+            }
+            /* Show CTA list item on mobile */
+            @media (max-width: 768px) {
+              .nav-cta-item-mobile {
+                display: list-item !important;
+              }
+            }
+          </style>
+        
+          <style id="zappy-nested-menu-style">
+            /* Desktop only: vertically center nav items */
+            @media (min-width: 769px) {
+              .nav-menu,
+              #navMenu {
+                align-items: center !important;
+              }
+            }
+            
+            /* Menu Group styling (non-clickable parent) - TOP LEVEL ONLY with ultra-specific selector */
+            .nav-menu > li > .menu-group-title,
+            #navMenu > li > .menu-group-title {
+              display: inline-block !important;
+              padding: 0.5rem 1rem !important;
+              color: var(--nav-color) !important;
+              font-weight: 500 !important;
+              line-height: 1.7 !important;
+              cursor: default !important;
+              user-select: none !important;
+              vertical-align: middle !important;
+              text-decoration: none !important;
+              margin: 0 !important;
+              transition: color 0.3s ease !important;
+            }
+            
+            .nav-menu > li > .menu-group-title:hover,
+            #navMenu > li > .menu-group-title:hover {
+              color: var(--nav-hover-color) !important;
+            }
+            
+            /* Desktop: show submenu on Menu Group hover */
+            li:has(.menu-group-title):hover > .sub-menu {
+              opacity: 1 !important;
+              visibility: visible !important;
+              transform: translateY(0) !important;
+              pointer-events: auto !important; /* Enable interaction when hovering */
+            }
+            
+            /* Hide menu items marked as hidden (overrides hover states) */
+            .zappy-hidden-menu-item,
+            li:has(.menu-group-title):hover > .sub-menu .zappy-hidden-menu-item {
+              display: none !important;
+              opacity: 0 !important;
+              visibility: hidden !important;
+              pointer-events: none !important;
+            }
+            
+            /* Keep submenu visible when hovering over the submenu itself */
+            .sub-menu:hover {
+              opacity: 1 !important;
+              visibility: visible !important;
+              pointer-events: auto !important;
+            }
+            
+            /* Nested dropdown menu styles - using more specific selectors */
+            .nav-menu .sub-menu,
+            nav .sub-menu,
+            .navbar .sub-menu {
+              display: block !important; /* Ensure submenu is in the DOM */
+              position: absolute !important;
+              top: 100%;
+              left: 0;
+              right: auto;
+              min-width: 200px;
+              background: white;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+              border-radius: 8px;
+              padding: 8px 0;
+              margin-top: 0px; /* Remove gap to prevent hover loss */
+              opacity: 0 !important;
+              visibility: hidden !important;
+              transform: translateY(-10px);
+              transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+              z-index: 1000;
+              list-style: none;
+              pointer-events: none; /* Prevent interaction when hidden */
+            }
+            
+            /* RTL (Hebrew/Arabic) submenu positioning - align to right instead of left */
+            [dir="rtl"] .nav-menu .sub-menu,
+            [dir="rtl"] nav .sub-menu,
+            [dir="rtl"] .navbar .sub-menu,
+            html[lang="he"] .nav-menu .sub-menu,
+            html[lang="he"] nav .sub-menu,
+            html[lang="he"] .navbar .sub-menu,
+            html[lang="ar"] .nav-menu .sub-menu,
+            html[lang="ar"] nav .sub-menu,
+            html[lang="ar"] .navbar .sub-menu {
+              left: auto;
+              right: 0;
+            }
+            
+            /* Show submenu on parent hover - more specific selectors */
+            .nav-menu li:hover > .sub-menu,
+            nav li:hover > .sub-menu,
+            .navbar li:hover > .sub-menu {
+              opacity: 1 !important;
+              visibility: visible !important;
+              transform: translateY(0) !important;
+              pointer-events: auto !important; /* Enable interaction when visible */
+            }
+            
+            /* Parent item must be relatively positioned */
+            .nav-menu li:has(.sub-menu),
+            nav li:has(.sub-menu),
+            .navbar li:has(.sub-menu) {
+              position: relative;
+            }
+            
+            /* Style for submenu items */
+            .sub-menu li {
+              list-style: none;
+              margin: 0;
+              padding: 0;
+            }
+            
+            .sub-menu a,
+            .sub-menu .menu-group-title {
+              display: block !important;
+              padding: 10px 12px !important;
+              color: #333 !important;
+              font-weight: 600 !important;
+              text-decoration: none;
+              transition: background-color 0.2s;
+              white-space: nowrap;
+              cursor: default;
+            }
+            
+            .sub-menu a:hover {
+              background-color: #f5f5f5;
+            }
+            
+            /* CRITICAL: Override submenu styles for TOP-LEVEL Menu Groups only - must come AFTER submenu styles */
+            .nav-menu > li > .menu-group-title,
+            #navMenu > li > .menu-group-title {
+              display: inline-block !important;
+              padding: 0.5rem 1rem !important;
+              color: var(--nav-color) !important;
+              font-weight: 500 !important;
+              line-height: 1.7 !important;
+              cursor: default !important;
+              user-select: none !important;
+              vertical-align: middle !important;
+              text-decoration: none !important;
+              margin: 0 !important;
+              transition: color 0.3s ease !important;
+            }
+            
+            .nav-menu > li > .menu-group-title:hover,
+            #navMenu > li > .menu-group-title:hover {
+              color: var(--nav-hover-color) !important;
+              background-color: transparent !important;
+            }
+            
+            /* On mobile, show nested menus as expandable accordion */
+            @media (max-width: 768px) {
+              /* Mobile submenu styling */
+              .nav-menu .sub-menu,
+              nav .sub-menu,
+              .navbar .sub-menu {
+                position: static !important;
+                transform: none !important;
+                box-shadow: none !important;
+                background: transparent !important;
+                margin-top: 0 !important;
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                visibility: hidden;
+                transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease, padding 0.3s ease;
+                padding: 0 !important;
+                border-radius: 0 !important;
+              }
+              
+              /* Expanded state — no internal scroll; parent navMenu scrolls */
+              .sub-menu.mobile-expanded {
+                max-height: none !important;
+                overflow-y: visible !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                padding: 8px 0 8px 16px !important;
+              }
+              
+              /* RTL padding adjustment */
+              [dir="rtl"] .sub-menu.mobile-expanded,
+              html[lang="he"] .sub-menu.mobile-expanded,
+              html[lang="ar"] .sub-menu.mobile-expanded {
+                padding: 8px 16px 8px 0 !important;
+              }
+              
+              /* Disable hover behavior on mobile */
+              .nav-menu li:hover > .sub-menu,
+              nav li:hover > .sub-menu,
+              .navbar li:hover > .sub-menu {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+              }
+              
+              /* Enable visibility for expanded submenus */
+              .nav-menu li > .sub-menu.mobile-expanded,
+              nav li > .sub-menu.mobile-expanded,
+              .navbar li > .sub-menu.mobile-expanded {
+                opacity: 1 !important;
+                visibility: visible !important;
+                pointer-events: auto !important;
+              }
+              
+              .sub-menu a {
+                padding: 10px 0 !important;
+                display: block !important;
+                font-size: 14px !important;
+                white-space: normal !important;
+              }
+              
+              .sub-menu a:hover {
+                background-color: transparent !important;
+              }
+              
+              /* Parent item wrapper - flex layout with relative positioning for absolute toggle */
+              .nav-menu li:has(.sub-menu),
+              nav li:has(.sub-menu),
+              .navbar li:has(.sub-menu) {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                align-items: center !important;
+                position: relative !important;
+                min-height: 44px !important;
+              }
+              
+              /* Parent link - takes full width since toggle is absolute (not a flex child) */
+              .nav-menu li:has(.sub-menu) > a,
+              nav li:has(.sub-menu) > a,
+              .navbar li:has(.sub-menu) > a,
+              .nav-menu > li > .menu-group-title,
+              #navMenu > li > .menu-group-title {
+                flex: 1 !important;
+                min-width: 0 !important;
+              }
+              
+              /* Normalize menu-group-title in mobile nav to match link alignment */
+              .nav-menu > li > .menu-group-title,
+              #navMenu > li > .menu-group-title {
+                padding: 0 !important;
+                line-height: inherit !important;
+              }
+              
+              /* Submenu takes full width below parent */
+              .nav-menu li:has(.sub-menu) > .sub-menu,
+              nav li:has(.sub-menu) > .sub-menu,
+              .navbar li:has(.sub-menu) > .sub-menu {
+                flex-basis: 100% !important;
+                width: 100% !important;
+              }
+              
+              /* HIDE EXISTING CHEVRONS/ARROWS from cloned sites to prevent duplicates */
+              .nav-menu li:has(.sub-menu) > a .fa-chevron-down,
+              .nav-menu li:has(.sub-menu) > a .fa-angle-down,
+              .nav-menu li:has(.sub-menu) > a [class*="chevron"],
+              .nav-menu li:has(.sub-menu) > a [class*="arrow"],
+              nav li:has(.sub-menu) > a [class*="chevron"],
+              nav li:has(.sub-menu) > a [class*="arrow"],
+              #navMenu li:has(.sub-menu) > a [class*="chevron"],
+              #navMenu li:has(.sub-menu) > a [class*="arrow"] {
+                display: none !important;
+                visibility: hidden !important;
+              }
+              
+              /* Toggle arrow button - flex child that stretches to match nav-link height */
+              .mobile-submenu-toggle {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                width: 44px !important;
+                height: auto !important;
+                background: transparent !important;
+                border: none !important;
+                cursor: pointer !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                position: static !important;
+                flex-shrink: 0 !important;
+                align-self: stretch !important;
+                z-index: 2 !important;
+                -webkit-tap-highlight-color: transparent;
+              }
+              
+              .mobile-submenu-toggle::after {
+                content: '' !important;
+                display: block !important;
+                width: 0 !important;
+                height: 0 !important;
+                border-left: 6px solid transparent !important;
+                border-right: 6px solid transparent !important;
+                border-top: 7px solid currentColor !important;
+                transition: transform 0.3s ease !important;
+              }
+              
+              /* Rotate arrow when expanded */
+              .mobile-submenu-toggle.expanded::after {
+                transform: rotate(180deg) !important;
+              }
+            }
+            
+            /* Hide toggle button on desktop */
+            @media (min-width: 769px) {
+              .mobile-submenu-toggle {
+                display: none !important;
+              }
+            }
+          </style>
+          
+          <script id="zappy-mobile-menu-script">
+            // Mobile menu toggle for nested submenus (including Menu Groups)
+            // Uses separate toggle button - link navigates, arrow toggles submenu
+            (function() {
+              function initMobileMenuToggles() {
+                // Only run on mobile
+                if (window.innerWidth > 768) {
+                  // Remove any toggle buttons on desktop
+                  document.querySelectorAll('.mobile-submenu-toggle').forEach(btn => btn.remove());
+                  document.querySelectorAll('.sub-menu.mobile-expanded').forEach(menu => {
+                    menu.classList.remove('mobile-expanded');
+                  });
+                  console.log('[MOBILE MENU] Desktop mode - cleanup done');
+                  return;
+                }
+                
+                console.log('[MOBILE MENU] Initializing mobile menu toggles...');
+                
+                // Find all parent menu items (items with .sub-menu)
+                const menuItemsWithSubmenus = document.querySelectorAll(
+                  '.nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)'
+                );
+                
+                console.log('[MOBILE MENU] Found', menuItemsWithSubmenus.length, 'items with submenus');
+                
+                menuItemsWithSubmenus.forEach(function(li) {
+                  // Skip if already has toggle button
+                  if (li.querySelector('.mobile-submenu-toggle')) {
+                    return;
+                  }
+                  
+                  const submenu = li.querySelector('.sub-menu');
+                  const parentLink = li.querySelector(':scope > a') || li.querySelector(':scope > .menu-group-title');
+                  
+                  if (!submenu || !parentLink) return;
+                  
+                  // Create toggle button
+                  const toggleBtn = document.createElement('button');
+                  toggleBtn.className = 'mobile-submenu-toggle';
+                  toggleBtn.setAttribute('aria-label', 'Toggle submenu');
+                  toggleBtn.setAttribute('type', 'button');
 
-    <style id="zappy-dropdown-submenu-styles">
-      /* ========== DESKTOP DROPDOWN SUBMENU STYLES ========== */
-      /* Base styles for dropdown submenus - parent must be positioned */
-      .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { position: relative; }
-      /* Submenu base - hidden by default */
-      .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { display: block !important; position: absolute !important; top: 100%; left: 0; min-width: 220px; background: white; border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 1000; list-style: none; pointer-events: none; }
-      /* CRITICAL: Desktop hover styles to show dropdown */
-      .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
-      /* Submenu item styling */
-      .sub-menu li { list-style: none; margin: 0; padding: 0; }
-      .sub-menu a { display: block !important; padding: 10px 16px !important; color: var(--text-dark, #333) !important; font-weight: 500; text-decoration: none; white-space: nowrap; transition: background-color 0.2s; }
-      .sub-menu .zappy-nav-child > a { padding-left: 28px !important; font-size: 0.9em !important; opacity: 0.85 !important; }
-      [dir="rtl"] .sub-menu .zappy-nav-child > a, html[lang="he"] .sub-menu .zappy-nav-child > a, html[lang="ar"] .sub-menu .zappy-nav-child > a { padding-left: 10px !important; padding-right: 28px !important; }
-      .sub-menu .zappy-nav-parent > a { font-weight: 600 !important; }
-      .sub-menu a:hover { background-color: #f5f5f5; }
-      /* RTL (Hebrew/Arabic) dropdown positioning */
-      [dir="rtl"] .nav-menu .sub-menu, [dir="rtl"] nav .sub-menu, [dir="rtl"] .navbar .sub-menu, html[lang="he"] .nav-menu .sub-menu, html[lang="he"] nav .sub-menu, html[lang="he"] .navbar .sub-menu, html[lang="ar"] .nav-menu .sub-menu, html[lang="ar"] nav .sub-menu, html[lang="ar"] .navbar .sub-menu { left: auto !important; right: 0 !important; }
-      /* Hide empty dropdown menus (exclude catalog sub-menus that use <a> children instead of <li>) */
-      .sub-menu:empty, .sub-menu:not(:has(li:not(.zappy-hidden-menu-item))):not(:has(> a)), .sub-menu:not(:has(li)):not(:has(> a)) { display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
-      /* Desktop: show submenu on Menu Group hover */
-      li:has(.menu-group-title):hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
-      /* Menu Group title styling */
-      .nav-menu > li > .menu-group-title, #navMenu > li > .menu-group-title { display: inline-block; padding: 0.5rem 1rem; cursor: default; user-select: none; }
-      
-      /* ========== MOBILE SUBMENU STYLES ========== */
-      @media (max-width: 768px) {
-        .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { position: static !important; transform: none !important; box-shadow: none !important; background: transparent !important; max-height: 0; overflow: hidden; opacity: 0; visibility: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; padding: 0 !important; border-radius: 0 !important; }
-        .navbar .sub-menu.mobile-expanded, .nav-menu .sub-menu.mobile-expanded, #navMenu .sub-menu.mobile-expanded { max-height: none !important; overflow-y: visible !important; opacity: 1 !important; visibility: visible !important; padding: 8px 0 8px 16px !important; }
-        [dir="rtl"] .sub-menu.mobile-expanded, html[lang="he"] .sub-menu.mobile-expanded { padding: 8px 16px 8px 0 !important; }
-        /* Disable hover behavior on mobile */
-        .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 0; visibility: hidden; pointer-events: none; }
-        .nav-menu li > .sub-menu.mobile-expanded, nav li > .sub-menu.mobile-expanded, .navbar li > .sub-menu.mobile-expanded, #navMenu li > .sub-menu.mobile-expanded { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }
-        .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { display: flex !important; flex-wrap: wrap !important; align-items: center !important; position: relative !important; min-height: 44px !important; }
-        .nav-menu li:has(.sub-menu) > a, nav li:has(.sub-menu) > a, .navbar li:has(.sub-menu) > a, #navMenu li:has(.sub-menu) > a { flex: 1 !important; min-width: 0 !important; }
-        .nav-menu li:has(.sub-menu) > .menu-group-title, nav li:has(.sub-menu) > .menu-group-title, .navbar li:has(.sub-menu) > .menu-group-title, #navMenu li:has(.sub-menu) > .menu-group-title { flex: 1 !important; min-width: 0 !important; padding: 0 !important; line-height: inherit !important; }
-        .nav-menu li:has(.sub-menu) > .sub-menu, nav li:has(.sub-menu) > .sub-menu, .navbar li:has(.sub-menu) > .sub-menu, #navMenu li:has(.sub-menu) > .sub-menu { flex-basis: 100% !important; width: 100% !important; }
-        .nav-menu li:has(.sub-menu) > a [class*="chevron"], .nav-menu li:has(.sub-menu) > a [class*="arrow"], .nav-menu li:has(.sub-menu) > a .fa-chevron-down, .nav-menu li:has(.sub-menu) > a .fa-angle-down, nav li:has(.sub-menu) > a [class*="chevron"], nav li:has(.sub-menu) > a [class*="arrow"], #navMenu li:has(.sub-menu) > a [class*="chevron"], #navMenu li:has(.sub-menu) > a [class*="arrow"] { display: none !important; visibility: hidden !important; }
-        .mobile-submenu-toggle { display: flex !important; align-items: center !important; justify-content: center !important; width: 44px !important; height: auto !important; background: transparent !important; border: none !important; cursor: pointer !important; color: var(--text-light) !important; position: static !important; flex-shrink: 0 !important; align-self: stretch !important; z-index: 2 !important; padding: 0 !important; margin: 0 !important; }
-        .mobile-submenu-toggle::after { content: '' !important; width: 0 !important; height: 0 !important; border-left: 6px solid transparent !important; border-right: 6px solid transparent !important; border-top: 7px solid currentColor !important; transition: transform 0.3s ease !important; }
-        .mobile-submenu-toggle.expanded::after { transform: rotate(180deg) !important; }
-        .sub-menu a { padding: 10px 0 !important; display: block !important; color: var(--text-light) !important; white-space: normal !important; }
-        .sub-menu .zappy-nav-child > a { padding-left: 28px !important; font-size: 0.9em !important; opacity: 0.85 !important; }
-        [dir="rtl"] .sub-menu .zappy-nav-child > a, html[lang="he"] .sub-menu .zappy-nav-child > a, html[lang="ar"] .sub-menu .zappy-nav-child > a { padding-left: 0 !important; padding-right: 28px !important; }
-        .sub-menu .zappy-nav-parent > a { font-weight: 600 !important; }
-        .nav-menu.active, #navMenu.active { max-width: 100vw !important; overflow-x: hidden !important; box-sizing: border-box !important; }
-        .navbar .sub-menu li a, nav.navbar .sub-menu li a, .zappy-products-dropdown .sub-menu a { color: var(--text-light) !important; }
-      }
-      @media (min-width: 769px) { .mobile-submenu-toggle { display: none !important; } }
-    </style>
+                  // Insert toggle button after the link
+                  parentLink.insertAdjacentElement('afterend', toggleBtn);
+                  
+                  console.log('[MOBILE MENU] Created toggle button for:', parentLink.textContent?.trim());
+                  
+                  // Handle toggle button click - only toggles submenu
+                  toggleBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const isExpanded = submenu.classList.contains('mobile-expanded');
+                    
+                    // Close all other submenus first
+                    document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) {
+                      if (menu !== submenu) {
+                        menu.classList.remove('mobile-expanded');
+                        const otherToggle = menu.parentElement.querySelector('.mobile-submenu-toggle');
+                        if (otherToggle) otherToggle.classList.remove('expanded');
+                      }
+                    });
+                    
+                    // Toggle this submenu
+                    submenu.classList.toggle('mobile-expanded');
+                    toggleBtn.classList.toggle('expanded');
+                    
+                    console.log('[MOBILE MENU] Toggled submenu:', !isExpanded ? 'expanded' : 'collapsed');
+                  });
+                  
+                  // Parent link navigates normally - no preventDefault
+                });
+              }
+              
+              // Initialize on DOM load
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initMobileMenuToggles);
+              } else {
+                initMobileMenuToggles();
+              }
+              
+              // Re-initialize on window resize (but use debounce to avoid too many calls)
+              let resizeTimer;
+              window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(initMobileMenuToggles, 250);
+              });
+              
+              // Also initialize when mobile menu becomes visible
+              // This handles cases where the mobile menu is hidden initially
+              const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                  if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                    const target = mutation.target;
+                    if (target.classList.contains('active') || target.style.display !== 'none') {
+                      console.log('[MOBILE MENU] Mobile menu became visible, re-initializing...');
+                      setTimeout(initMobileMenuToggles, 100);
+                    }
+                  }
+                });
+              });
+              
+              // Observe mobile menu containers
+              const mobileMenus = document.querySelectorAll('.mobile-menu, .nav-menu, #navMenu');
+              mobileMenus.forEach(function(menu) {
+                observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
+              });
+            })();
+          </script>
+    <link rel="stylesheet" href="/styles.css">
 
     <style id="zappy-widget-visibility">
       html[dir="rtl"] .whatsapp-float { right: 20px !important; left: auto !important; }
@@ -415,10 +801,10 @@
       <div class="search-wrapper">
         <input type="text" id="mobile-search-input" placeholder="חיפוש מוצרים..." autocomplete="off">
         <button class="search-submit" id="mobile-search-submit" title="חיפוש">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
         </button>
         <button class="close-search" id="close-mobile-search">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
       </div>
       <div class="search-results" id="mobile-search-results"></div>
@@ -428,82 +814,40 @@
   <nav class="navbar" dir="rtl" style="margin-bottom: 0px; position: fixed !important; top: 0px !important; left: 0px !important; right: 0px !important; z-index: 100000 !important;">
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu" style="position: absolute !important; top: 0px !important; bottom: 0px !important; margin-top: auto !important; margin-bottom: auto !important; transform: none !important; z-index: 1001 !important;" data-element-type="button" data-element-id="btn-1779032266906-wlkobwavi" data-native-element="true">
     <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="width: 24px !important; height: 24px !important; display: none !important;">
-      <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+      <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
     </svg>
     <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display: block !important; width: 24px !important; height: 24px !important;">
-      <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+      <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
     </svg>
   </button>
 
   <button class="phone-header-btn" data-phone="+972522212578" aria-label="Call" style="position: absolute !important; top: 0px !important; bottom: 0px !important; margin-top: auto !important; margin-bottom: auto !important; transform: none !important; z-index: 1001 !important;" data-element-type="button" data-element-id="btn-1779032266906-5r5dtd9y6" data-native-element="true">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px;">
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
     </svg>
   </button>
 
   <div class="nav-container">
     <div class="nav-right-group"><div class="nav-brand">
-      <a href="/" class="logo-link"><img class="logo" src="/assets/site-----image-1.webp" alt="Sarah laloum tourism llc" data-image-type="logo" ></a>
-    </div><ul class="nav-menu" id="navMenu">
-
-    <li class="menu-item-has-children zappy-products-dropdown">
+      <a href="/" class="logo-link"><img class="logo" src="/assets/site-----image-1.webp" alt="Sarah laloum tourism llc" data-image-type="logo" style></a>
+    </div><ul class="nav-menu" id="navMenu"><li><a href="/hotels">מלונות</a></li><li><a href="/attractions">אטרקציות</a></li><li><a href="/travel-services">שירותי נסיעות</a></li><li><a href="/restaurants">מסעדות</a></li><li class="menu-item-has-children zappy-products-dropdown">
       <a href="/products">
         מוצרים
         <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M6 9l6 6 6-6"></path>
+          <path d="M6 9l6 6 6-6"/>
         </svg>
       </a>
       <ul class="sub-menu" id="zappy-nav-category-links">
         <li><a href="/products" data-i18n="ecom_products">מוצרים</a></li>
         <!-- Categories will be loaded dynamically -->
       </ul>
-    </li>
-  
-
-    
-  
-
-    
-  
-
-    
-  
-
-    
-  
-
-    
-  
-
-    
-  
-
-    
-  
-
-    
-  
-
-    
-  
-
-    
-  
-
-    
-  
-
-    
-  
-
-    
-  <li><a href="/hotels">מלונות</a></li><li><a href="/attractions">אטרקציות</a></li><li><a href="/travel-services">שירותי נסיעות</a></li><li><a href="/restaurants">מסעדות</a></li><li><a href="/contact">צרו קשר</a></li><li><a href="/mgzyn-aydv-tst-dvbay-lmtyyl-hyshraly" class="nav-link">מגזין עידו טסט דובאי למטייל הישראלי</a><ul class="sub-menu"><li><a href="/blog/first-time-dubai" class="nav-link">פעם ראשונה</a></li><li><a href="/blog/dubai-hotels-areas" class="nav-link">מלונות</a></li><li><a href="/blog/dubai-attractions-guide" class="nav-link">אטרקציות</a></li><li><a href="/blog/dubai-dining-nightlife" class="nav-link">קולינריה</a></li><li><a href="/blog/dubai-shopping-guide" class="nav-link">שופינג</a></li><li><a href="/blog/dubai-transportation-smart-guide" class="nav-link">התניידות</a></li><li><a href="/xxx" class="nav-link">XXX</a></li></ul></li><li><a href="/blog/kosher-dubai" class="nav-link">כשרות בדובאי</a><ul class="sub-menu"><li><a href="/blog/kosher-dubai/kosher-restaurants" class="nav-link">מסעדות</a></li><li><a href="/blog/kosher-dubai/jewish-life" class="nav-link">יהדות</a></li><li><a href="/blog/kosher-dubai/shabbat-guide" class="nav-link">שבת</a></li><li><a href="/blog/kosher-dubai/jewish-holidays" class="nav-link">חגים</a></li></ul></li></ul><div class="nav-ecommerce-icons nav-icons-left"><a href="/login" class="login-link nav-login" title="התחברות"><svg class="login-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></a><a href="#cart" class="cart-link nav-cart" id="cart-drawer-toggle" title="עגלת קניות"><svg class="cart-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg><span class="cart-count">0</span></a><div class="nav-search-box">
+    </li><li><a href="/blog/kosher-dubai" class="nav-link">כשרות בדובאי</a><ul class="sub-menu"><li><a href="/blog/kosher-dubai/kosher-restaurants">מסעדות כשרות בדובאי: איך לבחור נכון ולאכול בראש שקט</a></li><li><a href="/blog/kosher-dubai/jewish-life">יהדות בדובאי: קהילה, בתי כנסת וחוויה יהודית בעיר מודרנית</a></li><li><a href="/blog/kosher-dubai/shabbat-guide">שבת בדובאי: מדריך רגוע לתכנון חופשה שומרת שבת</a></li><li><a href="/blog/kosher-dubai/jewish-holidays">חגים ואירועים יהודיים בדובאי: מה חשוב לדעת לפני שמזמינים</a></li></ul></li><li><a href="/contact">צרו קשר</a></li><li><a href="/mgzyn-aydv-tst-dvbay-lmtyyl-hyshraly" class="nav-link">מגזין עידו טסט דובאי למטייל הישראלי</a></li></ul><div class="nav-ecommerce-icons nav-icons-left"><a href="/login" class="login-link nav-login" title="התחברות"><svg class="login-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a><a href="#cart" class="cart-link nav-cart" id="cart-drawer-toggle" title="עגלת קניות"><svg class="cart-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span class="cart-count">0</span></a><div class="nav-search-box">
     <input type="text" class="nav-search-input" id="nav-search-input" placeholder="חיפוש מוצרים..." autocomplete="off">
     <button class="nav-search-btn" id="nav-search-btn" title="חיפוש">
-      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg>
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
     </button>
     <div class="nav-search-results" id="nav-search-results"></div>
-  </div></div><div class="nav-ecommerce-icons nav-icons-right"><button class="nav-search-toggle" id="mobile-search-toggle" title="חיפוש"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg></button></div></div>
+  </div></div><div class="nav-ecommerce-icons nav-icons-right"><button class="nav-search-toggle" id="mobile-search-toggle" title="חיפוש"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></button></div></div>
 
     
 
@@ -965,13 +1309,13 @@
   <!-- Decorative: Arabian lantern motif -->
   <div class="attractions-banner-section__lantern-decor" aria-hidden="true">
     <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 180 340" fill="none" xmlns="http://www.w3.org/2000/svg" width="180" height="340">
-      <path d="M90 10 C60 10 40 30 35 60 L25 180 C20 200 15 220 20 240 L35 280 L55 300 L90 315 L125 300 L145 280 L160 240 C165 220 160 200 155 180 L145 60 C140 30 120 10 90 10Z" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.13"></path>
-      <path d="M90 10 L90 0" stroke="#C9A84C" stroke-width="1.5" opacity="0.13"></path>
-      <path d="M60 315 L90 340 L120 315" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.13"></path>
-      <ellipse cx="90" cy="60" rx="30" ry="12" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.13"></ellipse>
-      <ellipse cx="90" cy="180" rx="50" ry="18" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.13"></ellipse>
-      <path d="M55 80 Q90 100 125 80" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.1"></path>
-      <path d="M45 130 Q90 155 135 130" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.1"></path>
+      <path d="M90 10 C60 10 40 30 35 60 L25 180 C20 200 15 220 20 240 L35 280 L55 300 L90 315 L125 300 L145 280 L160 240 C165 220 160 200 155 180 L145 60 C140 30 120 10 90 10Z" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.13"/>
+      <path d="M90 10 L90 0" stroke="#C9A84C" stroke-width="1.5" opacity="0.13"/>
+      <path d="M60 315 L90 340 L120 315" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.13"/>
+      <ellipse cx="90" cy="60" rx="30" ry="12" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.13"/>
+      <ellipse cx="90" cy="180" rx="50" ry="18" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.13"/>
+      <path d="M55 80 Q90 100 125 80" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.1"/>
+      <path d="M45 130 Q90 155 135 130" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.1"/>
     </svg>
   </div>
 
@@ -980,10 +1324,10 @@
     <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" width="300" height="300">
       <defs>
         <pattern id="diamond-dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-          <rect x="11" y="0" width="2" height="2" fill="#C9A84C" opacity="0.18" transform="rotate(45 12 12)"></rect>
+          <rect x="11" y="0" width="2" height="2" fill="#C9A84C" opacity="0.18" transform="rotate(45 12 12)"/>
         </pattern>
       </defs>
-      <rect width="300" height="300" fill="url(#diamond-dots)"></rect>
+      <rect width="300" height="300" fill="url(#diamond-dots)"/>
     </svg>
   </div>
 
@@ -1017,7 +1361,7 @@
   <!-- Dune-inspired wave divider (bottom) -->
   <div class="attractions-banner-section__divider-wrapper">
     <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,90 L0,52 Q60,38 120,48 T240,42 Q300,36 360,50 T480,44 Q540,38 600,52 T720,46 Q780,40 840,54 T960,48 Q1020,38 1080,52 T1200,44 Q1260,38 1320,50 T1440,46 L1440,90 Z" fill="var(--bg-light)"></path>
+      <path d="M0,90 L0,52 Q60,38 120,48 T240,42 Q300,36 360,50 T480,44 Q540,38 600,52 T720,46 Q780,40 840,54 T960,48 Q1020,38 1080,52 T1200,44 Q1260,38 1320,50 T1440,46 L1440,90 Z" fill="var(--bg-light)"/>
     </svg>
   </div>
 </section>
@@ -1038,12 +1382,12 @@
       <!-- Card 1: Yacht Rental -->
       <article class="attraction-card" data-grid-item-index="0">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-1" data-context="Luxury private yacht sailing on the Dubai Marina at golden sunset hour, gleaming white yacht deck with guests, Dubai skyline and skyscrapers reflecting on calm turquoise water, premium nautical experience, cinematic travel photography" width="600" height="400" src="/assets/site-attractions-grid-image-1.webp" alt="השכרת יאכטה פרטית במרינה של דובאי" data-element-type="image" data-element-id="img-1779032382359-wfezg55b7" >
+          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-1" data-context="Luxury private yacht sailing on the Dubai Marina at golden sunset hour, gleaming white yacht deck with guests, Dubai skyline and skyscrapers reflecting on calm turquoise water, premium nautical experience, cinematic travel photography" width="600" height="400" src="/assets/site-attractions-grid-image-1.webp" alt="השכרת יאכטה פרטית במרינה של דובאי" data-element-type="image" data-element-id="img-1779032382359-wfezg55b7" style>
           <div class="attraction-card-badge">פופולרי</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l2-8h14l2 8"></path><path d="M3 17H21"></path><path d="M12 3v6"></path><path d="M8 9h8"></path></svg>
+            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l2-8h14l2 8"/><path d="M3 17H21"/><path d="M12 3v6"/><path d="M8 9h8"/></svg>
           </div>
           <h3 class="attraction-card-title">השכרת יאכטה לפי שעה</h3>
           <p class="attraction-card-desc" style="color: rgb(34, 28, 47) !important;">הפליגו על המים הכחולים של המרינה עם יאכטה פרטית יוקרתית — חוויה בלתי נשכחת לכל אירוע.</p>
@@ -1054,11 +1398,11 @@
       <!-- Card 2: Flower Garden -->
       <article class="attraction-card" data-grid-item-index="1">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-2" data-context="Dubai Miracle Garden with millions of colorful blooming flowers arranged in spectacular archways, heart-shaped displays and floral sculptures, vivid pink purple yellow flowers under bright blue sky, world largest natural flower garden, luxury travel destination Dubai" width="600" height="400" src="/assets/site-attractions-grid-image-2.webp" alt="גן הפרחים של דובאי — מירקל גארדן" data-element-type="image" data-element-id="img-1779032382359-oijfzjjsn" >
+          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-2" data-context="Dubai Miracle Garden with millions of colorful blooming flowers arranged in spectacular archways, heart-shaped displays and floral sculptures, vivid pink purple yellow flowers under bright blue sky, world largest natural flower garden, luxury travel destination Dubai" width="600" height="400" src="/assets/site-attractions-grid-image-2.webp" alt="גן הפרחים של דובאי — מירקל גארדן" data-element-type="image" data-element-id="img-1779032382359-oijfzjjsn" style>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>
+            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
           </div>
           <h3 class="attraction-card-title">גן הפרחים — מירקל גארדן</h3>
           <p class="attraction-card-desc" style="color: rgb(34, 28, 47) !important;">מיליוני פרחים בצבעים עזים יוצרים שטיחי פרחים מרהיבים — הגן הטבעי הגדול בעולם.</p>
@@ -1069,12 +1413,12 @@
       <!-- Card 3: Global Village -->
       <article class="attraction-card" data-grid-item-index="2">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-3" data-context="Global Village Dubai at night with spectacular illuminated pavilions from different world cultures, colorful lights and festive atmosphere, crowds of visitors, fireworks in background, entertainment park representing countries of the world, vibrant evening scene" width="600" height="400" src="/assets/site-attractions-grid-image-3.webp" alt="גלובל וילג" data-element-type="image" data-element-id="img-1779032382359-scv269jvy" >
+          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-3" data-context="Global Village Dubai at night with spectacular illuminated pavilions from different world cultures, colorful lights and festive atmosphere, crowds of visitors, fireworks in background, entertainment park representing countries of the world, vibrant evening scene" width="600" height="400" src="/assets/site-attractions-grid-image-3.webp" alt="גלובל וילג" data-element-type="image" data-element-id="img-1779032382359-scv269jvy" style>
           <div class="attraction-card-badge">חדש</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
           <h3 class="attraction-card-title">גלובל וילג</h3>
           <p class="attraction-card-desc" style="color: rgb(34, 28, 47) !important;">מסע תרבותי סביב העולם במקום אחד — ביתנים, מסעדות, בידור ואטרקציות מ-90 מדינות.<br><br><br><br></p>
@@ -1085,11 +1429,11 @@
       <!-- Card 4: Desert Safari -->
       <article class="attraction-card" data-grid-item-index="3">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-4" data-context="Dubai desert safari at dramatic sunset with golden sand dunes, 4x4 SUV dune bashing, camel silhouettes on ridge, warm orange and red sky, traditional Bedouin camp with lanterns and fire in background, cinematic adventure travel photography" width="600" height="400" src="/assets/site-attractions-grid-image-4.webp" alt="טיול ספארי מדבר בדובאי" data-element-type="image" data-element-id="img-1779032382360-ubfdjgi96" >
+          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-4" data-context="Dubai desert safari at dramatic sunset with golden sand dunes, 4x4 SUV dune bashing, camel silhouettes on ridge, warm orange and red sky, traditional Bedouin camp with lanterns and fire in background, cinematic adventure travel photography" width="600" height="400" src="/assets/site-attractions-grid-image-4.webp" alt="טיול ספארי מדבר בדובאי" data-element-type="image" data-element-id="img-1779032382360-ubfdjgi96" style>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l3-8 4 4 3-6 4 10"></path><path d="M21 17H3"></path></svg>
+            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l3-8 4 4 3-6 4 10"/><path d="M21 17H3"/></svg>
           </div>
           <h3 class="attraction-card-title">טיול ספארי במדבר</h3>
           <p class="attraction-card-desc" style="color: rgb(34, 28, 47) !important;">חוויית ג'יפים על גבעות חול זהובות, רכיבה על גמלים, ארוחת ערב בדואית מסורתית תחת כוכבים.</p>
@@ -1100,12 +1444,12 @@
       <!-- Card 5: Burj Khalifa -->
       <article class="attraction-card attraction-card--featured" data-grid-item-index="4">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-5" data-context="Burj Khalifa tower observation deck at top with breathtaking panoramic view of Dubai city skyline, glass windows reflecting clouds, city grid and desert visible far below, luxury high-rise buildings, dramatic perspective from worlds tallest building, premium tourism photography" width="600" height="400" src="/assets/site-attractions-grid-image-5.webp" alt="תצפית בורג' חליפה — הבניין הגבוה בעולם" data-element-type="image" data-element-id="img-1779032382360-tc0u2rp06" >
+          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-5" data-context="Burj Khalifa tower observation deck at top with breathtaking panoramic view of Dubai city skyline, glass windows reflecting clouds, city grid and desert visible far below, luxury high-rise buildings, dramatic perspective from worlds tallest building, premium tourism photography" width="600" height="400" src="/assets/site-attractions-grid-image-5.webp" alt="תצפית בורג' חליפה — הבניין הגבוה בעולם" data-element-type="image" data-element-id="img-1779032382360-tc0u2rp06" style>
           <div class="attraction-card-badge attraction-card-badge--gold">מומלץ</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"></path><path d="M8 6h8"></path><path d="M9 10h6"></path><path d="M10 14h4"></path><path d="M6 18h12"></path></svg>
+            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M8 6h8"/><path d="M9 10h6"/><path d="M10 14h4"/><path d="M6 18h12"/></svg>
           </div>
           <h3 class="attraction-card-title">בורג' חליפה — פסגת העולם</h3>
           <p class="attraction-card-desc" style="color: rgb(34, 28, 47) !important;">עלו לקומות 124–148 וצפו בנוף פנורמי של 360 מעלות — מהמדבר ועד האוקיינוס. חוויית התצפית של הבניין הגבוה בעולם, בלב לבה של דובאי.</p>
@@ -1116,11 +1460,11 @@
       <!-- Card 6: Atlantis Water Park -->
       <article class="attraction-card" data-grid-item-index="5">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-6" data-context="Atlantis The Palm Dubai water park Aquaventure with thrilling water slides, lazy river, private beach, turquoise pools, palm tree island setting, families and tourists enjoying luxury resort water park, aerial view showing iconic pink hotel towers, vibrant summer day" width="600" height="400" src="/assets/site-attractions-grid-image-6.webp" alt="פארק המים אטלנטיס — אקווהוונצ'ר" data-element-type="image" data-element-id="img-1779032382360-v0zmo3zyb" >
+          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-6" data-context="Atlantis The Palm Dubai water park Aquaventure with thrilling water slides, lazy river, private beach, turquoise pools, palm tree island setting, families and tourists enjoying luxury resort water park, aerial view showing iconic pink hotel towers, vibrant summer day" width="600" height="400" src="/assets/site-attractions-grid-image-6.webp" alt="פארק המים אטלנטיס — אקווהוונצ'ר" data-element-type="image" data-element-id="img-1779032382360-v0zmo3zyb" style>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c.5-2 2-3.5 4-3.5S9.5 10 11 10s2.5-1.5 4.5-1.5S19 10 20 12"></path><path d="M2 17c.5-2 2-3.5 4-3.5S9.5 15 11 15s2.5-1.5 4.5-1.5S19 15 20 17"></path><path d="M12 2v6"></path></svg>
+            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c.5-2 2-3.5 4-3.5S9.5 10 11 10s2.5-1.5 4.5-1.5S19 10 20 12"/><path d="M2 17c.5-2 2-3.5 4-3.5S9.5 15 11 15s2.5-1.5 4.5-1.5S19 15 20 17"/><path d="M12 2v6"/></svg>
           </div>
           <h3 class="attraction-card-title">פארק המים אטלנטיס</h3>
           <p class="attraction-card-desc" style="color: rgb(34, 28, 47) !important;">מגלשות מים מרגשות, נהר עצלן ואינסוף כיף מימי בפארק האקווהוונצ'ר המפורסם של אי הדקלים.</p>
@@ -1131,11 +1475,11 @@
       <!-- Card 7: Palm Island Observation -->
       <article class="attraction-card" data-grid-item-index="6">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-7" data-context="Palm Jumeirah observation deck The View at The Palm Dubai with stunning 360-degree panoramic view of the iconic palm-shaped island from above, turquoise Arabian Gulf surrounding the island, Dubai skyline in background, luxury residential villas and hotels visible, premium aerial perspective" width="600" height="400" src="/assets/site-attractions-grid-image-7.webp" alt="תצפית אי הדקלים — The View at The Palm" data-element-type="image" data-element-id="img-1779032382360-7rul8fk38" >
+          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-7" data-context="Palm Jumeirah observation deck The View at The Palm Dubai with stunning 360-degree panoramic view of the iconic palm-shaped island from above, turquoise Arabian Gulf surrounding the island, Dubai skyline in background, luxury residential villas and hotels visible, premium aerial perspective" width="600" height="400" src="/assets/site-attractions-grid-image-7.webp" alt="תצפית אי הדקלים — The View at The Palm" data-element-type="image" data-element-id="img-1779032382360-7rul8fk38" style>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"></path></svg>
+            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
           </div>
           <h3 class="attraction-card-title">תצפית אי הדקלים</h3>
           <p class="attraction-card-desc" style="color: rgb(34, 28, 47) !important;">עלו ל-The View at The Palm וצפו בנוף מלמעלה על צורת הדקל האיקונית — אחד הנופים המרהיבים בעולם.</p>
@@ -1147,12 +1491,12 @@
       <!-- Card 0: Yacht Private (NEW) -->
       <article class="attraction-card attraction-card--featured" data-grid-item-index="7">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-1" data-context="Luxury private yacht sailing on the Dubai Marina at golden sunset hour, gleaming white yacht deck with guests, Dubai skyline and skyscrapers reflecting on calm turquoise water, premium nautical experience, cinematic travel photography" width="600" height="400" src="/assets/site-attractions-grid-image-1.webp" alt="יאכטה פרטית יוקרתית בדובאי" data-element-type="image" data-element-id="img-1783440277899-wqnhhjcrm" >
+          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-1" data-context="Luxury private yacht sailing on the Dubai Marina at golden sunset hour, gleaming white yacht deck with guests, Dubai skyline and skyscrapers reflecting on calm turquoise water, premium nautical experience, cinematic travel photography" width="600" height="400" src="/assets/site-attractions-grid-image-1.webp" alt="יאכטה פרטית יוקרתית בדובאי" data-element-type="image" data-element-id="img-1783440277899-wqnhhjcrm" style>
           <div class="attraction-card-badge attraction-card-badge--gold">הכי מבוקש</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l2-8h14l2 8"></path><path d="M3 17H21"></path><path d="M12 3v6"></path><path d="M8 9h8"></path></svg>
+            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l2-8h14l2 8"/><path d="M3 17H21"/><path d="M12 3v6"/><path d="M8 9h8"/></svg>
           </div>
           <h3 class="attraction-card-title">יאכטה פרטית בדובאי</h3>
           <p class="attraction-card-desc">השכרת יאכטה פרטית יוקרתית עם צוות מקצועי — 6 דגמים לבחירה, מ-34 ועד 60 רגל. חוויה מושלמת למשפחות, זוגות ואירועים מיוחדים. ✔ המחיר המוצג הוא לשעת השכרה אחת.</p>
@@ -1163,12 +1507,12 @@
       <!-- Card 8: Parks Abu Dhabi - Yas -->
       <article class="attraction-card" data-grid-item-index="8">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-8" data-context="Yas Island Abu Dhabi theme parks with Ferrari World, Warner Bros World, and Yas Waterworld, thrilling roller coasters, family entertainment, sunny day vibrant atmosphere, luxury travel destination UAE" width="600" height="400" src="/assets/site-attractions-grid-image-8-1783353131256-ndv9yd.webp?v=1783353131256" alt="פארקים אבו דאבי — Yas Island" data-element-type="image" data-element-id="img-1779032382360-yasparks" >
+          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-8" data-context="Yas Island Abu Dhabi theme parks with Ferrari World, Warner Bros World, and Yas Waterworld, thrilling roller coasters, family entertainment, sunny day vibrant atmosphere, luxury travel destination UAE" width="600" height="400" src="/assets/site-attractions-grid-image-8-1783353131256-ndv9yd.webp?v=1783353131256" alt="פארקים אבו דאבי — Yas Island" data-element-type="image" data-element-id="img-1779032382360-yasparks" style>
           <div class="attraction-card-badge attraction-card-badge--gold">אבו דאבי</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
           <h3 class="attraction-card-title">פארקים אבו דאבי – Yas Island</h3>
           <p class="attraction-card-desc">חוויה עולמית באי יאס — Ferrari World, Warner Bros. World ו-Yas Waterworld. פארקי שעשועים ברמה עולמית לכל המשפחה במרחק נסיעה קצרה מדובאי.</p>
@@ -1184,7 +1528,7 @@
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l2-8h14l2 8"></path><path d="M3 17H21"></path><path d="M12 3v6"></path><path d="M8 9h8"></path></svg>
+            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l2-8h14l2 8"/><path d="M3 17H21"/><path d="M12 3v6"/><path d="M8 9h8"/></svg>
           </div>
           <h3 class="attraction-card-title">שייט הלוטוס – Lotus Mega Yacht</h3>
           <p class="attraction-card-desc">חוויית שייט יוקרתית על סיפון יאכטת ענק — ארוחת ערב חגיגית, מופע חי ונוף עוצר נשימה של קו הרקיע המואר של דובאי. ערב קסום ובלתי נשכח.</p>
@@ -1200,7 +1544,7 @@
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
           <h3 class="attraction-card-title">מופע לה פרל – La Perle by Dragone</h3>
           <p class="attraction-card-desc">מופע מים אקרובטי מרהיב מבית היוצר של Dragone — 65 אמנים, במה תת-מימית ואפקטים עוצרי נשימה. חוויה ויזואלית שאין שנייה לה בלב דובאי.</p>
@@ -1216,7 +1560,7 @@
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           </div>
           <h3 class="attraction-card-title">רכב על המים</h3>
           <p class="attraction-card-desc">חוויית נהיגה ייחודית ברכב אמפיבי ששט על מימי המרינה של דובאי — אטרקציה מרגשת ומקורית שאין כמוה. שילוב מושלם של אדרנלין ונוף.</p>
@@ -1225,14 +1569,14 @@
       </article>
 
       <!-- Card 12: טיסה במסוק -->
-      <article class="attraction-card attraction-card--featured" data-grid-item-index="12" >
+      <article class="attraction-card attraction-card--featured" data-grid-item-index="12" style>
         <div class="attraction-card-image-wrap">
           <div data-zappy-zoom-wrapper="true" data-element-id="img-1783440277899-ob6as7qkb" data-element-type="image" data-zappy-zoom-wrapper-width="367px" data-zappy-zoom-wrapper-height="276px" data-zappy-zoom-wrapper-width-mode="card-slot" data-zappy-zoom-wrapper-align="center" style="position: relative !important; overflow: hidden !important; width: 100% !important; max-width: 100% !important; margin-left: auto !important; margin-right: auto !important; height: 276px !important; display: block !important; max-height: none !important; padding-bottom: 0px !important; min-height: 0px !important;" data-zappy-card-slot-fill="1" data-zappy-zoom-clip="true" data-zappy-wrapper-margins-applied="true" class="zappy-resizable-hover"><img decoding="async" data-placeholder="attractions-grid-image-4" data-context="Helicopter flying over Dubai Palm Jumeirah and coastline, aerial view of Atlantis hotel, turquoise sea, dramatic skyline, luxury aerial tour" width="600" height="400" src="/assets/sarah-laloum-tourism-llc-tourism-travel-gallery-upload-1783441285725-lgpsem.webp?t=1783441294514" alt="טיסה במסוק מעל דובאי — חוויה מהשמיים" data-element-type="image" data-element-id="img-1783440277899-ob6as7qkb" style="object-position: 50% 50% !important; object-fit: cover !important; margin: 0px !important; left: -2.5% !important; top: -20% !important; width: 105% !important; height: 140% !important; max-width: none !important; max-height: none !important; display: block !important; position: absolute !important;" data-zappy-zoom="1.05" data-zappy-original-width="367.3333435058594" data-zappy-original-height="275.5"></div>
           <div class="attraction-card-badge attraction-card-badge--gold">מומלץ</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l-2 3h4l-2-3z"></path><path d="M16 8V5a4 4 0 00-8 0v3"></path><path d="M4 11h16l-2 8H6l-2-8z"></path></svg>
+            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l-2 3h4l-2-3z"/><path d="M16 8V5a4 4 0 00-8 0v3"/><path d="M4 11h16l-2 8H6l-2-8z"/></svg>
           </div>
           <h3 class="attraction-card-title">טיסה במסוק</h3>
           <p class="attraction-card-desc">המריאו מעל קו הרקיע המרהיב של דובאי — טיסת מסוק פנורמית מעל בורג' חליפה, אי הדקלים והחופים. מבט מהשמיים שאין לו תחליף.</p>
@@ -1243,12 +1587,12 @@
       <!-- Card 14: מופע דולפינים -->
       <article class="attraction-card" data-grid-item-index="13">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-14" data-context="Dolphin show in Dubai with dolphins jumping out of water, spectacular aquatic performance, family entertainment, poolside audience watching, vibrant colorful show" width="600" height="400" src="/assets/site-attractions-grid-image-14-1783516546815-qt25j0.webp?v=1783516546815" alt="מופע דולפינים בדובאי" data-element-type="image" data-element-id="img-1783520280554-3mnarhpga" >
+          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-14" data-context="Dolphin show in Dubai with dolphins jumping out of water, spectacular aquatic performance, family entertainment, poolside audience watching, vibrant colorful show" width="600" height="400" src="/assets/site-attractions-grid-image-14-1783516546815-qt25j0.webp?v=1783516546815" alt="מופע דולפינים בדובאי" data-element-type="image" data-element-id="img-1783520280554-3mnarhpga" style>
           <div class="attraction-card-badge">חדש</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c.5-2 2-3.5 4-3.5S9.5 10 11 10s2.5-1.5 4.5-1.5S19 10 20 12"></path><path d="M2 17c.5-2 2-3.5 4-3.5S9.5 15 11 15s2.5-1.5 4.5-1.5S19 15 20 17"></path><path d="M12 2v6"></path></svg>
+            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c.5-2 2-3.5 4-3.5S9.5 10 11 10s2.5-1.5 4.5-1.5S19 10 20 12"/><path d="M2 17c.5-2 2-3.5 4-3.5S9.5 15 11 15s2.5-1.5 4.5-1.5S19 15 20 17"/><path d="M12 2v6"/></svg>
           </div>
           <h3 class="attraction-card-title">מופע דולפינים</h3>
           <p class="attraction-card-desc">מופע דולפינים מרהיב בדובאי — חוויה קסומה לכל המשפחה עם דולפינים חכמים, אקרובטיקה מימית ואפקטים עוצרי נשימה.</p>
@@ -1259,12 +1603,12 @@
       <!-- Card 15: סקי דובאי -->
       <article class="attraction-card" data-grid-item-index="14">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-15" data-context="Ski Dubai indoor ski resort in Mall of the Emirates, snow-covered slopes, penguin encounter, families skiing and snowboarding, winter wonderland in desert" width="600" height="400" src="/assets/site-attractions-grid-image-15-1783516572942-vt67d9.webp?v=1783516572942" alt="סקי דובאי — אתר הסקי המקורה" data-element-type="image" data-element-id="img-1783520280554-sxvqp0506" >
+          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-15" data-context="Ski Dubai indoor ski resort in Mall of the Emirates, snow-covered slopes, penguin encounter, families skiing and snowboarding, winter wonderland in desert" width="600" height="400" src="/assets/site-attractions-grid-image-15-1783516572942-vt67d9.webp?v=1783516572942" alt="סקי דובאי — אתר הסקי המקורה" data-element-type="image" data-element-id="img-1783520280554-sxvqp0506" style>
           <div class="attraction-card-badge">חדש</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"></path><path d="M8 6h8"></path><path d="M9 10h6"></path><path d="M10 14h4"></path><path d="M6 18h12"></path></svg>
+            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M8 6h8"/><path d="M9 10h6"/><path d="M10 14h4"/><path d="M6 18h12"/></svg>
           </div>
           <h3 class="attraction-card-title">סקי דובאי</h3>
           <p class="attraction-card-desc">אתר סקי מקורה ענק בלב המדבר — שלג אמיתי, מסלולי גלישה, מפגש עם פינגווינים וחוויית חורף קסומה בקניון האמירויות.</p>
@@ -1275,12 +1619,12 @@
       <!-- Card 16: IMG Worlds of Adventure -->
       <article class="attraction-card attraction-card--featured" data-grid-item-index="15">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-16" data-context="IMG Worlds of Adventure Dubai indoor theme park, Marvel and Cartoon Network zones, thrilling roller coasters, dinosaurs, families enjoying rides, massive indoor entertainment" width="600" height="400" src="/assets/site-attractions-grid-image-16-1783516595466-6fj7w1.webp?v=1783516595466" alt="IMG Worlds of Adventure — פארק השעשועים המקורה" data-element-type="image" data-element-id="img-1783520280554-0s6v8v9lr" >
+          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-16" data-context="IMG Worlds of Adventure Dubai indoor theme park, Marvel and Cartoon Network zones, thrilling roller coasters, dinosaurs, families enjoying rides, massive indoor entertainment" width="600" height="400" src="/assets/site-attractions-grid-image-16-1783516595466-6fj7w1.webp?v=1783516595466" alt="IMG Worlds of Adventure — פארק השעשועים המקורה" data-element-type="image" data-element-id="img-1783520280554-0s6v8v9lr" style>
           <div class="attraction-card-badge attraction-card-badge--gold">מומלץ</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
           <h3 class="attraction-card-title">IMG Worlds of Adventure</h3>
           <p class="attraction-card-desc">פארק השעשועים המקורה הגדול בעולם — אזורי מארוול, Cartoon Network ודינוזאורים, רכבות הרים מטורפות ואטרקציות לכל המשפחה.</p>
@@ -1291,12 +1635,12 @@
       <!-- Card 17: טיסה בכדור פורח אטלנטיס -->
       <article class="attraction-card" data-grid-item-index="16">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-17" data-context="The Dubai Balloon at Atlantis The Palm, giant tethered helium balloon rising above Palm Jumeirah, panoramic views of Arabian Gulf, luxury observation experience, golden sunset" width="600" height="400" src="/assets/site-attractions-grid-image-17-1783516627830-mpvf7h.webp?v=1783516627830" alt="The Dubai Balloon — טיסה בכדור פורח אטלנטיס" data-element-type="image" data-element-id="img-1783520280554-0ww7j3lz5" >
+          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-17" data-context="The Dubai Balloon at Atlantis The Palm, giant tethered helium balloon rising above Palm Jumeirah, panoramic views of Arabian Gulf, luxury observation experience, golden sunset" width="600" height="400" src="/assets/site-attractions-grid-image-17-1783516627830-mpvf7h.webp?v=1783516627830" alt="The Dubai Balloon — טיסה בכדור פורח אטלנטיס" data-element-type="image" data-element-id="img-1783520280554-0ww7j3lz5" style>
           <div class="attraction-card-badge">חדש</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"></path></svg>
+            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
           </div>
           <h3 class="attraction-card-title">טיסה בכדור פורח — אטלנטיס</h3>
           <p class="attraction-card-desc">The Dubai Balloon — כדור פורח קשור מעל אטלנטיס, תצפית פנורמית מרהיבה על אי הדקלים והמפרץ מגובה 300 מטר.</p>
@@ -1307,12 +1651,12 @@
       <!-- Card 18: טיסה בכדור פורח במדבר -->
       <article class="attraction-card" data-grid-item-index="17">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-18" data-context="Hot air balloon flight over Dubai desert at sunrise, colorful balloons floating above golden sand dunes, dramatic morning light, oryx and camels visible below, cinematic aerial adventure" width="600" height="400" src="/assets/site-attractions-grid-image-18-1783516658818-f2flt2.webp?v=1783516658818" alt="טיסה בכדור פורח במדבר דובאי" data-element-type="image" data-element-id="img-1783520280554-mbx4zzce5" >
+          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-18" data-context="Hot air balloon flight over Dubai desert at sunrise, colorful balloons floating above golden sand dunes, dramatic morning light, oryx and camels visible below, cinematic aerial adventure" width="600" height="400" src="/assets/site-attractions-grid-image-18-1783516658818-f2flt2.webp?v=1783516658818" alt="טיסה בכדור פורח במדבר דובאי" data-element-type="image" data-element-id="img-1783520280554-mbx4zzce5" style>
           <div class="attraction-card-badge attraction-card-badge--gold">מומלץ</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"></path></svg>
+            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
           </div>
           <h3 class="attraction-card-title">טיסה בכדור פורח במדבר</h3>
           <p class="attraction-card-desc">המראה קסומה עם שחר מעל דיונות המדבר — חוויית כדור פורח מרהיבה עם נוף אינסופי של חולות זהובים ואור ראשון.</p>
@@ -1323,12 +1667,12 @@
       <!-- Card 19: מוזיאון העתיד -->
       <article class="attraction-card attraction-card--featured" data-grid-item-index="18">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-19" data-context="Museum of the Future Dubai, stunning torus-shaped architectural masterpiece with Arabic calligraphy facade, futuristic exhibits, glowing interactive displays, innovative technology museum" width="600" height="400" src="/assets/site-attractions-grid-image-19-1783516688204-dc420k.webp?v=1783516688204" alt="מוזיאון העתיד — Museum of the Future" data-element-type="image" data-element-id="img-1783520280554-iljuhihlp" >
+          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-19" data-context="Museum of the Future Dubai, stunning torus-shaped architectural masterpiece with Arabic calligraphy facade, futuristic exhibits, glowing interactive displays, innovative technology museum" width="600" height="400" src="/assets/site-attractions-grid-image-19-1783516688204-dc420k.webp?v=1783516688204" alt="מוזיאון העתיד — Museum of the Future" data-element-type="image" data-element-id="img-1783520280554-iljuhihlp" style>
           <div class="attraction-card-badge attraction-card-badge--gold">הכי מבוקש</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
           </div>
           <h3 class="attraction-card-title">מוזיאון העתיד</h3>
           <p class="attraction-card-desc">Museum of the Future — יצירת מופת ארכיטקטונית ותערוכות עתידניות אינטראקטיביות. המבנה הכי יפה בעולם וחוויה שלא שוכחים.</p>
@@ -1339,12 +1683,12 @@
       <!-- Card 20: תצפית סקיי וויו -->
       <article class="attraction-card" data-grid-item-index="19">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-20" data-context="Sky Views Observatory Dubai, glass slide on exterior of skyscraper, panoramic views of Downtown Dubai and Burj Khalifa, thrilling glass walkway experience, modern architecture" width="600" height="400" src="/assets/site-attractions-grid-image-20-1783516712590-474w3d.webp?v=1783516712590" alt="Sky Views Observatory — תצפית סקיי וויו" data-element-type="image" data-element-id="img-1783520280554-0fpp5glol" >
+          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-20" data-context="Sky Views Observatory Dubai, glass slide on exterior of skyscraper, panoramic views of Downtown Dubai and Burj Khalifa, thrilling glass walkway experience, modern architecture" width="600" height="400" src="/assets/site-attractions-grid-image-20-1783516712590-474w3d.webp?v=1783516712590" alt="Sky Views Observatory — תצפית סקיי וויו" data-element-type="image" data-element-id="img-1783520280554-0fpp5glol" style>
           <div class="attraction-card-badge">חדש</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"></path></svg>
+            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
           </div>
           <h3 class="attraction-card-title">תצפית Sky Views Observatory</h3>
           <p class="attraction-card-desc">חוויית תצפית עוצרת נשימה ממגדל סוק אל בהאר — מגלשת זכוכית חיצונית, שביל זכוכית שקוף ונוף פנורמי מטריף על דובאי.</p>
@@ -1355,12 +1699,12 @@
       <!-- Card 21: AYA Universe -->
       <article class="attraction-card" data-grid-item-index="20">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-21" data-context="AYA Universe Dubai immersive digital art experience, colorful LED tunnels, interactive light projections, futuristic dreamscape, glowing gardens of light, cosmic themed rooms" width="600" height="400" src="/assets/site-attractions-grid-image-21-1783516736777-dqwzaj.webp?v=1783516736777" alt="AYA Universe Dubai — חוויה דיגיטלית" data-element-type="image" data-element-id="img-1783520280554-woktr9m0k" >
+          <img loading="lazy" decoding="async" data-placeholder="attractions-grid-image-21" data-context="AYA Universe Dubai immersive digital art experience, colorful LED tunnels, interactive light projections, futuristic dreamscape, glowing gardens of light, cosmic themed rooms" width="600" height="400" src="/assets/site-attractions-grid-image-21-1783516736777-dqwzaj.webp?v=1783516736777" alt="AYA Universe Dubai — חוויה דיגיטלית" data-element-type="image" data-element-id="img-1783520280554-woktr9m0k" style>
           <div class="attraction-card-badge">חדש</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
           <h3 class="attraction-card-title">AYA Universe Dubai</h3>
           <p class="attraction-card-desc">יקום דיגיטלי קסום של אור, צבע וצליל — 12 חדרים אינטראקטיביים בגן שעשועים ויזואלי עוצר נשימה. חוויה שלא נראתה כמותה.</p>
@@ -1369,13 +1713,13 @@
       </article>
 
       <!-- Card 13: אופנוע ים Jet Ski -->
-      <article class="attraction-card" data-grid-item-index="21" >
+      <article class="attraction-card" data-grid-item-index="21" style>
         <div class="attraction-card-image-wrap">
           <input type="checkbox" id="zappy-lightbox-toggle-img-1783440277899-ikqzpxq79" class="zappy-lightbox-toggle" data-zappy-image-lightbox="true"><label class="zappy-lightbox-trigger" for="zappy-lightbox-toggle-img-1783440277899-ikqzpxq79" data-zappy-image-lightbox="true"><div data-zappy-zoom-wrapper="true" data-element-id="img-1783440277899-ikqzpxq79" data-element-type="image" data-zappy-zoom-wrapper-width="369px" data-zappy-zoom-wrapper-height="277px" data-zappy-zoom-wrapper-width-mode="card-slot" data-zappy-zoom-wrapper-align="center" style="cursor: pointer; position: relative !important; overflow: hidden !important; width: 100% !important; max-width: 100% !important; margin-left: auto !important; margin-right: auto !important; height: 277px !important; display: block !important; max-height: none !important; padding-bottom: 0px !important; min-height: 0px !important;" data-zappy-card-slot-fill="1" data-zappy-zoom-clip="true" data-zappy-wrapper-margins-applied="true" data-zappy-click-action="expand"><img decoding="async" data-placeholder="attractions-grid-image-5" data-context="Jet ski riding on Dubai waters with Burj Khalifa and skyline in background, splashing water, sunny day, thrilling water sports activity" width="600" height="400" src="/assets/product-source-1783430928197-llbwhi.webp" alt="אופנוע ים Jet Ski בדובאי" data-element-type="image" data-element-id="img-1783440277899-ikqzpxq79" style="object-position: 50% 50% !important; margin: 0px !important; left: -2.5% !important; top: -19.9394% !important; width: 105% !important; height: 139.879% !important; max-width: none !important; max-height: none !important; display: block !important; object-fit: cover !important; position: absolute !important;" data-zappy-zoom="1.05" data-zappy-original-width="368.66668701171875" data-zappy-original-height="276.5" data-zappy-object-position="50% 50%" data-zappy-click-action="expand"></div></label>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c.5-2 2-3.5 4-3.5S9.5 10 11 10s2.5-1.5 4.5-1.5S19 10 20 12"></path><path d="M2 17c.5-2 2-3.5 4-3.5S9.5 15 11 15s2.5-1.5 4.5-1.5S19 15 20 17"></path></svg>
+            <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c.5-2 2-3.5 4-3.5S9.5 10 11 10s2.5-1.5 4.5-1.5S19 10 20 12"/><path d="M2 17c.5-2 2-3.5 4-3.5S9.5 15 11 15s2.5-1.5 4.5-1.5S19 15 20 17"/></svg>
           </div>
           <h3 class="attraction-card-title">אופנוע ים – Jet Ski</h3>
           <p class="attraction-card-desc">רכבו על אופנוע ים במימי המפרץ הכחולים עם נוף לבורג' חליפה — חוויית אקסטרים מרגשת במהירות על פני המים. מתאים ליחידים וזוגות.</p>
@@ -1386,12 +1730,12 @@
       <!-- Card 22: נהיגה עצמית במדבר -->
       <article class="attraction-card" data-grid-item-index="22">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" width="600" height="400" src="/assets/site-attractions-grid-image-4.webp" alt="נהיגה עצמית במדבר דובאי" >
+          <img loading="lazy" decoding="async" width="600" height="400" src="/assets/site-attractions-grid-image-4.webp" alt="נהיגה עצמית במדבר דובאי" style>
           <div class="attraction-card-badge">חדש</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l3-8 4 4 3-6 4 10"></path><path d="M21 17H3"></path></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l3-8 4 4 3-6 4 10"/><path d="M21 17H3"/></svg>
           </div>
           <h3 class="attraction-card-title">נהיגה עצמית במדבר</h3>
           <p class="attraction-card-desc">חוויית נהיגת שטח עצמית על דיונות חול זהובות — קחו את ההגה לידיים וסעו בלב המדבר. מסלול מרגש עם נופים עוצרי נשימה.</p>
@@ -1402,12 +1746,12 @@
       <!-- Card 23: קידזניה KIDZANYA DUBAI -->
       <article class="attraction-card attraction-card--featured" data-grid-item-index="23">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" width="600" height="400" src="/assets/site-attractions-grid-image-16-1783516595466-6fj7w1.webp" alt="קידזניה דובאי" >
+          <img loading="lazy" decoding="async" width="600" height="400" src="/assets/site-attractions-grid-image-16-1783516595466-6fj7w1.webp" alt="קידזניה דובאי" style>
           <div class="attraction-card-badge attraction-card-badge--gold">ילדים</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
           <h3 class="attraction-card-title">קידזניה KIDZANYA DUBAI</h3>
           <p class="attraction-card-desc">עיר הילדים המדהימה בדובאי — עולם קסום שבו הילדים מגשימים חלומות ומתנסים בעשרות מקצועות בסביבה מציאותית. חוויה חינוכית ומהנה.</p>
@@ -1418,12 +1762,12 @@
       <!-- Card 24: פארק המים אטלנטיס Aquaventure Waterpark -->
       <article class="attraction-card attraction-card--featured" data-grid-item-index="24">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" width="600" height="400" src="/assets/site-attractions-grid-image-6.webp" alt="אקווהוונצ'ר — פארק המים אטלנטיס" >
+          <img loading="lazy" decoding="async" width="600" height="400" src="/assets/site-attractions-grid-image-6.webp" alt="אקווהוונצ'ר — פארק המים אטלנטיס" style>
           <div class="attraction-card-badge attraction-card-badge--gold">מומלץ</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c.5-2 2-3.5 4-3.5S9.5 10 11 10s2.5-1.5 4.5-1.5S19 10 20 12"></path><path d="M2 17c.5-2 2-3.5 4-3.5S9.5 15 11 15s2.5-1.5 4.5-1.5S19 15 20 17"></path><path d="M12 2v6"></path></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c.5-2 2-3.5 4-3.5S9.5 10 11 10s2.5-1.5 4.5-1.5S19 10 20 12"/><path d="M2 17c.5-2 2-3.5 4-3.5S9.5 15 11 15s2.5-1.5 4.5-1.5S19 15 20 17"/><path d="M12 2v6"/></svg>
           </div>
           <h3 class="attraction-card-title">פארק המים אטלנטיס – Aquaventure</h3>
           <p class="attraction-card-desc">פארק המים הגדול והמפואר בעולם — מגלשות מטורפות, נהרות שוצפים, חוף פרטי ואינסוף אטרקציות מים. חוויה משפחתית בלתי נשכחת.</p>
@@ -1434,12 +1778,12 @@
       <!-- Card 25: תצפית הדקלים The View at The Palm -->
       <article class="attraction-card" data-grid-item-index="25">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" width="600" height="400" src="/assets/site-attractions-grid-image-7.webp" alt="תצפית אי הדקלים — The View at The Palm" >
+          <img loading="lazy" decoding="async" width="600" height="400" src="/assets/site-attractions-grid-image-7.webp" alt="תצפית אי הדקלים — The View at The Palm" style>
           <div class="attraction-card-badge">חדש</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"></path></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
           </div>
           <h3 class="attraction-card-title">תצפית הדקלים – The View at The Palm</h3>
           <p class="attraction-card-desc">טיפסו 240 מטר אל קומת התצפית עוצרת הנשימה בלב אי הדקלים — נוף פנורמי 360° על האי, קו הרקיע של דובאי והמפרץ.</p>
@@ -1450,12 +1794,12 @@
       <!-- Card 26: מסגרת דובאי DUBAI FRAME -->
       <article class="attraction-card" data-grid-item-index="26">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" width="600" height="400" src="/assets/site-attractions-grid-image-5.webp" alt="מסגרת דובאי Dubai Frame" >
+          <img loading="lazy" decoding="async" width="600" height="400" src="/assets/site-attractions-grid-image-5.webp" alt="מסגרת דובאי Dubai Frame" style>
           <div class="attraction-card-badge">חדש</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"></path><path d="M8 6h8"></path><path d="M9 10h6"></path><path d="M10 14h4"></path><path d="M6 18h12"></path></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M8 6h8"/><path d="M9 10h6"/><path d="M10 14h4"/><path d="M6 18h12"/></svg>
           </div>
           <h3 class="attraction-card-title">מסגרת דובאי – DUBAI FRAME</h3>
           <p class="attraction-card-desc">המסגרת האייקונית של דובאי — גשר תצפית מזכוכית בגובה 150 מטר המחבר בין דובאי הישנה לחדשה. חוויית צילום עוצרת נשימה.</p>
@@ -1466,12 +1810,12 @@
       <!-- Card 27: מוזיאון האשליות -->
       <article class="attraction-card" data-grid-item-index="27">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" width="600" height="400" src="/assets/site-attractions-grid-image-21-1783516736777-dqwzaj.webp" alt="מוזיאון האשליות דובאי" >
+          <img loading="lazy" decoding="async" width="600" height="400" src="/assets/site-attractions-grid-image-21-1783516736777-dqwzaj.webp" alt="מוזיאון האשליות דובאי" style>
           <div class="attraction-card-badge">חדש</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
           <h3 class="attraction-card-title">מוזיאון האשליות</h3>
           <p class="attraction-card-desc">היכנסו לעולם שבו שום דבר אינו כפי שהוא נראה — עשרות אשליות אינטראקטיביות, חדרי חושים ומבוכי מראות. כיף לכל הגילאים.</p>
@@ -1482,12 +1826,12 @@
       <!-- Card 28: שייט משותף שעה במרינה -->
       <article class="attraction-card" data-grid-item-index="28">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" width="600" height="400" src="/assets/site-attractions-grid-image-1.webp" alt="שייט משותף במרינה של דובאי" >
+          <img loading="lazy" decoding="async" width="600" height="400" src="/assets/site-attractions-grid-image-1.webp" alt="שייט משותף במרינה של דובאי" style>
           <div class="attraction-card-badge">חדש</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l2-8h14l2 8"></path><path d="M3 17H21"></path><path d="M12 3v6"></path><path d="M8 9h8"></path></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l2-8h14l2 8"/><path d="M3 17H21"/><path d="M12 3v6"/><path d="M8 9h8"/></svg>
           </div>
           <h3 class="attraction-card-title">שייט משותף שעה במרינה</h3>
           <p class="attraction-card-desc">שייט חווייתי של שעה במרינה המפוארת של דובאי — נוף פנורמי לקו הרקיע, אווירה קסומה ומחיר נגיש. חוויה ימית שתשאיר טעם של עוד.</p>
@@ -1498,12 +1842,12 @@
       <!-- Card 29: מוזיאון השעווה דובאי -->
       <article class="attraction-card" data-grid-item-index="29">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" width="600" height="400" src="/assets/site-attractions-grid-image-19-1783516688204-dc420k.webp" alt="מוזיאון השעווה Madame Tussauds דובאי" >
+          <img loading="lazy" decoding="async" width="600" height="400" src="/assets/site-attractions-grid-image-19-1783516688204-dc420k.webp" alt="מוזיאון השעווה Madame Tussauds דובאי" style>
           <div class="attraction-card-badge">חדש</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l-2 3h4l-2-3z"></path><path d="M16 8V5a4 4 0 00-8 0v3"></path><path d="M4 11h16l-2 8H6l-2-8z"></path></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l-2 3h4l-2-3z"/><path d="M16 8V5a4 4 0 00-8 0v3"/><path d="M4 11h16l-2 8H6l-2-8z"/></svg>
           </div>
           <h3 class="attraction-card-title">מוזיאון השעווה דובאי</h3>
           <p class="attraction-card-desc">Madame Tussauds Dubai — פגשו את הכוכבים הגדולים בעולם בדמויות שעווה מושלמות. צלמו סלפי עם מפורסמים, זמרים וגיבורי על.</p>
@@ -1514,12 +1858,12 @@
       <!-- Card 30: מוזיאון OLIOLI -->
       <article class="attraction-card attraction-card--featured" data-grid-item-index="30">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" width="600" height="400" src="/assets/site-attractions-grid-image-21-1783516736777-dqwzaj.webp" alt="מוזיאון OLIOLI דובאי" >
+          <img loading="lazy" decoding="async" width="600" height="400" src="/assets/site-attractions-grid-image-21-1783516736777-dqwzaj.webp" alt="מוזיאון OLIOLI דובאי" style>
           <div class="attraction-card-badge attraction-card-badge--gold">ילדים</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
           <h3 class="attraction-card-title">מוזיאון OLIOLI</h3>
           <p class="attraction-card-desc">מוזיאון אינטראקטיבי קסום לילדים — גלו, שחקו ולמדו במרחבי יצירה, מדע, דמיון וטבע. עולם שלם של חוויות מעשירות לכל המשפחה.</p>
@@ -1530,12 +1874,12 @@
       <!-- Card 31: כוכב הלכת הירוק -->
       <article class="attraction-card" data-grid-item-index="31">
         <div class="attraction-card-image-wrap">
-          <img loading="lazy" decoding="async" width="600" height="400" src="/assets/site-attractions-grid-image-2.webp" alt="כוכב הלכת הירוק דובאי" >
+          <img loading="lazy" decoding="async" width="600" height="400" src="/assets/site-attractions-grid-image-2.webp" alt="כוכב הלכת הירוק דובאי" style>
           <div class="attraction-card-badge">חדש</div>
         </div>
         <div class="attraction-card-body">
           <div class="attraction-card-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
           </div>
           <h3 class="attraction-card-title">כוכב הלכת הירוק</h3>
           <p class="attraction-card-desc">יער טרופי קסום בלב דובאי — מאות ציפורים, פרפרים ובעלי חיים אקזוטיים בסביבה טבעית מקורה. חוויה ירוקה ומרעננת לכל המשפחה.</p>
@@ -1554,16 +1898,16 @@
     <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="divGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#201A2E"></stop>
-          <stop offset="50%" stop-color="#1C1C2E"></stop>
-          <stop offset="100%" stop-color="#201A2E"></stop>
+          <stop offset="0%" stop-color="#201A2E"/>
+          <stop offset="50%" stop-color="#1C1C2E"/>
+          <stop offset="100%" stop-color="#201A2E"/>
         </linearGradient>
       </defs>
-      <path d="M0,80 L0,48 Q60,38 120,44 T240,40 Q300,44 360,36 T480,42 Q540,36 600,40 T720,36 Q780,42 840,36 T960,42 Q1020,36 1080,42 T1200,38 L1200,80 Z" fill="#0D0D1A"></path>
+      <path d="M0,80 L0,48 Q60,38 120,44 T240,40 Q300,44 360,36 T480,42 Q540,36 600,40 T720,36 Q780,42 840,36 T960,42 Q1020,36 1080,42 T1200,38 L1200,80 Z" fill="#0D0D1A"/>
       <!-- Geometric clip motif -->
-      <polygon points="580,30 600,14 620,30 600,46" fill="#C9A84C" opacity="0.35"></polygon>
-      <polygon points="0,52 24,38 24,52" fill="#C9A84C" opacity="0.2"></polygon>
-      <polygon points="1200,44 1176,30 1176,44" fill="#C9A84C" opacity="0.2"></polygon>
+      <polygon points="580,30 600,14 620,30 600,46" fill="#C9A84C" opacity="0.35"/>
+      <polygon points="0,52 24,38 24,52" fill="#C9A84C" opacity="0.2"/>
+      <polygon points="1200,44 1176,30 1176,44" fill="#C9A84C" opacity="0.2"/>
     </svg>
   </div>
 </section>
@@ -1593,21 +1937,21 @@
         <p class="aes-spotlight-desc">דמיינו את עצמכם על סיפון יאכטה פרטית, גלישה שקטה מול קו הרקיע של דובאי — הברג' ח'ליפה ניצב מאחור, השמש שוקעת לתוך המפרץ בגוונים של זהב ואדום. השכרת יאכטה בדובאי היא לא רק טיול ימי — היא רגע שחוצב בזיכרון לנצח. בחרו בין שעה קסומה לסיבוב פנורמי מלא, ותנו לנו לדאוג לכל השאר.</p>
         <ul class="aes-spotlight-features">
           <li>
-            <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
             <span>השכרה לפי שעה</span>
           </li>
           <li>
-            <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
             <span>נוף פנורמי לקו הרקיע</span>
           </li>
           <li>
-            <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
             <span>מתאים לזוגות, משפחות וקבוצות</span>
           </li>
         </ul>
         <a href="#" target="_blank" rel="noopener noreferrer" class="aes-cta-btn" style="display:none !important;">
           <span>הזמינו עכשיו דרך וואטסאפ</span>
-          <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 5 5 12 12 19"></polyline></svg>
+          <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
         </a>
       </div>
 
@@ -1619,7 +1963,7 @@
         </div>
         <div class="aes-img-badge">
           <span class="aes-badge-icon">
-            <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l1.5-5L12 4l7.5 8L21 17H3z"></path><path d="M12 4v13"></path></svg>
+            <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l1.5-5L12 4l7.5 8L21 17H3z"/><path d="M12 4v13"/></svg>
           </span>
           <div class="aes-badge-text">
             <strong>מן המפרץ</strong>
@@ -1646,7 +1990,7 @@
         </div>
         <div class="aes-img-badge aes-img-badge--left">
           <span class="aes-badge-icon">
-            <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
           </span>
           <div class="aes-badge-text">
             <strong>שקיעה בחולות</strong>
@@ -1662,21 +2006,21 @@
         <p class="aes-spotlight-desc">כשהשמש נוגעת בקצות הדיונות הזהובות, העולם נדמה כמו עמד מלכת. טיול המדבר של דובאי הוא אחת מחוויות התיירות הנדירות ביותר — שילוב של אדרנלין, שקט ויופי עוצר נשימה. סיור ב-4x4 בין הדיונות, ארוחת ערב בדואית מסורתית, ריקודי בטן ואורות לנטרנים מתחת לכוכבים — כל זה ממתין לכם במרחק נסיעה קצרה מהעיר.</p>
         <ul class="aes-spotlight-features">
           <li>
-            <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
             <span>נסיעת ג'יפ בדיונות</span>
           </li>
           <li>
-            <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
             <span>ארוחת ערב בדואית אותנטית</span>
           </li>
           <li>
-            <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
             <span>שקיעה ואווירה כוכבים</span>
           </li>
         </ul>
         <a href="#" target="_blank" rel="noopener noreferrer" class="aes-cta-btn" style="display:none !important;">
           <span>הזמינו את החוויה</span>
-          <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 5 5 12 12 19"></polyline></svg>
+          <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
         </a>
       </div>
 
@@ -1688,16 +2032,16 @@
     <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="aes-horizon-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#0D0D1A" stop-opacity="0"></stop>
-          <stop offset="30%" stop-color="#C9A84C" stop-opacity="0.18"></stop>
-          <stop offset="50%" stop-color="#F5C842" stop-opacity="0.28"></stop>
-          <stop offset="70%" stop-color="#C9A84C" stop-opacity="0.18"></stop>
-          <stop offset="100%" stop-color="#0D0D1A" stop-opacity="0"></stop>
+          <stop offset="0%" stop-color="#0D0D1A" stop-opacity="0"/>
+          <stop offset="30%" stop-color="#C9A84C" stop-opacity="0.18"/>
+          <stop offset="50%" stop-color="#F5C842" stop-opacity="0.28"/>
+          <stop offset="70%" stop-color="#C9A84C" stop-opacity="0.18"/>
+          <stop offset="100%" stop-color="#0D0D1A" stop-opacity="0"/>
         </linearGradient>
       </defs>
-      <rect x="0" y="42" width="1440" height="1.5" fill="url(#aes-horizon-grad)"></rect>
-      <ellipse cx="720" cy="44" rx="340" ry="28" fill="rgba(201,168,76,0.07)"></ellipse>
-      <path d="M0,90 L0,56 Q180,44 360,52 T720,44 Q900,36 1080,52 T1440,56 L1440,90 Z" fill="#12121F"></path>
+      <rect x="0" y="42" width="1440" height="1.5" fill="url(#aes-horizon-grad)"/>
+      <ellipse cx="720" cy="44" rx="340" ry="28" fill="rgba(201,168,76,0.07)"/>
+      <path d="M0,90 L0,56 Q180,44 360,52 T720,44 Q900,36 1080,52 T1440,56 L1440,90 Z" fill="#12121F"/>
     </svg>
   </div>
 
@@ -1707,15 +2051,15 @@
   <!-- Decorative Burj Khalifa silhouette -->
   <div class="attractions-cta-burj-decor" aria-hidden="true">
     <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 220 420" fill="none" xmlns="http://www.w3.org/2000/svg" width="220" height="420">
-      <path d="M110 10 L113 80 L118 90 L122 140 L126 150 L128 200 L132 210 L134 260 L136 270 L138 320 L140 330 L142 380 L144 420 L76 420 L78 380 L80 330 L82 320 L84 270 L86 260 L88 210 L92 200 L94 150 L98 140 L102 90 L107 80 L110 10Z" stroke="#C9A84C" stroke-width="1.2" fill="none" opacity="0.13"></path>
-      <path d="M95 420 L95 380 L88 380 L88 420Z" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.1"></path>
-      <path d="M125 420 L125 380 L132 380 L132 420Z" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.1"></path>
-      <line x1="80" y1="300" x2="140" y2="300" stroke="#C9A84C" stroke-width="0.8" opacity="0.1"></line>
-      <line x1="84" y1="260" x2="136" y2="260" stroke="#C9A84C" stroke-width="0.8" opacity="0.1"></line>
-      <line x1="88" y1="220" x2="132" y2="220" stroke="#C9A84C" stroke-width="0.8" opacity="0.1"></line>
-      <line x1="94" y1="180" x2="126" y2="180" stroke="#C9A84C" stroke-width="0.8" opacity="0.1"></line>
-      <line x1="100" y1="140" x2="120" y2="140" stroke="#C9A84C" stroke-width="0.8" opacity="0.1"></line>
-      <path d="M60 420 L60 390 L55 390 L55 420Z M65 420 L65 395 L60 395 L60 420Z M70 420 L70 400 L65 400 L65 420Z M150 420 L150 390 L155 390 L155 420Z M145 420 L145 395 L150 395 L150 420Z M140 420 L140 400 L145 400 L145 420Z" stroke="#C9A84C" stroke-width="0.8" fill="none" opacity="0.08"></path>
+      <path d="M110 10 L113 80 L118 90 L122 140 L126 150 L128 200 L132 210 L134 260 L136 270 L138 320 L140 330 L142 380 L144 420 L76 420 L78 380 L80 330 L82 320 L84 270 L86 260 L88 210 L92 200 L94 150 L98 140 L102 90 L107 80 L110 10Z" stroke="#C9A84C" stroke-width="1.2" fill="none" opacity="0.13"/>
+      <path d="M95 420 L95 380 L88 380 L88 420Z" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.1"/>
+      <path d="M125 420 L125 380 L132 380 L132 420Z" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.1"/>
+      <line x1="80" y1="300" x2="140" y2="300" stroke="#C9A84C" stroke-width="0.8" opacity="0.1"/>
+      <line x1="84" y1="260" x2="136" y2="260" stroke="#C9A84C" stroke-width="0.8" opacity="0.1"/>
+      <line x1="88" y1="220" x2="132" y2="220" stroke="#C9A84C" stroke-width="0.8" opacity="0.1"/>
+      <line x1="94" y1="180" x2="126" y2="180" stroke="#C9A84C" stroke-width="0.8" opacity="0.1"/>
+      <line x1="100" y1="140" x2="120" y2="140" stroke="#C9A84C" stroke-width="0.8" opacity="0.1"/>
+      <path d="M60 420 L60 390 L55 390 L55 420Z M65 420 L65 395 L60 395 L60 420Z M70 420 L70 400 L65 400 L65 420Z M150 420 L150 390 L155 390 L155 420Z M145 420 L145 395 L150 395 L150 420Z M140 420 L140 400 L145 400 L145 420Z" stroke="#C9A84C" stroke-width="0.8" fill="none" opacity="0.08"/>
     </svg>
   </div>
 
@@ -1729,8 +2073,8 @@
     <!-- Icon accent -->
     <div class="attractions-cta-icon-badge">
       <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40" aria-hidden="true">
-        <path d="M20 4 L22.5 14 L32 14 L24.5 20 L27 30 L20 24 L13 30 L15.5 20 L8 14 L17.5 14 Z" stroke="#C9A84C" stroke-width="1.4" fill="none"></path>
-        <circle cx="20" cy="20" r="18" stroke="#C9A84C" stroke-width="0.8" opacity="0.4"></circle>
+        <path d="M20 4 L22.5 14 L32 14 L24.5 20 L27 30 L20 24 L13 30 L15.5 20 L8 14 L17.5 14 Z" stroke="#C9A84C" stroke-width="1.4" fill="none"/>
+        <circle cx="20" cy="20" r="18" stroke="#C9A84C" stroke-width="0.8" opacity="0.4"/>
       </svg>
     </div>
 
@@ -1762,10 +2106,10 @@
 </section>
   </main>
   
-  <footer class="site-footer" dir="rtl" aria-label="כותרת תחתונה של האתר"> <div class="footer-container"> <!-- Top Grid --> <div class="footer-top"> <!-- Column 1: Company Info --> <div class="footer-col footer-brand"> <img src="/assets/duabi-plus-tourism-travel-logo.webp" alt="Sarah laloum tourism llc" class="logo" data-element-type="image" data-element-id="img-1779082998551-l5wmgnoez" data-zappy-footer-image="true" > <p class="footer-tagline">חוויות נסיעה יוקרתיות לדובאי — מותאמות אישית, מאוצרות בקפידה, ובלתי נשכחות.</p> <div class="footer-badge"><i class="fas fa-star" data-element-type="icon" data-element-id="icon-1779082998550-bao2u3lzy" data-icon-type="fontawesome"></i> שירות פרמיום 24/7</div> <div class="footer-social">    </div> </div> <!-- Column 2: Quick Links --> <div class="footer-col"> <h3 class="footer-heading">ניווט מהיר</h3> <ul class="footer-links"> <li><a href="/">בית</a></li> <li><a href="/hotels">מלונות</a></li> <li><a href="/attractions">אטרקציות</a></li> <li><a href="/travel-services">שירותי נסיעות</a></li> <li><a href="/restaurants">מסעדות</a></li> <li><a href="/contact">צרו קשר</a></li> </ul> </div> <!-- Column 3: Contact --> <div class="footer-col"> <h3 class="footer-heading">צור קשר</h3> <ul class="footer-contact"> <li> <span class="contact-icon"><i class="fas fa-envelope" data-element-type="icon" data-element-id="icon-1779082998550-rkuk1u1mi" data-icon-type="fontawesome"></i></span> <span class="contact-text"><a href="mailto:laloumdubai@gmail.com">laloumdubai@gmail.com</a></span> </li> <li> <span class="contact-icon"><i class="fas fa-phone" data-element-type="icon" data-element-id="icon-1779082998550-h1pdve6w2" data-icon-type="fontawesome"></i></span> <span class="contact-text"><a href="tel:+972522212578" >+972522212578</a></span> </li> <li><a href="/" style="display:flex;align-items:flex-start;gap:inherit"><span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span> <span class="contact-text">Nad al sheba gardens, Dubai, Uae</span></a></li> </ul> </div> <!-- Column 4: Hours --> <div class="footer-col"> <h3 class="footer-heading">שעות פעילות</h3> <ul class="footer-hours"> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום ראשון</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום שני</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום שלישי</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום רביעי</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום חמישי</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום שישי</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום שבת</span>&nbsp;<span class="time" style="color: #221C2F">21:00 – 23:00</span></li> </ul>  </div> </div> <!-- Divider --> <div class="footer-divider"></div> <!-- Bottom Bar --> <div class="footer-bottom"> <p class="footer-copy">© 2026 Sarah laloum tourism llc. כל הזכויות שמורות.</p> <div class="footer-legal"> <a href="/privacy">מדיניות פרטיות</a> <span class="legal-sep">·</span> <a href="/terms">תנאי שימוש</a><span class="separator">|</span>
+  <footer class="site-footer" dir="rtl" aria-label="כותרת תחתונה של האתר"> <div class="footer-container"> <!-- Top Grid --> <div class="footer-top"> <!-- Column 1: Company Info --> <div class="footer-col footer-brand"> <img src="/assets/duabi-plus-tourism-travel-logo.webp" alt="Sarah laloum tourism llc" class="logo" data-element-type="image" data-element-id="img-1779082998551-l5wmgnoez" data-zappy-footer-image="true" style> <p class="footer-tagline">חוויות נסיעה יוקרתיות לדובאי — מותאמות אישית, מאוצרות בקפידה, ובלתי נשכחות.</p> <div class="footer-badge"><i class="fas fa-star" data-element-type="icon" data-element-id="icon-1779082998550-bao2u3lzy" data-icon-type="fontawesome"></i> שירות פרמיום 24/7</div> <div class="footer-social">    </div> </div> <!-- Column 2: Quick Links --> <div class="footer-col"> <h3 class="footer-heading">ניווט מהיר</h3> <ul class="footer-links"> <li><a href="/">בית</a></li> <li><a href="/hotels">מלונות</a></li> <li><a href="/attractions">אטרקציות</a></li> <li><a href="/travel-services">שירותי נסיעות</a></li> <li><a href="/restaurants">מסעדות</a></li> <li><a href="/contact">צרו קשר</a></li> </ul> </div> <!-- Column 3: Contact --> <div class="footer-col"> <h3 class="footer-heading">צור קשר</h3> <ul class="footer-contact"> <li> <span class="contact-icon"><i class="fas fa-envelope" data-element-type="icon" data-element-id="icon-1779082998550-rkuk1u1mi" data-icon-type="fontawesome"></i></span> <span class="contact-text"><a href="mailto:laloumdubai@gmail.com">laloumdubai@gmail.com</a></span> </li> <li> <span class="contact-icon"><i class="fas fa-phone" data-element-type="icon" data-element-id="icon-1779082998550-h1pdve6w2" data-icon-type="fontawesome"></i></span> <span class="contact-text"><a href="tel:+972522212578" style>+972522212578</a></span> </li> <li><a href="/" style="display:flex;align-items:flex-start;gap:inherit"><span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span> <span class="contact-text">Nad al sheba gardens, Dubai, Uae</span></a></li> </ul> </div> <!-- Column 4: Hours --> <div class="footer-col"> <h3 class="footer-heading">שעות פעילות</h3> <ul class="footer-hours"> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום ראשון</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום שני</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום שלישי</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום רביעי</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום חמישי</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום שישי</span>&nbsp;<span class="time" style="color: #221C2F">09:00 – 23:00</span></li> <li style="color: #221C2F"><span class="day" style="color: #221C2F">יום שבת</span>&nbsp;<span class="time" style="color: #221C2F">21:00 – 23:00</span></li> </ul>  </div> </div> <!-- Divider --> <div class="footer-divider"></div> <!-- Bottom Bar --> <div class="footer-bottom"> <p class="footer-copy">© 2026 Sarah laloum tourism llc. כל הזכויות שמורות.</p> <div class="footer-legal"> <a href="/privacy">מדיניות פרטיות</a> <span class="legal-sep">·</span> <a href="/terms">תנאי שימוש</a><span class="separator">|</span>
             <a href="/return-policy" aria-label="מדיניות החזרות">
               מדיניות החזרות
-            </a> <span class="legal-sep">·</span> <a href="/accessibility">נגישות</a> <span class="legal-sep">·</span> <a href="https://zappy5.com" target="_blank" class="zappy-attribution" ><br><br><br><br></a> </div> </div> </div> </footer>
+            </a> <span class="legal-sep">·</span> <a href="/accessibility">נגישות</a> <span class="legal-sep">·</span> <a href="https://zappy5.com" target="_blank" class="zappy-attribution" style><br><br><br><br></a> </div> </div> </div> </footer>
   
   <a href="https://wa.me/[whatsapp_handle]" class="whatsapp-float" aria-label="WhatsApp">
     <i class="fab fa-whatsapp"></i>
@@ -1773,10 +2117,10 @@
   
   <div data-integration="accessibility:toolbar"></div>
 
-<div class="zappy-qv-overlay" id="zappy-qv-overlay" hidden=""></div>
-<div class="zappy-qv-modal" id="zappy-qv-modal" role="dialog" aria-modal="true" aria-label="תצוגה מהירה" hidden="">
+<div class="zappy-qv-overlay" id="zappy-qv-overlay" hidden></div>
+<div class="zappy-qv-modal" id="zappy-qv-modal" role="dialog" aria-modal="true" aria-label="תצוגה מהירה" hidden>
   <button type="button" class="zappy-qv-close" id="zappy-qv-close" aria-label="סגור">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
   </button>
   <div class="zappy-qv-content" id="zappy-qv-content"></div>
 </div>

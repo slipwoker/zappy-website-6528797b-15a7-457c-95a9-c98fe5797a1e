@@ -6,112 +6,112 @@
 
 ## Pages
 
-### בית
+### תכנן חופשת דובאי מושלמת — Duabi plus
 https://dubai-plus.co.il
 הפלטפורמה המובילה לישראלים לתכנון טיול דובאי יוקרתי. מלונות, אטרקציות, העברות וסים — הכל במקום אחד. הזמן עכשיו ותחווה דובאי כמו מעולם לא חווית!
 
-### מלונות
+### מלונות דובאי היוקרתיים מחכים לך — Duabi plus
 https://dubai-plus.co.il/hotels
 גלה מלונות חמישה כוכבים בדובאי עם הזמנה מהירה דרך וואטסאפ. מחירים מיוחדים לישראלים, מיקומים מובחרים ושירות אישי. שמור את החדר שלך עוד היום!
 
-### אטרקציות
+### האטרקציות הטובות ביותר בדובאי מגיעות אליך — Duabi plus
 https://dubai-plus.co.il/attractions
 ברג&#39; ח&#39;ליפה, ספארי מדבר, גלובל וילג&#39;, גן הפרחים ויאכטות פרטיות — הזמן כרטיסים לאטרקציות דובאי המרהיבות ביותר בקלות ובמחיר הטוב ביותר. חוויה שלא תשכח!
 
-### שירותי נסיעות
+### שירותי נסיעות VIP לדובאי — הכל בלחיצה — Duabi plus
 https://dubai-plus.co.il/travel-services
 העברות שדה תעופה, כרטיסי סים בינלאומיים, השכרת רכב ושירותי בייביסיטר בדובאי — כל מה שצריך לטיול מושלם. הזמן שירותי נסיעות פרימיום ותיהנה מכל רגע!
 
-### מסעדות
+### מסעדות דובאי שישאירו אותך פעור פה — Duabi plus
 https://dubai-plus.co.il/restaurants
 חוויות קולינריות בלתי נשכחות בדובאי — ממסעדות שף עולמיות ועד מטבח מקומי אותנטי. גלה המלצות מסעדות נבחרות לישראלים עם תפריטים, מיקומים והזמנת מקום!
 
-### צרו קשר
-https://dubai-plus.co.il/contact
-יש לכם שאלות על טיול דובאי? צוות המומחים שלנו זמין עבורכם. צרו קשר עכשיו לייעוץ אישי חינם, ושירותים חדשים בדרך — השאירו פרטים ותהיו הראשונים לדעת!
-
-### Products
+### מוצרים
 https://dubai-plus.co.il/products
 המוצרים שלנו - Sarah laloum tourism llc
 
-### Cart
+### עגלת קניות
 https://dubai-plus.co.il/cart
 עגלת הקניות שלך
 
-### Checkout
+### תשלום
 https://dubai-plus.co.il/checkout
 תשלום
 
-### Login
+### התחברות
 https://dubai-plus.co.il/login
 התחברות לקוחות
 
-### Account
+### החשבון שלי
 https://dubai-plus.co.il/account
 החשבון שלי
 
-### Order Success
+### ההזמנה התקבלה!
 https://dubai-plus.co.il/order-success
 תודה על ההזמנה
 
-### Product Detail
+### פרטי המוצר
 https://dubai-plus.co.il/product/:slug
 פרטי המוצר - Sarah laloum tourism llc
 
-### Category
+### מוצרים
 https://dubai-plus.co.il/category/:slug
 מוצרים - Sarah laloum tourism llc
-
-### מגזין עידו טסט דובאי למטייל הישראלי
-https://dubai-plus.co.il/mgzyn-aydv-tst-dvbay-lmtyyl-hyshraly
-Sarah laloum tourism llc - מגזין דובאי למטייל הישראלי
-
-### פעם ראשונה
-https://dubai-plus.co.il/blog/first-time-dubai
-מדריך פרקטי למטייל הישראלי שמגיע לדובאי בפעם הראשונה ורוצה לתכנן חופשה נוחה, יוקרתית ומדויקת.
-
-### מלונות
-https://dubai-plus.co.il/blog/dubai-hotels-areas
-סקירה ברורה של אזורי הלינה המרכזיים בדובאי ומה מתאים לכל סגנון חופשה.
-
-### אטרקציות
-https://dubai-plus.co.il/blog/dubai-attractions-guide
-מדריך לבחירת אטרקציות בדובאי לפי סגנון החופשה, גיל המטיילים וקצב הטיול הרצוי.
-
-### קולינריה
-https://dubai-plus.co.il/blog/dubai-dining-nightlife
-איך לבחור מסעדות בדובאי, מתי להזמין מקום, ואיך לשלב בין נוף, אוכל, אווירה וחיי ערב.
-
-### שופינג
-https://dubai-plus.co.il/blog/dubai-shopping-guide
-Sarah laloum tourism llc - שופינג בדובאי: איך ליהנות מקניונים, שווקים ובוטיקים בלי להתפזר
-
-### התניידות
-https://dubai-plus.co.il/blog/dubai-transportation-smart-guide
-Sarah laloum tourism llc - התניידות בדובאי: איך לעבור בין אזורים, חופים וקניונים בצורה חכמה
 
 ### כשרות בדובאי
 https://dubai-plus.co.il/blog/kosher-dubai
 Sarah laloum tourism llc - כשרות בדובאי
 
-### מסעדות
+### מסעדות כשרות בדובאי: איך לבחור נכון ולאכול בראש שקט
 https://dubai-plus.co.il/blog/kosher-dubai/kosher-restaurants
 מדריך פרקטי למטייל הישראלי שמחפש אוכל כשר בדובאי, עם דגש על תכנון, אזורים, הזמנות ושאלות שכדאי לשאול מראש.
 
-### יהדות
+### יהדות בדובאי: קהילה, בתי כנסת וחוויה יהודית בעיר מודרנית
 https://dubai-plus.co.il/blog/kosher-dubai/jewish-life
 היכרות עם החיים היהודיים בדובאי עבור מטיילים ישראלים, כולל קהילה, תפילה, אירוח וכללי התנהלות מכבדת.
 
-### שבת
+### שבת בדובאי: מדריך רגוע לתכנון חופשה שומרת שבת
 https://dubai-plus.co.il/blog/kosher-dubai/shabbat-guide
 טיפים לתכנון שבת בדובאי: בחירת מלון, מרחקים, אוכל כשר, מפתחות, מעליות ואווירה משפחתית נוחה.
 
-### חגים
+### חגים ואירועים יהודיים בדובאי: מה חשוב לדעת לפני שמזמינים
 https://dubai-plus.co.il/blog/kosher-dubai/jewish-holidays
 מדריך לתכנון חגים ואירועים יהודיים בדובאי, כולל פסח, ראש השנה, חנוכה, בר מצווה, שבת חתן ואירועים משפחתיים.
 
+### דובאי בפעם הראשונה: איך לבנות חופשה חכמה, נעימה ויוקרתית
+https://dubai-plus.co.il/blog/first-time-dubai
+מדריך פרקטי למטייל הישראלי שמגיע לדובאי בפעם הראשונה ורוצה לתכנן חופשה נוחה, יוקרתית ומדויקת.
+
+### המלונות בדובאי: איך לבחור נכון בין חוף, מרינה, דאונטאון ופאלם
+https://dubai-plus.co.il/blog/dubai-hotels-areas
+סקירה ברורה של אזורי הלינה המרכזיים בדובאי ומה מתאים לכל סגנון חופשה.
+
+### אטרקציות בדובאי שלא כדאי לפספס — ומה מתאים לכל סוג מטייל
+https://dubai-plus.co.il/blog/dubai-attractions-guide
+מדריך לבחירת אטרקציות בדובאי לפי סגנון החופשה, גיל המטיילים וקצב הטיול הרצוי.
+
+### מסעדות וחיי ערב בדובאי: מדריך אלגנטי לחוויה קולינרית בלתי נשכחת
+https://dubai-plus.co.il/blog/dubai-dining-nightlife
+איך לבחור מסעדות בדובאי, מתי להזמין מקום, ואיך לשלב בין נוף, אוכל, אווירה וחיי ערב.
+
+### שופינג בדובאי: איך ליהנות מקניונים, שווקים ובוטיקים בלי להתפזר
+https://dubai-plus.co.il/blog/dubai-shopping-guide
+Sarah laloum tourism llc - שופינג בדובאי: איך ליהנות מקניונים, שווקים ובוטיקים בלי להתפזר
+
+### התניידות בדובאי: איך לעבור בין אזורים, חופים וקניונים בצורה חכמה
+https://dubai-plus.co.il/blog/dubai-transportation-smart-guide
+Sarah laloum tourism llc - התניידות בדובאי: איך לעבור בין אזורים, חופים וקניונים בצורה חכמה
+
 ### Page
 https://dubai-plus.co.il/xxx
+
+### דברו איתנו ותכננו את הטיול המושלם — Duabi plus
+https://dubai-plus.co.il/contact
+יש לכם שאלות על טיול דובאי? צוות המומחים שלנו זמין עבורכם. צרו קשר עכשיו לייעוץ אישי חינם, ושירותים חדשים בדרך — השאירו פרטים ותהיו הראשונים לדעת!
+
+### מגזין דובאי למטייל הישראלי
+https://dubai-plus.co.il/mgzyn-aydv-tst-dvbay-lmtyyl-hyshraly
+Sarah laloum tourism llc - מגזין דובאי למטייל הישראלי
 
 ## Legal & Policy
 
