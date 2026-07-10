@@ -13750,6 +13750,72 @@ async function loadRelatedProducts(currentProduct, t) {
 }
 /* ==ZAPPY E-COMMERCE JS END== */
 
+/* ZAPPY_CUSTOM_JS_START:041f98c8bd3f */
+(function () {
+  function __zappyCustomInit() {
+    try {
+(function() {
+  var done = false;
+  function run() {
+    if (done) return;
+    var body = document.querySelector('.blog-kosher-dubai-kosher-restaurants-blog-article-section__body');
+    if (!body) return;
+    var ps = body.querySelectorAll('p');
+    if (ps.length < 5) return;
+    done = true;
+
+    var map = {
+      '971568991374': 'KIKKOS+EXPRESS+Bay+Tower+Business+Bay+Dubai',
+      '971547007002': 'KIKKOS+SUSHI+Bay+Tower+Business+Bay+Dubai',
+      '971585773053': 'Golden+Mile+Galleria+Building+4+Palm+Jumeirah+Dubai',
+      '971585738818': 'Sofitel+Dubai+Downtown+Sheikh+Zayed+Road+Dubai',
+      '971563703101': 'Mazaya+Centre+Sheikh+Zayed+Road+Dubai',
+      '97148869722': 'Al+Sabba+Street+Dubai+Marina',
+      '971562240007': 'Jumeirah+3+Dubai'
+    };
+
+    ps.forEach(function(p) {
+      var h = p.innerHTML;
+      if (h.indexOf('🗺️') !== -1 || h.indexOf('💬') !== -1) return;
+      
+      var found = false;
+      for (var phone in map) {
+        var clean = phone.replace(/^971/, '').replace(/(\d{2})(\d{3})(\d{4})/, '$1 $2 $3');
+        if (h.indexOf(phone) !== -1 || h.indexOf('+971') !== -1) {
+          var realPhone = phone;
+          var realAddr = map[phone];
+          
+          if (h.indexOf('maps.google.com') === -1) {
+            var mapsLink = ' <a href="https://maps.google.com/?q=' + realAddr + '" target="_blank" rel="noopener" title="Google Maps" style="text-decoration:none;font-size:1em;">🗺️</a>';
+            var wazeLink = ' <a href="https://waze.com/ul?q=' + realAddr + '" target="_blank" rel="noopener" title="Waze" style="text-decoration:none;font-size:1em;">📍</a>';
+            var waLink = ' <a href="https://wa.me/' + realPhone + '" target="_blank" rel="noopener" title="WhatsApp" style="text-decoration:none;font-size:1em;">💬</a>';
+            
+            h = h.replace(/(📍[^<]*)/, '$1' + mapsLink + wazeLink);
+            h = h.replace(/(📞\s*\+?\d[\d\s]+)/, '$1' + waLink);
+            p.innerHTML = h;
+          }
+          found = true;
+          break;
+        }
+      }
+    });
+  }
+  run();
+  setTimeout(run, 1500);
+  setTimeout(run, 3000);
+})();
+    } catch (e) {
+      if (typeof console !== 'undefined' && console.warn) { console.warn('[zappy-custom-js]', e); }
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', __zappyCustomInit);
+  } else {
+    __zappyCustomInit();
+  }
+})();
+/* ZAPPY_CUSTOM_JS_END:041f98c8bd3f */
+
 
 /* ZAPPY_PUBLISHED_LIGHTBOX_RUNTIME */
 (function(){
