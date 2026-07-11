@@ -2458,6 +2458,8 @@ window.onload = function() {
     
 /* ZAPPY_INTEGRATION_END unknown:setup_contact_form_emails */
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -2643,7 +2645,7 @@ window.onload = function() {
   // exact legacy behaviour. All product/shipping/cart/checkout amounts are
   // stored + computed in the BASE currency; formatMoney converts ONLY for
   // display by multiplying with the active language's exchange rate.
-  var ZAPPY_MULTI_CURRENCY = {"enabled":false,"base":{"currency":"ILS","symbol":"₪","exchangeRate":1,"vatRate":0.05},"languages":{}};
+  var ZAPPY_MULTI_CURRENCY = {"enabled":true,"base":{"currency":"ILS","symbol":"₪","exchangeRate":1,"vatRate":0.05},"languages":{}};
   try { window.ZAPPY_MULTI_CURRENCY = ZAPPY_MULTI_CURRENCY; } catch (e) {}
   
   function getCurrentEcomLanguage() {
