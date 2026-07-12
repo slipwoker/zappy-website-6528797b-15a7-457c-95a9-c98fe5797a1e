@@ -1,875 +1,178 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dubai-plus.co.il</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/hotels</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/hotels" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/hotels" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/hotels" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/hotels" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/hotels</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/hotels" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/hotels" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/hotels" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/hotels" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/hotels</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/hotels" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/hotels" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/hotels" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/hotels" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/attractions</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/attractions" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/attractions" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/attractions" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/attractions" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/attractions</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/attractions" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/attractions" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/attractions" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/attractions" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/attractions</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/attractions" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/attractions" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/attractions" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/attractions" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/travel-services</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/travel-services" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/travel-services" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/travel-services" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/travel-services" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/travel-services</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/travel-services" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/travel-services" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/travel-services" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/travel-services" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/travel-services</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/travel-services" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/travel-services" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/travel-services" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/travel-services" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/products</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/products" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/products" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/products" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/products" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/products</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/products" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/products" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/products" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/products" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/products</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/products" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/products" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/products" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/products" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/cart</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/cart" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/cart" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/cart" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/cart" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/cart</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/cart" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/cart" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/cart" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/cart" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/cart</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/cart" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/cart" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/cart" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/cart" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/checkout</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/checkout" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/checkout" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/checkout" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/checkout" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/checkout</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/checkout" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/checkout" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/checkout" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/checkout" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/checkout</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/checkout" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/checkout" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/checkout" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/checkout" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/login</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/login" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/login" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/login" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/login" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/login</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/login" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/login" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/login" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/login" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/login</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/login" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/login" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/login" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/login" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/account</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/account" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/account" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/account" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/account" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/account</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/account" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/account" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/account" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/account" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/account</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/account" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/account" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/account" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/account" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/order-success</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/order-success" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/order-success" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/order-success" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/order-success" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/order-success</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/order-success" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/order-success" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/order-success" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/order-success" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/order-success</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/order-success" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/order-success" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/order-success" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/order-success" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/product/:slug</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/product/:slug" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/product/:slug" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/product/:slug" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/product/:slug" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/product/:slug</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/product/:slug" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/product/:slug" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/product/:slug" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/product/:slug" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/product/:slug</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/product/:slug" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/product/:slug" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/product/:slug" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/product/:slug" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/category/:slug</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/category/:slug" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/category/:slug" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/category/:slug" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/category/:slug" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/category/:slug</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/category/:slug" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/category/:slug" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/category/:slug" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/category/:slug" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/category/:slug</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/category/:slug" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/category/:slug" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/category/:slug" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/category/:slug" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/restaurants</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/restaurants" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/restaurants" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/restaurants" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/restaurants" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/restaurants</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/restaurants" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/restaurants" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/restaurants" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/restaurants" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/restaurants</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/restaurants" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/restaurants" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/restaurants" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/restaurants" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/blog/kosher-dubai</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/kosher-dubai" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/kosher-dubai" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/kosher-dubai" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/kosher-dubai" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/blog/kosher-dubai</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/kosher-dubai" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/kosher-dubai" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/kosher-dubai" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/kosher-dubai" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/blog/kosher-dubai</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/kosher-dubai" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/kosher-dubai" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/kosher-dubai" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/kosher-dubai" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/blog/kosher-dubai/kosher-restaurants</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/kosher-dubai/kosher-restaurants" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/kosher-dubai/kosher-restaurants" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/kosher-dubai/kosher-restaurants" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/kosher-dubai/kosher-restaurants" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/blog/kosher-dubai/kosher-restaurants</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/kosher-dubai/kosher-restaurants" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/kosher-dubai/kosher-restaurants" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/kosher-dubai/kosher-restaurants" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/kosher-dubai/kosher-restaurants" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/blog/kosher-dubai/kosher-restaurants</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/kosher-dubai/kosher-restaurants" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/kosher-dubai/kosher-restaurants" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/kosher-dubai/kosher-restaurants" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/kosher-dubai/kosher-restaurants" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/blog/kosher-dubai/jewish-life</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/kosher-dubai/jewish-life" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/kosher-dubai/jewish-life" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/kosher-dubai/jewish-life" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/kosher-dubai/jewish-life" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/blog/kosher-dubai/jewish-life</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/kosher-dubai/jewish-life" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/kosher-dubai/jewish-life" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/kosher-dubai/jewish-life" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/kosher-dubai/jewish-life" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/blog/kosher-dubai/jewish-life</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/kosher-dubai/jewish-life" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/kosher-dubai/jewish-life" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/kosher-dubai/jewish-life" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/kosher-dubai/jewish-life" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/blog/kosher-dubai/shabbat-guide</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/kosher-dubai/shabbat-guide" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/kosher-dubai/shabbat-guide" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/kosher-dubai/shabbat-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/kosher-dubai/shabbat-guide" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/blog/kosher-dubai/shabbat-guide</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/kosher-dubai/shabbat-guide" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/kosher-dubai/shabbat-guide" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/kosher-dubai/shabbat-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/kosher-dubai/shabbat-guide" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/blog/kosher-dubai/shabbat-guide</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/kosher-dubai/shabbat-guide" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/kosher-dubai/shabbat-guide" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/kosher-dubai/shabbat-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/kosher-dubai/shabbat-guide" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/blog/kosher-dubai/jewish-holidays</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/kosher-dubai/jewish-holidays" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/kosher-dubai/jewish-holidays" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/kosher-dubai/jewish-holidays" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/kosher-dubai/jewish-holidays" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/blog/kosher-dubai/jewish-holidays</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/kosher-dubai/jewish-holidays" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/kosher-dubai/jewish-holidays" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/kosher-dubai/jewish-holidays" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/kosher-dubai/jewish-holidays" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/blog/kosher-dubai/jewish-holidays</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/kosher-dubai/jewish-holidays" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/kosher-dubai/jewish-holidays" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/kosher-dubai/jewish-holidays" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/kosher-dubai/jewish-holidays" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/dubai-magazine-for-israeli-travelers</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/dubai-magazine-for-israeli-travelers" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/dubai-magazine-for-israeli-travelers" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/dubai-magazine-for-israeli-travelers" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/dubai-magazine-for-israeli-travelers" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/dubai-magazine-for-israeli-travelers</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/dubai-magazine-for-israeli-travelers" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/dubai-magazine-for-israeli-travelers" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/dubai-magazine-for-israeli-travelers" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/dubai-magazine-for-israeli-travelers" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/dubai-magazine-for-israeli-travelers</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/dubai-magazine-for-israeli-travelers" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/dubai-magazine-for-israeli-travelers" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/dubai-magazine-for-israeli-travelers" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/dubai-magazine-for-israeli-travelers" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/blog/dubai-dining-nightlife</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/dubai-dining-nightlife" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/dubai-dining-nightlife" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/dubai-dining-nightlife" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/dubai-dining-nightlife" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/blog/dubai-dining-nightlife</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/dubai-dining-nightlife" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/dubai-dining-nightlife" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/dubai-dining-nightlife" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/dubai-dining-nightlife" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/blog/dubai-dining-nightlife</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/dubai-dining-nightlife" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/dubai-dining-nightlife" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/dubai-dining-nightlife" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/dubai-dining-nightlife" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/dubai-hotels-marina-downtown-palm</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/dubai-hotels-marina-downtown-palm" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/dubai-hotels-marina-downtown-palm" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/dubai-hotels-marina-downtown-palm" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/dubai-hotels-marina-downtown-palm" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/dubai-hotels-marina-downtown-palm</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/dubai-hotels-marina-downtown-palm" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/dubai-hotels-marina-downtown-palm" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/dubai-hotels-marina-downtown-palm" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/dubai-hotels-marina-downtown-palm" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/dubai-hotels-marina-downtown-palm</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/dubai-hotels-marina-downtown-palm" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/dubai-hotels-marina-downtown-palm" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/dubai-hotels-marina-downtown-palm" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/dubai-hotels-marina-downtown-palm" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/dubai-must-see-attractions</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/dubai-must-see-attractions" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/dubai-must-see-attractions" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/dubai-must-see-attractions" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/dubai-must-see-attractions" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/dubai-must-see-attractions</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/dubai-must-see-attractions" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/dubai-must-see-attractions" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/dubai-must-see-attractions" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/dubai-must-see-attractions" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/dubai-must-see-attractions</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/dubai-must-see-attractions" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/dubai-must-see-attractions" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/dubai-must-see-attractions" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/dubai-must-see-attractions" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/blog/dubai-shopping-guide</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/dubai-shopping-guide" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/dubai-shopping-guide" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/dubai-shopping-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/dubai-shopping-guide" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/blog/dubai-shopping-guide</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/dubai-shopping-guide" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/dubai-shopping-guide" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/dubai-shopping-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/dubai-shopping-guide" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/blog/dubai-shopping-guide</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/dubai-shopping-guide" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/dubai-shopping-guide" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/dubai-shopping-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/dubai-shopping-guide" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/blog/dubai-transportation-smart-guide</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/dubai-transportation-smart-guide" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/dubai-transportation-smart-guide" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/dubai-transportation-smart-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/dubai-transportation-smart-guide" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/blog/dubai-transportation-smart-guide</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/dubai-transportation-smart-guide" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/dubai-transportation-smart-guide" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/dubai-transportation-smart-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/dubai-transportation-smart-guide" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/blog/dubai-transportation-smart-guide</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/blog/dubai-transportation-smart-guide" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/blog/dubai-transportation-smart-guide" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/blog/dubai-transportation-smart-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/blog/dubai-transportation-smart-guide" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/contact</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/contact" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/contact" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/contact" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/contact" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/contact</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/contact" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/contact" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/contact" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/contact" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/contact</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/contact" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/contact" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/contact" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/contact" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/privacy</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/privacy" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/privacy" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/privacy" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/privacy" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/privacy</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/privacy" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/privacy" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/privacy" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/privacy" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/privacy</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/privacy" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/privacy" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/privacy" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/privacy" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/terms</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/terms" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/terms" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/terms" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/terms" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/terms</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/terms" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/terms" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/terms" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/terms" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/terms</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/terms" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/terms" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/terms" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/terms" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/accessibility</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/accessibility" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/accessibility" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/accessibility" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/accessibility" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/accessibility</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/accessibility" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/accessibility" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/accessibility" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/accessibility" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/ar/accessibility</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/accessibility" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/accessibility" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dubai-plus.co.il/ar/accessibility" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/accessibility" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/product/habrh-mhshdh-vchzrh-ty6hxr</loc>
