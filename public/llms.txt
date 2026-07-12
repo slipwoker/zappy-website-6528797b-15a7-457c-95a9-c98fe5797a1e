@@ -131,9 +131,10 @@ Information about WCAG compliance and accessibility features.
 **Total active products: 39**
 
 ### Dinner in the Sky Dubai – ארוחה בשמיים
-https://dubai-plus.co.il/product/dinner-in-the-sky-dubai-arvchh-bshmyym-a27e3x
-- Price: 0.00 ILS
+https://dubai-plus.co.il/product/dinner-in-the-sky-dubai-arvchh-bshmyym-rjutb3
+- Price: 750.00 ILS
 - Availability: In stock
+- Category: מגדלים ותצפיות
 - Description: Dinner in the Sky Dubai היא אחת מחוויות האוכל הייחודיות בעולם. שבו סביב שולחן התלוי בגובה של כ-50 מטרים, ותיהנו מארוחה יוקרתית לצד נוף פנורמי מרהיב של קו החוף והאטרקציות המפורסמות של דובאי.
 - Image: https://dubai-plus.co.il/assets/product-1783876576539-3ey0x.webp
 
