@@ -735,7 +735,11 @@ GST (UTC+4)
 
 828מ׳
 
+
+
 גובה בורג' חליפה
+
+
 
 הבניין הגבוה בעולם
 
@@ -11883,7 +11887,7 @@ Dubai Plus
 ## Product Catalog
 
 ### העברה מהשדה וחזרה
-URL: https://dubai-plus.co.il/product/habrh-mhshdh-vchzrh-4vnxci
+URL: https://dubai-plus.co.il/product/habrh-mhshdh-vchzrh-bgpczf
 Price: 130.00 ILS
 Availability: In stock
 
