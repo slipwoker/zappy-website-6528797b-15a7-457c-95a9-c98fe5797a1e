@@ -1,10 +1,30 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-12T15:53:05.064Z",
+  "generated_at": "2026-07-12T16:01:10.149Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
-  "count": 32,
+  "count": 33,
   "products": [
+    {
+      "id": "c2bc3a54-466c-4e24-8f9f-071d7eb22109",
+      "slug": "hchlkh-al-hkrch-qj5csb",
+      "name": "החלקה על הקרח",
+      "name_translations": {},
+      "description": "",
+      "short_description": null,
+      "sku": null,
+      "brand": null,
+      "price": 0,
+      "base_price": 0,
+      "sale_price": null,
+      "currency": "ILS",
+      "images": [],
+      "in_stock": true,
+      "stock_status": "in_stock",
+      "url": "https://dubai-plus.co.il/product/hchlkh-al-hkrch-qj5csb",
+      "categories": [],
+      "updated_at": "2026-07-12T16:00:38.097Z"
+    },
     {
       "id": "ba56f8cf-1227-4f41-ac03-03ebdac9f2f9",
       "slug": "habrh-mhshdh-vchzrh-bgpczf",
