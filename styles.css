@@ -22289,6 +22289,10 @@ main,
 }
 
 /* ==END ZAPPY V2 E-COMMERCE THEME CSS== */
+
+
+
+
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
@@ -22312,6 +22316,63 @@ main,
   .zappy-products-dropdown .sub-menu a {
     white-space: normal !important;
   }
+}
+
+
+/* ZAPPY_ANNOUNCEMENT_HEADER_OFFSET_CSS_V1 */
+body:has(.zappy-announcement-bar) nav.navbar:not(.zappy-catalog-menu),
+body:has(.zappy-announcement-bar) header.navbar,
+body:has(.zappy-announcement-bar) .navbar:not(.zappy-catalog-menu):not(.mobile-search-panel) {
+  top: var(--zappy-announcement-height, 40px) !important;
+  /* Transparent nav over body padding-top paints the page cream/gray as a
+     strip under the announcement before hero content fills that band.
+     Seed an opaque nav fallback; scroll/theme CSS can still override. */
+  background-color: var(--nav-bg, rgba(32, 26, 46, 0.94));
+}
+
+
+/* ZAPPY_MOBILE_CATEGORIES_SUBMENU_CSS_V1 */
+.mobile-categories-submenu { display: none !important; }
+.mobile-categories-submenu.active { display: block !important; }
+
+
+/* ZAPPY_CONTENT_ALIGNMENT_FIRST_PAINT_CSS_V1 */
+[data-zappy-content-align] {
+  display: flex !important;
+  flex-direction: column !important;
+}
+[data-zappy-content-align^="top-"] { justify-content: flex-start !important; }
+[data-zappy-content-align^="upper-"],
+[data-zappy-content-align^="center-"],
+[data-zappy-content-align^="lower-"] { justify-content: center !important; }
+[data-zappy-content-align^="bottom-"] { justify-content: flex-end !important; }
+[data-zappy-content-align$="-left"],
+[data-zappy-content-align$="-mid-left"] {
+  align-items: flex-start !important;
+  text-align: start !important;
+}
+[data-zappy-content-align$="-center"] {
+  align-items: center !important;
+  text-align: center !important;
+}
+[data-zappy-content-align$="-right"],
+[data-zappy-content-align$="-mid-right"] {
+  align-items: flex-end !important;
+  text-align: end !important;
+}
+[data-zappy-content-align] [data-zappy-align-target] {
+  margin-left: auto;
+  margin-right: auto;
+}
+[data-zappy-content-align$="-center"] [data-zappy-align-target],
+[data-zappy-content-align$="-center"] [data-zappy-align-target] > * {
+  text-align: center !important;
+}
+
+
+/* ZAPPY_PRODUCT_BREADCRUMB_MOBILE_HIDE_CSS_V1 */
+@media (max-width: 768px) {
+  .product-breadcrumb { display: none !important; }
 }
 
 
@@ -23234,31 +23295,73 @@ html[dir="ltr"] .zappy-products-dropdown .zappy-nav-child > a {
   .navbar .nav-menu.active > li.zappy-products-dropdown > a,
   nav.navbar .nav-menu.active > li.zappy-products-dropdown > a,
   #navMenu.active > li.zappy-products-dropdown > a,
-  .nav-menu.open > li.zappy-products-dropdown > a {
+  .nav-menu.open > li.zappy-products-dropdown > a,
+  .navbar .nav-menu.active > li:has(> .sub-menu) > a,
+  nav.navbar .nav-menu.active > li:has(> .sub-menu) > a,
+  #navMenu.active > li:has(> .sub-menu) > a,
+  .nav-menu.open > li:has(> .sub-menu) > a,
+  .navbar .nav-menu.active > li.menu-item-has-children > a,
+  nav.navbar .nav-menu.active > li.menu-item-has-children > a,
+  #navMenu.active > li.menu-item-has-children > a,
+  .nav-menu.open > li.menu-item-has-children > a {
     padding-right: 56px !important;
   }
   html[dir="rtl"] .navbar .nav-menu.active > li.zappy-products-dropdown > a,
   html[dir="rtl"] nav.navbar .nav-menu.active > li.zappy-products-dropdown > a,
   html[dir="rtl"] #navMenu.active > li.zappy-products-dropdown > a,
-  html[dir="rtl"] .nav-menu.open > li.zappy-products-dropdown > a {
+  html[dir="rtl"] .nav-menu.open > li.zappy-products-dropdown > a,
+  html[dir="rtl"] .navbar .nav-menu.active > li:has(> .sub-menu) > a,
+  html[dir="rtl"] nav.navbar .nav-menu.active > li:has(> .sub-menu) > a,
+  html[dir="rtl"] #navMenu.active > li:has(> .sub-menu) > a,
+  html[dir="rtl"] .nav-menu.open > li:has(> .sub-menu) > a,
+  html[dir="rtl"] .navbar .nav-menu.active > li.menu-item-has-children > a,
+  html[dir="rtl"] nav.navbar .nav-menu.active > li.menu-item-has-children > a,
+  html[dir="rtl"] #navMenu.active > li.menu-item-has-children > a,
+  html[dir="rtl"] .nav-menu.open > li.menu-item-has-children > a {
     padding-right: 16px !important;
     padding-left: 56px !important;
   }
 }
 
-html[dir="rtl"] #mic-access-tool-general-button, html[dir="rtl"] .mic-access-tool-general-button,
+/* WIDGET-DISPLAY-START */
+html[dir="rtl"] .whatsapp-float { right: 20px !important; left: auto !important; }
+html[dir="ltr"] .whatsapp-float, html:not([dir]) .whatsapp-float { left: 20px !important; right: auto !important; }
+html[dir="rtl"] #mic-access-tool-general-button,
+html[dir="rtl"] .mic-access-tool-general-button,
 html[dir="rtl"] #mic-init-access-tool .mic-access-tool-general-button,
 html[dir="rtl"] #mic-init-access-tool #mic-access-tool-general-button,
 html[dir="rtl"] ._access-icon { left: 20px !important; right: auto !important; }
-html[dir="ltr"] #mic-access-tool-general-button, html[dir="ltr"] .mic-access-tool-general-button,
+html[dir="ltr"] #mic-access-tool-general-button,
+html[dir="ltr"] .mic-access-tool-general-button,
 html[dir="ltr"] #mic-init-access-tool .mic-access-tool-general-button,
 html[dir="ltr"] #mic-init-access-tool #mic-access-tool-general-button,
 html[dir="ltr"] ._access-icon,
-html:not([dir]) #mic-access-tool-general-button, html:not([dir]) .mic-access-tool-general-button,
+html:not([dir]) #mic-access-tool-general-button,
+html:not([dir]) .mic-access-tool-general-button,
 html:not([dir]) #mic-init-access-tool .mic-access-tool-general-button,
 html:not([dir]) #mic-init-access-tool #mic-access-tool-general-button,
 html:not([dir]) ._access-icon { right: 20px !important; left: auto !important; }
-
+@media (max-width: 768px) { .whatsapp-float { display: flex !important; } }
+@media (min-width: 769px) { .whatsapp-float { display: flex !important; } }
+@media (max-width: 768px) {
+  #mic-access-tool-general-button, .mic-access-tool-general-button,
+  #mic-init-access-tool .mic-access-tool-general-button,
+  #mic-init-access-tool #mic-access-tool-general-button,
+  ._access-icon { display: flex !important; }
+  #mic-access-tool-box, .mic-access-tool-box,
+  #mic-init-access-tool #mic-access-tool-box, div[id*="mic-access-tool-box"],
+  ._access-menu { visibility: hidden; opacity: 0; pointer-events: auto !important; }
+}
+@media (min-width: 769px) {
+  #mic-access-tool-general-button, .mic-access-tool-general-button,
+  #mic-init-access-tool .mic-access-tool-general-button,
+  #mic-init-access-tool #mic-access-tool-general-button,
+  ._access-icon { display: flex !important; }
+  #mic-access-tool-box, .mic-access-tool-box,
+  #mic-init-access-tool #mic-access-tool-box, div[id*="mic-access-tool-box"],
+  ._access-menu { visibility: hidden; opacity: 0; pointer-events: auto !important; }
+}
+/* WIDGET-DISPLAY-END */
 /* LTR: keep image on left for solution-reverse sections */
 html[dir="ltr"] .solution-item.solution-reverse .solution-image { order: -1 !important; }
 html[dir="ltr"] .solution-item.solution-reverse .solution-content { order: 1 !important; }
