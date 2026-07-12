@@ -128,7 +128,7 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 42**
+**Total active products: 41**
 
 ### טיול מדבר באבו דאבי
 https://dubai-plus.co.il/product/tyvl-mdbr-babv-daby-n6qif9
@@ -145,12 +145,6 @@ https://dubai-plus.co.il/product/tysh-bmsvk-mal-abv-daby-e2vrjf
 - Category: אטרקציות באבו דאבי
 - Description: טיסה במסוק באבו דאבי היא אחת החוויות היוקרתיות והמרשימות ביותר באיחוד האמירויות. במהלך הטיסה תיהנו מתצפית אווירית עוצרת נשימה על קו החוף, האיים המלאכותיים והאתרים המפורסמים של אבו דאבי – מזווית שלא ניתן לראות בשום דרך אחרת.
 - Image: https://dubai-plus.co.il/assets/product-1783882227404-iuzij4.webp
-
-### מוזיאון הלובר אבו דאבי - Louvre Abu Dhabi
-https://dubai-plus.co.il/product/mvzyavn-hlvbr-abv-daby-louvre-abu-dhabi-0qnk7i
-- Price: 45.00 ILS
-- Availability: In stock
-- Description: כרטיס כניסה למוזיאון הלובר אבו דאבי — יצירת מופת ארכיטקטונית על האי סעדיאת. מוזיאון ברמה עולמית המציג אוספי אמנות נדירים, כיפה גאומטרית מרהיבה היוצרת "גשם של אור", ותערוכות מתחלפות. חוויה תרבותית מהמעלה הראשונה.
 
 ### Dinner in the Sky Dubai – ארוחה בשמיים
 https://dubai-plus.co.il/product/dinner-in-the-sky-dubai-arvchh-bshmyym-vjn47i

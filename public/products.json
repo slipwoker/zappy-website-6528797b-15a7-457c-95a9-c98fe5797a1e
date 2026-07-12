@@ -1,9 +1,9 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-12T18:55:49.923Z",
+  "generated_at": "2026-07-12T18:57:53.918Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
-  "count": 42,
+  "count": 41,
   "products": [
     {
       "id": "6ebc3d50-733e-4754-89ac-c0db5b68937a",
@@ -53,26 +53,6 @@
         "אטרקציות באבו דאבי"
       ],
       "updated_at": "2026-07-12T18:52:37.120Z"
-    },
-    {
-      "id": "5c0d0890-f492-4a3e-91ff-07159627ef94",
-      "slug": "mvzyavn-hlvbr-abv-daby-louvre-abu-dhabi-0qnk7i",
-      "name": "מוזיאון הלובר אבו דאבי - Louvre Abu Dhabi",
-      "name_translations": {},
-      "description": "כרטיס כניסה למוזיאון הלובר אבו דאבי — יצירת מופת ארכיטקטונית על האי סעדיאת. מוזיאון ברמה עולמית המציג אוספי אמנות נדירים, כיפה גאומטרית מרהיבה היוצרת \"גשם של אור\", ותערוכות מתחלפות. חוויה תרבותית מהמעלה הראשונה.",
-      "short_description": null,
-      "sku": null,
-      "brand": null,
-      "price": 45,
-      "base_price": 45,
-      "sale_price": null,
-      "currency": "ILS",
-      "images": [],
-      "in_stock": true,
-      "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/mvzyavn-hlvbr-abv-daby-louvre-abu-dhabi-0qnk7i",
-      "categories": [],
-      "updated_at": "2026-07-12T18:41:11.477Z"
     },
     {
       "id": "a17476c3-c72b-4c13-a74b-4f9c58f8e22c",
