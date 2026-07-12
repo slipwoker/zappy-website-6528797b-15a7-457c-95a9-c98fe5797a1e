@@ -128,7 +128,7 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 43**
+**Total active products: 42**
 
 ### טיול מדבר באבו דאבי
 https://dubai-plus.co.il/product/tyvl-mdbr-babv-daby-n6qif9
@@ -145,12 +145,6 @@ https://dubai-plus.co.il/product/tysh-bmsvk-mal-abv-daby-e2vrjf
 - Category: אטרקציות באבו דאבי
 - Description: טיסה במסוק באבו דאבי היא אחת החוויות היוקרתיות והמרשימות ביותר באיחוד האמירויות. במהלך הטיסה תיהנו מתצפית אווירית עוצרת נשימה על קו החוף, האיים המלאכותיים והאתרים המפורסמים של אבו דאבי – מזווית שלא ניתן לראות בשום דרך אחרת.
 - Image: https://dubai-plus.co.il/assets/product-1783882227404-iuzij4.webp
-
-### טיימלאב אבו דאבי - Time Lab Abu Dhabi
-https://dubai-plus.co.il/product/tyymlab-abv-daby-time-lab-abu-dhabi-3zrzkx
-- Price: 115.00 ILS
-- Availability: In stock
-- Description: חוויית טיימלאב (Time Lab) באבו דאבי — מסע אינטראקטיבי ועתידני בזמן ובמרחב. מתחם דיגיטלי מרהיב עם אפקטים ויזואליים, מציאות מדומה וחדרים אימרסיביים. חוויה ייחודית שלא נראתה כמותה.
 
 ### מוזיאון הלובר אבו דאבי - Louvre Abu Dhabi
 https://dubai-plus.co.il/product/mvzyavn-hlvbr-abv-daby-louvre-abu-dhabi-0qnk7i
