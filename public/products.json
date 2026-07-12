@@ -1,9 +1,9 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-12T18:53:09.397Z",
+  "generated_at": "2026-07-12T18:53:59.696Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
-  "count": 46,
+  "count": 45,
   "products": [
     {
       "id": "6ebc3d50-733e-4754-89ac-c0db5b68937a",
@@ -53,26 +53,6 @@
         "אטרקציות באבו דאבי"
       ],
       "updated_at": "2026-07-12T18:52:37.120Z"
-    },
-    {
-      "id": "4cbf95a9-769d-453a-a994-f24834a45508",
-      "slug": "shyyt-kyyakym-bmngrvbym-abv-daby-h2xn91",
-      "name": "שייט קייאקים במנגרובים אבו דאבי",
-      "name_translations": {},
-      "description": "שייט קייאקים במנגרובים של אבו דאבי — חוויית טבע קסומה בין יערות המנגרובים הצפים. שייט שקט בתעלות טבעיות, תצפית על ציפורים נדירות, צבי ים וחיות בר. מתאים למשפחות, זוגות ויחידים. מחיר התחלתי — ניתן לשדרג למסלולים ארוכים יותר.",
-      "short_description": null,
-      "sku": null,
-      "brand": null,
-      "price": 100,
-      "base_price": 100,
-      "sale_price": null,
-      "currency": "ILS",
-      "images": [],
-      "in_stock": true,
-      "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/shyyt-kyyakym-bmngrvbym-abv-daby-h2xn91",
-      "categories": [],
-      "updated_at": "2026-07-12T18:41:11.965Z"
     },
     {
       "id": "8bddb35c-a10f-458b-8739-2d847651b666",

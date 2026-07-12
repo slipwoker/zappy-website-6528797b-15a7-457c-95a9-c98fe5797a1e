@@ -128,7 +128,7 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 46**
+**Total active products: 45**
 
 ### טיול מדבר באבו דאבי
 https://dubai-plus.co.il/product/tyvl-mdbr-babv-daby-n6qif9
@@ -145,12 +145,6 @@ https://dubai-plus.co.il/product/tysh-bmsvk-mal-abv-daby-e2vrjf
 - Category: אטרקציות באבו דאבי
 - Description: טיסה במסוק באבו דאבי היא אחת החוויות היוקרתיות והמרשימות ביותר באיחוד האמירויות. במהלך הטיסה תיהנו מתצפית אווירית עוצרת נשימה על קו החוף, האיים המלאכותיים והאתרים המפורסמים של אבו דאבי – מזווית שלא ניתן לראות בשום דרך אחרת.
 - Image: https://dubai-plus.co.il/assets/product-1783882227404-iuzij4.webp
-
-### שייט קייאקים במנגרובים אבו דאבי
-https://dubai-plus.co.il/product/shyyt-kyyakym-bmngrvbym-abv-daby-h2xn91
-- Price: 100.00 ILS
-- Availability: In stock
-- Description: שייט קייאקים במנגרובים של אבו דאבי — חוויית טבע קסומה בין יערות המנגרובים הצפים. שייט שקט בתעלות טבעיות, תצפית על ציפורים נדירות, צבי ים וחיות בר. מתאים למשפחות, זוגות ויחידים. מחיר התחלתי — ניתן לשדרג למסלולים ארוכים יותר.
 
 ### פארק השלג אבו דאבי - Snow Abu Dhabi
 https://dubai-plus.co.il/product/park-hshlg-abv-daby-snow-abu-dhabi-k2fmbj
