@@ -165,10 +165,12 @@
 })();
 /* zappy-announcement-bar setupFixedHeaders */
 
-/* ZAPPY_ANNOUNCEMENT_HEADER_SYNC_V1 */
+/* ZAPPY_ANNOUNCEMENT_HEADER_SYNC_V3 */
 (function(){
-  if (window.__zappyAnnouncementHeaderSyncV1) return;
-  window.__zappyAnnouncementHeaderSyncV1 = true;
+  if (window.__zappyAnnouncementHeaderSyncV3) return;
+  window.__zappyAnnouncementHeaderSyncV3 = true;
+  window.__zappyAnnouncementHeaderSyncV2 = true;
+  window.__zappyAnnouncementHeaderSyncV1 = true; // legacy guards
 
   function primaryHeader() {
     var selectors = [
@@ -235,7 +237,22 @@
     document.documentElement.style.setProperty('--total-header-height', totalHeight + 'px');
     document.documentElement.style.setProperty('--zappy-mobile-menu-top', (barHeight + headerHeight) + 'px');
     document.documentElement.style.setProperty('--zappy-announcement-height', barHeight + 'px');
+    document.documentElement.style.setProperty('--zappy-header-stack-height', totalHeight + 'px');
     document.body.style.setProperty('padding-top', totalHeight + 'px', 'important');
+
+    // Transparent nav: pull hero behind the fixed stack immediately (do NOT
+    // wait for lazy storefront-runtime.js — that delay was the ~10s gray bar).
+    // Keep selectors aligned with ZAPPY_ANNOUNCEMENT_HEADER_OFFSET_CSS_V2 —
+    // never underlap bare main>section:first-child (catalog /products pages).
+    var navBgValue = '';
+    try { navBgValue = getComputedStyle(document.documentElement).getPropertyValue('--nav-bg').trim(); } catch (e) {}
+    if (!navBgValue || navBgValue === 'transparent') {
+      var heroEl = document.querySelector('section[data-hero-type^="fullscreen"], .index-hero-section, main > section[class*="hero"]:first-of-type');
+      if (heroEl && totalHeight > 0) {
+        heroEl.style.setProperty('margin-top', '-' + totalHeight + 'px', 'important');
+        heroEl.style.setProperty('padding-top', totalHeight + 'px', 'important');
+      }
+    }
   }
 
   var timer = null;
