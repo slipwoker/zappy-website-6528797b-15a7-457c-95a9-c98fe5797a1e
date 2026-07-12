@@ -128,7 +128,14 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 36**
+**Total active products: 37**
+
+### Flyboard Dubai – פלייבורד בדובאי
+https://dubai-plus.co.il/product/flyboard-dubai-plyybvrd-bdvbay-i9sjwc
+- Price: 0.00 ILS
+- Availability: In stock
+- Description: Flyboard Dubai היא אחת מחוויות האקסטרים המלהיבות ביותר בדובאי. בעזרת סילוני מים עוצמתיים תוכלו לרחף מעל הים, לבצע פניות, קפיצות ותרגילים מרשימים – והכל בליווי מדריך מקצועי ובטיחותי.
+- Image: https://dubai-plus.co.il/assets/product-1783875950865-3lm21s.webp
 
 ### ifly dubai
 https://dubai-plus.co.il/product/ifly-dubai-nq0fdw
