@@ -131,9 +131,10 @@ Information about WCAG compliance and accessibility features.
 **Total active products: 34**
 
 ### The Yellow Boats Dubai – השייט בסירות הצהובות
-https://dubai-plus.co.il/product/the-yellow-boats-dubai-hshyyt-bsyrvt-htshvbvt-17xocd
-- Price: 0.00 ILS
+https://dubai-plus.co.il/product/the-yellow-boats-dubai-hshyyt-bsyrvt-htshvbvt-mf36zq
+- Price: 150.00 ILS
 - Availability: In stock
+- Category: שייט ופעילות ימית
 - Description: The Yellow Boats Dubai הוא שייט מהיר ומהנה בסירות הצהובות המפורסמות של דובאי. במהלך ההפלגה תיהנו משילוב של אדרנלין, נופים מרהיבים והסברים על האטרקציות המרכזיות לאורך קו החוף של העיר.
 - Image: https://dubai-plus.co.il/assets/product-1783873666415-q5hy8r.webp
 
