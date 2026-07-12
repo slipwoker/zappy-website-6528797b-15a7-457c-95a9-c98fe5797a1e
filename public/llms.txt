@@ -128,15 +128,7 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 33**
-
-### החלקה על הקרח - קניון דובאי DUBAI ICE RINK
-https://dubai-plus.co.il/product/hchlkh-al-hkrch-knyvn-dvbay-dubai-ice-rink-m5j13e
-- Price: 95.00 ILS
-- Availability: In stock
-- Category: אקסטרים וטיול מדבר
-- Description: Dubai Ice Rink הוא משטח ההחלקה האולימפי שבקניון דובאי ומציע חוויית החלקה מהנה לכל המשפחה. בין אם זו הפעם הראשונה שלכם על הקרח או שאתם כבר מנוסים – זו פעילות מושלמת לברוח מהחום של דובאי וליהנות מחוויה חורפית בלב העיר.
-- Image: https://dubai-plus.co.il/assets/product-1783872215531-ps9ul7.webp
+**Total active products: 32**
 
 ### העברה מהשדה וחזרה
 https://dubai-plus.co.il/product/habrh-mhshdh-vchzrh-bgpczf
