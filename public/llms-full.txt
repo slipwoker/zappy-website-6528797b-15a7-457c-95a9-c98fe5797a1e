@@ -12096,15 +12096,6 @@ Availability: In stock
 
 ---
 
-### פארק השלג אבו דאבי - Snow Abu Dhabi
-URL: https://dubai-plus.co.il/product/park-hshlg-abv-daby-snow-abu-dhabi-k2fmbj
-Price: 155.00 ILS
-Availability: In stock
-
-כרטיס כניסה לפארק השלג באבו דאבי — אחד מפארקי השלג המקורים הגדולים בעולם. שלג אמיתי, מזחלות, מגלשות קרח, מפגש עם פינגווינים ואינספור פעילויות חורפיות קסומות לכל המשפחה. בריחה מושלמת מהחום.
-
----
-
 ### טיימלאב אבו דאבי - Time Lab Abu Dhabi
 URL: https://dubai-plus.co.il/product/tyymlab-abv-daby-time-lab-abu-dhabi-3zrzkx
 Price: 115.00 ILS
@@ -12120,15 +12111,6 @@ Price: 45.00 ILS
 Availability: In stock
 
 כרטיס כניסה למוזיאון הלובר אבו דאבי — יצירת מופת ארכיטקטונית על האי סעדיאת. מוזיאון ברמה עולמית המציג אוספי אמנות נדירים, כיפה גאומטרית מרהיבה היוצרת "גשם של אור", ותערוכות מתחלפות. חוויה תרבותית מהמעלה הראשונה.
-
----
-
-### ארמון אל קאסר - Qasr Al Watan
-URL: https://dubai-plus.co.il/product/armvn-al-kasr-qasr-al-watan-lb9aw5
-Price: 39.00 ILS
-Availability: In stock
-
-כרטיס כניסה לארמון אל קאסר (Qasr Al Watan) באבו דאבי — הארמון הנשיאותי המרהיב. סיור בארמון המפואר הכולל אולמות מוזהבים, גנים מטופחים, ספרייה מרשימה ומיצג אור-קולי עוצר נשימה. חוויה תרבותית יוצאת דופן בלב אבו דאבי.
 
 ---
 

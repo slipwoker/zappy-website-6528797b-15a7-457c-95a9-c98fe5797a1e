@@ -1,9 +1,9 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-12T18:53:59.696Z",
+  "generated_at": "2026-07-12T18:54:44.923Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
-  "count": 45,
+  "count": 43,
   "products": [
     {
       "id": "6ebc3d50-733e-4754-89ac-c0db5b68937a",
@@ -55,26 +55,6 @@
       "updated_at": "2026-07-12T18:52:37.120Z"
     },
     {
-      "id": "8bddb35c-a10f-458b-8739-2d847651b666",
-      "slug": "park-hshlg-abv-daby-snow-abu-dhabi-k2fmbj",
-      "name": "פארק השלג אבו דאבי - Snow Abu Dhabi",
-      "name_translations": {},
-      "description": "כרטיס כניסה לפארק השלג באבו דאבי — אחד מפארקי השלג המקורים הגדולים בעולם. שלג אמיתי, מזחלות, מגלשות קרח, מפגש עם פינגווינים ואינספור פעילויות חורפיות קסומות לכל המשפחה. בריחה מושלמת מהחום.",
-      "short_description": null,
-      "sku": null,
-      "brand": null,
-      "price": 155,
-      "base_price": 155,
-      "sale_price": null,
-      "currency": "ILS",
-      "images": [],
-      "in_stock": true,
-      "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/park-hshlg-abv-daby-snow-abu-dhabi-k2fmbj",
-      "categories": [],
-      "updated_at": "2026-07-12T18:41:11.804Z"
-    },
-    {
       "id": "9fb7fad3-8d1a-4e2d-83cd-f6bbc579a058",
       "slug": "tyymlab-abv-daby-time-lab-abu-dhabi-3zrzkx",
       "name": "טיימלאב אבו דאבי - Time Lab Abu Dhabi",
@@ -113,26 +93,6 @@
       "url": "https://dubai-plus.co.il/product/mvzyavn-hlvbr-abv-daby-louvre-abu-dhabi-0qnk7i",
       "categories": [],
       "updated_at": "2026-07-12T18:41:11.477Z"
-    },
-    {
-      "id": "1db9c099-4b2b-4a43-b457-c9c09234ecce",
-      "slug": "armvn-al-kasr-qasr-al-watan-lb9aw5",
-      "name": "ארמון אל קאסר - Qasr Al Watan",
-      "name_translations": {},
-      "description": "כרטיס כניסה לארמון אל קאסר (Qasr Al Watan) באבו דאבי — הארמון הנשיאותי המרהיב. סיור בארמון המפואר הכולל אולמות מוזהבים, גנים מטופחים, ספרייה מרשימה ומיצג אור-קולי עוצר נשימה. חוויה תרבותית יוצאת דופן בלב אבו דאבי.",
-      "short_description": null,
-      "sku": null,
-      "brand": null,
-      "price": 39,
-      "base_price": 39,
-      "sale_price": null,
-      "currency": "ILS",
-      "images": [],
-      "in_stock": true,
-      "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/armvn-al-kasr-qasr-al-watan-lb9aw5",
-      "categories": [],
-      "updated_at": "2026-07-12T18:41:11.314Z"
     },
     {
       "id": "a17476c3-c72b-4c13-a74b-4f9c58f8e22c",
