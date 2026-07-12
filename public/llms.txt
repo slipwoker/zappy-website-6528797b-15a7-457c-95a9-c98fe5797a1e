@@ -128,7 +128,14 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 38**
+**Total active products: 39**
+
+### Dinner in the Sky Dubai – ארוחה בשמיים
+https://dubai-plus.co.il/product/dinner-in-the-sky-dubai-arvchh-bshmyym-a27e3x
+- Price: 0.00 ILS
+- Availability: In stock
+- Description: Dinner in the Sky Dubai היא אחת מחוויות האוכל הייחודיות בעולם. שבו סביב שולחן התלוי בגובה של כ-50 מטרים, ותיהנו מארוחה יוקרתית לצד נוף פנורמי מרהיב של קו החוף והאטרקציות המפורסמות של דובאי.
+- Image: https://dubai-plus.co.il/assets/product-1783876576539-3ey0x.webp
 
 ### Sky Views Edge Walk – הליכה על קצה המגדל
 https://dubai-plus.co.il/product/sky-views-edge-walk-hlykh-al-ktsh-hmgdl-rg0nfu
