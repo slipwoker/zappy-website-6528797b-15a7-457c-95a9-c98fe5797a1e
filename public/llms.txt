@@ -131,10 +131,12 @@ Information about WCAG compliance and accessibility features.
 **Total active products: 46**
 
 ### טיול מדבר באבו דאבי
-https://dubai-plus.co.il/product/tyvl-mdbr-babv-daby-454pi5
+https://dubai-plus.co.il/product/tyvl-mdbr-babv-daby-n6qif9
 - Price: 215.00 ILS
 - Availability: In stock
-- Description: טיול מדבר מרהיב באבו דאבי — חוויית ספארי אמיתית בלב המדבר. נסיעת שטח בדיונות, רכיבה על גמלים, ארוחת ערב בדואית מסורתית, מופעי תרבות ואירוח תחת כוכבים. חוויה בלתי נשכחת במרחק נסיעה מהעיר.
+- Category: אטרקציות באבו דאבי
+- Description: טיול מדבר באבו דאבי הוא חוויה מושלמת למי שרוצה לגלות את יופיו של המדבר האמירתי. הטיול כולל נסיעה בדיונות, רכיבה על גמלים, גלישת חול, ארוחת ערב אותנטית ומופעים מסורתיים – שילוב מושלם של טבע, תרבות ואדרנלין. טיול מדבר באבו דאבי
+- Image: https://dubai-plus.co.il/assets/product-1783881859413-zkretn.webp
 
 ### טיסה במסוק מעל אבו דאבי
 https://dubai-plus.co.il/product/tysh-bmsvk-mal-abv-daby-yukatx
