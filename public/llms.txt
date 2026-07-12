@@ -131,10 +131,12 @@ Information about WCAG compliance and accessibility features.
 **Total active products: 38**
 
 ### Sky Views Edge Walk – הליכה על קצה המגדל
-https://dubai-plus.co.il/product/sky-views-edge-walk-hlykh-al-ktsh-hmgdl-gdxalw
-- Price: 0.00 ILS
+https://dubai-plus.co.il/product/sky-views-edge-walk-hlykh-al-ktsh-hmgdl-rg0nfu
+- Price: 350.00 ILS
 - Availability: In stock
+- Category: אקסטרים וטיול מדבר
 - Description: Sky Views Edge Walk היא אחת מחוויות האקסטרים הגבוהות והמרגשות ביותר בדובאי. צאו להליכה חיצונית על שפת המגדל בגובה של יותר מ-219 מטרים, ללא מעקה, כשאתם מחוברים למערכת בטיחות מתקדמת ונהנים מנוף פנורמי עוצר נשימה של העיר.
+- Image: https://dubai-plus.co.il/assets/product-1783876310772-vuc1j8.webp
 
 ### Flyboard Dubai – פלייבורד בדובאי
 https://dubai-plus.co.il/product/flyboard-dubai-plyybvrd-bdvbay-g5ocxh
