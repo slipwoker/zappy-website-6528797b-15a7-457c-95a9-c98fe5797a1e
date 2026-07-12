@@ -131,9 +131,12 @@ Information about WCAG compliance and accessibility features.
 **Total active products: 33**
 
 ### שייט בסירות השחורות
-https://dubai-plus.co.il/product/shyyt-bsyrvt-hshchvrvt-bl6ri9
+https://dubai-plus.co.il/product/shyyt-bsyrvt-hshchvrvt-sbkzbg
 - Price: 0.00 ILS
 - Availability: In stock
+- Category: שייט ופעילות ימית
+- Description: שייט בסירת Black Boat הוא אחת מחוויות השייט המהירות והמהנות ביותר בדובאי. הפליגו בסירת RIB עוצמתית לאורך קו החוף של העיר, עברו ליד האטרקציות המפורסמות ביותר ותיהנו משילוב מושלם של אדרנלין, נופים עוצרי נשימה וצילומים בלתי נשכחים.
+- Image: https://dubai-plus.co.il/assets/product-1783872893712-7x6w3.webp
 
 ### העברה מהשדה וחזרה
 https://dubai-plus.co.il/product/habrh-mhshdh-vchzrh-bgpczf
