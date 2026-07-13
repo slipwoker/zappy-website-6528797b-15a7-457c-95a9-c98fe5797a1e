@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-13T08:21:37.021Z",
+  "generated_at": "2026-07-13T08:22:19.410Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 41,
@@ -579,8 +579,8 @@
     },
     {
       "id": "5377a16e-4153-4833-8f12-e1f2ffa2815d",
-      "slug": "avpnva-ym-jet-ski-vjsh80",
-      "name": "אופנוע ים JET SKI",
+      "slug": "test-8bw8ym",
+      "name": "test",
       "name_translations": {
         "he": "אופנוע ים JET SKI"
       },
@@ -597,12 +597,12 @@
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/avpnva-ym-jet-ski-vjsh80",
+      "url": "https://dubai-plus.co.il/product/test-8bw8ym",
       "categories": [
         "שייט ופעילות ימית",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-12T11:44:15.646Z"
+      "updated_at": "2026-07-13T08:21:46.684Z"
     },
     {
       "id": "19c8a419-8c39-4705-9089-0917b234b974",
