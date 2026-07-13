@@ -128,12 +128,7 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 42**
-
-### test
-https://dubai-plus.co.il/product/test-x5apcp
-- Price: 1.00 ILS
-- Availability: In stock
+**Total active products: 41**
 
 ### טיול מדבר באבו דאבי
 https://dubai-plus.co.il/product/tyvl-mdbr-babv-daby-n6qif9
