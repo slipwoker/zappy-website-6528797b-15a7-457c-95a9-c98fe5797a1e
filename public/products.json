@@ -1,10 +1,33 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-12T18:59:36.111Z",
+  "generated_at": "2026-07-13T08:17:39.949Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
-  "count": 41,
+  "count": 42,
   "products": [
+    {
+      "id": "81bc74e8-3e22-4d50-896d-3c12edece80a",
+      "slug": "test-r13rf5",
+      "name": "test",
+      "name_translations": {
+        "en": "test",
+        "he": "בדיקה"
+      },
+      "description": "",
+      "short_description": null,
+      "sku": null,
+      "brand": null,
+      "price": 1,
+      "base_price": 1,
+      "sale_price": null,
+      "currency": "ILS",
+      "images": [],
+      "in_stock": true,
+      "stock_status": "in_stock",
+      "url": "https://dubai-plus.co.il/product/test-r13rf5",
+      "categories": [],
+      "updated_at": "2026-07-13T08:17:24.747Z"
+    },
     {
       "id": "6ebc3d50-733e-4754-89ac-c0db5b68937a",
       "slug": "tyvl-mdbr-babv-daby-n6qif9",
