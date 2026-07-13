@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-13T08:22:19.410Z",
+  "generated_at": "2026-07-13T08:22:40.539Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 41,
@@ -579,7 +579,7 @@
     },
     {
       "id": "5377a16e-4153-4833-8f12-e1f2ffa2815d",
-      "slug": "test-8bw8ym",
+      "slug": "test-e24guk",
       "name": "test",
       "name_translations": {
         "he": "אופנוע ים JET SKI"
@@ -588,8 +588,8 @@
       "short_description": "חוויית אופנוע ים מהנה ועוצמתית באחד החופים היפים ביותר של דובאי. ניתן לבחור יציאה ממרינת דובאי או מאזור בורג' אל ערב, עם אופנועי ים חדישים, ציוד בטיחות מלא והדרכה מקצועית. מתאים לזוגות, משפחות וחובבי אקסטרים – ללא צורך בניסיון קודם.",
       "sku": null,
       "brand": null,
-      "price": 280,
-      "base_price": 280,
+      "price": 1,
+      "base_price": 1,
       "sale_price": null,
       "currency": "ILS",
       "images": [
@@ -597,12 +597,12 @@
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/test-8bw8ym",
+      "url": "https://dubai-plus.co.il/product/test-e24guk",
       "categories": [
         "שייט ופעילות ימית",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-13T08:21:46.684Z"
+      "updated_at": "2026-07-13T08:22:23.751Z"
     },
     {
       "id": "19c8a419-8c39-4705-9089-0917b234b974",
