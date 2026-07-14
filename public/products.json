@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-14T13:52:24.828Z",
+  "generated_at": "2026-07-14T13:55:18.868Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 41,
@@ -255,7 +255,7 @@
     },
     {
       "id": "ba56f8cf-1227-4f41-ac03-03ebdac9f2f9",
-      "slug": "habrh-mhshdh-tavph-bdvbay-av-al-hshdh-tavph-j1uabz",
+      "slug": "habrh-mhshdh-tavph-bdvbay-av-al-hshdh-tavph-mpaolz",
       "name": "העברה מהשדה תעופה בדובאי או אל השדה תעופה ",
       "name_translations": {
         "he": "העברה מהשדה וחזרה"
@@ -273,11 +273,11 @@
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/habrh-mhshdh-tavph-bdvbay-av-al-hshdh-tavph-j1uabz",
+      "url": "https://dubai-plus.co.il/product/habrh-mhshdh-tavph-bdvbay-av-al-hshdh-tavph-mpaolz",
       "categories": [
         "העברות בדובאי ואבו דאבי"
       ],
-      "updated_at": "2026-07-14T13:49:42.862Z"
+      "updated_at": "2026-07-14T13:54:58.645Z"
     },
     {
       "id": "1f88e754-5aa2-4343-8ece-65a5e8b9ab87",
