@@ -61,6 +61,9 @@ https://dubai-plus.co.il/category/:slug
 https://dubai-plus.co.il/restaurants
 חוויות קולינריות בלתי נשכחות בדובאי — ממסעדות שף עולמיות ועד מטבח מקומי אותנטי. גלה המלצות מסעדות נבחרות לישראלים עם תפריטים, מיקומים והזמנת מקום!
 
+### Page
+https://dubai-plus.co.il/menu-group-1784041754766
+
 ### כשרות בדובאי
 https://dubai-plus.co.il/blog/kosher-dubai
 Sarah laloum tourism llc - כשרות בדובאי
@@ -111,9 +114,6 @@ Sarah laloum tourism llc - התניידות בדובאי: איך לעבור בי
 
 ### Page
 https://dubai-plus.co.il/sim-card
-
-### Page
-https://dubai-plus.co.il/menu-group-1784041754766
 
 ### דברו איתנו ותכננו את הטיול המושלם — Duabi plus
 https://dubai-plus.co.il/contact
