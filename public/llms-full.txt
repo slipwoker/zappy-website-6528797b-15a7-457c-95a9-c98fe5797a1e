@@ -11623,7 +11623,7 @@ SIM רגיל / eSIM
 
 
 
-רשימה מתומצתת של מכשירים שתומכים בESIM
+📱 מכשירים התומכים ב-eSIM 🍎 Apple (iPhone) - iPhone XS / XS Max - iPhone XR - iPhone 11 ומעלה - iPhone SE (2020 ומעלה) 📱 Samsung Galaxy - סדרת S20 ומעלה - סדרת Note20 - סדרת Z Fold - סדרת Z Flip - חלק מדגמי A החדשים 🤖 Google Pixel - Pixel 3 ומעלה 📱 Huawei - P40 / P40 Pro - Mate 40 Pro 📱 Xiaomi - Xiaomi 13 ומעלה (בדגמים תומכים) 📱 Motorola - Razr (2020 ומעלה) - Edge 40 / Edge 50 (בדגמים תומכים) 📱 Oppo - Find X3 Pro ומעלה - Find N2 Flip (בדגמים תומכים) ℹ️ חשוב: התמיכה ב-eSIM משתנה בהתאם לדגם, למדינת הרכישה ולספק הסלולר. מומלץ לוודא שהמכשיר שלכם תומך ב-eSIM לפני הרכישה או ההפעלה.
 
 
 
