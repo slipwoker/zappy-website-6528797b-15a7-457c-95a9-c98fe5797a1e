@@ -140,9 +140,10 @@ Information about WCAG compliance and accessibility features.
 **Total active products: 44**
 
 ### נהג יום שלם (10 שעות)
-https://dubai-plus.co.il/product/nhg-yvm-shlm-10-shavt-axfhw7
+https://dubai-plus.co.il/product/nhg-yvm-shlm-10-shavt-xn1yt4
 - Price: 0.00 ILS
 - Availability: In stock
+- Category: העברות בדובאי ואבו דאבי
 - Description: נהג פרטי ליום שלם (10 שעות) גלו את דובאי בקצב שלכם עם נהג פרטי צמוד למשך 10 שעות. השירות כולל איסוף מכל מקום בעיר, נסיעה בין האטרקציות, הקניונים, המסעדות והאתרים המובילים – בנוחות, בבטיחות וללא דאגות.
 - Image: https://dubai-plus.co.il/assets/product-1784050792952-9up41e.webp
 
