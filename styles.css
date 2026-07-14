@@ -24244,6 +24244,421 @@ main,
     padding: 20px 16px 18px;
   }
 }
+
+/* AI-generated section */
+:root {
+  --sim-bg-dark: #201A2E;
+  --sim-card-bg: #FFF7ED;
+  --sim-accent: #FF8A3D;
+  --sim-gold: #C9A84C;
+  --sim-text-dark: #1a1a2e;
+  --sim-text-muted: #5a5a7a;
+  --sim-white: #ffffff;
+  --sim-border: #e8ddd0;
+  --sim-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  --sim-shadow-hover: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.sim-section {
+  background: var(--sim-bg-dark);
+  padding: 80px 20px;
+  font-family: 'Assistant', 'Heebo', system-ui, sans-serif;
+  color: var(--sim-text-dark);
+  direction: rtl;
+}
+
+.sim-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sim-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.sim-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--sim-white);
+  margin: 0 0 16px;
+  line-height: 1.3;
+}
+
+.sim-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.8);
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sim-info-box {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 36px 32px;
+  margin-bottom: 48px;
+}
+
+.sim-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.sim-info-card {
+  background: var(--sim-card-bg);
+  border-radius: 14px;
+  padding: 28px 24px;
+  border: 1px solid var(--sim-border);
+}
+
+.sim-info-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--sim-text-dark);
+  margin: 0 0 12px;
+}
+
+.sim-info-text {
+  font-size: 1rem;
+  color: var(--sim-text-muted);
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+
+.sim-info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sim-info-list li {
+  font-size: 0.95rem;
+  color: var(--sim-text-dark);
+  margin-bottom: 6px;
+}
+
+.sim-packages {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 56px;
+}
+
+.sim-package-card {
+  background: var(--sim-card-bg);
+  border-radius: 16px;
+  padding: 32px 24px 24px;
+  text-align: center;
+  border: 1px solid var(--sim-border);
+  box-shadow: var(--sim-shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.sim-package-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sim-shadow-hover);
+}
+
+.sim-package-highlight {
+  border: 2px solid var(--sim-accent);
+  box-shadow: 0 4px 24px rgba(255,138,61,0.18);
+}
+
+.sim-package-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--sim-accent);
+  color: var(--sim-white);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 18px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.sim-package-badge-gold {
+  background: var(--sim-gold);
+  color: var(--sim-bg-dark);
+}
+
+.sim-package-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--sim-text-dark);
+  margin: 12px 0 8px;
+}
+
+.sim-package-price {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--sim-accent);
+  margin-bottom: 20px;
+}
+
+.sim-package-highlight .sim-package-price {
+  color: var(--sim-gold);
+}
+
+.sim-package-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  text-align: right;
+  flex-grow: 1;
+}
+
+.sim-package-features li {
+  font-size: 0.95rem;
+  color: var(--sim-text-dark);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.sim-package-features li:last-child {
+  border-bottom: none;
+}
+
+.sim-package-features li strong {
+  color: var(--sim-accent);
+}
+
+.sim-btn {
+  display: block;
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.sim-btn-primary {
+  background: var(--sim-accent);
+  color: var(--sim-white);
+  border: none;
+}
+
+.sim-btn-primary:hover {
+  background: #e67a30;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(255,138,61,0.35);
+}
+
+.sim-btn-secondary {
+  background: transparent;
+  color: var(--sim-text-dark);
+  border: 2px solid var(--sim-border);
+}
+
+.sim-btn-secondary:hover {
+  background: rgba(0,0,0,0.03);
+  border-color: var(--sim-accent);
+  color: var(--sim-accent);
+}
+
+.sim-comparison {
+  margin-bottom: 56px;
+}
+
+.sim-comparison-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--sim-white);
+  text-align: center;
+  margin: 0 0 28px;
+}
+
+.sim-table-wrapper {
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.sim-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.04);
+  min-width: 500px;
+}
+
+.sim-table th,
+.sim-table td {
+  padding: 14px 18px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.95rem;
+}
+
+.sim-table th {
+  background: rgba(255,138,61,0.12);
+  color: var(--sim-white);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.sim-table td {
+  color: rgba(255,255,255,0.85);
+}
+
+.sim-table tbody tr:hover td {
+  background: rgba(255,255,255,0.05);
+}
+
+.sim-table td:first-child {
+  text-align: right;
+  font-weight: 600;
+  color: var(--sim-white);
+}
+
+.sim-faq {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sim-faq-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--sim-white);
+  text-align: center;
+  margin: 0 0 32px;
+}
+
+.sim-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sim-faq-item {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.sim-faq-item:hover {
+  box-shadow: 0 4px 18px rgba(0,0,0,0.2);
+}
+
+.sim-faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: transparent;
+  border: none;
+  color: var(--sim-white);
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: right;
+  font-family: inherit;
+  transition: background 0.2s ease;
+}
+
+.sim-faq-question:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+.sim-faq-chevron {
+  flex-shrink: 0;
+  transition: transform 0.35s ease;
+  color: var(--sim-accent);
+}
+
+.sim-faq-item.active .sim-faq-chevron {
+  transform: rotate(180deg);
+}
+
+.sim-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.25s ease;
+}
+
+.sim-faq-item.active .sim-faq-answer {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.sim-faq-answer-inner {
+  padding: 0 24px 20px;
+  border-right: 3px solid var(--sim-accent);
+  margin-right: 24px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.75;
+  font-size: 0.95rem;
+}
+
+.sim-faq-answer-inner p {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .sim-packages {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .sim-info-grid {
+    grid-template-columns: 1fr;
+  }
+  .sim-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .sim-section {
+    padding: 48px 14px;
+  }
+  .sim-title {
+    font-size: 1.6rem;
+  }
+  .sim-subtitle {
+    font-size: 1rem;
+  }
+  .sim-info-box {
+    padding: 24px 16px;
+  }
+  .sim-package-card {
+    padding: 24px 16px 20px;
+  }
+  .sim-package-price {
+    font-size: 2rem;
+  }
+  .sim-faq-question {
+    padding: 16px 18px;
+    font-size: 0.95rem;
+  }
+  .sim-faq-answer-inner {
+    margin-right: 16px;
+    padding: 0 16px 16px;
+  }
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
