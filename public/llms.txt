@@ -18,39 +18,39 @@ https://dubai-plus.co.il/hotels
 https://dubai-plus.co.il/attractions
 ברג&#39; ח&#39;ליפה, ספארי מדבר, גלובל וילג&#39;, גן הפרחים ויאכטות פרטיות — הזמן כרטיסים לאטרקציות דובאי המרהיבות ביותר בקלות ובמחיר הטוב ביותר. חוויה שלא תשכח!
 
-### העברות וסים
+### שירותי נסיעות VIP לדובאי — הכל בלחיצה — Duabi plus
 https://dubai-plus.co.il/wire-transfers-and-settlements
 העברות שדה תעופה, כרטיסי סים בינלאומיים, השכרת רכב ושירותי בייביסיטר בדובאי — כל מה שצריך לטיול מושלם. הזמן שירותי נסיעות פרימיום ותיהנה מכל רגע!
 
-### Products
+### מוצרים
 https://dubai-plus.co.il/products
 המוצרים שלנו - Sarah laloum tourism llc
 
-### Cart
+### עגלת קניות
 https://dubai-plus.co.il/cart
 עגלת הקניות שלך
 
-### Checkout
+### תשלום
 https://dubai-plus.co.il/checkout
 תשלום
 
-### Login
+### התחברות
 https://dubai-plus.co.il/login
 התחברות לקוחות
 
-### Account
+### החשבון שלי
 https://dubai-plus.co.il/account
 החשבון שלי
 
-### Order Success
+### ההזמנה התקבלה!
 https://dubai-plus.co.il/order-success
 תודה על ההזמנה
 
-### Product Detail
+### פרטי המוצר
 https://dubai-plus.co.il/product/:slug
 פרטי המוצר - Sarah laloum tourism llc
 
-### Category
+### מוצרים
 https://dubai-plus.co.il/category/:slug
 מוצרים - Sarah laloum tourism llc
 
