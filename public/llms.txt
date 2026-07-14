@@ -137,7 +137,14 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 42**
+**Total active products: 43**
+
+### העברה מ/אל דובאי ל/אל אבו דאבי
+https://dubai-plus.co.il/product/habrh-mal-dvbay-lal-abv-daby-821mo8
+- Price: 0.00 ILS
+- Availability: In stock
+- Description: העברה פרטית בין דובאי לאבו דאבי נוסעים מדובאי לאבו דאבי או מאבו דאבי לדובאי? הזמינו שירות העברות פרטי ברכב ממוזג ונוח עם נהג מקצועי. שירות מדלת לדלת, ללא המתנה וללא שיתוף עם נוסעים נוספים – הדרך הנוחה והבטוחה לעבור בין שתי הערים.
+- Image: https://dubai-plus.co.il/assets/product-1784049497514-qfdmec.webp
 
 ### העברה מ/אל השדה תעופה אבו דאבי
 https://dubai-plus.co.il/product/habrh-mal-hshdh-tavph-abv-daby-g3a8bu
