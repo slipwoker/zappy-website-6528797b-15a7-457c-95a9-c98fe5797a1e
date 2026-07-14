@@ -131,9 +131,10 @@ Information about WCAG compliance and accessibility features.
 **Total active products: 41**
 
 ### טיול ספארי מדבר כשר
-https://dubai-plus.co.il/product/tyvl-spary-mdbr-kshr-22ovjy
-- Price: 0.00 ILS
+https://dubai-plus.co.il/product/tyvl-spary-mdbr-kshr-o4b4ev
+- Price: 350.00 ILS
 - Availability: In stock
+- Category: אקסטרים וטיול מדבר
 - Description: חוו את טיול המדבר הכשר המוביל בדובאי, המתקיים בכל יום שלישי. הטיול כולל נסיעה בג’יפ 4X4 בדיונות, עצירה לנהיגה עצמאית (בתשלום נפרד), רכיבה על גמלים, צפייה בשקיעה במדבר וארוחת ערב בשרית עשירה בכשרות המהודרת של הרב לוי דוכמן – חב”ד דובאי. חוויה מושלמת למשפחות, זוגות וקבוצות
 - Image: https://dubai-plus.co.il/assets/product-1784030828929-tpspw9.webp
 
