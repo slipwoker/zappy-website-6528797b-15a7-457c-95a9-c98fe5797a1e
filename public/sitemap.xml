@@ -13,6 +13,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dubai-plus.co.il/menu-group-1784041179993</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dubai-plus.co.il/airport-transfers</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dubai-plus.co.il/attractions</loc>
     <lastmod>2026-07-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -142,18 +154,6 @@
     <loc>https://dubai-plus.co.il/blog/dubai-transportation-smart-guide</loc>
     <lastmod>2026-07-14</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/menu-group-1784041179993</loc>
-    <lastmod>2026-07-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/wire-transfers-and-settlements</loc>
-    <lastmod>2026-07-14</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
