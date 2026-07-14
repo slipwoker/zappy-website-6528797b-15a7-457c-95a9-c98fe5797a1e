@@ -175,8 +175,8 @@ html{box-sizing:border-box;-webkit-text-size-adjust:100%}*,*::before,*::after{bo
       <div class="search-results" id="mobile-search-results"></div>
     </div>
   
-<script>window.ZAPPY_WEBSITE_ID = "6528797b-15a7-457c-95a9-c98fe5797a1e";window.ZAPPY_API_BASE = "https://api.zappy5.com"</script><a class="skip-link" href="#main">דלג לתוכן הראשי</a>
-  <nav class="navbar" style="margin-bottom: 0px; position: fixed !important; left: 0px !important; right: 0px !important; z-index: 100000 !important">
+<script>window.ZAPPY_WEBSITE_ID = "6528797b-15a7-457c-95a9-c98fe5797a1e";window.ZAPPY_API_BASE = (window.location.pathname.includes('/preview') ? "https://api.zappy5.com" : "https://api.zappy5.com");</script><a class="skip-link" href="#main">דלג לתוכן הראשי</a>
+  <nav class="navbar" style="margin-bottom: 0px; position: fixed !important; top: 0px !important; left: 0px !important; right: 0px !important; z-index: 100000 !important;">
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu" style="position: absolute !important; top: 0px !important; bottom: 0px !important; margin-top: auto !important; margin-bottom: auto !important; transform: none !important; z-index: 1001 !important;" data-element-type="button" data-element-id="btn-1779032266906-wlkobwavi" data-native-element="true">
     <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="width: 24px !important; height: 24px !important;display:block !important">
       <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -194,7 +194,7 @@ html{box-sizing:border-box;-webkit-text-size-adjust:100%}*,*::before,*::after{bo
 
   <div class="nav-container">
     <div class="nav-right-group"><div class="nav-brand">
-      <a href="/" class="logo-link"><img class="logo" src="/assets/site-----image-1.webp" alt="Sarah laloum tourism llc" data-image-type="logo" decoding="async" width="35" height="35" /></a>
+      <a href="/" class="logo-link"><img class="logo" src="/assets/site-----image-1.webp" alt="Sarah laloum tourism llc" data-image-type="logo" style decoding="async" width="35" height="35" /></a>
     </div><ul class="nav-menu" id="navMenu">
 
     <li class="menu-item-has-children zappy-products-dropdown">
@@ -682,7 +682,7 @@ html{box-sizing:border-box;-webkit-text-size-adjust:100%}*,*::before,*::after{bo
 </script>
   
   <main id="main">
-    <section class="travel-services-overview-section" data-layout-spec="שירותי נסיעות-overview" dir="rtl" id="travel-services-overview-section" style="margin-top: -110px !important; padding-top: 110px !important;">
+    <section class="travel-services-overview-section" data-layout-spec="שירותי נסיעות-overview" dir="rtl" id="travel-services-overview-section" style="margin-top: -173px !important; padding-top: 173px !important;">
 
   <!-- Decorative gold dot diamond pattern -->
   <div class="tso-diamond-pattern" aria-hidden="true"></div>
@@ -704,13 +704,13 @@ html{box-sizing:border-box;-webkit-text-size-adjust:100%}*,*::before,*::after{bo
           <span class="tso-heading-accent">תיירות חיוניים</span>
         </h1>
 
-        <p class="tso-lead">מהרגע שהמטוס נוחת בדובאי ועד שאתם מגיעים למלון — אנחנו דואגים לכל הפרטים. Dubai Plus מציעה שירות העברות פרטיות ומקצועיות מנמל התעופה אל יעדכם, עם נהגים אדיבים ומנוסים.</p>
+        <p class="tso-lead" style>מהרגע שהמטוס נוחת בדובאי ועד שאתם מגיעים למלון — אנחנו דואגים לכל הפרטים. Dubai Plus מציעה שירות העברות פרטיות ומקצועיות מנמל התעופה אל יעדכם, עם נהגים אדיבים ומנוסים.</p>
 
         <p class="tso-body">בנוסף, אנחנו מפנים אתכם ישירות לפתרון הסים הטוב ביותר לישראלים בדובאי — כרטיס SIM מקומי שמבטיח חיבור מהיר ואמין לאורך כל השהות שלכם. תכננו את הטיול המושלם שלכם עם חברות תיירות ונסיעות מהמובילות בתחום.</p>
 
         <!-- Service highlights -->
-        <ul class="tso-features-list" style="display: grid; --zappy-grid-cols: repeat(3, minmax(0, 1fr)); grid-template-columns: repeat(3, minmax(0, 1fr));" data-zappy-explicit-columns="true">
-          <li class="tso-feature-item" data-grid-item-index="0">
+        <ul class="tso-features-list zappy-preserve-css-grid" style="display: grid; --zappy-grid-cols: repeat(3, minmax(0, 1fr)); grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch !important;" data-zappy-explicit-columns="true" data-original-item-width="115" data-original-gap="14px">
+          <li class="tso-feature-item zappy-grid-item-nested-grid" data-grid-item-index="0">
             <span class="tso-feature-icon" aria-hidden="true">
               <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
             </span>
@@ -720,7 +720,7 @@ html{box-sizing:border-box;-webkit-text-size-adjust:100%}*,*::before,*::after{bo
             </div>
           </li>
           
-          <li class="tso-feature-item" data-grid-item-index="1">
+          <li class="tso-feature-item zappy-grid-item-nested-grid" data-grid-item-index="1">
             <span class="tso-feature-icon" aria-hidden="true">
               <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </span>
@@ -729,7 +729,7 @@ html{box-sizing:border-box;-webkit-text-size-adjust:100%}*,*::before,*::after{bo
               <span>תמיכה בעברית לאורך כל שהותכם</span>
             </div>
           </li>
-          <li class="tso-feature-item" data-grid-item-index="2">
+          <li class="tso-feature-item zappy-grid-item-nested-grid" data-grid-item-index="2">
             <span class="tso-feature-icon" aria-hidden="true">
               <svg data-element-type="icon" data-icon-type="svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
             </span>
@@ -741,9 +741,9 @@ html{box-sizing:border-box;-webkit-text-size-adjust:100%}*,*::before,*::after{bo
         </ul>
 
         <div class="tso-cta-row">
-          <a href="https://dubai-plus.co.il/product/habrh-mhshdh-tavph-bdvbay-av-al-hshdh-tavph-j1uabz" class="tso-btn-primary btn btn-primary" data-element-type="button" data-element-id="btn-1783330236951-hejmf4s5z" data-native-element="true" style="outline: none; border-color: transparent !important; color: rgb(255, 255, 255) !important; background-color: transparent !important; background-image: linear-gradient(135deg, rgb(201, 168, 76), rgb(245, 200, 66)) !important;" target="_blank" rel="noopener noreferrer">הזמן העברה עכשיו</a>
-          <a href="https://travelsimobile.co.il/Lobby_SaraLaloum" target="_blank" rel="noopener noreferrer" class="tso-btn-outline" data-element-type="button" data-element-id="btn-1783330236951-v0mp0ebeo" data-native-element="true" style="outline: none;">לכרטיס SIM ←</a>
-        </div>
+          <p class="zappy-editable"><a href="https://dubai-plus.co.il/product/habrh-mhshdh-tavph-bdvbay-av-al-hshdh-tavph-j1uabz" class="tso-btn-primary btn btn-primary" data-element-type="button" data-element-id="btn-1783330236951-hejmf4s5z" data-native-element="true" style="outline: none; border-color: transparent !important; color: rgb(255, 255, 255) !important; background-color: transparent !important; background-image: linear-gradient(135deg, rgb(201, 168, 76), rgb(245, 200, 66)) !important;" target="_blank" rel="noopener noreferrer">העברה מהשדה תעופה בדובאי</a></p><div class="zappy-inserted-element" id="zappy-element-1784037682055-7b6vjj3mm" data-element-id="zappy-element-1784037682055-7b6vjj3mm" data-element-type="button" data-zappy-newly-inserted="true" style="margin: 20px auto; text-align: right; display: flex; justify-content: flex-start; align-items: flex-start; max-width: 541px !important; width: 100% !important; align-self: start !important; height: auto !important;"><a href="#" class="btn btn-primary" style="text-decoration: none; padding: 12px 24px; border-radius: 6px; display: inline-block; border-color: var(--primary-color, var(--primary, #8B0000)) !important; border-style: solid; border-width: 2px; border-image: none; color: rgb(255, 255, 255) !important; width: auto !important; flex: 0 0 auto !important; cursor: pointer !important; background-color: var(--primary-color, var(--primary, #8B0000)) !important; background-image: none !important;" data-element-type="button" data-text-color="auto" data-element-id="zappy-element-1784037682055-7b6vjj3mm" id="zappy-element-1784037682055-7b6vjj3mm">לחץ כאן</a></div>
+          <p class="zappy-editable"><a href="https://travelsimobile.co.il/Lobby_SaraLaloum" target="_blank" rel="noopener noreferrer" class="tso-btn-outline" data-element-type="button" data-element-id="btn-1783330236951-v0mp0ebeo" data-native-element="true" style="outline: none;">לכרטיס SIM ←</a>
+        </p></div>
 
       </div>
       <!-- /text col -->
@@ -751,7 +751,7 @@ html{box-sizing:border-box;-webkit-text-size-adjust:100%}*,*::before,*::after{bo
       <!-- Image column (end / left in RTL) -->
       <div class="tso-image-col">
         <div class="tso-image-frame">
-          <img loading="lazy" fetchpriority="low" data-placeholder="travel-services-overview-image-1" data-context="Luxury private transfer in Dubai: a sleek black Mercedes S-Class or similar premium sedan parked at Dubai International Airport departure terminal at golden hour. A well-dressed driver holds the door open. Dubai skyline visible in the background with warm sunset light. Premium travel, Israeli tourists, luxury transfer service." width="600" height="400" src="/assets/site-travel-services-overview-image-1.webp" alt="שירות העברות יוקרתי מנמל התעופה בדובאי" class="tso-main-image" data-element-type="image" data-element-id="img-1783330236959-v4jl1cp1d" decoding="async" />
+          <img loading="lazy" fetchpriority="low" data-placeholder="travel-services-overview-image-1" data-context="Luxury private transfer in Dubai: a sleek black Mercedes S-Class or similar premium sedan parked at Dubai International Airport departure terminal at golden hour. A well-dressed driver holds the door open. Dubai skyline visible in the background with warm sunset light. Premium travel, Israeli tourists, luxury transfer service." width="600" height="400" src="/assets/site-travel-services-overview-image-1.webp" alt="שירות העברות יוקרתי מנמל התעופה בדובאי" class="tso-main-image" data-element-type="image" data-element-id="img-1783330236959-v4jl1cp1d" style decoding="async" />
           <!-- Gold accent badge -->
           <div class="tso-image-badge">
             <span class="tso-badge-icon" aria-hidden="true">
@@ -759,14 +759,14 @@ html{box-sizing:border-box;-webkit-text-size-adjust:100%}*,*::before,*::after{bo
             </span>
             <div class="tso-badge-text">
               <strong>שירות פרמיום</strong>
-              <span>נהגים מנוסים ואדיבים</span>
+              <span style>נהגים מנוסים ואדיבים</span>
             </div>
           </div>
         </div>
 
         <!-- Floating stat card -->
         <div class="tso-stat-card">
-          <div class="tso-stat-number">5000+</div>
+          <div class="tso-stat-number" style>5000+</div>
           <div class="tso-stat-label">נוסעים ישראלים<br /><br /><br /><br />שירתנו בדובאי</div>
         </div>
 
@@ -850,7 +850,7 @@ html{box-sizing:border-box;-webkit-text-size-adjust:100%}*,*::before,*::after{bo
         </div>
         <div class="step-content">
           <h3 class="step-title">שדה תעופה נחיתה</h3>
-          <p class="step-description">ציינו את שדה התעופה שבו תנחתו — DXB (דובאי הבינלאומי) ומספר טיסה ואנו נעקוב אחר טיסתכם בזמן אמת.</p>
+          <p class="step-description" style>ציינו את שדה התעופה שבו תנחתו — DXB (דובאי הבינלאומי) ומספר טיסה ואנו נעקוב אחר טיסתכם בזמן אמת.</p>
         </div>
       </article>
 
@@ -1104,8 +1104,8 @@ html{box-sizing:border-box;-webkit-text-size-adjust:100%}*,*::before,*::after{bo
 </section>
   </main>
   
-  <footer class="site-footer" dir="rtl" aria-label="כותרת תחתונה של האתר" style="direction: rtl;"> <div class="footer-container"> <!-- Top Grid --> <div class="footer-top"> <!-- Column 1: Company Info --> <div class="footer-col footer-brand"> <img src="/assets/duabi-plus-tourism-travel-logo.webp" alt="Sarah laloum tourism llc" class="logo" data-element-type="image" data-element-id="img-1779082998551-l5wmgnoez" data-zappy-footer-image="true" decoding="async" width="35" height="35" /> <p class="footer-tagline">חוויות נסיעה יוקרתיות לדובאי — מותאמות אישית, מאוצרות בקפידה, ובלתי נשכחות.</p> <div class="footer-badge"><i class="fas fa-star" data-element-type="icon" data-element-id="icon-1779082998550-bao2u3lzy" data-icon-type="fontawesome"></i>שירות פרמיום 24/7</div> <div class="footer-social">    </div> </div> <!-- Column 2: Quick Links --> <div class="footer-col"> <h3 class="footer-heading">ניווט מהיר</h3> <ul class="footer-links"> <li><a href="/">בית</a></li> <li><a href="/hotels">מלונות</a></li> <li><a href="/attractions">אטרקציות</a></li> <li><a href="/wire-transfers-and-settlements">העברות וסים</a></li> <li><a href="/restaurants">מסעדות</a></li> <li><a href="/contact">צרו קשר</a></li> </ul> </div> <!-- Column 3: Contact --> <div class="footer-col"> <h3 class="footer-heading">צור קשר</h3> <ul class="footer-contact"> <li> <span class="contact-icon"><i class="fas fa-envelope" data-element-type="icon" data-element-id="icon-1779082998550-rkuk1u1mi" data-icon-type="fontawesome"></i></span> <span class="contact-text"><a href="mailto:laloumdubai@gmail.com">laloumdubai@gmail.com</a></span> </li> <li> <span class="contact-icon"><i class="fas fa-phone" data-element-type="icon" data-element-id="icon-1779082998550-h1pdve6w2" data-icon-type="fontawesome"></i></span> <span class="contact-text"><a href="tel:+972522212578">+972522212578</a></span> </li> <li><a href="/" style="display:flex;align-items:flex-start;gap:inherit">גני נד אל שבא, דובאי, איחוד האמירויות</a></li> </ul> </div> <!-- Column 4: Hours --> <div class="footer-col"> <h3 class="footer-heading">שעות פעילות</h3> <ul class="footer-hours"><li style="color: #221C2F">יום ראשון&nbsp;09:00 – 23:00</li><li style="color: #221C2F">יום שני&nbsp;09:00 – 23:00</li><li style="color: #221C2F">יום שלישי&nbsp;09:00 – 23:00</li><li style="color: #221C2F">יום רביעי&nbsp;09:00 – 23:00</li><li style="color: #221C2F">יום חמישי&nbsp;09:00 – 23:00</li><li style="color: #221C2F">יום שישי&nbsp;09:00 – 16:00</li><li style="color: #221C2F">יום שבת&nbsp;21:00 – 23:00</li></ul>  </div> </div> <!-- Divider --> <div class="footer-divider"></div> <!-- Bottom Bar --> <div class="footer-bottom"> <p class="footer-copy">© 2026 Sarah laloum tourism llc. כל הזכויות שמורות.</p> <div class="footer-legal"> <a href="/privacy">מדיניות פרטיות</a> <span class="legal-sep">·</span> <a href="/terms">תנאי שימוש</a><span class="separator">|</span>
-            <a href="/return-policy" aria-label="מדיניות החזרות">מדיניות החזרות</a> <span class="legal-sep">·</span> <a href="/accessibility">נגישות</a> <span class="legal-sep">·</span> <a href="https://zappy5.com" target="_blank" class="zappy-attribution"><br /><br /><br /></a> </div> </div> </div> </footer>
+  <footer class="site-footer" dir="rtl" aria-label="כותרת תחתונה של האתר" style="direction: rtl;"> <div class="footer-container"> <!-- Top Grid --> <div class="footer-top"> <!-- Column 1: Company Info --> <div class="footer-col footer-brand"> <img src="/assets/duabi-plus-tourism-travel-logo.webp" alt="Sarah laloum tourism llc" class="logo" data-element-type="image" data-element-id="img-1779082998551-l5wmgnoez" data-zappy-footer-image="true" style decoding="async" width="35" height="35" /> <p class="footer-tagline">חוויות נסיעה יוקרתיות לדובאי — מותאמות אישית, מאוצרות בקפידה, ובלתי נשכחות.</p> <div class="footer-badge"><i class="fas fa-star" data-element-type="icon" data-element-id="icon-1779082998550-bao2u3lzy" data-icon-type="fontawesome"></i>שירות פרמיום 24/7</div> <div class="footer-social">    </div> </div> <!-- Column 2: Quick Links --> <div class="footer-col"> <h3 class="footer-heading">ניווט מהיר</h3> <ul class="footer-links"> <li><a href="/">בית</a></li> <li><a href="/hotels">מלונות</a></li> <li><a href="/attractions">אטרקציות</a></li> <li><a href="/wire-transfers-and-settlements">העברות וסים</a></li> <li><a href="/restaurants">מסעדות</a></li> <li><a href="/contact">צרו קשר</a></li> </ul> </div> <!-- Column 3: Contact --> <div class="footer-col"> <h3 class="footer-heading">צור קשר</h3> <ul class="footer-contact"> <li> <span class="contact-icon"><i class="fas fa-envelope" data-element-type="icon" data-element-id="icon-1779082998550-rkuk1u1mi" data-icon-type="fontawesome"></i></span> <span class="contact-text"><a href="mailto:laloumdubai@gmail.com">laloumdubai@gmail.com</a></span> </li> <li> <span class="contact-icon"><i class="fas fa-phone" data-element-type="icon" data-element-id="icon-1779082998550-h1pdve6w2" data-icon-type="fontawesome"></i></span> <span class="contact-text"><a href="tel:+972522212578" style>+972522212578</a></span> </li> <li><a href="/" style="display:flex;align-items:flex-start;gap:inherit">גני נד אל שבא, דובאי, איחוד האמירויות</a></li> </ul> </div> <!-- Column 4: Hours --> <div class="footer-col"> <h3 class="footer-heading">שעות פעילות</h3> <ul class="footer-hours" style><li style="color: #221C2F">יום ראשון&nbsp;09:00 – 23:00</li><li style="color: #221C2F">יום שני&nbsp;09:00 – 23:00</li><li style="color: #221C2F">יום שלישי&nbsp;09:00 – 23:00</li><li style="color: #221C2F">יום רביעי&nbsp;09:00 – 23:00</li><li style="color: #221C2F">יום חמישי&nbsp;09:00 – 23:00</li><li style="color: #221C2F">יום שישי&nbsp;09:00 – 16:00</li><li style="color: #221C2F">יום שבת&nbsp;21:00 – 23:00</li></ul>  </div> </div> <!-- Divider --> <div class="footer-divider"></div> <!-- Bottom Bar --> <div class="footer-bottom"> <p class="footer-copy">© 2026 Sarah laloum tourism llc. כל הזכויות שמורות.</p> <div class="footer-legal" style> <a href="/privacy">מדיניות פרטיות</a> <span class="legal-sep">·</span> <a href="/terms">תנאי שימוש</a><span class="separator">|</span>
+            <a href="/return-policy" aria-label="מדיניות החזרות">מדיניות החזרות</a> <span class="legal-sep">·</span> <a href="/accessibility">נגישות</a> <span class="legal-sep">·</span> <a href="https://zappy5.com" target="_blank" class="zappy-attribution" style><br /><br /><br /></a> </div> </div> </div> </footer>
   
   <a href="https://wa.me/[whatsapp_handle]" class="whatsapp-float" aria-label="WhatsApp">
     <i class="fab fa-whatsapp"></i>
