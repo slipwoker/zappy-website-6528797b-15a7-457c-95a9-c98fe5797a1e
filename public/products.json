@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-14T13:41:55.786Z",
+  "generated_at": "2026-07-14T13:44:35.362Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 41,
@@ -469,7 +469,7 @@
     },
     {
       "id": "70013942-8198-4af4-b23e-60a25b128b2f",
-      "slug": "tyvl-spary-bmdbr-safari-desert-l7l2kj",
+      "slug": "tyvl-spary-bmdbr-safari-desert-xguyq2",
       "name": "טיול ספארי במדבר SAFARI DESERT",
       "name_translations": {
         "he": "טיול ספארי במדבר SAFARI DESERT"
@@ -487,12 +487,12 @@
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/tyvl-spary-bmdbr-safari-desert-l7l2kj",
+      "url": "https://dubai-plus.co.il/product/tyvl-spary-bmdbr-safari-desert-xguyq2",
       "categories": [
         "אקסטרים וטיול מדבר",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-14T12:39:18.647Z"
+      "updated_at": "2026-07-14T13:44:12.556Z"
     },
     {
       "id": "8c18b03b-f213-444d-9f55-0bcfa68ae571",
