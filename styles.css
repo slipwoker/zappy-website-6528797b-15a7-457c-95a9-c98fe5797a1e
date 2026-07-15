@@ -25131,6 +25131,142 @@ nav.navbar .sub-menu li a {
 .navbar .nav-ecommerce-icons #cart-drawer-toggle {
   color: #FFF7ED !important;
 }
+
+.navbar .nav-ecommerce-icons.nav-icons-left a.login-link.nav-login {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar .nav-ecommerce-icons #cart-drawer-toggle {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar .nav-ecommerce-icons .cart-link.nav-cart {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar .nav-search-box .nav-search-btn svg {
+  stroke: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar .nav-search-btn svg.search-icon {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar.scrolled ~ #zappy-catalog-menu .catalog-menu-item {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar.scrolled ~ #zappy-catalog-menu .catalog-menu-all {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar #navMenu > li > .menu-group-title {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar .nav-ecommerce-icons #cart-drawer-toggle {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar .nav-container .nav-ecommerce-icons.nav-icons-left a.login-link.nav-login {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar .nav-container .nav-ecommerce-icons.nav-icons-right .nav-search-toggle svg {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar.scrolled ~ .zappy-catalog-menu .catalog-menu-item {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar.scrolled ~ .zappy-catalog-menu .catalog-menu-all {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar.scrolled .nav-menu > .nav-item > a {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar.scrolled .cart-link.nav-cart {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar.scrolled .login-link.nav-login {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar .nav-menu > .nav-item > a {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar .nav-menu .sub-menu a {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar .nav-menu .sub-menu li a {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar .zappy-products-dropdown .sub-menu a {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar .cart-link.nav-cart svg {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar .login-link.nav-login svg {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar.scrolled .nav-menu > li > a {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar.scrolled a:not(.nav-cta-btn) {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar.scrolled .navbar-brand a {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar.scrolled .mobile-toggle svg {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar.scrolled .mobile-hamburger-btn svg {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar.scrolled .mobile-close-btn svg {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar.scrolled .phone-header-btn svg {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar.scrolled .navbar-brand svg {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar.scrolled .logo-link svg {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar .nav-search-results button.search-view-all {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar .nav-menu > li > .menu-group-title {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
+
+.navbar .nav-ecommerce-icons a:link {
+  color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
