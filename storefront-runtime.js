@@ -15463,6 +15463,55 @@ async function loadRelatedProducts(currentProduct, t) {
     
 /* ZAPPY_INTEGRATION_END unknown:setup_contact_form_emails */
 
+/* ZAPPY_CUSTOM_JS_START:2b93c91a56e3 */
+(function () {
+  function __zappyCustomInit() {
+    try {
+// Connect the nav search button (magnifying glass) to the mobile search panel
+(function() {
+  const searchBtn = document.getElementById('nav-search-btn');
+  const searchPanel = document.getElementById('mobile-search-panel');
+  if (!searchBtn || !searchPanel) return;
+
+  searchBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (searchPanel.style.display === 'flex' || searchPanel.classList.contains('active')) {
+      // Close search panel
+      searchPanel.style.display = '';
+      searchPanel.classList.remove('active');
+    } else {
+      // Open search panel
+      searchPanel.style.display = 'flex';
+      searchPanel.classList.add('active');
+      // Focus the search input
+      const input = document.getElementById('mobile-search-input');
+      if (input) setTimeout(function() { input.focus(); }, 100);
+    }
+  });
+
+  // Close button handler
+  const closeBtn = document.getElementById('close-mobile-search');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function() {
+      searchPanel.style.display = '';
+      searchPanel.classList.remove('active');
+    });
+  }
+})();
+    } catch (e) {
+      if (typeof console !== 'undefined' && console.warn) { console.warn('[zappy-custom-js]', e); }
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', __zappyCustomInit);
+  } else {
+    __zappyCustomInit();
+  }
+})();
+/* ZAPPY_CUSTOM_JS_END:2b93c91a56e3 */
+
 
 /* ZAPPY_PUBLISHED_LIGHTBOX_RUNTIME */
 (function(){

@@ -25531,6 +25531,71 @@ nav.navbar .sub-menu li a {
 .navbar #navMenu > li.menu-group-item > .menu-group-title {
   color: #FFF7ED !important;
 }
+
+.navbar .nav-ecommerce-icons.nav-icons-left .nav-search-box {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.navbar .nav-ecommerce-icons.nav-icons-left .nav-search-box .nav-search-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  color: var(--nav-text, #FFF7ED) !important;
+}
+
+.navbar .nav-ecommerce-icons.nav-icons-left .nav-search-box .nav-search-btn svg.search-icon {
+  width: 22px !important;
+  height: 22px !important;
+}
+
+.navbar.scrolled ~ #zappy-catalog-menu .catalog-menu-item {
+  color: var(--nav-text, #FFF7ED) !important;
+}
+
+.navbar.scrolled ~ #zappy-catalog-menu .catalog-menu-all {
+  color: var(--nav-text, #FFF7ED) !important;
+}
+
+.navbar #navMenu > li > .menu-group-title {
+  color: var(--nav-text, #FFF7ED) !important;
+}
+
+.navbar .nav-ecommerce-icons #cart-drawer-toggle {
+  color: var(--nav-text, #FFF7ED) !important;
+}
+
+.navbar .nav-container .nav-ecommerce-icons.nav-icons-left a.login-link.nav-login {
+  color: var(--nav-text, #FFF7ED) !important;
+}
+
+.navbar .nav-container .nav-ecommerce-icons.nav-icons-right .nav-search-toggle svg {
+  color: var(--nav-text, #FFF7ED) !important;
+}
+
+.navbar .nav-ecommerce-icons.nav-icons-left a.login-link.nav-login {
+  color: var(--nav-text, #FFF7ED) !important;
+}
+
+.navbar .nav-ecommerce-icons.nav-icons-left #cart-drawer-toggle {
+  color: var(--nav-text, #FFF7ED) !important;
+}
+
+.navbar #navMenu > li.menu-group-item > .menu-group-title {
+  color: var(--nav-text, #FFF7ED) !important;
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
