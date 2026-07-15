@@ -127,15 +127,15 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dubai-plus.co.il/blog/kosher-dubai</loc>
-    <lastmod>2026-07-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://dubai-plus.co.il/dubai-magazine-for-israeli-travelers</loc>
     <lastmod>2026-07-15</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dubai-plus.co.il/blog/kosher-dubai</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
