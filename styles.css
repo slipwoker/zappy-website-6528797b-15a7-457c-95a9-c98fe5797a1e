@@ -25267,6 +25267,82 @@ nav.navbar .sub-menu li a {
 .navbar .nav-ecommerce-icons a:link {
   color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
 }
+
+.navbar .nav-container .nav-ecommerce-icons.nav-icons-left a.login-link.nav-login {
+  color: #221C2F !important;
+}
+
+.navbar .nav-container .nav-ecommerce-icons.nav-icons-left a.login-link.nav-login svg.login-icon {
+  stroke: #221C2F !important;
+}
+
+.navbar .nav-ecommerce-icons.nav-icons-left #cart-drawer-toggle {
+  color: #221C2F !important;
+}
+
+.navbar .nav-ecommerce-icons.nav-icons-left #cart-drawer-toggle svg.cart-icon {
+  stroke: #221C2F !important;
+}
+
+.navbar .nav-ecommerce-icons.nav-icons-left .nav-search-box .nav-search-btn svg.search-icon {
+  stroke: #221C2F !important;
+}
+
+.navbar .nav-ecommerce-icons.nav-icons-left .nav-search-btn {
+  color: #221C2F !important;
+}
+
+.navbar.scrolled ~ #zappy-catalog-menu .catalog-menu-item {
+  color: #221C2F !important;
+}
+
+.navbar.scrolled ~ #zappy-catalog-menu .catalog-menu-all {
+  color: #221C2F !important;
+}
+
+.navbar #navMenu > li > .menu-group-title {
+  color: #221C2F !important;
+}
+
+.navbar .nav-ecommerce-icons #cart-drawer-toggle {
+  color: #221C2F !important;
+}
+
+.navbar.scrolled ~ .zappy-catalog-menu .catalog-menu-item {
+  color: #221C2F !important;
+}
+
+.navbar.scrolled ~ .zappy-catalog-menu .catalog-menu-all {
+  color: #221C2F !important;
+}
+
+.navbar.scrolled .nav-menu > .nav-item > a {
+  color: #221C2F !important;
+}
+
+.navbar.scrolled .cart-link.nav-cart {
+  color: #221C2F !important;
+}
+
+.navbar.scrolled .login-link.nav-login {
+  color: #221C2F !important;
+}
+
+.navbar .nav-container .nav-ecommerce-icons.nav-icons-left a.login-link.nav-login {
+  color: #221C2F !important;
+}
+
+.navbar .nav-container .nav-ecommerce-icons.nav-icons-right .nav-search-toggle svg {
+  color: #221C2F !important;
+}
+
+.navbar .nav-ecommerce-icons.nav-icons-left a.login-link.nav-login {
+  color: #221C2F !important;
+}
+
+.navbar .nav-ecommerce-icons .cart-link.nav-cart {
+  color: #221C2F !important;
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
