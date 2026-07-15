@@ -140,9 +140,10 @@ Information about WCAG compliance and accessibility features.
 **Total active products: 45**
 
 ### לימוזינה יוקרתית בדובאי  Luxury Limousine Dubai
-https://dubai-plus.co.il/product/lymvzynh-yvkrtyt-bdvbay-luxury-limousine-dubai-ex1hoz
+https://dubai-plus.co.il/product/lymvzynh-yvkrtyt-bdvbay-luxury-limousine-dubai-62denx
 - Price: 800.00 ILS
 - Availability: In stock
+- Category: אטרקציות בדובאי
 - Description: לימוזינה יוקרתית בדובאי הפכו כל אירוע לחוויה בלתי נשכחת עם לימוזינה מפוארת בדובאי. מושלמת לימי הולדת, הצעות נישואין, מסיבות, סיורים בעיר או הסעה יוקרתית – עם נהג מקצועי ושירות ברמה הגבוהה ביותר.
 - Image: https://dubai-plus.co.il/assets/product-1784123372057-5p18g.webp
 
