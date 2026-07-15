@@ -24659,6 +24659,218 @@ main,
     padding: 0 16px 16px;
   }
 }
+
+.navbar .nav-menu > li > a,
+.navbar .nav-menu > li > .menu-group-title,
+.navbar .nav-ecommerce-icons a,
+.navbar .nav-ecommerce-icons svg,
+.navbar .nav-search-btn svg {
+  color: #FFF7ED !important;
+  font-size: 14.4px !important;
+  font-weight: 500 !important;
+  fill: #FFF7ED !important;
+  stroke: #FFF7ED !important;
+}
+
+.navbar .nav-ecommerce-icons svg {
+  stroke: #FFF7ED !important;
+}
+
+.navbar .nav-menu > .nav-item > a {
+  color: #FFF7ED !important;
+}
+
+.navbar .navbar-nav .nav-link {
+  color: #FFF7ED !important;
+}
+
+.navbar .dropdown-menu li a {
+  color: #FFF7ED !important;
+}
+
+.navbar .dropdown-menu .dropdown-item {
+  color: #FFF7ED !important;
+}
+
+.navbar .sub-menu li a {
+  color: #FFF7ED !important;
+}
+
+.navbar .nav-menu .sub-menu a {
+  color: #FFF7ED !important;
+}
+
+.navbar .nav-menu .sub-menu li a {
+  color: #FFF7ED !important;
+}
+
+.navbar .zappy-products-dropdown .sub-menu a {
+  color: #FFF7ED !important;
+}
+
+nav.navbar .sub-menu li a {
+  color: #FFF7ED !important;
+}
+
+.navbar .nav-search-box .nav-search-input {
+  color: #FFF7ED !important;
+}
+
+.navbar .cart-link.nav-cart {
+  color: #FFF7ED !important;
+}
+
+.navbar .login-link.nav-login {
+  color: #FFF7ED !important;
+}
+
+.navbar .cart-link.nav-cart svg {
+  color: #FFF7ED !important;
+}
+
+.navbar .login-link.nav-login svg {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled ~ .zappy-catalog-menu .catalog-menu-item {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled ~ .zappy-catalog-menu .catalog-menu-all {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled ~ #zappy-catalog-menu .catalog-menu-item {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled ~ #zappy-catalog-menu .catalog-menu-all {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled .nav-menu > li > a {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled .nav-menu > .nav-item > a {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled .nav-link {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled a:not(.nav-cta-btn) {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled .navbar-brand {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled .navbar-brand a {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled .dropdown-toggle {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled .mobile-hamburger-btn {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled .mobile-close-btn {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled .phone-header-btn {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled .mobile-toggle {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled .mobile-toggle svg {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled .mobile-hamburger-btn svg {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled .mobile-close-btn svg {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled .phone-header-btn svg {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled .navbar-brand svg {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled .logo-link svg {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled .nav-search-btn {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled .cart-link.nav-cart {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled .login-link.nav-login {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled .nav-search-toggle {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled .search-toggle {
+  color: #FFF7ED !important;
+}
+
+.navbar .nav-search-results button.search-view-all {
+  color: #FFF7ED !important;
+}
+
+.navbar .nav-menu > li > a {
+  color: #FFF7ED !important;
+}
+
+.navbar a:not(.nav-cta-btn) {
+  color: #FFF7ED !important;
+}
+
+.navbar .navbar-brand a {
+  color: #FFF7ED !important;
+}
+
+.navbar .sub-menu a {
+  color: #FFF7ED !important;
+}
+
+.navbar .nav-search-input::placeholder {
+  color: #FFF7ED !important;
+}
+
+.navbar .nav-search-result-item a {
+  color: #FFF7ED !important;
+}
+
+.navbar .nav-search-toggle svg {
+  color: #FFF7ED !important;
+}
+
+.navbar .search-toggle svg {
+  color: #FFF7ED !important;
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
