@@ -25106,6 +25106,31 @@ nav.navbar .sub-menu li a {
 .navbar .nav-search-btn svg {
   color: #FFF7ED !important;
 }
+
+.navbar .nav-container .nav-ecommerce-icons.nav-icons-left a.login-link.nav-login {
+  color: #FFF7ED !important;
+}
+
+.navbar .nav-container .nav-ecommerce-icons.nav-icons-right .nav-search-toggle svg {
+  stroke: #FFF7ED !important;
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled ~ #zappy-catalog-menu .catalog-menu-item {
+  color: #FFF7ED !important;
+}
+
+.navbar.scrolled ~ #zappy-catalog-menu .catalog-menu-all {
+  color: #FFF7ED !important;
+}
+
+.navbar #navMenu > li > .menu-group-title {
+  color: #FFF7ED !important;
+}
+
+.navbar .nav-ecommerce-icons #cart-drawer-toggle {
+  color: #FFF7ED !important;
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
