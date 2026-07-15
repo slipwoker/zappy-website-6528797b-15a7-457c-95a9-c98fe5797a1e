@@ -1624,14 +1624,11 @@ html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .dropdown-menu {
     display: none !important;
   }
   
-  /* When .nav-right-group wrapper is absent, the nav-container has 3 direct
-     children (brand, menu, CTA) with space-between. flex:1 makes the menu
-     fill the gap, and justify-content:flex-start pushes items toward the
-     logo side instead of centering them in the available space. */
   .nav-menu {
-    flex: 1 !important;
-    justify-content: flex-start !important;
-  }
+  flex: 1 !important;
+  justify-content: flex-start !important;
+  gap: 20px;
+}
 }
 
 /* ============================================
@@ -25346,6 +25343,16 @@ nav.navbar .sub-menu li a {
 
 .navbar #navMenu > li.menu-group-item > .menu-group-title {
   color: #FFF7ED !important;
+}
+
+@media (min-width: 769px) {
+.nav-search-box {
+  width: 109px !important;
+}
+
+.nav-search-input {
+  width: 80px !important;
+}
 }
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
