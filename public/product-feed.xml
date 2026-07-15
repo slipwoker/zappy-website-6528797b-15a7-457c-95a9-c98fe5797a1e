@@ -4,7 +4,7 @@
     <title>Sarah laloum tourism llc</title>
     <link>https://dubai-plus.co.il</link>
     <description>Product feed for Sarah laloum tourism llc</description>
-    <lastBuildDate>Wed, 15 Jul 2026 10:34:45 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jul 2026 10:36:51 GMT</lastBuildDate>
     <item>
       <g:id>0bde99b6-e255-4bc5-bbfe-894fdc0b10ef</g:id>
       <g:title>נהג יום שלם (10 שעות) - רכב 12 מושבים / יום שלם - דובאי</g:title>
@@ -215,13 +215,28 @@
       <g:product_type>העברות בדובאי ואבו דאבי</g:product_type>
     </item>
     <item>
-      <g:id>a58c5a55-5105-4f97-bfdf-7e25d369d15d</g:id>
-      <g:title>טיול ספארי מדבר כשר Kosher Desert Safari</g:title>
+      <g:id>1d39fd84-4a91-4fcb-ae67-8393a9b7bb40</g:id>
+      <g:title>טיול ספארי מדבר כשר Kosher Desert Safari - מבוגר / ילד</g:title>
       <g:description>חוו את טיול המדבר הכשר המוביל בדובאי, המתקיים בכל יום שלישי. הטיול כולל נסיעה בג’יפ 4X4 בדיונות, עצירה לנהיגה עצמאית (בתשלום נפרד), רכיבה על גמלים, צפייה בשקיעה במדבר וארוחת ערב בשרית עשירה בכשרות המהודרת של הרב לוי דוכמן – חב”ד דובאי. חוויה מושלמת למשפחות, זוגות וקבוצות</g:description>
       <g:link>https://dubai-plus.co.il/product/tyvl-spary-mdbr-kshr-kosher-desert-safari-mxg4t5</g:link>
+      <g:item_group_id>a58c5a55-5105-4f97-bfdf-7e25d369d15d</g:item_group_id>
       <g:image_link>https://dubai-plus.co.il/assets/product-1784030828929-tpspw9.webp</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>350.00 ILS</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Sarah laloum tourism llc</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>אקסטרים וטיול מדבר</g:product_type>
+    </item>
+    <item>
+      <g:id>f13383a1-292b-4d28-aae5-58160c7dd39a</g:id>
+      <g:title>טיול ספארי מדבר כשר Kosher Desert Safari - תוספת ילד (לכל הזמנה של 4-5 מבוגרים בלבד)</g:title>
+      <g:description>חוו את טיול המדבר הכשר המוביל בדובאי, המתקיים בכל יום שלישי. הטיול כולל נסיעה בג’יפ 4X4 בדיונות, עצירה לנהיגה עצמאית (בתשלום נפרד), רכיבה על גמלים, צפייה בשקיעה במדבר וארוחת ערב בשרית עשירה בכשרות המהודרת של הרב לוי דוכמן – חב”ד דובאי. חוויה מושלמת למשפחות, זוגות וקבוצות</g:description>
+      <g:link>https://dubai-plus.co.il/product/tyvl-spary-mdbr-kshr-kosher-desert-safari-mxg4t5</g:link>
+      <g:item_group_id>a58c5a55-5105-4f97-bfdf-7e25d369d15d</g:item_group_id>
+      <g:image_link>https://dubai-plus.co.il/assets/product-1784030828929-tpspw9.webp</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>175.00 ILS</g:price>
       <g:condition>new</g:condition>
       <g:brand>Sarah laloum tourism llc</g:brand>
       <g:identifier_exists>no</g:identifier_exists>
