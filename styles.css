@@ -25343,6 +25343,10 @@ nav.navbar .sub-menu li a {
 .navbar .nav-ecommerce-icons .cart-link.nav-cart {
   color: #221C2F !important;
 }
+
+.navbar #navMenu > li.menu-group-item > .menu-group-title {
+  color: #FFF7ED !important;
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
