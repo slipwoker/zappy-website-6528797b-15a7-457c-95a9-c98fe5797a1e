@@ -25354,6 +25354,37 @@ nav.navbar .sub-menu li a {
   width: 80px !important;
 }
 }
+
+.nav-search-box {
+  width: auto !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.navbar #nav-search-input {
+  display: none !important;
+}
+
+.nav-search-btn {
+  position: static !important;
+  left: auto !important;
+  right: auto !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: var(--nav-text) !important;
+  cursor: pointer !important;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.nav-search-btn svg.search-icon {
+  width: 20px !important;
+  height: 20px !important;
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
