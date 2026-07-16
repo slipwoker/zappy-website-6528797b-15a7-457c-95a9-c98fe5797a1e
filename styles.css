@@ -25603,6 +25603,8 @@ nav.navbar .sub-menu li a {
   display: flex !important;
   align-items: center !important;
 }
+/* Batch: Change announcement bar text to black on non-home pages */
+.zappy-announcement-bar { color: #000000 !important; } .zappy-announcement-bar .zappy-announcement-message { color: #000000 !important; }
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
