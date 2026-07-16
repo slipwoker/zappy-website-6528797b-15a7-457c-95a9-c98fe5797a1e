@@ -25611,6 +25611,10 @@ nav.navbar .sub-menu li a {
 body .zappy-announcement-bar, body .zappy-announcement-bar .zappy-announcement-message { color: #000000 !important; }
 /* Batch: Set announcement bar text to black */
 html body .zappy-announcement-bar, html body .zappy-announcement-bar .zappy-announcement-message, html body .zappy-announcement-bar .zappy-announcement-message.active { color: #000000 !important; }
+
+#navMenu > li.menu-group-item:nth-child(2) > .menu-group-title {
+  color: #000000 !important;
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
