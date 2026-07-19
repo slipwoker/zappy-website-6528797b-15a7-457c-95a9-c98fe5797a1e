@@ -2383,11 +2383,11 @@ window.onload = function() {
                     phoneHeaderBtn.addEventListener('click', function() {
                         // Dynamically get phone number from existing tel: links on the page
                         // This ensures the phone button uses the same number as other phone links
-                        // Falls back to [business_phone] placeholder which businessInfoUpdater can replace
+                        // Falls back to +972522212578 placeholder which businessInfoUpdater can replace
                         const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
                         const phoneNumber = phoneLinks.length > 0 
                             ? phoneLinks[0].getAttribute('href').replace('tel:', '')
-                            : '[business_phone]';
+                            : '+972522212578';
                         window.location.href = 'tel:' + phoneNumber;
                     });
                 }
@@ -2410,13 +2410,13 @@ window.onload = function() {
                 '[tiktok_handle]',
                 '[pinterest_handle]',
                 // Old format (full URL placeholders)
-                '[social_facebook]',
+                'https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdubai-plus.co.il%2Fblog%2Ffirst-time-dubai',
                 '[social instagram]',
                 '[social_instagram]',
                 '[social whatsapp]',
                 '[social_whatsapp]',
-                '[social_twitter]',
-                '[social_linkedin]',
+                'https://twitter.com/intent/tweet?url=https%3A%2F%2Fdubai-plus.co.il%2Fblog%2Ffirst-time-dubai&text=Generated%20Website%20-%20Full%20Screen%20Preview',
+                'https://linkedin.com/company/shareArticle?mini=true&url=https%3A%2F%2Fdubai-plus.co.il%2Fblog%2Ffirst-time-dubai&title=Generated%20Website%20-%20Full%20Screen%20Preview',
                 '[social_youtube]',
                 '[social_tiktok]',
                 '[social_pinterest]'
@@ -15384,11 +15384,11 @@ async function loadRelatedProducts(currentProduct, t) {
                     phoneHeaderBtn.addEventListener('click', function() {
                         // Dynamically get phone number from existing tel: links on the page
                         // This ensures the phone button uses the same number as other phone links
-                        // Falls back to [business_phone] placeholder which businessInfoUpdater can replace
+                        // Falls back to +972522212578 placeholder which businessInfoUpdater can replace
                         const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
                         const phoneNumber = phoneLinks.length > 0 
                             ? phoneLinks[0].getAttribute('href').replace('tel:', '')
-                            : '[business_phone]';
+                            : '+972522212578';
                         window.location.href = 'tel:' + phoneNumber;
                     });
                 }
@@ -15411,13 +15411,13 @@ async function loadRelatedProducts(currentProduct, t) {
                 '[tiktok_handle]',
                 '[pinterest_handle]',
                 // Old format (full URL placeholders)
-                '[social_facebook]',
+                'https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdubai-plus.co.il%2Fblog%2Ffirst-time-dubai',
                 '[social instagram]',
                 '[social_instagram]',
                 '[social whatsapp]',
                 '[social_whatsapp]',
-                '[social_twitter]',
-                '[social_linkedin]',
+                'https://twitter.com/intent/tweet?url=https%3A%2F%2Fdubai-plus.co.il%2Fblog%2Ffirst-time-dubai&text=Generated%20Website%20-%20Full%20Screen%20Preview',
+                'https://linkedin.com/company/shareArticle?mini=true&url=https%3A%2F%2Fdubai-plus.co.il%2Fblog%2Ffirst-time-dubai&title=Generated%20Website%20-%20Full%20Screen%20Preview',
                 '[social_youtube]',
                 '[social_tiktok]',
                 '[social_pinterest]'
