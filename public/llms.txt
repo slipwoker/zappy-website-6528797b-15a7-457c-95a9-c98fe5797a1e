@@ -135,7 +135,7 @@ Information about WCAG compliance and accessibility features.
 
 ### לימוזינה יוקרתית בדובאי  Luxury Limousine Dubai
 https://dubai-plus.co.il/product/lymvzynh-yvkrtyt-bdvbay-luxury-limousine-dubai-yc5yyp
-- Price: 800.00 USD
+- Price: 800.00 ILS
 - Availability: In stock
 - Category: אטרקציות בדובאי
 - Description: לימוזינה יוקרתית בדובאי הפכו כל אירוע לחוויה בלתי נשכחת עם לימוזינה מפוארת בדובאי. מושלמת לימי הולדת, הצעות נישואין, מסיבות, סיורים בעיר או הסעה יוקרתית – עם נהג מקצועי ושירות ברמה הגבוהה ביותר.
@@ -143,7 +143,7 @@ https://dubai-plus.co.il/product/lymvzynh-yvkrtyt-bdvbay-luxury-limousine-dubai-
 
 ### נהג יום שלם (10 שעות)
 https://dubai-plus.co.il/product/nhg-yvm-shlm-10-shavt-xn1yt4
-- Price: 0.00 USD
+- Price: 0.00 ILS
 - Availability: In stock
 - Category: העברות בדובאי ואבו דאבי
 - Description: נהג פרטי ליום שלם (10 שעות) גלו את דובאי בקצב שלכם עם נהג פרטי צמוד למשך 10 שעות. השירות כולל איסוף מכל מקום בעיר, נסיעה בין האטרקציות, הקניונים, המסעדות והאתרים המובילים – בנוחות, בבטיחות וללא דאגות.
@@ -151,7 +151,7 @@ https://dubai-plus.co.il/product/nhg-yvm-shlm-10-shavt-xn1yt4
 
 ### העברה מ/אל דובאי ל/אל אבו דאבי
 https://dubai-plus.co.il/product/habrh-mal-dvbay-lal-abv-daby-ao88kq
-- Price: 0.00 USD
+- Price: 0.00 ILS
 - Availability: In stock
 - Category: העברות בדובאי ואבו דאבי
 - Description: העברה פרטית בין דובאי לאבו דאבי נוסעים מדובאי לאבו דאבי או מאבו דאבי לדובאי? הזמינו שירות העברות פרטי ברכב ממוזג ונוח עם נהג מקצועי. שירות מדלת לדלת, ללא המתנה וללא שיתוף עם נוסעים נוספים – הדרך הנוחה והבטוחה לעבור בין שתי הערים.
@@ -159,7 +159,7 @@ https://dubai-plus.co.il/product/habrh-mal-dvbay-lal-abv-daby-ao88kq
 
 ### העברה מ/אל השדה תעופה אבו דאבי
 https://dubai-plus.co.il/product/habrh-mal-hshdh-tavph-abv-daby-g3a8bu
-- Price: 185.00 USD
+- Price: 185.00 ILS
 - Availability: In stock
 - Category: העברות בדובאי ואבו דאבי
 - Description: העברה פרטית משדה התעופה באבו דאבי למלון התחילו את החופשה בראש שקט עם שירות העברות פרטי משדה התעופה הבינלאומי של אבו דאבי (AUH) לכל מלון או יעד בעיר. נהג מקצועי ימתין לכם עם שלט, יסייע עם המזוודות וייקח אתכם ישירות למלון ברכב ממוזג, נוח ומרווח – ללא המתנה וללא שיתוף עם נוסעים נוספים.
@@ -167,7 +167,7 @@ https://dubai-plus.co.il/product/habrh-mal-hshdh-tavph-abv-daby-g3a8bu
 
 ### טיול ספארי מדבר כשר Kosher Desert Safari
 https://dubai-plus.co.il/product/tyvl-spary-mdbr-kshr-kosher-desert-safari-mxg4t5
-- Price: 350.00 USD
+- Price: 350.00 ILS
 - Availability: In stock
 - Category: אקסטרים וטיול מדבר
 - Description: חוו את טיול המדבר הכשר המוביל בדובאי, המתקיים בכל יום שלישי. הטיול כולל נסיעה בג’יפ 4X4 בדיונות, עצירה לנהיגה עצמאית (בתשלום נפרד), רכיבה על גמלים, צפייה בשקיעה במדבר וארוחת ערב בשרית עשירה בכשרות המהודרת של הרב לוי דוכמן – חב”ד דובאי. חוויה מושלמת למשפחות, זוגות וקבוצות
@@ -175,7 +175,7 @@ https://dubai-plus.co.il/product/tyvl-spary-mdbr-kshr-kosher-desert-safari-mxg4t
 
 ### טיול מדבר באבו דאבי
 https://dubai-plus.co.il/product/tyvl-mdbr-babv-daby-gmok68
-- Price: 215.00 USD
+- Price: 215.00 ILS
 - Availability: In stock
 - Category: אטרקציות באבו דאבי
 - Description: טיול מדבר באבו דאבי הוא חוויה מושלמת למי שרוצה לגלות את יופיו של המדבר האמירתי. הטיול כולל נסיעה בדיונות, רכיבה על גמלים, גלישת חול, ארוחת ערב אותנטית ומופעים מסורתיים – שילוב מושלם של טבע, תרבות ואדרנלין. טיול מדבר באבו דאבי
@@ -183,7 +183,7 @@ https://dubai-plus.co.il/product/tyvl-mdbr-babv-daby-gmok68
 
 ### טיסה במסוק מעל אבו דאבי
 https://dubai-plus.co.il/product/tysh-bmsvk-mal-abv-daby-e2vrjf
-- Price: 750.00 USD
+- Price: 750.00 ILS
 - Availability: In stock
 - Category: אטרקציות באבו דאבי
 - Description: טיסה במסוק באבו דאבי היא אחת החוויות היוקרתיות והמרשימות ביותר באיחוד האמירויות. במהלך הטיסה תיהנו מתצפית אווירית עוצרת נשימה על קו החוף, האיים המלאכותיים והאתרים המפורסמים של אבו דאבי – מזווית שלא ניתן לראות בשום דרך אחרת.
@@ -191,7 +191,7 @@ https://dubai-plus.co.il/product/tysh-bmsvk-mal-abv-daby-e2vrjf
 
 ### Dinner in the Sky Dubai – ארוחה בשמיים
 https://dubai-plus.co.il/product/dinner-in-the-sky-dubai-arvchh-bshmyym-vjn47i
-- Price: 750.00 USD
+- Price: 750.00 ILS
 - Availability: In stock
 - Category: מגדלים ותצפיות
 - Description: Dinner in the Sky Dubai היא אחת מחוויות האוכל הייחודיות בעולם. שבו סביב שולחן התלוי בגובה של כ-50 מטרים, ותיהנו מארוחה יוקרתית לצד נוף פנורמי מרהיב של קו החוף והאטרקציות המפורסמות של דובאי.
@@ -199,7 +199,7 @@ https://dubai-plus.co.il/product/dinner-in-the-sky-dubai-arvchh-bshmyym-vjn47i
 
 ### Sky Views Edge Walk – הליכה על קצה המגדל
 https://dubai-plus.co.il/product/sky-views-edge-walk-hlykh-al-ktsh-hmgdl-rg0nfu
-- Price: 350.00 USD
+- Price: 350.00 ILS
 - Availability: In stock
 - Category: אקסטרים וטיול מדבר
 - Description: Sky Views Edge Walk היא אחת מחוויות האקסטרים הגבוהות והמרגשות ביותר בדובאי. צאו להליכה חיצונית על שפת המגדל בגובה של יותר מ-219 מטרים, ללא מעקה, כשאתם מחוברים למערכת בטיחות מתקדמת ונהנים מנוף פנורמי עוצר נשימה של העיר.
@@ -207,7 +207,7 @@ https://dubai-plus.co.il/product/sky-views-edge-walk-hlykh-al-ktsh-hmgdl-rg0nfu
 
 ### Flyboard Dubai – פלייבורד בדובאי
 https://dubai-plus.co.il/product/flyboard-dubai-plyybvrd-bdvbay-g5ocxh
-- Price: 390.00 USD
+- Price: 390.00 ILS
 - Availability: In stock
 - Category: שייט וספורט ימי אבו דאבי
 - Description: Flyboard Dubai היא אחת מחוויות האקסטרים המלהיבות ביותר בדובאי. בעזרת סילוני מים עוצמתיים תוכלו לרחף מעל הים, לבצע פניות, קפיצות ותרגילים מרשימים – והכל בליווי מדריך מקצועי ובטיחותי.
@@ -215,7 +215,7 @@ https://dubai-plus.co.il/product/flyboard-dubai-plyybvrd-bdvbay-g5ocxh
 
 ### ifly dubai
 https://dubai-plus.co.il/product/ifly-dubai-nq0fdw
-- Price: 180.00 USD
+- Price: 180.00 ILS
 - Availability: In stock
 - Category: אקסטרים וטיול מדבר
 - Description: iFLY Dubai היא חוויית צניחה חופשית במנהרת רוח מתקדמת, המאפשרת להרגיש כמו בצניחה אמיתית – ללא צורך לקפוץ ממטוס. הפעילות מתאימה למתחילים ולמנוסים כאחד, ומספקת שילוב מושלם של אדרנלין, כיף וחוויה בלתי נשכחת לכל המשפחה.
@@ -223,7 +223,7 @@ https://dubai-plus.co.il/product/ifly-dubai-nq0fdw
 
 ### Love Boats Dubai – שייט בסירות האהבה
 https://dubai-plus.co.il/product/love-boats-dubai-shyyt-bsyrvt-hahbh-wgqseq
-- Price: 100.00 USD
+- Price: 100.00 ILS
 - Availability: In stock
 - Category: שייט ופעילות ימית
 - Description: Love Boats Dubai הוא שייט מהיר בסירת מנוע עוצמתית, המאפשר לחוות את קו החוף של דובאי מקרוב. במהלך ההפלגה תעברו ליד האטרקציות המפורסמות ביותר בעיר, תיהנו מנופים עוצרי נשימה, עצירות לצילום והרבה אדרנלין.
@@ -231,7 +231,7 @@ https://dubai-plus.co.il/product/love-boats-dubai-shyyt-bsyrvt-hahbh-wgqseq
 
 ### The Yellow Boats Dubai – השייט בסירות הצהובות
 https://dubai-plus.co.il/product/the-yellow-boats-dubai-hshyyt-bsyrvt-htshvbvt-mf36zq
-- Price: 150.00 USD
+- Price: 150.00 ILS
 - Availability: In stock
 - Category: שייט ופעילות ימית
 - Description: The Yellow Boats Dubai הוא שייט מהיר ומהנה בסירות הצהובות המפורסמות של דובאי. במהלך ההפלגה תיהנו משילוב של אדרנלין, נופים מרהיבים והסברים על האטרקציות המרכזיות לאורך קו החוף של העיר.
@@ -239,7 +239,7 @@ https://dubai-plus.co.il/product/the-yellow-boats-dubai-hshyyt-bsyrvt-htshvbvt-m
 
 ### שייט בסירות השחורות BLACK BOAT
 https://dubai-plus.co.il/product/shyyt-bsyrvt-hshchvrvt-black-boat-8osus2
-- Price: 95.00 USD
+- Price: 95.00 ILS
 - Availability: In stock
 - Category: שייט ופעילות ימית
 - Description: שייט בסירת Black Boat הוא אחת מחוויות השייט המהירות והמהנות ביותר בדובאי. הפליגו בסירת RIB עוצמתית לאורך קו החוף של העיר, עברו ליד האטרקציות המפורסמות ביותר ותיהנו משילוב מושלם של אדרנלין, נופים עוצרי נשימה וצילומים בלתי נשכחים.
@@ -247,7 +247,7 @@ https://dubai-plus.co.il/product/shyyt-bsyrvt-hshchvrvt-black-boat-8osus2
 
 ### העברה מהשדה תעופה בדובאי או אל השדה תעופה 
 https://dubai-plus.co.il/product/habrh-mhshdh-tavph-bdvbay-av-al-hshdh-tavph-xqqarr
-- Price: 0.00 USD
+- Price: 0.00 ILS
 - Availability: In stock
 - Category: העברות בדובאי ואבו דאבי
 - Description: העברה פרטית משדה התעופה בדובאי התחילו את החופשה בראש שקט עם שירות העברות פרטי משדה התעופה לכל יעד בדובאי. הנהגים שלנו ימתינו לכם עם שלט קבלת פנים, יסייעו עם המזוודות וייקחו אתכם ישירות למלון ברכב ממוזג, נוח ומרווח – ללא המתנה וללא שיתוף עם נוסעים נוספים.
@@ -255,7 +255,7 @@ https://dubai-plus.co.il/product/habrh-mhshdh-tavph-bdvbay-av-al-hshdh-tavph-xqq
 
 ### שייט משותף שעה במרינה
 https://dubai-plus.co.il/product/shyyt-mshvtp-shah-bmrynh-a02oce
-- Price: 89.00 USD (sale, was 120.00 USD)
+- Price: 89.00 ILS (sale, was 120.00 ILS)
 - Availability: In stock
 - Category: אטרקציות בדובאי
 - Description: שייט משותף במרינה של דובאי הוא דרך מושלמת ליהנות מחוויית יאכטה יוקרתית במחיר משתלם. במהלך השייט תפליגו לאורך קו החוף של דובאי, תעברו מול האטרקציות המפורסמות ביותר ותיהנו מנופים מרהיבים, מוזיקה, אווירה נעימה.
@@ -263,7 +263,7 @@ https://dubai-plus.co.il/product/shyyt-mshvtp-shah-bmrynh-a02oce
 
 ### מוזיאון השעווה דובאי Madame Tussauds Dubai
 https://dubai-plus.co.il/product/mvzyavn-hshavvh-dvbay-madame-tussauds-dubai-c3fgob
-- Price: 67.00 USD
+- Price: 67.00 ILS
 - Availability: In stock
 - Category: מופעים ומוזיאונים
 - Description: Madame Tussauds Dubai הוא מוזיאון השעווה המפורסם בעולם, שבו תוכלו לפגוש מקרוב עשרות דמויות שעווה של כוכבי קולנוע, זמרים, ספורטאים, מנהיגים ואנשי תרבות מכל העולם. חוויה מהנה, אינטראקטיבית ומושלמת לכל המשפחה.
@@ -271,7 +271,7 @@ https://dubai-plus.co.il/product/mvzyavn-hshavvh-dvbay-madame-tussauds-dubai-c3f
 
 ### מוזיאון OLIOLI
 https://dubai-plus.co.il/product/mvzyavn-olioli-3dgr2c
-- Price: 128.00 USD
+- Price: 128.00 ILS
 - Availability: In stock
 - Category: אטרקציות לילדים
 - Description: OliOli® Dubai הוא מוזיאון אינטראקטיבי לילדים המשלב משחק, יצירתיות, מדע ודמיון. עם למעלה מ-40 מתקנים ומיצגים מעשירים בשמונה גלריות שונות, זוהי אחת האטרקציות המומלצות ביותר למשפחות עם ילדים בדובאי.
@@ -279,7 +279,7 @@ https://dubai-plus.co.il/product/mvzyavn-olioli-3dgr2c
 
 ### כוכב הלכת הירוק
 https://dubai-plus.co.il/product/kvkb-hlkt-hyrvk-hl1m6g
-- Price: 139.00 USD
+- Price: 139.00 ILS
 - Availability: In stock
 - Category: פארקים וגנים
 - Description: The Green Planet Dubai הוא יער גשם טרופי מקורה בלב דובאי, שבו חיים למעלה מ-3,000 בעלי חיים וצמחים אקזוטיים. זוהי חוויה ייחודית לכל המשפחה המשלבת טבע, חינוך והרפתקה באחד המקומות המיוחדים ביותר בעיר.
@@ -287,7 +287,7 @@ https://dubai-plus.co.il/product/kvkb-hlkt-hyrvk-hl1m6g
 
 ### שייט הלוטוס – Lotus Mega Yacht Dinner Cruise
 https://dubai-plus.co.il/product/shyyt-hlvtvs-lotus-mega-yacht-dinner-cruise-j7oq08
-- Price: 229.00 USD
+- Price: 229.00 ILS
 - Availability: In stock
 - Category: שייט ופעילות ימית
 - Description: שייט הלוטוס – Lotus Mega Yacht Dinner Cruise חוויית ערב יוקרתית על אחת היאכטות המרשימות ביותר בדובאי. במהלך השייט תיהנו מארוחת בופה עשירה עם עמדות הכנה חיות, מופעי בידור, DJ חי, נופים מרהיבים של קו החוף של דובאי ואווירה בלתי נשכחת. השייט יוצא ממרינת דובאי ונמשך כ-3 שעות.
@@ -295,7 +295,7 @@ https://dubai-plus.co.il/product/shyyt-hlvtvs-lotus-mega-yacht-dinner-cruise-j7o
 
 ### מופע לה פרל דובאי La Perle By Dragone
 https://dubai-plus.co.il/product/mvpa-lh-prl-dvbay-la-perle-by-dragone-fy5jmj
-- Price: 159.00 USD
+- Price: 159.00 ILS
 - Availability: In stock
 - Category: מופעים ומוזיאונים
 - Description: מופע לה פרל (La Perle by Dragone) הוא אחד המופעים המרשימים והיוקרתיים ביותר בדובאי. שילוב יוצא דופן של אקרובטיקה, צלילות מגובה רב, אפקטים מיוחדים, מים, תאורה ומוזיקה – לחוויה בלתי נשכחת המתאימה לכל המשפחה.
@@ -303,7 +303,7 @@ https://dubai-plus.co.il/product/mvpa-lh-prl-dvbay-la-perle-by-dragone-fy5jmj
 
 ### יאכטה פרטית בדובאי
 https://dubai-plus.co.il/product/yakth-prtyt-bdvbay-gj9f83
-- Price: 580.00 USD
+- Price: 580.00 ILS
 - Availability: In stock
 - Category: שייט ופעילות ימית
 - Description: השכרת יאכטה פרטית יוקרתית בדובאי עם צוות מקצועי. חוויה מושלמת למשפחות, זוגות, קבוצות, ימי הולדת, הצעות נישואין ואירועים מיוחדים שעת שקיעה חובה מינימום שעתיים
@@ -311,7 +311,7 @@ https://dubai-plus.co.il/product/yakth-prtyt-bdvbay-gj9f83
 
 ### טיול ספארי במדבר SAFARI DESERT
 https://dubai-plus.co.il/product/tyvl-spary-bmdbr-safari-desert-xguyq2
-- Price: 144.00 USD
+- Price: 144.00 ILS
 - Availability: In stock
 - Category: אקסטרים וטיול מדבר
 - Description: טיול מדבר בדובאי הוא אחת האטרקציות המבוקשות ביותר באיחוד האמירויות. החוויה כוללת נסיעה בדיונות, מופעי בידור, ארוחת ערב בסגנון בדואי ואפשרות לרכיבה על גמלים, גלישת חול ופעילויות נוספות. שילוב מושלם של אדרנלין, נופים מרהיבים ואווירה מדברית אותנטית – חוויה שאסור לפספס בביקור בדובאי.
@@ -319,7 +319,7 @@ https://dubai-plus.co.il/product/tyvl-spary-bmdbr-safari-desert-xguyq2
 
 ### פארקי אבו דאבי - Yas Island Abu Dhabi
 https://dubai-plus.co.il/product/parky-abv-daby-yas-island-abu-dhabi-s62cak
-- Price: 270.00 USD
+- Price: 270.00 ILS
 - Availability: In stock
 - Category: פארקים אבו דאבי
 - Description: פארקי אבו דאבי מציעים חוויה בלתי נשכחת לכל המשפחה עם מגוון פארקי שעשועים מהטובים בעולם. בחרו בין פארקי האקסטרים, פארקי המים ועולמות הדמויות האהובות, ותיהנו מיום מלא באטרקציות, מתקנים מרהיבים ובידור ברמה עולמית. מושלם לילדים, למשפחות ולחובבי אדרנלין.
@@ -327,7 +327,7 @@ https://dubai-plus.co.il/product/parky-abv-daby-yas-island-abu-dhabi-s62cak
 
 ### רכב על המים 
 https://dubai-plus.co.il/product/rkb-al-hmym-acyqlw
-- Price: 399.00 USD
+- Price: 399.00 ILS
 - Availability: In stock
 - Category: שייט ופעילות ימית
 - Description: רכב על המים - חוויית רכיבה ייחודית על רכב מרחף מעל פני המים של דובאי.
@@ -335,7 +335,7 @@ https://dubai-plus.co.il/product/rkb-al-hmym-acyqlw
 
 ### טיסה במסוק 
 https://dubai-plus.co.il/product/tysh-bmsvk-00kz1c
-- Price: 650.00 USD
+- Price: 650.00 ILS
 - Availability: In stock
 - Category: אקסטרים וטיול מדבר
 - Description: טיסה במסוק מעל דובאי תצפית אווירית מרהיבה על קו הרקיע של דובאי ממסוק פרטי.
@@ -343,7 +343,7 @@ https://dubai-plus.co.il/product/tysh-bmsvk-00kz1c
 
 ### בורג׳ חליפה burj khalifa
 https://dubai-plus.co.il/product/bvrg-chlyph-burj-khalifa-vik7c6
-- Price: 550.00 USD
+- Price: 550.00 ILS
 - Availability: In stock
 - Category: מגדלים ותצפיות
 - Description: בורג' ח'ליפה (Burj Khalifa) הוא הבניין הגבוה בעולם ואחת האטרקציות המבוקשות ביותר בדובאי. עלו לתצפית מרהיבה ותיהנו מנוף פנורמי עוצר נשימה של העיר, המדבר והמפרץ הערבי מגובה של מאות מטרים.
@@ -351,7 +351,7 @@ https://dubai-plus.co.il/product/bvrg-chlyph-burj-khalifa-vik7c6
 
 ### אופנוע ים JET SKI
 https://dubai-plus.co.il/product/avpnva-ym-jet-ski-0yrwwn
-- Price: 280.00 USD
+- Price: 280.00 ILS
 - Availability: In stock
 - Category: שייט ופעילות ימית
 - Description: חוויית אופנוע ים מהנה ועוצמתית באחד החופים היפים ביותר של דובאי. ניתן לבחור יציאה ממרינת דובאי או מאזור בורג' אל ערב, עם אופנועי ים חדישים, ציוד בטיחות מלא והדרכה מקצועית. מתאים לזוגות, משפחות וחובבי אקסטרים – ללא צורך בניסיון קודם.
@@ -359,7 +359,7 @@ https://dubai-plus.co.il/product/avpnva-ym-jet-ski-0yrwwn
 
 ### מופע דולפינים 
 https://dubai-plus.co.il/product/mvpa-dvlpynym-pv79ik
-- Price: 89.00 USD
+- Price: 89.00 ILS
 - Availability: In stock
 - Category: מופעים ומוזיאונים
 - Description: מופע הדולפינים בדובאי הוא אחת האטרקציות המשפחתיות האהובות בעיר. במהלך המופע תיהנו מדולפינים וכלבי ים המבצעים קפיצות מרהיבות, תרגילים מרשימים ומופעי בידור בליווי מוזיקה, תאורה ואפקטים מיוחדים. חוויה מהנה לכל המשפחה המתאימה לילדים ולמבוגרים כאחד.
@@ -367,7 +367,7 @@ https://dubai-plus.co.il/product/mvpa-dvlpynym-pv79ik
 
 ### סקי דובאי
 https://dubai-plus.co.il/product/sky-dvbay-t6l2lm
-- Price: 230.00 USD
+- Price: 230.00 ILS
 - Availability: In stock
 - Category: פארקים וגנים
 - Description: סקי דובאי הוא אתר הסקי המקורה הראשון במזרח התיכון, הממוקם בתוך קניון Mall of the Emirates. המקום מציע חוויית חורף אמיתית לאורך כל השנה עם מסלולי סקי וסנובורד, פארק שלג ענק, רכבל, מתקני שלג, מפגש עם פינגווינים ושלל אטרקציות לכל המשפחה. ניתן לבחור בין מספר סוגי כרטיסים – החל מכניסה לפארק השלג ועד חוויית פרימיום הכוללת מפגש עם פינגווינים וגלישה
@@ -375,7 +375,7 @@ https://dubai-plus.co.il/product/sky-dvbay-t6l2lm
 
 ### טיסה בכדור פורח אטלנטיס The Dubai Balloon at Atlantis
 https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-atlntys-the-dubai-balloon-at-atlantis-wwilq3
-- Price: 179.00 USD
+- Price: 179.00 ILS
 - Availability: In stock
 - Category: אקסטרים וטיול מדבר
 - Description: The Dubai Balloon at Atlantis הוא כדור פורח ייחודי הממריא לגובה של עד כ-300 מטר מעל אתר הנופש אטלנטיס בפאלם ג'ומיירה. במהלך העלייה נהנים מתצפית פנורמית מרהיבה על הפאלם, קו החוף של דובאי, המרינה, בורג' אל ערב ובורג' ח'ליפה – חוויה מושלמת לצילומים ולכל המשפחה. שעות פעילות: 5:30 בבוקר עד 11:00 בבוקר ומ 18:00 עד 12 בלילה שימו לב!!! במידה ומזג האוויר לא תואם לפעילות האטרקציה לא תפעל והכרטיס יהיה תקף ליום אחר לא ניתן לבטל את הכרטיס או לשנות לאחר רכישה!!!
@@ -383,7 +383,7 @@ https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-atlntys-the-dubai-balloon-at-a
 
 ### פארק IMG Worlds of Adventure
 https://dubai-plus.co.il/product/park-img-worlds-of-adventure-o7d3vn
-- Price: 165.00 USD
+- Price: 165.00 ILS
 - Availability: In stock
 - Category: פארקים וגנים
 - Description: IMG Worlds of Adventure הוא פארק השעשועים המקורה הגדול בעולם, המציע יום מלא של מתקנים, רכבות הרים, דמויות אהובות כמו מארוול וקריקטון נטוורק, אזורי דינוזאורים, מסעדות וחנויות – והכול באולם ממוזג המתאים לכל עונות השנה.
@@ -391,7 +391,7 @@ https://dubai-plus.co.il/product/park-img-worlds-of-adventure-o7d3vn
 
 ### טיסה בכדור פורח  במדבר 
 https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-bmdbr-jpjv0i
-- Price: 850.00 USD
+- Price: 850.00 ILS
 - Availability: In stock
 - Category: אקסטרים וטיול מדבר
 - Description: כדור פורח במדבר דובאי הוא אחת החוויות היוקרתיות והמרהיבות ביותר באמירויות. עם הזריחה תמריאו מעל דיונות הזהב של המדבר ותיהנו מנופים עוצרי נשימה של המדבר האינסופי, עדרי אוריקס וגמלים באווירה שקטה ובלתי נשכחת. הטיול כולל איסוף והחזרה מהמלון איסוף משוער 03-04 בבוקר
@@ -399,7 +399,7 @@ https://dubai-plus.co.il/product/tysh-bkdvr-pvrch-bmdbr-jpjv0i
 
 ### מוזיאון העתיד MUSEUM OF THE FUTURE
 https://dubai-plus.co.il/product/mvzyavn-hatyd-museum-of-the-future-cf21aj
-- Price: 150.00 USD
+- Price: 150.00 ILS
 - Availability: In stock
 - Category: מופעים ומוזיאונים
 - Description: מוזיאון העתיד הוא אחד מסמליה המרשימים של דובאי ואחת האטרקציות החדשניות בעולם. המוזיאון משלב טכנולוגיה, בינה מלאכותית, חקר החלל, קיימות וחדשנות בחוויה אינטראקטיבית מרהיבה המתאימה לכל המשפחה.
@@ -407,7 +407,7 @@ https://dubai-plus.co.il/product/mvzyavn-hatyd-museum-of-the-future-cf21aj
 
 ### תצפית סקיי וויו  Sky Views Observatory
 https://dubai-plus.co.il/product/ttspyt-skyy-vvyv-sky-views-observatory-lrfl6w
-- Price: 75.00 USD
+- Price: 75.00 ILS
 - Availability: In stock
 - Category: מגדלים ותצפיות
 - Description: Sky Views Observatory היא אחת התצפיות המרשימות ביותר בדובאי, הממוקמת בגובה של כ-220 מטר במלון Address Sky View. מהתצפית נשקף נוף פנורמי עוצר נשימה של בורג' ח'ליפה, מרכז העיר דובאי וקו הרקיע המפורסם של העיר.
@@ -415,7 +415,7 @@ https://dubai-plus.co.il/product/ttspyt-skyy-vvyv-sky-views-observatory-lrfl6w
 
 ### AYA UNIVERSE DUBAI
 https://dubai-plus.co.il/product/aya-universe-dubai-jms12x
-- Price: 94.00 USD
+- Price: 94.00 ILS
 - Availability: In stock
 - Category: פארקים וגנים
 - Description: AYA Universe Dubai היא אחת האטרקציות החדשניות והמיוחדות ביותר בדובאי. מדובר בעולם דיגיטלי אינטראקטיבי הכולל חדרים מרהיבים עם אורות, הקרנות, מוזיקה ואפקטים מיוחדים, היוצרים חוויה קסומה המתאימה לכל המשפחה.
@@ -423,7 +423,7 @@ https://dubai-plus.co.il/product/aya-universe-dubai-jms12x
 
 ### מסגרת דובאי DUBAI FRAME
 https://dubai-plus.co.il/product/msgrt-dvbay-dubai-frame-t7fzid
-- Price: 45.00 USD
+- Price: 45.00 ILS
 - Availability: In stock
 - Category: מגדלים ותצפיות
 - Description: Dubai Frame היא אחת האטרקציות האייקוניות ביותר בדובאי. המסגרת הענקית, המתנשאת לגובה של 150 מטר, מציעה תצפית פנורמית מרהיבה על העיר ומאפשרת לראות את הניגוד המיוחד בין דובאי הישנה לדובאי החדשה – כולל רצפת זכוכית מרשימה וחוויה בלתי נשכחת.
@@ -431,7 +431,7 @@ https://dubai-plus.co.il/product/msgrt-dvbay-dubai-frame-t7fzid
 
 ### תצפית הדקלים - The View at The Palm
 https://dubai-plus.co.il/product/ttspyt-hdklym-the-view-at-the-palm-c0qbgm
-- Price: 84.00 USD
+- Price: 84.00 ILS
 - Availability: In stock
 - Category: מגדלים ותצפיות
 - Description: The View at The Palm היא אחת מנקודות התצפית היפות ביותר בדובאי, הממוקמת בגובה של כ-240 מטר בראש מגדל Palm Tower. מהתצפית נשקף נוף פנורמי מרהיב של אי הדקלים, מלון אטלנטיס, המרינה, קו החוף והמפרץ הערבי.
@@ -439,7 +439,7 @@ https://dubai-plus.co.il/product/ttspyt-hdklym-the-view-at-the-palm-c0qbgm
 
 ### פארק המים אטלנטיס  Aquaventure Waterpark
 https://dubai-plus.co.il/product/park-hmym-atlntys-aquaventure-waterpark-d14lk2
-- Price: 185.00 USD
+- Price: 185.00 ILS
 - Availability: In stock
 - Category: פארקים וגנים
 - Description: פארק המים אטלנטיס – Aquaventure Waterpark הוא פארק המים הגדול ביותר בעולם ומציע יום מלא באדרנלין, מגלשות ענק, נהרות אבובים, חוף פרטי ואטרקציות לכל המשפחה. חוויה מושלמת לילדים, זוגות ומבוגרים באחד הפארקים הטובים בעולם.
@@ -447,7 +447,7 @@ https://dubai-plus.co.il/product/park-hmym-atlntys-aquaventure-waterpark-d14lk2
 
 ### קידזניה KIDZANYA DUBAI
 https://dubai-plus.co.il/product/kydznyh-kidzanya-dubai-kf24bs
-- Price: 153.00 USD
+- Price: 153.00 ILS
 - Availability: In stock
 - Category: אטרקציות לילדים
 - Description: KidZania Dubai היא עיר אינטראקטיבית לילדים הממוקמת בקניון דובאי, שבה הילדים יכולים להתנסות בעשרות מקצועות אמיתיים כמו טייסים, כבאים, רופאים ושפים. חוויה חינוכית, מהנה ומעשירה המשלבת משחק, למידה ופיתוח כישורי חיים – ומתאימה לילדים בגילאי 4–16.
@@ -455,7 +455,7 @@ https://dubai-plus.co.il/product/kydznyh-kidzanya-dubai-kf24bs
 
 ### נהיגה עצמית במדבר
 https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-qwgfv9
-- Price: 150.00 USD
+- Price: 150.00 ILS
 - Availability: In stock
 - Category: אקסטרים וטיול מדבר
 - Description: נהיגה עצמית במדבר דובאי היא אחת מחוויות האקסטרים המלהיבות ביותר באמירויות. בחרו בין טרקטורונים, רכבי RZR, באגי ורכבי שטח עוצמתיים, וצאו לנהיגה עצמית בין דיונות החול המרהיבות בליווי מדריכים מקצועיים.
@@ -463,7 +463,7 @@ https://dubai-plus.co.il/product/nhygh-atsmyt-bmdbr-qwgfv9
 
 ### מוזיאון האשליות
 https://dubai-plus.co.il/product/mvzyavn-hashlyvt-v7sy7l
-- Price: 79.00 USD
+- Price: 79.00 ILS
 - Availability: In stock
 - Category: מופעים ומוזיאונים
 - Description: מוזיאון האשליות דובאי (Museum of Illusions Dubai) הוא אחת האטרקציות הייחודיות והמהנות ביותר בעיר. המוזיאון מציע עשרות אשליות אופטיות, חדרים אינטראקטיביים, משחקי חשיבה ותצוגות מרתקות שישאירו אתכם מופתעים – וחיוך גדול על הפנים. חוויה מושלמת למשפחות, זוגות וחובבי צילום.
@@ -471,19 +471,19 @@ https://dubai-plus.co.il/product/mvzyavn-hashlyvt-v7sy7l
 
 ### גן הפרפרים
 https://dubai-plus.co.il/product/gn-hprprym-sniteu
-- Price: 59.00 USD
+- Price: 59.00 ILS
 - Availability: Out of stock
 - Description: גן הפרפרים דובאי - Butterfly Garden. מאות סוגי פרפרים צבעוניים בסביבה טרופית מרהיבה — חוויה קסומה לכל המשפחה.
 
 ### הגן הזוהר - Miracle Garden
 https://dubai-plus.co.il/product/hgn-hzvhr-miracle-garden-ch3dx5
-- Price: 79.00 USD
+- Price: 79.00 ILS
 - Availability: Out of stock
 - Description: הגן הזוהר של דובאי - Dubai Miracle Garden. מיליוני פרחים בצבעים עזים יוצרים שטיחי פרחים מרהיבים — הגן הטבעי הגדול בעולם.
 
 ### גלובל וילג - כרטיס יומי
 https://dubai-plus.co.il/product/glvbl-vylg-krtys-yvmy-wxh8fp
-- Price: 25.00 USD
+- Price: 25.00 ILS
 - Availability: Out of stock
 - Description: גלובל וילג דובאי - כרטיס כניסה Any Day. מסע תרבותי סביב העולם במקום אחד — ביתנים, מסעדות, בידור ואטרקציות מ-90 מדינות.
 
