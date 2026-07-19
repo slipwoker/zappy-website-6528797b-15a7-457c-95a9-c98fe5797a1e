@@ -14,9 +14,6 @@ https://dubai-plus.co.il
 https://dubai-plus.co.il/hotels
 גלה מלונות חמישה כוכבים בדובאי עם הזמנה מהירה דרך וואטסאפ. מחירים מיוחדים לישראלים, מיקומים מובחרים ושירות אישי. שמור את החדר שלך עוד היום!
 
-### Page
-https://dubai-plus.co.il/menu-group-1784041179993
-
 ### שירותי נסיעות VIP לדובאי — הכל בלחיצה — Duabi plus
 https://dubai-plus.co.il/airport-transfers
 העברות שדה תעופה, כרטיסי סים בינלאומיים, השכרת רכב ושירותי בייביסיטר בדובאי — כל מה שצריך לטיול מושלם. הזמן שירותי נסיעות פרימיום ותיהנה מכל רגע!
@@ -60,9 +57,6 @@ https://dubai-plus.co.il/category/:slug
 ### מסעדות דובאי שישאירו אותך פעור פה — Duabi plus
 https://dubai-plus.co.il/restaurants
 חוויות קולינריות בלתי נשכחות בדובאי — ממסעדות שף עולמיות ועד מטבח מקומי אותנטי. גלה המלצות מסעדות נבחרות לישראלים עם תפריטים, מיקומים והזמנת מקום!
-
-### Page
-https://dubai-plus.co.il/menu-group-1784041754766
 
 ### מגזין דובאי למטייל הישראלי
 https://dubai-plus.co.il/dubai-magazine-for-israeli-travelers
