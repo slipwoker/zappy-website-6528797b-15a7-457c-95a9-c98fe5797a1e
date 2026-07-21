@@ -1,5 +1,5 @@
 # Clean URL redirects for Render static hosting
-# Generated: 2026-07-21T10:05:42.090Z
+# Generated: 2026-07-21T14:11:07.601Z
 # NOTE: Render uses render.yaml for routing, not _redirects (that is Netlify)
 # This file is kept for reference only
 
@@ -22,15 +22,15 @@
 /dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt  /dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt.html  200!
 /dubai-must-see-attractions  /dubai-must-see-attractions.html  200!
 /blog/dubai-shopping-guide  /blog/dubai-shopping-guide.html  200!
+/sim-card  /sim-card.html  200!
+/menu-group-1784628123250  /menu-group-1784628123250.html  200!
 /blog/dubai-transportation-smart-guide  /blog/dubai-transportation-smart-guide.html  200!
+/dubai-hotels-marina-downtown-palm  /dubai-hotels-marina-downtown-palm.html  200!
 /blog/kosher-dubai  /blog/kosher-dubai.html  200!
 /blog/kosher-dubai/kosher-restaurants  /blog/kosher-dubai/kosher-restaurants.html  200!
 /blog/kosher-dubai/jewish-life  /blog/kosher-dubai/jewish-life.html  200!
 /blog/kosher-dubai/shabbat-guide  /blog/kosher-dubai/shabbat-guide.html  200!
 /blog/kosher-dubai/jewish-holidays  /blog/kosher-dubai/jewish-holidays.html  200!
-/sim-card  /sim-card.html  200!
-/menu-group-1784628123250  /menu-group-1784628123250.html  200!
-/dubai-hotels-marina-downtown-palm  /dubai-hotels-marina-downtown-palm.html  200!
 /contact  /contact.html  200!
 
 # Language slug rewrites for SEO
