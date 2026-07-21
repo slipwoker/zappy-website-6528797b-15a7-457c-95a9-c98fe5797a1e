@@ -218,24 +218,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/category/:slug" />
   </url>
   <url>
-    <loc>https://dubai-plus.co.il/restaurants</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/restaurants" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/restaurants" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/restaurants" />
-  </url>
-  <url>
-    <loc>https://dubai-plus.co.il/en/restaurants</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/restaurants" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/restaurants" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/restaurants" />
-  </url>
-  <url>
     <loc>https://dubai-plus.co.il/dubai-magazine-for-israeli-travelers</loc>
     <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -252,6 +234,24 @@
     <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/dubai-magazine-for-israeli-travelers" />
     <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/dubai-magazine-for-israeli-travelers" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/dubai-magazine-for-israeli-travelers" />
+  </url>
+  <url>
+    <loc>https://dubai-plus.co.il/restaurants</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/restaurants" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/restaurants" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/restaurants" />
+  </url>
+  <url>
+    <loc>https://dubai-plus.co.il/en/restaurants</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://dubai-plus.co.il/restaurants" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://dubai-plus.co.il/en/restaurants" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dubai-plus.co.il/restaurants" />
   </url>
   <url>
     <loc>https://dubai-plus.co.il/blog/dubai-dining-nightlife</loc>

@@ -22,45 +22,45 @@ https://dubai-plus.co.il/airport-transfers
 https://dubai-plus.co.il/attractions
 ברג&#39; ח&#39;ליפה, ספארי מדבר, גלובל וילג&#39;, גן הפרחים ויאכטות פרטיות — הזמן כרטיסים לאטרקציות דובאי המרהיבות ביותר בקלות ובמחיר הטוב ביותר. חוויה שלא תשכח!
 
-### Products
+### מוצרים
 https://dubai-plus.co.il/products
 המוצרים שלנו - Sarah laloum tourism llc
 
-### Cart
+### עגלת קניות
 https://dubai-plus.co.il/cart
 עגלת הקניות שלך
 
-### Checkout
+### תשלום
 https://dubai-plus.co.il/checkout
 תשלום
 
-### Login
+### התחברות
 https://dubai-plus.co.il/login
 התחברות לקוחות
 
-### Account
+### החשבון שלי
 https://dubai-plus.co.il/account
 החשבון שלי
 
-### Order Success
+### ההזמנה התקבלה!
 https://dubai-plus.co.il/order-success
 תודה על ההזמנה
 
-### Product Detail
+### פרטי המוצר
 https://dubai-plus.co.il/product/:slug
 פרטי המוצר - Sarah laloum tourism llc
 
-### Category
+### מוצרים
 https://dubai-plus.co.il/category/:slug
 מוצרים - Sarah laloum tourism llc
-
-### מסעדות דובאי שישאירו אותך פעור פה — Duabi plus
-https://dubai-plus.co.il/restaurants
-חוויות קולינריות בלתי נשכחות בדובאי — ממסעדות שף עולמיות ועד מטבח מקומי אותנטי. גלה המלצות מסעדות נבחרות לישראלים עם תפריטים, מיקומים והזמנת מקום!
 
 ### מגזין דובאי למטייל הישראלי
 https://dubai-plus.co.il/dubai-magazine-for-israeli-travelers
 Sarah laloum tourism llc - מגזין דובאי למטייל הישראלי
+
+### מסעדות דובאי שישאירו אותך פעור פה — Duabi plus
+https://dubai-plus.co.il/restaurants
+חוויות קולינריות בלתי נשכחות בדובאי — ממסעדות שף עולמיות ועד מטבח מקומי אותנטי. גלה המלצות מסעדות נבחרות לישראלים עם תפריטים, מיקומים והזמנת מקום!
 
 ### מסעדות וחיי ערב בדובאי: מדריך אלגנטי לחוויה קולינרית בלתי נשכחת
 https://dubai-plus.co.il/blog/dubai-dining-nightlife
