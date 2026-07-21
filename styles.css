@@ -25423,6 +25423,32 @@ html body .navbar.scrolled .nav-icons-left .nav-search-box svg * {
 #dxb-info-section .dxb-stats-inner-redesign { gap: 20px !important; }
 #dxb-info-section .dxb-stat-number { font-size: 2.4rem !important; }
 
+
+@media (max-width: 768px) {
+#navMenu .menu-group-title,
+  .nav-menu .menu-group-title {
+  color: #ffffff !important;
+}
+
+#navMenu .sub-menu a,
+  .nav-menu .sub-menu a,
+  #navMenu .sub-menu .menu-group-title,
+  .nav-menu .sub-menu .menu-group-title {
+  color: #ffffff !important;
+}
+
+#navMenu svg, .nav-menu svg,
+  #navMenu i, .nav-menu i,
+  #navMenu .fas, .nav-menu .fas,
+  #navMenu .fa, .nav-menu .fa {
+  color: #ffffff !important;
+}
+
+.navbar .mobile-toggle .close-icon {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
