@@ -26155,6 +26155,12 @@ main,
   height: 0 !important;
 }
 }
+
+@media (max-width: 768px) {
+.navbar .phone-header-btn {
+  display: none !important;
+}
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
