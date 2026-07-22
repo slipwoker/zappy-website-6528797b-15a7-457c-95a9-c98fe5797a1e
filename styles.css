@@ -16638,6 +16638,295 @@ nav.navbar .sub-menu li a {
   color: var(--background-color, var(--background, var(--bg-light, #201A2E))) !important;
 }
 
+
+
+
+
+/* ZAPPY_FIX_DUBAI_PLUS_NAVBAR_MENU_V4 */
+/* Promo bar: keep readable light text on the dark bar (undo AI black-text batches). */
+.zappy-announcement-bar,
+.zappy-announcement-bar .zappy-announcement-message,
+.zappy-announcement-bar .zappy-announcement-message.active,
+html body .zappy-announcement-bar,
+html body .zappy-announcement-bar .zappy-announcement-message,
+html body .zappy-announcement-bar .zappy-announcement-message.active {
+  color: #ffffff !important;
+}
+
+/* Scrolled transparent nav: menu-group titles + ALL header icon SVGs go dark. */
+html body .navbar.scrolled .nav-menu > li > .menu-group-title,
+html body .navbar.scrolled #navMenu > li > .menu-group-title,
+html body .navbar.scrolled .menu-group-title {
+  color: var(--frosted-text, var(--text-dark, #221C2F)) !important;
+}
+html body .navbar.scrolled .nav-search-btn,
+html body .navbar.scrolled .nav-search-btn svg,
+html body .navbar.scrolled .nav-search-btn svg *,
+html body .navbar.scrolled .lang-switcher-current,
+html body .navbar.scrolled .lang-switcher-current svg,
+html body .navbar.scrolled .lang-switcher-current svg *,
+html body .navbar.scrolled .nav-ecommerce-icons a,
+html body .navbar.scrolled .nav-ecommerce-icons a svg,
+html body .navbar.scrolled .nav-ecommerce-icons a svg *,
+html body .navbar.scrolled .nav-ecommerce-icons button,
+html body .navbar.scrolled .nav-ecommerce-icons button svg,
+html body .navbar.scrolled .nav-ecommerce-icons button svg *,
+html body .navbar.scrolled .nav-icons-left .nav-search-box svg,
+html body .navbar.scrolled .nav-icons-left .nav-search-box svg * {
+  color: var(--frosted-text, var(--text-dark, #221C2F)) !important;
+  stroke: var(--frosted-text, var(--text-dark, #221C2F)) !important;
+  fill: none !important;
+}
+
+/*
+ * Desktop search: icon-only by default; .is-open expands a compact pill.
+ * Open-state selectors MUST include .nav-ecommerce-icons.nav-icons-left so they
+ * beat the customization collapse rule (same specificity chain + .is-open).
+ */
+@media (min-width: 769px) {
+  .navbar .nav-search-box,
+  .navbar .nav-ecommerce-icons .nav-search-box,
+  .navbar .nav-ecommerce-icons.nav-icons-left .nav-search-box {
+    width: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    height: 36px !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    overflow: visible !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 9999px !important;
+  }
+  .navbar .nav-search-box:not(.is-open) #nav-search-input,
+  .navbar .nav-search-box:not(.is-open) .nav-search-input,
+  .navbar .nav-ecommerce-icons.nav-icons-left .nav-search-box:not(.is-open) #nav-search-input {
+    display: none !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    visibility: hidden !important;
+  }
+  .navbar .nav-search-box .nav-search-btn,
+  .navbar .nav-search-box #nav-search-btn,
+  .navbar .nav-ecommerce-icons.nav-icons-left .nav-search-box #nav-search-btn {
+    position: relative !important;
+    z-index: 5 !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 36px !important;
+    height: 36px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    color: var(--nav-text, #FFF7ED) !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    flex: 0 0 36px !important;
+  }
+  .navbar .nav-search-box .nav-search-btn svg,
+  .navbar .nav-search-box .nav-search-btn svg.search-icon {
+    width: 20px !important;
+    height: 20px !important;
+    stroke: currentColor !important;
+    fill: none !important;
+    color: inherit !important;
+    pointer-events: none !important;
+  }
+
+  /* Expanded pill — specificity >= collapse rule */
+  .navbar .nav-search-box.is-open,
+  .navbar .nav-ecommerce-icons .nav-search-box.is-open,
+  .navbar .nav-ecommerce-icons.nav-icons-left .nav-search-box.is-open {
+    width: 220px !important;
+    min-width: 220px !important;
+    max-width: 260px !important;
+    height: 36px !important;
+    padding: 0 4px 0 10px !important;
+    border: 1px solid rgba(34, 28, 47, 0.18) !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12) !important;
+    justify-content: flex-start !important;
+    gap: 2px !important;
+    overflow: visible !important;
+  }
+  html[dir="rtl"] .navbar .nav-search-box.is-open,
+  html[dir="rtl"] .navbar .nav-ecommerce-icons .nav-search-box.is-open,
+  html[dir="rtl"] .navbar .nav-ecommerce-icons.nav-icons-left .nav-search-box.is-open {
+    padding: 0 10px 0 4px !important;
+  }
+  .navbar .nav-search-box.is-open #nav-search-input,
+  .navbar .nav-search-box.is-open .nav-search-input,
+  .navbar .nav-ecommerce-icons .nav-search-box.is-open #nav-search-input,
+  .navbar .nav-ecommerce-icons.nav-icons-left .nav-search-box.is-open #nav-search-input {
+    display: block !important;
+    position: static !important;
+    flex: 1 1 auto !important;
+    width: auto !important;
+    min-width: 120px !important;
+    max-width: none !important;
+    height: 100% !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
+    padding: 0 8px !important;
+    margin: 0 !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    color: #221C2F !important;
+    font-size: 14px !important;
+  }
+  .navbar .nav-search-box.is-open .nav-search-btn,
+  .navbar .nav-search-box.is-open #nav-search-btn,
+  .navbar .nav-ecommerce-icons.nav-icons-left .nav-search-box.is-open #nav-search-btn,
+  .navbar .nav-search-box.is-open .nav-search-btn svg {
+    color: #221C2F !important;
+    stroke: #221C2F !important;
+  }
+}
+
+
+#dxb-info-section .dxb-stats-banner {
+  background: transparent !important;
+  padding: 20px 0 40px !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+}
+
+#dxb-info-section .dxb-stats-inner-redesign {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#dxb-info-section .dxb-stat-card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 16px;
+  padding: 28px 20px 24px;
+  text-align: center;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+#dxb-info-section .dxb-stat-icon-wrapper {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(201,168,76,0.2) 0%, rgba(245,200,66,0.1) 100%);
+  border-radius: 14px;
+  color: #C9A84C;
+}
+
+#dxb-info-section .dxb-stat-number {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+#dxb-info-section .dxb-stat-unit {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #C9A84C;
+  margin-left: 2px;
+}
+
+#dxb-info-section .dxb-stat-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 6px;
+}
+
+#dxb-info-section .dxb-stat-desc {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+#dxb-info-section .dxb-stats-inner-redesign {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+#dxb-info-section .dxb-stat-card {
+  padding: 22px 14px 20px;
+}
+
+#dxb-info-section .dxb-stat-number {
+  font-size: 1.8rem;
+}
+}
+
+@media (max-width: 480px) {
+#dxb-info-section .dxb-stats-inner-redesign {
+  grid-template-columns: 1fr;
+}
+}
+/* zappy-self-heal */
+#dxb-info-section .dxb-stats-inner-redesign { display: grid !important; }
+#dxb-info-section .dxb-stats-inner-redesign { grid-template-columns: repeat(4, 1fr) !important; }
+#dxb-info-section .dxb-stats-inner-redesign { gap: 20px !important; }
+#dxb-info-section .dxb-stat-number { font-size: 2.4rem !important; }
+
+
+@media (max-width: 768px) {
+#navMenu .menu-group-title,
+  .nav-menu .menu-group-title {
+  color: #ffffff !important;
+}
+
+#navMenu .sub-menu a,
+  .nav-menu .sub-menu a,
+  #navMenu .sub-menu .menu-group-title,
+  .nav-menu .sub-menu .menu-group-title {
+  color: #ffffff !important;
+}
+
+#navMenu svg, .nav-menu svg,
+  #navMenu i, .nav-menu i,
+  #navMenu .fas, .nav-menu .fas,
+  #navMenu .fa, .nav-menu .fa {
+  color: #ffffff !important;
+}
+
+.navbar .mobile-toggle .close-icon {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+}
+
 /* ==ZAPPY V2 E-COMMERCE THEME CSS== */
 /* ═══════════════════════════════════════════════════════════════════════════ */
 /* V2 E-COMMERCE CSS - Clean V2 Variables Only                                  */
@@ -25857,291 +26146,6 @@ main,
 }
 
 /* ==END ZAPPY V2 E-COMMERCE THEME CSS== */
-
-/* ZAPPY_FIX_DUBAI_PLUS_NAVBAR_MENU_V4 */
-/* Promo bar: keep readable light text on the dark bar (undo AI black-text batches). */
-.zappy-announcement-bar,
-.zappy-announcement-bar .zappy-announcement-message,
-.zappy-announcement-bar .zappy-announcement-message.active,
-html body .zappy-announcement-bar,
-html body .zappy-announcement-bar .zappy-announcement-message,
-html body .zappy-announcement-bar .zappy-announcement-message.active {
-  color: #ffffff !important;
-}
-
-/* Scrolled transparent nav: menu-group titles + ALL header icon SVGs go dark. */
-html body .navbar.scrolled .nav-menu > li > .menu-group-title,
-html body .navbar.scrolled #navMenu > li > .menu-group-title,
-html body .navbar.scrolled .menu-group-title {
-  color: var(--frosted-text, var(--text-dark, #221C2F)) !important;
-}
-html body .navbar.scrolled .nav-search-btn,
-html body .navbar.scrolled .nav-search-btn svg,
-html body .navbar.scrolled .nav-search-btn svg *,
-html body .navbar.scrolled .lang-switcher-current,
-html body .navbar.scrolled .lang-switcher-current svg,
-html body .navbar.scrolled .lang-switcher-current svg *,
-html body .navbar.scrolled .nav-ecommerce-icons a,
-html body .navbar.scrolled .nav-ecommerce-icons a svg,
-html body .navbar.scrolled .nav-ecommerce-icons a svg *,
-html body .navbar.scrolled .nav-ecommerce-icons button,
-html body .navbar.scrolled .nav-ecommerce-icons button svg,
-html body .navbar.scrolled .nav-ecommerce-icons button svg *,
-html body .navbar.scrolled .nav-icons-left .nav-search-box svg,
-html body .navbar.scrolled .nav-icons-left .nav-search-box svg * {
-  color: var(--frosted-text, var(--text-dark, #221C2F)) !important;
-  stroke: var(--frosted-text, var(--text-dark, #221C2F)) !important;
-  fill: none !important;
-}
-
-/*
- * Desktop search: icon-only by default; .is-open expands a compact pill.
- * Open-state selectors MUST include .nav-ecommerce-icons.nav-icons-left so they
- * beat the customization collapse rule (same specificity chain + .is-open).
- */
-@media (min-width: 769px) {
-  .navbar .nav-search-box,
-  .navbar .nav-ecommerce-icons .nav-search-box,
-  .navbar .nav-ecommerce-icons.nav-icons-left .nav-search-box {
-    width: 36px !important;
-    min-width: 36px !important;
-    max-width: 36px !important;
-    height: 36px !important;
-    border: none !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    gap: 0 !important;
-    overflow: visible !important;
-    position: relative !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    border-radius: 9999px !important;
-  }
-  .navbar .nav-search-box:not(.is-open) #nav-search-input,
-  .navbar .nav-search-box:not(.is-open) .nav-search-input,
-  .navbar .nav-ecommerce-icons.nav-icons-left .nav-search-box:not(.is-open) #nav-search-input {
-    display: none !important;
-    width: 0 !important;
-    min-width: 0 !important;
-    max-width: 0 !important;
-    height: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    border: none !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    position: absolute !important;
-    visibility: hidden !important;
-  }
-  .navbar .nav-search-box .nav-search-btn,
-  .navbar .nav-search-box #nav-search-btn,
-  .navbar .nav-ecommerce-icons.nav-icons-left .nav-search-box #nav-search-btn {
-    position: relative !important;
-    z-index: 5 !important;
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-    transform: none !important;
-    width: 36px !important;
-    height: 36px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: none !important;
-    border: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    color: var(--nav-text, #FFF7ED) !important;
-    cursor: pointer !important;
-    pointer-events: auto !important;
-    flex: 0 0 36px !important;
-  }
-  .navbar .nav-search-box .nav-search-btn svg,
-  .navbar .nav-search-box .nav-search-btn svg.search-icon {
-    width: 20px !important;
-    height: 20px !important;
-    stroke: currentColor !important;
-    fill: none !important;
-    color: inherit !important;
-    pointer-events: none !important;
-  }
-
-  /* Expanded pill — specificity >= collapse rule */
-  .navbar .nav-search-box.is-open,
-  .navbar .nav-ecommerce-icons .nav-search-box.is-open,
-  .navbar .nav-ecommerce-icons.nav-icons-left .nav-search-box.is-open {
-    width: 220px !important;
-    min-width: 220px !important;
-    max-width: 260px !important;
-    height: 36px !important;
-    padding: 0 4px 0 10px !important;
-    border: 1px solid rgba(34, 28, 47, 0.18) !important;
-    background: rgba(255, 255, 255, 0.96) !important;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12) !important;
-    justify-content: flex-start !important;
-    gap: 2px !important;
-    overflow: visible !important;
-  }
-  html[dir="rtl"] .navbar .nav-search-box.is-open,
-  html[dir="rtl"] .navbar .nav-ecommerce-icons .nav-search-box.is-open,
-  html[dir="rtl"] .navbar .nav-ecommerce-icons.nav-icons-left .nav-search-box.is-open {
-    padding: 0 10px 0 4px !important;
-  }
-  .navbar .nav-search-box.is-open #nav-search-input,
-  .navbar .nav-search-box.is-open .nav-search-input,
-  .navbar .nav-ecommerce-icons .nav-search-box.is-open #nav-search-input,
-  .navbar .nav-ecommerce-icons.nav-icons-left .nav-search-box.is-open #nav-search-input {
-    display: block !important;
-    position: static !important;
-    flex: 1 1 auto !important;
-    width: auto !important;
-    min-width: 120px !important;
-    max-width: none !important;
-    height: 100% !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    visibility: visible !important;
-    padding: 0 8px !important;
-    margin: 0 !important;
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-    background: transparent !important;
-    color: #221C2F !important;
-    font-size: 14px !important;
-  }
-  .navbar .nav-search-box.is-open .nav-search-btn,
-  .navbar .nav-search-box.is-open #nav-search-btn,
-  .navbar .nav-ecommerce-icons.nav-icons-left .nav-search-box.is-open #nav-search-btn,
-  .navbar .nav-search-box.is-open .nav-search-btn svg {
-    color: #221C2F !important;
-    stroke: #221C2F !important;
-  }
-}
-
-
-#dxb-info-section .dxb-stats-banner {
-  background: transparent !important;
-  padding: 20px 0 40px !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  margin: 0 !important;
-}
-
-#dxb-info-section .dxb-stats-inner-redesign {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-#dxb-info-section .dxb-stat-card {
-  background: linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
-  border: 1px solid rgba(201,168,76,0.25);
-  border-radius: 16px;
-  padding: 28px 20px 24px;
-  text-align: center;
-  transition: all 0.35s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-#dxb-info-section .dxb-stat-icon-wrapper {
-  width: 52px;
-  height: 52px;
-  margin: 0 auto 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, rgba(201,168,76,0.2) 0%, rgba(245,200,66,0.1) 100%);
-  border-radius: 14px;
-  color: #C9A84C;
-}
-
-#dxb-info-section .dxb-stat-number {
-  font-size: 2.4rem;
-  font-weight: 800;
-  color: #ffffff;
-  line-height: 1.1;
-  margin-bottom: 6px;
-  letter-spacing: -0.02em;
-}
-
-#dxb-info-section .dxb-stat-unit {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #C9A84C;
-  margin-left: 2px;
-}
-
-#dxb-info-section .dxb-stat-title {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.85);
-  margin-bottom: 6px;
-}
-
-#dxb-info-section .dxb-stat-desc {
-  font-size: 0.82rem;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.4;
-}
-
-@media (max-width: 768px) {
-#dxb-info-section .dxb-stats-inner-redesign {
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-}
-
-#dxb-info-section .dxb-stat-card {
-  padding: 22px 14px 20px;
-}
-
-#dxb-info-section .dxb-stat-number {
-  font-size: 1.8rem;
-}
-}
-
-@media (max-width: 480px) {
-#dxb-info-section .dxb-stats-inner-redesign {
-  grid-template-columns: 1fr;
-}
-}
-/* zappy-self-heal */
-#dxb-info-section .dxb-stats-inner-redesign { display: grid !important; }
-#dxb-info-section .dxb-stats-inner-redesign { grid-template-columns: repeat(4, 1fr) !important; }
-#dxb-info-section .dxb-stats-inner-redesign { gap: 20px !important; }
-#dxb-info-section .dxb-stat-number { font-size: 2.4rem !important; }
-
-
-@media (max-width: 768px) {
-#navMenu .menu-group-title,
-  .nav-menu .menu-group-title {
-  color: #ffffff !important;
-}
-
-#navMenu .sub-menu a,
-  .nav-menu .sub-menu a,
-  #navMenu .sub-menu .menu-group-title,
-  .nav-menu .sub-menu .menu-group-title {
-  color: #ffffff !important;
-}
-
-#navMenu svg, .nav-menu svg,
-  #navMenu i, .nav-menu i,
-  #navMenu .fas, .nav-menu .fas,
-  #navMenu .fa, .nav-menu .fa {
-  color: #ffffff !important;
-}
-
-.navbar .mobile-toggle .close-icon {
-  color: #ffffff !important;
-  stroke: #ffffff !important;
-}
-}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
