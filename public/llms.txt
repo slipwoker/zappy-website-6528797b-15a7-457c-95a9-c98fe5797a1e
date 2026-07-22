@@ -28,35 +28,35 @@ https://dubai-plus.co.il/airport-transfers
 https://dubai-plus.co.il/attractions
 ברג&#39; ח&#39;ליפה, ספארי מדבר, גלובל וילג&#39;, גן הפרחים ויאכטות פרטיות — הזמן כרטיסים לאטרקציות דובאי המרהיבות ביותר בקלות ובמחיר הטוב ביותר. חוויה שלא תשכח!
 
-### מוצרים
+### Products
 https://dubai-plus.co.il/products
 המוצרים שלנו - Sarah laloum tourism llc
 
-### עגלת קניות
+### Cart
 https://dubai-plus.co.il/cart
 עגלת הקניות שלך
 
-### תשלום
+### Checkout
 https://dubai-plus.co.il/checkout
 תשלום
 
-### התחברות
+### Login
 https://dubai-plus.co.il/login
 התחברות לקוחות
 
-### החשבון שלי
+### Account
 https://dubai-plus.co.il/account
 החשבון שלי
 
-### ההזמנה התקבלה!
+### Order Success
 https://dubai-plus.co.il/order-success
 תודה על ההזמנה
 
-### פרטי המוצר
+### Product Detail
 https://dubai-plus.co.il/product/:slug
 פרטי המוצר - Sarah laloum tourism llc
 
-### מוצרים
+### Category
 https://dubai-plus.co.il/category/:slug
 מוצרים - Sarah laloum tourism llc
 

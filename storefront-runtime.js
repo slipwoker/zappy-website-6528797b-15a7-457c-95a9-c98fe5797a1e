@@ -3482,6 +3482,829 @@ window.onload = function() {
 })();
 
 ;
+
+
+/* Integration Scripts */
+/* ZAPPY_INTEGRATION_START unknown:setup_contact_form_emails */
+// setup_contact_form_emails functionality
+/* Integration Scripts */
+// setup_contact_form_emails functionality
+// Email integration configured for Sarah laloum tourism llc
+
+
+    // Enhanced contact form handling with Elastic Email integration
+    // API URL: https://api.zappy5.com
+    (function() {
+        // Check if contact form handler is already loaded
+        if (window.zappyContactFormLoaded) {
+            console.log('📧 Zappy contact form already loaded');
+            return;
+        }
+        window.zappyContactFormLoaded = true;
+        
+        // Wait for DOM to be ready before initializing
+        function initContactForm() {
+            console.log('📧 Zappy: Initializing contact form handler...');
+
+            // Newsletter popup forms (data-zappy-newsletter / #znl-form / forms inside
+            // .znl-overlay) own their own submit handler that posts to
+            // /api/newsletter/public/.../subscribe. They must NEVER be picked up by
+            // the contact-form integration — otherwise the popup's submit gets
+            // hijacked into POST /api/email/contact-form and surfaces a misleading
+            // "Business contact email not configured" error.
+            function isNewsletterPopupForm(f) {
+                if (!f) return false;
+                if (f.hasAttribute && f.hasAttribute('data-zappy-newsletter')) return true;
+                if (f.id === 'znl-form' || (f.classList && f.classList.contains('znl-form'))) return true;
+                if (f.closest && f.closest('.znl-overlay, [data-zappy-newsletter]')) return true;
+                return false;
+            }
+            function pickContactForm() {
+                const candidates = [
+                    document.querySelector('.contact-form'),
+                    document.querySelector('form[action*="contact"]'),
+                    document.querySelector('form#contact'),
+                    document.querySelector('form#contactForm'),
+                    document.getElementById('contactForm'),
+                    document.querySelector('section.contact form'),
+                    document.querySelector('section#contact form')
+                ];
+                for (let i = 0; i < candidates.length; i++) {
+                    if (candidates[i] && !isNewsletterPopupForm(candidates[i])) return candidates[i];
+                }
+                // Last-resort: first <form> on the page that isn't a newsletter popup.
+                // Without this filter, sites with no real contact form (landing pages,
+                // single-section sites) end up cloning the newsletter popup form and
+                // hijacking its submit handler.
+                const all = document.querySelectorAll('form');
+                for (let j = 0; j < all.length; j++) {
+                    if (!isNewsletterPopupForm(all[j])) return all[j];
+                }
+                return null;
+            }
+            const contactForm = pickContactForm();
+
+            if (!contactForm) {
+                console.log('⚠️ Zappy: No contact form found on page');
+                return;
+            }
+            
+            console.log('✅ Zappy: Contact form found:', contactForm.className || contactForm.id || 'unnamed form');
+            
+            // Remove any existing submit handlers by cloning the form element
+            const newContactForm = contactForm.cloneNode(true);
+            contactForm.parentNode.replaceChild(newContactForm, contactForm);
+            
+            // Now add our handler to the clean form
+            newContactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Validate privacy consent checkbox if present (required for GDPR)
+            var privacyCheckbox = this.querySelector('.privacy-consent-checkbox');
+            if (privacyCheckbox && !privacyCheckbox.checked) {
+                showNotification('Please accept the Terms & Conditions and Privacy Policy to continue', 'error');
+                privacyCheckbox.focus();
+                return;
+            }
+            
+            // Get form data with multi-value support (checkboxes, multi-selects)
+            const formData = new FormData(this);
+            const data = {};
+            for (const [key, value] of formData.entries()) {
+                if (data[key] !== undefined) {
+                    if (Array.isArray(data[key])) data[key].push(value);
+                    else data[key] = [data[key], value];
+                } else {
+                    data[key] = value;
+                }
+            }
+            
+            // Smart name resolution: name > firstName+lastName > email
+            const _coreNameFields = ['name','firstName','first_name','fname','lastName','last_name','lname'];
+            const _coreEmailFields = ['email','emailAddress','mail','e-mail'];
+            const _corePhoneFields = ['phone','tel','telephone','mobile','cellphone'];
+            const _coreMsgFields = ['message','msg','comments','comment','description','details','notes','body','text','inquiry'];
+            const _coreSubjectFields = ['subject','topic','regarding','re'];
+            const _allCoreFields = [].concat(_coreNameFields, _coreEmailFields, _corePhoneFields, _coreMsgFields, _coreSubjectFields);
+            
+            const name = (data.name || '').trim()
+                || [data.firstName || data.first_name || data.fname || '', data.lastName || data.last_name || data.lname || ''].filter(Boolean).join(' ').trim()
+                || (data.email || data.emailAddress || data.mail || '').trim()
+                || 'Anonymous';
+            
+            const email = (data.email || data.emailAddress || data.mail || data['e-mail'] || '').trim();
+            
+            const phone = data.phone || data.tel || data.telephone || data.mobile || data.cellphone || null;
+            
+            const subject = data.subject || data.topic || data.regarding || data.re || 'Contact Form Submission';
+            
+            // Smart message resolution: use message field, or build summary from all non-core fields
+            let message = (data.message || data.msg || data.comments || data.comment || data.description || data.details || data.notes || data.body || data.text || data.inquiry || '').trim();
+            if (!message) {
+                const extraEntries = Object.entries(data).filter(function(e) { return !_allCoreFields.includes(e[0]); });
+                if (extraEntries.length > 0) {
+                    message = extraEntries.map(function(e) {
+                        const label = e[0].replace(/([A-Z])/g, ' $1').replace(/[_-]/g, ' ').trim();
+                        const val = Array.isArray(e[1]) ? e[1].join(', ') : e[1];
+                        return label + ': ' + val;
+                    }).join('\n');
+                } else {
+                    message = 'Form submission from ' + window.location.pathname;
+                }
+            }
+            
+            // Collect extra fields (anything not in the core set)
+            const extraFields = {};
+            for (const [key, value] of Object.entries(data)) {
+                if (!_allCoreFields.includes(key) && value !== '' && value !== null && value !== undefined) {
+                    extraFields[key] = value;
+                }
+            }
+            
+            if (!email) {
+                console.error('❌ Validation failed: no email found in form data');
+                showNotification('Please fill in all required fields', 'error');
+                return;
+            }
+            
+            // Email validation
+            if (!isValidEmail(email)) {
+                showNotification('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Get submit button and show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Add loading animation
+            submitBtn.classList.add('loading');
+            
+            try {
+                // Send to Zappy email API - prefer ZAPPY_API_BASE (set per-deployment) over build-time URL
+                const apiUrl = (window.ZAPPY_API_BASE || 'https://api.zappy5.com').replace(/\/$/, '');
+                const endpoint = apiUrl + '/api/email/contact-form';
+                
+                // Get current page path for thank you page lookup
+                // In preview mode, use ZAPPY_CONFIG.currentPagePath; otherwise use pathname
+                let currentPagePath = window.location.pathname;
+                if (window.ZAPPY_CONFIG && window.ZAPPY_CONFIG.currentPagePath) {
+                    currentPagePath = window.ZAPPY_CONFIG.currentPagePath;
+                } else {
+                    // Try to extract page from URL query param (fullscreen preview mode)
+                    try {
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const pageParam = urlParams.get('page');
+                        if (pageParam) currentPagePath = pageParam;
+                    } catch (e) {}
+                }
+                
+                const payload = {
+                    websiteId: '6528797b-15a7-457c-95a9-c98fe5797a1e',
+                    name: name,
+                    email: email,
+                    subject: subject,
+                    message: message,
+                    phone: phone,
+                    currentPagePath: currentPagePath
+                };
+                if (Object.keys(extraFields).length > 0) {
+                    payload.extraFields = extraFields;
+                }
+                
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // Fire marketing conversion event (GA/GTM/Meta + first-party)
+                    // before any thank-you redirect so tags still load.
+                    try {
+                        if (typeof window.zappyFireMarketingEvent === 'function') {
+                            window.zappyFireMarketingEvent('contact_form_submitted', {
+                                pagePath: currentPagePath,
+                                ticketNumber: result.ticketNumber || null
+                            });
+                        }
+                    } catch (_mktErr) {}
+
+                    // Check if there's a thank you page to redirect to
+                    if (result.thankYouPagePath && result.ticketNumber) {
+                        console.log('🎁 Redirecting to thank you page:', result.thankYouPagePath);
+                        
+                        // Build the redirect URL based on the current environment
+                        let thankYouUrl;
+                        const ticketParam = 'ticket=' + encodeURIComponent(result.ticketNumber);
+                        
+                        // Check if we're in preview mode (URL contains /preview/ or /preview-fullscreen/)
+                        const isPreviewMode = window.location.pathname.includes('/preview');
+                        
+                        if (isPreviewMode && window.ZAPPY_CONFIG) {
+                            // In preview mode, use the preview URL format
+                            const websiteId = window.ZAPPY_CONFIG.websiteId || '6528797b-15a7-457c-95a9-c98fe5797a1e';
+                            const authToken = window.ZAPPY_CONFIG.authToken;
+                            const baseUrl = window.location.origin;
+                            const previewType = window.location.pathname.includes('fullscreen') ? 'preview-fullscreen' : 'preview';
+                            
+                            thankYouUrl = baseUrl + '/api/website/' + previewType + '/' + websiteId + '?page=' + encodeURIComponent(result.thankYouPagePath) + '&' + ticketParam;
+                            if (authToken) {
+                                thankYouUrl += '&auth_token=' + encodeURIComponent(authToken);
+                            }
+                        } else {
+                            // In deployed/production mode, navigate directly to the page
+                            thankYouUrl = result.thankYouPagePath + '?' + ticketParam;
+                        }
+                        
+                        console.log('📍 Navigating to:', thankYouUrl);
+                        window.location.href = thankYouUrl;
+                        return; // Don't show notification since we're redirecting
+                    }
+                    
+                    // No thank you page - show standard notification
+                    var _siteLang = document.documentElement.lang || '';
+                    var _isHeSite = _siteLang === 'he' || (_siteLang !== 'ar' && document.documentElement.dir === 'rtl');
+                    var _isArSite = _siteLang === 'ar';
+                    var _successFallback = _isHeSite ? 'ההודעה שלך נשלחה בהצלחה! נחזור אליך בהקדם.' : _isArSite ? 'تم إرسال رسالتك بنجاح! سنرد عليك قريبًا.' : 'Thank you for your message! We\'ll get back to you soon.';
+                    showNotification(result.message || _successFallback, 'success');
+                    
+                    // Reset form
+                    this.reset();
+                    
+                    // Optional: Show additional success UI
+                    showSuccessModal();
+                } else {
+                    // Error from server
+                    console.error('❌ Server returned error:', result);
+                    var _isHeSiteErr = _siteLang === 'he' || (_siteLang !== 'ar' && document.documentElement.dir === 'rtl');
+                    var _isArSiteErr = _siteLang === 'ar';
+                    var _errFallback = _isHeSiteErr ? 'שליחת ההודעה נכשלה. אנא נסו שוב.' : _isArSiteErr ? 'فشل في إرسال الرسالة. يرجى المحاولة مرة أخرى.' : 'Failed to send message. Please try again.';
+                    showNotification(result.error || _errFallback, 'error');
+                }
+                
+            } catch (error) {
+                console.error('❌ Network error:', error);
+                console.error('Failed to connect to:', 'https://api.zappy5.com/api/email/contact-form');
+                
+                // Fallback: Show error message and provide alternative contact info
+                var _isHeSiteNet = _siteLang === 'he' || (_siteLang !== 'ar' && document.documentElement.dir === 'rtl');
+                var _isArSiteNet = _siteLang === 'ar';
+                var _netFallback = _isHeSiteNet ? 'לא ניתן לשלוח הודעה כרגע. אנא נסו שוב מאוחר יותר או צרו קשר ישירות.' : _isArSiteNet ? 'لا يمكن إرسال الرسالة الآن. يرجى المحاولة مرة أخرى لاحقًا.' : 'Unable to send message right now. Please try again later or contact us directly.';
+                showNotification(_netFallback, 'error');
+                
+                // Show fallback contact info
+                showFallbackContact();
+            } finally {
+                // Reset button state
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('loading');
+            }
+        });
+        
+        // Email validation helper
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        // Notification system
+        function showNotification(message, type = 'info') {
+            // Remove existing notifications
+            const existingNotifications = document.querySelectorAll('.zappy-notification');
+            existingNotifications.forEach(notification => notification.remove());
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `zappy-notification zappy-notification--${type}`;
+            notification.innerHTML = `
+            <div class="zappy-notification__content">
+                <span class="zappy-notification__icon">
+                    ${type === 'success' ? '✅' : type === 'error' ? '❌' : 'ℹ️'}
+                </span>
+                <span class="zappy-notification__message">${message}</span>
+                <button class="zappy-notification__close" onclick="this.parentElement.parentElement.remove()">×</button>
+            </div>
+            `;
+            
+            // Add styles if not already present
+            if (!document.querySelector('#zappy-notification-styles')) {
+                const styles = document.createElement('style');
+            styles.id = 'zappy-notification-styles';
+            styles.textContent = `
+                .zappy-notification {
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    max-width: 400px;
+                    padding: 16px;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                    z-index: 10000;
+                    animation: slideInRight 0.3s ease-out;
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                }
+                
+                .zappy-notification--success {
+                    background-color: #d4edda;
+                    border: 1px solid #c3e6cb;
+                    color: #155724;
+                }
+                
+                .zappy-notification--error {
+                    background-color: #f8d7da;
+                    border: 1px solid #f5c6cb;
+                    color: #721c24;
+                }
+                
+                .zappy-notification--info {
+                    background-color: #d1ecf1;
+                    border: 1px solid #bee5eb;
+                    color: #0c5460;
+                }
+                
+                .zappy-notification__content {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+                
+                .zappy-notification__icon {
+                    font-size: 18px;
+                    flex-shrink: 0;
+                }
+                
+                .zappy-notification__message {
+                    flex: 1;
+                    font-size: 14px;
+                    line-height: 1.4;
+                }
+                
+                .zappy-notification__close {
+                    background: none;
+                    border: none;
+                    font-size: 20px;
+                    cursor: pointer;
+                    padding: 0;
+                    width: 24px;
+                    height: 24px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    opacity: 0.7;
+                }
+                
+                .zappy-notification__close:hover {
+                    opacity: 1;
+                }
+                
+                @keyframes slideInRight {
+                    from {
+                        transform: translateX(100%);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                }
+                
+                .loading {
+                    position: relative;
+                    pointer-events: none;
+                }
+                
+                .loading::after {
+                    content: '';
+                    position: absolute;
+                    width: 16px;
+                    height: 16px;
+                    margin: auto;
+                    border: 2px solid transparent;
+                    border-top-color: currentColor;
+                    border-radius: 50%;
+                    animation: spin 1s linear infinite;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                }
+                
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(styles);
+        }
+        
+        // Add to page
+        document.body.appendChild(notification);
+        
+        // Auto-remove after 5 seconds for success, 8 seconds for errors
+        const timeout = type === 'error' ? 8000 : 5000;
+        setTimeout(() => {
+            if (notification.parentElement) {
+                notification.style.animation = 'slideInRight 0.3s ease-out reverse';
+                setTimeout(() => notification.remove(), 300);
+            }
+        }, timeout);
+    }
+    
+    // Success modal for enhanced UX
+    function showSuccessModal() {
+        var _modalLang = document.documentElement.lang || '';
+        var _isHeSiteModal = _modalLang === 'he' || (_modalLang !== 'ar' && document.documentElement.dir === 'rtl');
+        const modal = document.createElement('div');
+        modal.className = 'zappy-success-modal';
+        modal.innerHTML = `
+            <div class="zappy-success-modal__backdrop" onclick="this.parentElement.remove()">
+                <div class="zappy-success-modal__content" onclick="event.stopPropagation()">
+                    <div class="zappy-success-modal__icon">🎉</div>
+                    <h3>${ _isHeSiteModal ? 'ההודעה נשלחה בהצלחה!' : 'Message Sent Successfully!' }</h3>
+                    <p>${ _isHeSiteModal ? 'תודה שפניתם אלינו. קיבלנו את הודעתכם ונחזור אליכם בהקדם האפשרי.' : "Thank you for reaching out. We've received your message and will get back to you as soon as possible." }</p>
+                    <button onclick="this.closest('.zappy-success-modal').remove()" class="zappy-success-modal__button">
+                        ${ _isHeSiteModal ? 'הבנתי!' : 'Got it!' }
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        // Add modal styles
+        if (!document.querySelector('#zappy-modal-styles')) {
+            const styles = document.createElement('style');
+            styles.id = 'zappy-modal-styles';
+            styles.textContent = `
+                .zappy-success-modal {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 10001;
+                    animation: fadeIn 0.3s ease-out;
+                }
+                
+                .zappy-success-modal__backdrop {
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0,0,0,0.5);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 20px;
+                }
+                
+                .zappy-success-modal__content {
+                    background: white;
+                    padding: 40px;
+                    border-radius: 12px;
+                    text-align: center;
+                    max-width: 400px;
+                    width: 100%;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                    animation: slideUp 0.3s ease-out;
+                }
+                
+                .zappy-success-modal__icon {
+                    font-size: 48px;
+                    margin-bottom: 20px;
+                }
+                
+                .zappy-success-modal__content h3 {
+                    margin: 0 0 15px 0;
+                    color: #333;
+                    font-size: 24px;
+                }
+                
+                .zappy-success-modal__content p {
+                    margin: 0 0 25px 0;
+                    color: #666;
+                    line-height: 1.5;
+                }
+                
+                .zappy-success-modal__button {
+                    background: #007bff;
+                    color: white;
+                    border: none;
+                    padding: 12px 24px;
+                    border-radius: 6px;
+                    font-size: 16px;
+                    cursor: pointer;
+                    transition: background-color 0.2s;
+                }
+                
+                .zappy-success-modal__button:hover {
+                    background: #0056b3;
+                }
+                
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+                
+                @keyframes slideUp {
+                    from { transform: translateY(30px); opacity: 0; }
+                    to { transform: translateY(0); opacity: 1; }
+                }
+            `;
+            document.head.appendChild(styles);
+        }
+        
+        document.body.appendChild(modal);
+        
+        // Auto-close after 5 seconds
+        setTimeout(() => {
+            if (modal.parentElement) {
+                modal.remove();
+            }
+        }, 5000);
+    }
+    
+    // Fallback contact information
+    function showFallbackContact() {
+        const fallback = document.createElement('div');
+        fallback.className = 'zappy-fallback-contact';
+        fallback.innerHTML = `
+            <div class="zappy-fallback-contact__content">
+                <h4>Alternative Contact Methods</h4>
+                <p>If you're having trouble sending your message, you can also reach us at:</p>
+                <div class="zappy-fallback-contact__methods">
+                    <a href="mailto:support@zappy5.com?subject=Contact Form Issue" class="zappy-fallback-contact__method">
+                        📧 support@zappy5.com
+                    </a>
+                </div>
+                <button onclick="this.parentElement.parentElement.remove()" class="zappy-fallback-contact__close">
+                    Close
+                </button>
+            </div>
+        `;
+        
+        // Add fallback styles
+        if (!document.querySelector('#zappy-fallback-styles')) {
+            const styles = document.createElement('style');
+            styles.id = 'zappy-fallback-styles';
+            styles.textContent = `
+                .zappy-fallback-contact {
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    max-width: 350px;
+                    background: white;
+                    border: 1px solid #ddd;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                    z-index: 10000;
+                    animation: slideInUp 0.3s ease-out;
+                }
+                
+                .zappy-fallback-contact__content {
+                    padding: 20px;
+                }
+                
+                .zappy-fallback-contact__content h4 {
+                    margin: 0 0 10px 0;
+                    color: #333;
+                    font-size: 16px;
+                }
+                
+                .zappy-fallback-contact__content p {
+                    margin: 0 0 15px 0;
+                    color: #666;
+                    font-size: 14px;
+                    line-height: 1.4;
+                }
+                
+                .zappy-fallback-contact__methods {
+                    margin-bottom: 15px;
+                }
+                
+                .zappy-fallback-contact__method {
+                    display: block;
+                    padding: 8px 12px;
+                    background: #f8f9fa;
+                    border: 1px solid #e9ecef;
+                    border-radius: 4px;
+                    text-decoration: none;
+                    color: #495057;
+                    font-size: 14px;
+                    transition: background-color 0.2s;
+                }
+                
+                .zappy-fallback-contact__method:hover {
+                    background: #e9ecef;
+                }
+                
+                .zappy-fallback-contact__close {
+                    background: #6c757d;
+                    color: white;
+                    border: none;
+                    padding: 8px 16px;
+                    border-radius: 4px;
+                    font-size: 12px;
+                    cursor: pointer;
+                    float: right;
+                }
+                
+                @keyframes slideInUp {
+                    from {
+                        transform: translateY(100%);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateY(0);
+                        opacity: 1;
+                    }
+                }
+            `;
+            document.head.appendChild(styles);
+        }
+        
+        document.body.appendChild(fallback);
+        
+        // Auto-remove after 10 seconds
+        setTimeout(() => {
+            if (fallback.parentElement) {
+                fallback.remove();
+            }
+        }, 10000);
+        }
+        
+        // ═══════════════════════════════════════════════════════════════
+        // 🍔 MOBILE MENU TOGGLE HANDLER
+        // ═══════════════════════════════════════════════════════════════
+        (function initMobileMenu() {
+            const mobileToggle = document.getElementById('mobileToggle') || 
+                               document.querySelector('.mobile-toggle') || 
+                               document.querySelector('.hamburger');
+            const navMenu = document.getElementById('navMenu') || 
+                          document.querySelector('.nav-menu') ||
+                          document.querySelector('.navbar-menu');
+            
+            if (mobileToggle && navMenu) {
+                
+                // Toggle menu on button click
+                mobileToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const hamburgerIcon = this.querySelector('.hamburger-icon');
+                    const closeIcon = this.querySelector('.close-icon');
+                    const isActive = this.classList.contains('active');
+                    
+                    if (isActive) {
+                        // Show hamburger, hide X
+                        if (hamburgerIcon) hamburgerIcon.style.display = 'block';
+                        if (closeIcon) closeIcon.style.display = 'none';
+                        this.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    } else {
+                        // Show X, hide hamburger  
+                        if (hamburgerIcon) hamburgerIcon.style.display = 'none';
+                        if (closeIcon) closeIcon.style.display = 'block';
+                        this.classList.add('active');
+                        navMenu.classList.add('active');
+                        document.body.style.overflow = 'hidden'; // Prevent scroll when menu open
+                    }
+                });
+                
+                // Close menu when clicking a nav link
+                const navLinks = navMenu.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        const hamburgerIcon = mobileToggle.querySelector('.hamburger-icon');
+                        const closeIcon = mobileToggle.querySelector('.close-icon');
+                        if (hamburgerIcon) hamburgerIcon.style.display = 'block';
+                        if (closeIcon) closeIcon.style.display = 'none';
+                        mobileToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (navMenu.classList.contains('active') && 
+                        !navMenu.contains(e.target) && 
+                        !mobileToggle.contains(e.target)) {
+                        const hamburgerIcon = mobileToggle.querySelector('.hamburger-icon');
+                        const closeIcon = mobileToggle.querySelector('.close-icon');
+                        if (hamburgerIcon) hamburgerIcon.style.display = 'block';
+                        if (closeIcon) closeIcon.style.display = 'none';
+                        mobileToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+                
+                // Handle escape key
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                        const hamburgerIcon = mobileToggle.querySelector('.hamburger-icon');
+                        const closeIcon = mobileToggle.querySelector('.close-icon');
+                        if (hamburgerIcon) hamburgerIcon.style.display = 'block';
+                        if (closeIcon) closeIcon.style.display = 'none';
+                        mobileToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+                
+                // Phone header button functionality
+                const phoneHeaderBtn = document.querySelector('.phone-header-btn');
+                if (phoneHeaderBtn) {
+                    phoneHeaderBtn.addEventListener('click', function() {
+                        // Dynamically get phone number from existing tel: links on the page
+                        // This ensures the phone button uses the same number as other phone links
+                        // Falls back to [business_phone] placeholder which businessInfoUpdater can replace
+                        const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+                        const phoneNumber = phoneLinks.length > 0 
+                            ? phoneLinks[0].getAttribute('href').replace('tel:', '')
+                            : '[business_phone]';
+                        window.location.href = 'tel:' + phoneNumber;
+                    });
+                }
+            }
+        })();
+        
+        // ═══════════════════════════════════════════════════════════════
+        // 🔗 DISABLE SOCIAL MEDIA LINKS WITH PLACEHOLDERS
+        // ═══════════════════════════════════════════════════════════════
+        (function disablePlaceholderLinks() {
+            // List of social media placeholders to check for (both old and new formats)
+            const socialPlaceholders = [
+                // New format (handle placeholders within URLs)
+                '[facebook_handle]',
+                '[instagram_handle]',
+                '[whatsapp_handle]',
+                '[twitter_handle]',
+                '[linkedin_handle]',
+                '[youtube_handle]',
+                '[tiktok_handle]',
+                '[pinterest_handle]',
+                // Old format (full URL placeholders)
+                '[social_facebook]',
+                '[social instagram]',
+                '[social_instagram]',
+                '[social whatsapp]',
+                '[social_whatsapp]',
+                '[social_twitter]',
+                '[social_linkedin]',
+                '[social_youtube]',
+                '[social_tiktok]',
+                '[social_pinterest]'
+            ];
+            
+            // Find all links that might contain placeholders
+            const allLinks = document.querySelectorAll('a[href]');
+            
+            allLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                
+                // Check if href contains any placeholder
+                const hasPlaceholder = socialPlaceholders.some(placeholder => 
+                    href && href.includes(placeholder)
+                );
+                
+                if (hasPlaceholder) {
+                    // Prevent navigation
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        return false;
+                    });
+                    
+                    // Add visual indication that link is disabled
+                    link.style.cursor = 'not-allowed';
+                    link.style.opacity = '0.6';
+                    link.setAttribute('aria-disabled', 'true');
+                    link.setAttribute('title', 'Social media link not configured');
+                    
+                    // Remove target="_blank" to prevent opening empty tabs
+                    link.removeAttribute('target');
+                    link.removeAttribute('rel');
+                }
+            });
+        })();
+        } // End of initContactForm
+        
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initContactForm);
+        } else {
+            // DOM is already ready, initialize immediately
+            initContactForm();
+        }
+    })(); // End of IIFE
+    
+/* ZAPPY_INTEGRATION_END unknown:setup_contact_form_emails */
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -5110,6 +5933,12 @@ function stripHtmlToText(html) {
 
   function resolveProductImageUrl(url) {
     if (!url) return '';
+    // Legacy product.images entries were occasionally persisted as
+    // { url, alt } objects — coerce before any string ops.
+    if (typeof url === 'object') {
+      url = url.url || url.src || url.href || url.contentUrl || url.path || '';
+    }
+    if (typeof url !== 'string' || !url) return '';
     if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) {
       return url;
     }
@@ -14348,7 +15177,10 @@ function renderProductDetail(container, product, t) {
     return resolved;
   });
   const hasMedia = images.length > 1 || videos.length > 0;
-  const baseInStock = product.stock_status !== 'out_of_stock';
+  // Parent stock_status is NOT authoritative for multi-variant products — a
+  // product row is often marked out_of_stock while individual variants remain
+  // purchasable. Defer the real availability decision until variants are merged
+  // below (anyVariantAvailable / baseInStock).
   const hasSalePrice = product.sale_price && parseFloat(product.sale_price) < parseFloat(product.price);
   const basePrice = hasSalePrice ? parseFloat(product.sale_price) : parseFloat(product.price);
   const originalPrice = parseFloat(product.price);
@@ -14382,6 +15214,17 @@ function renderProductDetail(container, product, t) {
   const variants = Object.values(variantById);
   const hasVariants = variants.length > 0;
   const activeVariants = variants.filter(variant => variant.is_active !== false);
+  // Variant products: available when ANY active variant is purchasable.
+  // Simple products: fall back to the product row's stock_status.
+  // Using the parent stock_status alone for variant products was showing
+  // "Out of stock" before the shopper picked an option (even when variants
+  // were in stock). Incomplete selection should prompt "Select option" instead.
+  const anyVariantAvailable = activeVariants.some(function(v) {
+    return typeof variantRowUnavailable === 'function' ? !variantRowUnavailable(v) : v.stock_status !== 'out_of_stock';
+  });
+  const baseInStock = hasVariants
+    ? anyVariantAvailable
+    : product.stock_status !== 'out_of_stock';
   const initialSpecifications = getEffectiveProductSpecifications(null, product);
   const hasAnySpecifications =
     initialSpecifications.length > 0 ||
@@ -14680,10 +15523,12 @@ function renderProductDetail(container, product, t) {
         ${product.short_description ? '<div class="product-short-description">' + product.short_description + '</div>' : ''}
         ${product.sku ? '<div class="product-sku" id="product-sku-display">' + getEcomText('sku', t.sku || 'SKU') + ': ' + product.sku + '</div>' : ''}
         ${variantSelectorHtml}
-        <div class="product-stock ${baseInStock ? 'in-stock' : 'out-of-stock'}" id="product-stock-display">
-          ${baseInStock 
-            ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>' + getEcomText('inStock', t.inStock || 'In Stock')
-            : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>' + getEcomText('outOfStock', t.outOfStock || 'Out of Stock')
+        <div class="product-stock ${hasVariants && baseInStock ? 'select-required' : (baseInStock ? 'in-stock' : 'out-of-stock')}" id="product-stock-display">
+          ${hasVariants && baseInStock
+            ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>' + getEcomText('selectVariant', t.selectVariant || 'Select option')
+            : (baseInStock
+              ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>' + getEcomText('inStock', t.inStock || 'In Stock')
+              : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>' + getEcomText('outOfStock', t.outOfStock || 'Out of Stock'))
           }
         </div>
         ${(() => {
@@ -15695,7 +16540,9 @@ function updateVariantUI(variant, product, t, selectedAttributes) {
         addToCartBtn.style.cursor = 'not-allowed';
       }
     } else {
-      // Partial selection - show base product info
+      // Partial / no selection - show base product info. For multi-variant
+      // products do NOT trust product.stock_status: prompt the shopper to pick
+      // an option when any variant is still purchasable.
       if (priceDisplay) {
         if (hasVariantPriceRange && Number.isFinite(variantMinPrice)) {
           if (zappyHasActiveCustomerDiscount() && product && product.id) {
@@ -15726,24 +16573,39 @@ function updateVariantUI(variant, product, t, selectedAttributes) {
           }
         }
       }
-      
-      // Reset to base product stock
-      const baseInStock = product.stock_status !== 'out_of_stock';
+
+      var activeRows = (product.variants || []).filter(function(v) { return v && v.is_active !== false; });
+      var hasVariantRows = activeRows.length > 0
+        || (product.card_variants && Array.isArray(product.card_variants.matrix) && product.card_variants.matrix.length > 0);
+      var anyAvailable = false;
+      if (activeRows.length > 0) {
+        anyAvailable = activeRows.some(function(v) { return !variantRowUnavailable(v); });
+      } else if (product.card_variants && Array.isArray(product.card_variants.matrix)) {
+        anyAvailable = product.card_variants.matrix.some(function(m) { return m && m.available !== false; });
+      } else {
+        anyAvailable = product.stock_status !== 'out_of_stock';
+      }
       if (stockDisplay) {
         if (!additionalJsShowStockStatus) { stockDisplay.style.display = 'none'; }
         else {
           stockDisplay.style.display = '';
-          stockDisplay.className = 'product-stock ' + (baseInStock ? 'in-stock' : 'out-of-stock');
-          stockDisplay.innerHTML = baseInStock 
-            ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>' + getEcomText('inStock', t.inStock || 'In Stock')
-            : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>' + getEcomText('outOfStock', t.outOfStock || 'Out of Stock');
+          if (hasVariantRows && anyAvailable) {
+            stockDisplay.className = 'product-stock select-required';
+            stockDisplay.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>' + getEcomText('selectVariant', t.selectVariant || 'Select option');
+          } else if (anyAvailable) {
+            stockDisplay.className = 'product-stock in-stock';
+            stockDisplay.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>' + getEcomText('inStock', t.inStock || 'In Stock');
+          } else {
+            stockDisplay.className = 'product-stock out-of-stock';
+            stockDisplay.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>' + getEcomText('outOfStock', t.outOfStock || 'Out of Stock');
+          }
         }
       }
       
       if (addToCartBtn) {
-        addToCartBtn.disabled = !baseInStock;
-        addToCartBtn.style.opacity = baseInStock ? '1' : '0.5';
-        addToCartBtn.style.cursor = baseInStock ? 'pointer' : 'not-allowed';
+        addToCartBtn.disabled = !anyAvailable;
+        addToCartBtn.style.opacity = anyAvailable ? '1' : '0.5';
+        addToCartBtn.style.cursor = anyAvailable ? 'pointer' : 'not-allowed';
       }
     }
     
@@ -16460,827 +17322,6 @@ async function loadRelatedProducts(currentProduct, t) {
   return _zappyRelatedProductsInflight;
 }
 /* ==ZAPPY E-COMMERCE JS END== */
-
-/* Integration Scripts */
-/* ZAPPY_INTEGRATION_START unknown:setup_contact_form_emails */
-// setup_contact_form_emails functionality
-/* Integration Scripts */
-// setup_contact_form_emails functionality
-// Email integration configured for Sarah laloum tourism llc
-
-
-    // Enhanced contact form handling with Elastic Email integration
-    // API URL: https://api.zappy5.com
-    (function() {
-        // Check if contact form handler is already loaded
-        if (window.zappyContactFormLoaded) {
-            console.log('📧 Zappy contact form already loaded');
-            return;
-        }
-        window.zappyContactFormLoaded = true;
-        
-        // Wait for DOM to be ready before initializing
-        function initContactForm() {
-            console.log('📧 Zappy: Initializing contact form handler...');
-
-            // Newsletter popup forms (data-zappy-newsletter / #znl-form / forms inside
-            // .znl-overlay) own their own submit handler that posts to
-            // /api/newsletter/public/.../subscribe. They must NEVER be picked up by
-            // the contact-form integration — otherwise the popup's submit gets
-            // hijacked into POST /api/email/contact-form and surfaces a misleading
-            // "Business contact email not configured" error.
-            function isNewsletterPopupForm(f) {
-                if (!f) return false;
-                if (f.hasAttribute && f.hasAttribute('data-zappy-newsletter')) return true;
-                if (f.id === 'znl-form' || (f.classList && f.classList.contains('znl-form'))) return true;
-                if (f.closest && f.closest('.znl-overlay, [data-zappy-newsletter]')) return true;
-                return false;
-            }
-            function pickContactForm() {
-                const candidates = [
-                    document.querySelector('.contact-form'),
-                    document.querySelector('form[action*="contact"]'),
-                    document.querySelector('form#contact'),
-                    document.querySelector('form#contactForm'),
-                    document.getElementById('contactForm'),
-                    document.querySelector('section.contact form'),
-                    document.querySelector('section#contact form')
-                ];
-                for (let i = 0; i < candidates.length; i++) {
-                    if (candidates[i] && !isNewsletterPopupForm(candidates[i])) return candidates[i];
-                }
-                // Last-resort: first <form> on the page that isn't a newsletter popup.
-                // Without this filter, sites with no real contact form (landing pages,
-                // single-section sites) end up cloning the newsletter popup form and
-                // hijacking its submit handler.
-                const all = document.querySelectorAll('form');
-                for (let j = 0; j < all.length; j++) {
-                    if (!isNewsletterPopupForm(all[j])) return all[j];
-                }
-                return null;
-            }
-            const contactForm = pickContactForm();
-
-            if (!contactForm) {
-                console.log('⚠️ Zappy: No contact form found on page');
-                return;
-            }
-            
-            console.log('✅ Zappy: Contact form found:', contactForm.className || contactForm.id || 'unnamed form');
-            
-            // Remove any existing submit handlers by cloning the form element
-            const newContactForm = contactForm.cloneNode(true);
-            contactForm.parentNode.replaceChild(newContactForm, contactForm);
-            
-            // Now add our handler to the clean form
-            newContactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            // Validate privacy consent checkbox if present (required for GDPR)
-            var privacyCheckbox = this.querySelector('.privacy-consent-checkbox');
-            if (privacyCheckbox && !privacyCheckbox.checked) {
-                showNotification('Please accept the Terms & Conditions and Privacy Policy to continue', 'error');
-                privacyCheckbox.focus();
-                return;
-            }
-            
-            // Get form data with multi-value support (checkboxes, multi-selects)
-            const formData = new FormData(this);
-            const data = {};
-            for (const [key, value] of formData.entries()) {
-                if (data[key] !== undefined) {
-                    if (Array.isArray(data[key])) data[key].push(value);
-                    else data[key] = [data[key], value];
-                } else {
-                    data[key] = value;
-                }
-            }
-            
-            // Smart name resolution: name > firstName+lastName > email
-            const _coreNameFields = ['name','firstName','first_name','fname','lastName','last_name','lname'];
-            const _coreEmailFields = ['email','emailAddress','mail','e-mail'];
-            const _corePhoneFields = ['phone','tel','telephone','mobile','cellphone'];
-            const _coreMsgFields = ['message','msg','comments','comment','description','details','notes','body','text','inquiry'];
-            const _coreSubjectFields = ['subject','topic','regarding','re'];
-            const _allCoreFields = [].concat(_coreNameFields, _coreEmailFields, _corePhoneFields, _coreMsgFields, _coreSubjectFields);
-            
-            const name = (data.name || '').trim()
-                || [data.firstName || data.first_name || data.fname || '', data.lastName || data.last_name || data.lname || ''].filter(Boolean).join(' ').trim()
-                || (data.email || data.emailAddress || data.mail || '').trim()
-                || 'Anonymous';
-            
-            const email = (data.email || data.emailAddress || data.mail || data['e-mail'] || '').trim();
-            
-            const phone = data.phone || data.tel || data.telephone || data.mobile || data.cellphone || null;
-            
-            const subject = data.subject || data.topic || data.regarding || data.re || 'Contact Form Submission';
-            
-            // Smart message resolution: use message field, or build summary from all non-core fields
-            let message = (data.message || data.msg || data.comments || data.comment || data.description || data.details || data.notes || data.body || data.text || data.inquiry || '').trim();
-            if (!message) {
-                const extraEntries = Object.entries(data).filter(function(e) { return !_allCoreFields.includes(e[0]); });
-                if (extraEntries.length > 0) {
-                    message = extraEntries.map(function(e) {
-                        const label = e[0].replace(/([A-Z])/g, ' $1').replace(/[_-]/g, ' ').trim();
-                        const val = Array.isArray(e[1]) ? e[1].join(', ') : e[1];
-                        return label + ': ' + val;
-                    }).join('\n');
-                } else {
-                    message = 'Form submission from ' + window.location.pathname;
-                }
-            }
-            
-            // Collect extra fields (anything not in the core set)
-            const extraFields = {};
-            for (const [key, value] of Object.entries(data)) {
-                if (!_allCoreFields.includes(key) && value !== '' && value !== null && value !== undefined) {
-                    extraFields[key] = value;
-                }
-            }
-            
-            if (!email) {
-                console.error('❌ Validation failed: no email found in form data');
-                showNotification('Please fill in all required fields', 'error');
-                return;
-            }
-            
-            // Email validation
-            if (!isValidEmail(email)) {
-                showNotification('Please enter a valid email address', 'error');
-                return;
-            }
-            
-            // Get submit button and show loading state
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            // Add loading animation
-            submitBtn.classList.add('loading');
-            
-            try {
-                // Send to Zappy email API - prefer ZAPPY_API_BASE (set per-deployment) over build-time URL
-                const apiUrl = (window.ZAPPY_API_BASE || 'https://api.zappy5.com').replace(/\/$/, '');
-                const endpoint = apiUrl + '/api/email/contact-form';
-                
-                // Get current page path for thank you page lookup
-                // In preview mode, use ZAPPY_CONFIG.currentPagePath; otherwise use pathname
-                let currentPagePath = window.location.pathname;
-                if (window.ZAPPY_CONFIG && window.ZAPPY_CONFIG.currentPagePath) {
-                    currentPagePath = window.ZAPPY_CONFIG.currentPagePath;
-                } else {
-                    // Try to extract page from URL query param (fullscreen preview mode)
-                    try {
-                        const urlParams = new URLSearchParams(window.location.search);
-                        const pageParam = urlParams.get('page');
-                        if (pageParam) currentPagePath = pageParam;
-                    } catch (e) {}
-                }
-                
-                const payload = {
-                    websiteId: '6528797b-15a7-457c-95a9-c98fe5797a1e',
-                    name: name,
-                    email: email,
-                    subject: subject,
-                    message: message,
-                    phone: phone,
-                    currentPagePath: currentPagePath
-                };
-                if (Object.keys(extraFields).length > 0) {
-                    payload.extraFields = extraFields;
-                }
-                
-                const response = await fetch(endpoint, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
-                });
-                
-                const result = await response.json();
-                
-                if (result.success) {
-                    // Fire marketing conversion event (GA/GTM/Meta + first-party)
-                    // before any thank-you redirect so tags still load.
-                    try {
-                        if (typeof window.zappyFireMarketingEvent === 'function') {
-                            window.zappyFireMarketingEvent('contact_form_submitted', {
-                                pagePath: currentPagePath,
-                                ticketNumber: result.ticketNumber || null
-                            });
-                        }
-                    } catch (_mktErr) {}
-
-                    // Check if there's a thank you page to redirect to
-                    if (result.thankYouPagePath && result.ticketNumber) {
-                        console.log('🎁 Redirecting to thank you page:', result.thankYouPagePath);
-                        
-                        // Build the redirect URL based on the current environment
-                        let thankYouUrl;
-                        const ticketParam = 'ticket=' + encodeURIComponent(result.ticketNumber);
-                        
-                        // Check if we're in preview mode (URL contains /preview/ or /preview-fullscreen/)
-                        const isPreviewMode = window.location.pathname.includes('/preview');
-                        
-                        if (isPreviewMode && window.ZAPPY_CONFIG) {
-                            // In preview mode, use the preview URL format
-                            const websiteId = window.ZAPPY_CONFIG.websiteId || '6528797b-15a7-457c-95a9-c98fe5797a1e';
-                            const authToken = window.ZAPPY_CONFIG.authToken;
-                            const baseUrl = window.location.origin;
-                            const previewType = window.location.pathname.includes('fullscreen') ? 'preview-fullscreen' : 'preview';
-                            
-                            thankYouUrl = baseUrl + '/api/website/' + previewType + '/' + websiteId + '?page=' + encodeURIComponent(result.thankYouPagePath) + '&' + ticketParam;
-                            if (authToken) {
-                                thankYouUrl += '&auth_token=' + encodeURIComponent(authToken);
-                            }
-                        } else {
-                            // In deployed/production mode, navigate directly to the page
-                            thankYouUrl = result.thankYouPagePath + '?' + ticketParam;
-                        }
-                        
-                        console.log('📍 Navigating to:', thankYouUrl);
-                        window.location.href = thankYouUrl;
-                        return; // Don't show notification since we're redirecting
-                    }
-                    
-                    // No thank you page - show standard notification
-                    var _siteLang = document.documentElement.lang || '';
-                    var _isHeSite = _siteLang === 'he' || (_siteLang !== 'ar' && document.documentElement.dir === 'rtl');
-                    var _isArSite = _siteLang === 'ar';
-                    var _successFallback = _isHeSite ? 'ההודעה שלך נשלחה בהצלחה! נחזור אליך בהקדם.' : _isArSite ? 'تم إرسال رسالتك بنجاح! سنرد عليك قريبًا.' : 'Thank you for your message! We\'ll get back to you soon.';
-                    showNotification(result.message || _successFallback, 'success');
-                    
-                    // Reset form
-                    this.reset();
-                    
-                    // Optional: Show additional success UI
-                    showSuccessModal();
-                } else {
-                    // Error from server
-                    console.error('❌ Server returned error:', result);
-                    var _isHeSiteErr = _siteLang === 'he' || (_siteLang !== 'ar' && document.documentElement.dir === 'rtl');
-                    var _isArSiteErr = _siteLang === 'ar';
-                    var _errFallback = _isHeSiteErr ? 'שליחת ההודעה נכשלה. אנא נסו שוב.' : _isArSiteErr ? 'فشل في إرسال الرسالة. يرجى المحاولة مرة أخرى.' : 'Failed to send message. Please try again.';
-                    showNotification(result.error || _errFallback, 'error');
-                }
-                
-            } catch (error) {
-                console.error('❌ Network error:', error);
-                console.error('Failed to connect to:', 'https://api.zappy5.com/api/email/contact-form');
-                
-                // Fallback: Show error message and provide alternative contact info
-                var _isHeSiteNet = _siteLang === 'he' || (_siteLang !== 'ar' && document.documentElement.dir === 'rtl');
-                var _isArSiteNet = _siteLang === 'ar';
-                var _netFallback = _isHeSiteNet ? 'לא ניתן לשלוח הודעה כרגע. אנא נסו שוב מאוחר יותר או צרו קשר ישירות.' : _isArSiteNet ? 'لا يمكن إرسال الرسالة الآن. يرجى المحاولة مرة أخرى لاحقًا.' : 'Unable to send message right now. Please try again later or contact us directly.';
-                showNotification(_netFallback, 'error');
-                
-                // Show fallback contact info
-                showFallbackContact();
-            } finally {
-                // Reset button state
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                submitBtn.classList.remove('loading');
-            }
-        });
-        
-        // Email validation helper
-        function isValidEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
-        
-        // Notification system
-        function showNotification(message, type = 'info') {
-            // Remove existing notifications
-            const existingNotifications = document.querySelectorAll('.zappy-notification');
-            existingNotifications.forEach(notification => notification.remove());
-            
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.className = `zappy-notification zappy-notification--${type}`;
-            notification.innerHTML = `
-            <div class="zappy-notification__content">
-                <span class="zappy-notification__icon">
-                    ${type === 'success' ? '✅' : type === 'error' ? '❌' : 'ℹ️'}
-                </span>
-                <span class="zappy-notification__message">${message}</span>
-                <button class="zappy-notification__close" onclick="this.parentElement.parentElement.remove()">×</button>
-            </div>
-            `;
-            
-            // Add styles if not already present
-            if (!document.querySelector('#zappy-notification-styles')) {
-                const styles = document.createElement('style');
-            styles.id = 'zappy-notification-styles';
-            styles.textContent = `
-                .zappy-notification {
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    max-width: 400px;
-                    padding: 16px;
-                    border-radius: 8px;
-                    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-                    z-index: 10000;
-                    animation: slideInRight 0.3s ease-out;
-                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-                }
-                
-                .zappy-notification--success {
-                    background-color: #d4edda;
-                    border: 1px solid #c3e6cb;
-                    color: #155724;
-                }
-                
-                .zappy-notification--error {
-                    background-color: #f8d7da;
-                    border: 1px solid #f5c6cb;
-                    color: #721c24;
-                }
-                
-                .zappy-notification--info {
-                    background-color: #d1ecf1;
-                    border: 1px solid #bee5eb;
-                    color: #0c5460;
-                }
-                
-                .zappy-notification__content {
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                }
-                
-                .zappy-notification__icon {
-                    font-size: 18px;
-                    flex-shrink: 0;
-                }
-                
-                .zappy-notification__message {
-                    flex: 1;
-                    font-size: 14px;
-                    line-height: 1.4;
-                }
-                
-                .zappy-notification__close {
-                    background: none;
-                    border: none;
-                    font-size: 20px;
-                    cursor: pointer;
-                    padding: 0;
-                    width: 24px;
-                    height: 24px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    opacity: 0.7;
-                }
-                
-                .zappy-notification__close:hover {
-                    opacity: 1;
-                }
-                
-                @keyframes slideInRight {
-                    from {
-                        transform: translateX(100%);
-                        opacity: 0;
-                    }
-                    to {
-                        transform: translateX(0);
-                        opacity: 1;
-                    }
-                }
-                
-                .loading {
-                    position: relative;
-                    pointer-events: none;
-                }
-                
-                .loading::after {
-                    content: '';
-                    position: absolute;
-                    width: 16px;
-                    height: 16px;
-                    margin: auto;
-                    border: 2px solid transparent;
-                    border-top-color: currentColor;
-                    border-radius: 50%;
-                    animation: spin 1s linear infinite;
-                    top: 0;
-                    left: 0;
-                    bottom: 0;
-                    right: 0;
-                }
-                
-                @keyframes spin {
-                    0% { transform: rotate(0deg); }
-                    100% { transform: rotate(360deg); }
-                }
-            `;
-            document.head.appendChild(styles);
-        }
-        
-        // Add to page
-        document.body.appendChild(notification);
-        
-        // Auto-remove after 5 seconds for success, 8 seconds for errors
-        const timeout = type === 'error' ? 8000 : 5000;
-        setTimeout(() => {
-            if (notification.parentElement) {
-                notification.style.animation = 'slideInRight 0.3s ease-out reverse';
-                setTimeout(() => notification.remove(), 300);
-            }
-        }, timeout);
-    }
-    
-    // Success modal for enhanced UX
-    function showSuccessModal() {
-        var _modalLang = document.documentElement.lang || '';
-        var _isHeSiteModal = _modalLang === 'he' || (_modalLang !== 'ar' && document.documentElement.dir === 'rtl');
-        const modal = document.createElement('div');
-        modal.className = 'zappy-success-modal';
-        modal.innerHTML = `
-            <div class="zappy-success-modal__backdrop" onclick="this.parentElement.remove()">
-                <div class="zappy-success-modal__content" onclick="event.stopPropagation()">
-                    <div class="zappy-success-modal__icon">🎉</div>
-                    <h3>${ _isHeSiteModal ? 'ההודעה נשלחה בהצלחה!' : 'Message Sent Successfully!' }</h3>
-                    <p>${ _isHeSiteModal ? 'תודה שפניתם אלינו. קיבלנו את הודעתכם ונחזור אליכם בהקדם האפשרי.' : "Thank you for reaching out. We've received your message and will get back to you as soon as possible." }</p>
-                    <button onclick="this.closest('.zappy-success-modal').remove()" class="zappy-success-modal__button">
-                        ${ _isHeSiteModal ? 'הבנתי!' : 'Got it!' }
-                    </button>
-                </div>
-            </div>
-        `;
-        
-        // Add modal styles
-        if (!document.querySelector('#zappy-modal-styles')) {
-            const styles = document.createElement('style');
-            styles.id = 'zappy-modal-styles';
-            styles.textContent = `
-                .zappy-success-modal {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    z-index: 10001;
-                    animation: fadeIn 0.3s ease-out;
-                }
-                
-                .zappy-success-modal__backdrop {
-                    width: 100%;
-                    height: 100%;
-                    background-color: rgba(0,0,0,0.5);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 20px;
-                }
-                
-                .zappy-success-modal__content {
-                    background: white;
-                    padding: 40px;
-                    border-radius: 12px;
-                    text-align: center;
-                    max-width: 400px;
-                    width: 100%;
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-                    animation: slideUp 0.3s ease-out;
-                }
-                
-                .zappy-success-modal__icon {
-                    font-size: 48px;
-                    margin-bottom: 20px;
-                }
-                
-                .zappy-success-modal__content h3 {
-                    margin: 0 0 15px 0;
-                    color: #333;
-                    font-size: 24px;
-                }
-                
-                .zappy-success-modal__content p {
-                    margin: 0 0 25px 0;
-                    color: #666;
-                    line-height: 1.5;
-                }
-                
-                .zappy-success-modal__button {
-                    background: #007bff;
-                    color: white;
-                    border: none;
-                    padding: 12px 24px;
-                    border-radius: 6px;
-                    font-size: 16px;
-                    cursor: pointer;
-                    transition: background-color 0.2s;
-                }
-                
-                .zappy-success-modal__button:hover {
-                    background: #0056b3;
-                }
-                
-                @keyframes fadeIn {
-                    from { opacity: 0; }
-                    to { opacity: 1; }
-                }
-                
-                @keyframes slideUp {
-                    from { transform: translateY(30px); opacity: 0; }
-                    to { transform: translateY(0); opacity: 1; }
-                }
-            `;
-            document.head.appendChild(styles);
-        }
-        
-        document.body.appendChild(modal);
-        
-        // Auto-close after 5 seconds
-        setTimeout(() => {
-            if (modal.parentElement) {
-                modal.remove();
-            }
-        }, 5000);
-    }
-    
-    // Fallback contact information
-    function showFallbackContact() {
-        const fallback = document.createElement('div');
-        fallback.className = 'zappy-fallback-contact';
-        fallback.innerHTML = `
-            <div class="zappy-fallback-contact__content">
-                <h4>Alternative Contact Methods</h4>
-                <p>If you're having trouble sending your message, you can also reach us at:</p>
-                <div class="zappy-fallback-contact__methods">
-                    <a href="mailto:support@zappy5.com?subject=Contact Form Issue" class="zappy-fallback-contact__method">
-                        📧 support@zappy5.com
-                    </a>
-                </div>
-                <button onclick="this.parentElement.parentElement.remove()" class="zappy-fallback-contact__close">
-                    Close
-                </button>
-            </div>
-        `;
-        
-        // Add fallback styles
-        if (!document.querySelector('#zappy-fallback-styles')) {
-            const styles = document.createElement('style');
-            styles.id = 'zappy-fallback-styles';
-            styles.textContent = `
-                .zappy-fallback-contact {
-                    position: fixed;
-                    bottom: 20px;
-                    right: 20px;
-                    max-width: 350px;
-                    background: white;
-                    border: 1px solid #ddd;
-                    border-radius: 8px;
-                    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-                    z-index: 10000;
-                    animation: slideInUp 0.3s ease-out;
-                }
-                
-                .zappy-fallback-contact__content {
-                    padding: 20px;
-                }
-                
-                .zappy-fallback-contact__content h4 {
-                    margin: 0 0 10px 0;
-                    color: #333;
-                    font-size: 16px;
-                }
-                
-                .zappy-fallback-contact__content p {
-                    margin: 0 0 15px 0;
-                    color: #666;
-                    font-size: 14px;
-                    line-height: 1.4;
-                }
-                
-                .zappy-fallback-contact__methods {
-                    margin-bottom: 15px;
-                }
-                
-                .zappy-fallback-contact__method {
-                    display: block;
-                    padding: 8px 12px;
-                    background: #f8f9fa;
-                    border: 1px solid #e9ecef;
-                    border-radius: 4px;
-                    text-decoration: none;
-                    color: #495057;
-                    font-size: 14px;
-                    transition: background-color 0.2s;
-                }
-                
-                .zappy-fallback-contact__method:hover {
-                    background: #e9ecef;
-                }
-                
-                .zappy-fallback-contact__close {
-                    background: #6c757d;
-                    color: white;
-                    border: none;
-                    padding: 8px 16px;
-                    border-radius: 4px;
-                    font-size: 12px;
-                    cursor: pointer;
-                    float: right;
-                }
-                
-                @keyframes slideInUp {
-                    from {
-                        transform: translateY(100%);
-                        opacity: 0;
-                    }
-                    to {
-                        transform: translateY(0);
-                        opacity: 1;
-                    }
-                }
-            `;
-            document.head.appendChild(styles);
-        }
-        
-        document.body.appendChild(fallback);
-        
-        // Auto-remove after 10 seconds
-        setTimeout(() => {
-            if (fallback.parentElement) {
-                fallback.remove();
-            }
-        }, 10000);
-        }
-        
-        // ═══════════════════════════════════════════════════════════════
-        // 🍔 MOBILE MENU TOGGLE HANDLER
-        // ═══════════════════════════════════════════════════════════════
-        (function initMobileMenu() {
-            const mobileToggle = document.getElementById('mobileToggle') || 
-                               document.querySelector('.mobile-toggle') || 
-                               document.querySelector('.hamburger');
-            const navMenu = document.getElementById('navMenu') || 
-                          document.querySelector('.nav-menu') ||
-                          document.querySelector('.navbar-menu');
-            
-            if (mobileToggle && navMenu) {
-                
-                // Toggle menu on button click
-                mobileToggle.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const hamburgerIcon = this.querySelector('.hamburger-icon');
-                    const closeIcon = this.querySelector('.close-icon');
-                    const isActive = this.classList.contains('active');
-                    
-                    if (isActive) {
-                        // Show hamburger, hide X
-                        if (hamburgerIcon) hamburgerIcon.style.display = 'block';
-                        if (closeIcon) closeIcon.style.display = 'none';
-                        this.classList.remove('active');
-                        navMenu.classList.remove('active');
-                        document.body.style.overflow = '';
-                    } else {
-                        // Show X, hide hamburger  
-                        if (hamburgerIcon) hamburgerIcon.style.display = 'none';
-                        if (closeIcon) closeIcon.style.display = 'block';
-                        this.classList.add('active');
-                        navMenu.classList.add('active');
-                        document.body.style.overflow = 'hidden'; // Prevent scroll when menu open
-                    }
-                });
-                
-                // Close menu when clicking a nav link
-                const navLinks = navMenu.querySelectorAll('a');
-                navLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        const hamburgerIcon = mobileToggle.querySelector('.hamburger-icon');
-                        const closeIcon = mobileToggle.querySelector('.close-icon');
-                        if (hamburgerIcon) hamburgerIcon.style.display = 'block';
-                        if (closeIcon) closeIcon.style.display = 'none';
-                        mobileToggle.classList.remove('active');
-                        navMenu.classList.remove('active');
-                        document.body.style.overflow = '';
-                    });
-                });
-                
-                // Close menu when clicking outside
-                document.addEventListener('click', function(e) {
-                    if (navMenu.classList.contains('active') && 
-                        !navMenu.contains(e.target) && 
-                        !mobileToggle.contains(e.target)) {
-                        const hamburgerIcon = mobileToggle.querySelector('.hamburger-icon');
-                        const closeIcon = mobileToggle.querySelector('.close-icon');
-                        if (hamburgerIcon) hamburgerIcon.style.display = 'block';
-                        if (closeIcon) closeIcon.style.display = 'none';
-                        mobileToggle.classList.remove('active');
-                        navMenu.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
-                });
-                
-                // Handle escape key
-                document.addEventListener('keydown', function(e) {
-                    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-                        const hamburgerIcon = mobileToggle.querySelector('.hamburger-icon');
-                        const closeIcon = mobileToggle.querySelector('.close-icon');
-                        if (hamburgerIcon) hamburgerIcon.style.display = 'block';
-                        if (closeIcon) closeIcon.style.display = 'none';
-                        mobileToggle.classList.remove('active');
-                        navMenu.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
-                });
-                
-                // Phone header button functionality
-                const phoneHeaderBtn = document.querySelector('.phone-header-btn');
-                if (phoneHeaderBtn) {
-                    phoneHeaderBtn.addEventListener('click', function() {
-                        // Dynamically get phone number from existing tel: links on the page
-                        // This ensures the phone button uses the same number as other phone links
-                        // Falls back to [business_phone] placeholder which businessInfoUpdater can replace
-                        const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
-                        const phoneNumber = phoneLinks.length > 0 
-                            ? phoneLinks[0].getAttribute('href').replace('tel:', '')
-                            : '[business_phone]';
-                        window.location.href = 'tel:' + phoneNumber;
-                    });
-                }
-            }
-        })();
-        
-        // ═══════════════════════════════════════════════════════════════
-        // 🔗 DISABLE SOCIAL MEDIA LINKS WITH PLACEHOLDERS
-        // ═══════════════════════════════════════════════════════════════
-        (function disablePlaceholderLinks() {
-            // List of social media placeholders to check for (both old and new formats)
-            const socialPlaceholders = [
-                // New format (handle placeholders within URLs)
-                '[facebook_handle]',
-                '[instagram_handle]',
-                '[whatsapp_handle]',
-                '[twitter_handle]',
-                '[linkedin_handle]',
-                '[youtube_handle]',
-                '[tiktok_handle]',
-                '[pinterest_handle]',
-                // Old format (full URL placeholders)
-                '[social_facebook]',
-                '[social instagram]',
-                '[social_instagram]',
-                '[social whatsapp]',
-                '[social_whatsapp]',
-                '[social_twitter]',
-                '[social_linkedin]',
-                '[social_youtube]',
-                '[social_tiktok]',
-                '[social_pinterest]'
-            ];
-            
-            // Find all links that might contain placeholders
-            const allLinks = document.querySelectorAll('a[href]');
-            
-            allLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                
-                // Check if href contains any placeholder
-                const hasPlaceholder = socialPlaceholders.some(placeholder => 
-                    href && href.includes(placeholder)
-                );
-                
-                if (hasPlaceholder) {
-                    // Prevent navigation
-                    link.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        return false;
-                    });
-                    
-                    // Add visual indication that link is disabled
-                    link.style.cursor = 'not-allowed';
-                    link.style.opacity = '0.6';
-                    link.setAttribute('aria-disabled', 'true');
-                    link.setAttribute('title', 'Social media link not configured');
-                    
-                    // Remove target="_blank" to prevent opening empty tabs
-                    link.removeAttribute('target');
-                    link.removeAttribute('rel');
-                }
-            });
-        })();
-        } // End of initContactForm
-        
-        // Initialize when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initContactForm);
-        } else {
-            // DOM is already ready, initialize immediately
-            initContactForm();
-        }
-    })(); // End of IIFE
-    
-/* ZAPPY_INTEGRATION_END unknown:setup_contact_form_emails */
 
 
 /* ZAPPY_PUBLISHED_LIGHTBOX_RUNTIME */
@@ -19500,7 +19541,7 @@ function fixContrast(){
 })();
 
 
-/* ZAPPY_VARIANT_SELECTION_FIX_V11 */
+/* ZAPPY_VARIANT_SELECTION_FIX_V13 */
 (function(){
   try {
     if (window.__zappyVariantFixInit) return;
@@ -19533,7 +19574,8 @@ function fixContrast(){
     // _autoSelectSingles. Re-trigger fixVariantSelection from inside the wrapper
     // so the runtime fix runs once data finally arrives. Deferred via setTimeout
     // so the page's own renderProductDetail finishes mutating the DOM first.
-    function _oivs(){if(_initOvr)return;if(typeof window.initVariantSelection==='function')_initOvr=true;window.initVariantSelection=function(p,t){if(p&&p.variants&&p.variants.length>0){_vProduct=_augmentProductFromCardVariants(p);var tr=t||{};if(!tr.pleaseSelect){var rtl=document.documentElement.getAttribute('dir')==='rtl'||document.body.getAttribute('dir')==='rtl';tr.pleaseSelect=rtl?'נא לבחור':'Please select'}_vT=tr;setTimeout(function(){try{fixVariantSelection()}catch(e){}},0)}}}
+    function _hasMatrix(p){return !!(p&&p.card_variants&&Array.isArray(p.card_variants.matrix)&&p.card_variants.matrix.length>0)}
+    function _oivs(){if(_initOvr)return;if(typeof window.initVariantSelection==='function')_initOvr=true;window.initVariantSelection=function(p,t){if(p&&((p.variants&&p.variants.length>0)||_hasMatrix(p))){_vProduct=_augmentProductFromCardVariants(p);var tr=t||{};if(!tr.pleaseSelect){var rtl=document.documentElement.getAttribute('dir')==='rtl'||document.body.getAttribute('dir')==='rtl';tr.pleaseSelect=rtl?'נא לבחור':'Please select'}_vT=tr;setTimeout(function(){try{fixVariantSelection()}catch(e){}},0)}}}
     _oivs();
 
     function _augmentProductFromCardVariants(p){
@@ -19556,7 +19598,15 @@ function fixContrast(){
     function _trVal(p,k,v,f){if(typeof window.zappyTranslateVariantValue==='function')return window.zappyTranslateVariantValue(p,k,v,f);var lang='';try{lang=String((typeof getCurrentEcomLanguage==='function'?getCurrentEcomLanguage():(document.documentElement.lang||''))||'').split('-')[0].toLowerCase()}catch(e){}function kc(x){if(lang!=='he')return'';if(String(k||'').toLowerCase().indexOf('color')===-1&&String(k||'').toLowerCase()!=='colour')return'';var raw=String(x==null?'':x).trim();if(!raw||/[\u0590-\u05FF]/.test(raw))return'';var map={black:'שחור',white:'לבן',gray:'אפור',grey:'אפור',red:'אדום',green:'ירוק',blue:'כחול',navy:'כחול כהה',pink:'ורוד',purple:'סגול',yellow:'צהוב',orange:'כתום',brown:'חום',beige:'בז׳',gold:'זהב',silver:'כסף',teal:'טורקיז',mint:'מנטה',cream:'קרם',ivory:'שנהב'},direct=map[raw.toLowerCase().replace(/\s+/g,' ')];if(direct)return direct;var parts=raw.split(/\s*-\s*/).filter(Boolean),tr=parts.map(function(part){return map[String(part).toLowerCase().replace(/\s+/g,' ')]});return parts.length>1&&tr.every(Boolean)?tr.join('-'):''}var vs=p&&Array.isArray(p.variants)?p.variants:[],w=String(v);for(var i=0;i<vs.length;i++){var x=vs[i]||{},a=x.attributes_source||x.attributes||{};if(!a||String(a[k])!==w)continue;var tr=x.attributes_translations&&lang&&x.attributes_translations[lang];if(tr&&tr[k])return kc(tr[k])||String(tr[k]);var d=x.attributes_display||{};if(d&&d[k])return kc(d[k])||String(d[k])}var m=p&&p.card_variants&&Array.isArray(p.card_variants.matrix)?p.card_variants.matrix:[];for(var j=0;j<m.length;j++){var r=m[j]||{},ra=r.attributes||{};if(ra&&String(ra[k])===w&&r.attributes_display&&r.attributes_display[k])return kc(r.attributes_display[k])||String(r.attributes_display[k])}return kc(f)||f}
     function _ensureCvBtns(){var p=_vProduct||window.currentProduct,cv=p&&p.card_variants;if(!cv||!Array.isArray(cv.options))return;cv.options.forEach(function(o){if(!o||!o.key||!Array.isArray(o.values))return;var g=null;document.querySelectorAll('.variant-group').forEach(function(c){if(c.getAttribute('data-group')===o.key)g=c});var ct=g&&g.querySelector('.variant-options');if(!ct)return;var isC=o.type==='color'||String(o.key).toLowerCase().indexOf('color')!==-1;o.values.forEach(function(e){if(!e||e.value==null)return;var dl=_trVal(p,o.key,e.value,String(e.label||e.value));var eb=null;ct.querySelectorAll('.variant-option').forEach(function(b){if(b.getAttribute('data-value')===String(e.value))eb=b});if(eb){eb.setAttribute('data-display-value',dl);eb.title=dl;if(isC)eb.style.cssText=_cvStyle(e);else eb.textContent=dl;return}var b=document.createElement('button');b.type='button';b.className='variant-option'+(isC?' color-swatch':'');b.setAttribute('data-attr',o.key);b.setAttribute('data-value',String(e.value));b.setAttribute('data-display-value',dl);b.title=dl;if(isC)b.style.cssText=_cvStyle(e);else b.textContent=dl;ct.appendChild(b)})})}
 
-    function _gv() { if(!_vProduct)return []; return (_vProduct.variants||[]).filter(function(v){return v.is_active!==false}); }
+    function _gv() {
+      if(!_vProduct)return [];
+      var rows=(_vProduct.variants||[]).filter(function(v){return v&&v.is_active!==false});
+      if(rows.length)return rows;
+      // Matrix-only / incomplete variants payload: treat card_variants.matrix as
+      // the purchasable row set (same as updateVariantUI / renderProductDetail).
+      var m=_vProduct.card_variants&&Array.isArray(_vProduct.card_variants.matrix)?_vProduct.card_variants.matrix:[];
+      return m.filter(function(r){return r&&r.is_active!==false});
+    }
     function _gak() { var k=[],s={}; document.querySelectorAll('.variant-option').forEach(function(b){var a=b.getAttribute('data-attr');if(a&&!s[a]){s[a]=true;k.push(a)}}); return k; }
     // Wildcard match: a variant that doesn't define an attribute matches any value.
     // Prefers the shared window.zappyVariantMatrix (same script.js) so the PDP,
@@ -19567,6 +19617,10 @@ function fixContrast(){
     function _oos(v) {
       if(window.zappyVariantMatrix)return window.zappyVariantMatrix.isUnavailable(v);
       if(!v)return true;
+      // Mirror zappyVariantMatrix.isUnavailable — matrix rows often only set
+      // available (no stock_status / inventory fields).
+      if(typeof v.available==='boolean')return !v.available;
+      if(v.is_active===false)return true;
       if(v.stock_status==='out_of_stock')return true;
       var i=v.inventory_quantity!=null?v.inventory_quantity:v.inventoryQuantity;
       if(i!=null&&i!==''){var n=parseFloat(i);if(isFinite(n))return n<=0}
@@ -19596,7 +19650,18 @@ function fixContrast(){
       else if(window._originalMainImageSrc){mi.src=window._originalMainImageSrc}
     }
 
-    function _anyAvail(){var rows=_gv();if(!rows.length)return false;return rows.some(function(v){return !_oos(v)})}
+    // Mirror updateVariantUI's incomplete-selection availability: prefer active
+    // variant rows, then fall back to card_variants.matrix when variants are
+    // empty/incomplete/all-OOS. V11 only consulted _gv()→variants and flashed
+    // "Out of Stock" on matrix-heavy products that initially showed "Select option".
+    function _anyAvail(){
+      var rows=_gv();
+      if(rows.some(function(v){return !_oos(v)}))return true;
+      var p=_vProduct||window.currentProduct;
+      var m=p&&p.card_variants&&Array.isArray(p.card_variants.matrix)?p.card_variants.matrix:[];
+      if(m.length)return m.some(function(r){return r&&r.available!==false&&r.is_active!==false});
+      return false;
+    }
     function _selMsg(){var t=_vT||{};if(typeof getEcomText==='function')return getEcomText('selectVariant',t.selectVariant||'Select option');var rtl=document.documentElement.getAttribute('dir')==='rtl'||document.body.getAttribute('dir')==='rtl';return t.selectVariant||(rtl?'\u05D1\u05D7\u05E8 \u05D0\u05E4\u05E9\u05E8\u05D5\u05EA':'Select option')}
     function _upd() {
       var t=_vT,product=_vProduct;if(!product)return;
@@ -19652,7 +19717,7 @@ function fixContrast(){
       for(var i=0;i<keys.length;i++){if(!selectedAttributes.hasOwnProperty(keys[i])){
         e.preventDefault();e.stopImmediatePropagation();
         var grp=document.querySelector('.variant-group[data-group="'+keys[i]+'"]'),lbl=grp?grp.querySelector('.variant-group-label'):null,name=lbl?lbl.textContent.replace(/[:\s]+$/,'').trim():keys[i];
-        var sd=document.getElementById('product-stock-display');if(sd){sd.className='product-stock out-of-stock';sd.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>'+(t.pleaseSelect||'Please select')+' '+name}
+        var sd=document.getElementById('product-stock-display');if(sd){sd.className='product-stock select-required';sd.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>'+(t.pleaseSelect||'Please select')+' '+name}
         if(grp){grp.style.transition='background 0.3s';grp.style.background='rgba(255,0,0,0.05)';grp.style.borderRadius='8px';setTimeout(function(){grp.style.background=''},2000)}return}}
       var m=_fm(selectedAttributes);if(m.length>0&&m.every(function(v){return _oos(v)})){e.preventDefault();e.stopImmediatePropagation();return}
     },true);
@@ -19709,7 +19774,8 @@ function fixContrast(){
     function fixVariantSelection() {
       _oivs();
       var product=_vProduct||window.currentProduct,t=_vT||window.productTranslations||{};
-      if(!product||!product.variants||product.variants.length===0)return;
+      if(!product)return;
+      if((!product.variants||product.variants.length===0)&&!_hasMatrix(product))return;
       if(document.querySelectorAll('.variant-option').length===0)return;
       if(window._zappyVariantFixed)return;window._zappyVariantFixed=true;
       _vProduct=_augmentProductFromCardVariants(product);if(!t.pleaseSelect){var isRTL=document.documentElement.getAttribute('dir')==='rtl'||document.body.getAttribute('dir')==='rtl';t.pleaseSelect=isRTL?'נא לבחור':'Please select'}_vT=t;
@@ -19723,7 +19789,7 @@ function fixContrast(){
       window.addProductToCart=function(){
         var keys=_gak();for(var i=0;i<keys.length;i++){if(!selectedAttributes.hasOwnProperty(keys[i])){
           var grp=document.querySelector('.variant-group[data-group="'+keys[i]+'"]'),lbl=grp?grp.querySelector('.variant-group-label'):null,name=lbl?lbl.textContent.replace(/[:\s]+$/,'').trim():keys[i];
-          var sd=document.getElementById('product-stock-display');if(sd){sd.className='product-stock out-of-stock';sd.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>'+(t.pleaseSelect||'Please select')+' '+name}
+          var sd=document.getElementById('product-stock-display');if(sd){sd.className='product-stock select-required';sd.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>'+(t.pleaseSelect||'Please select')+' '+name}
           if(grp){grp.style.transition='background 0.3s';grp.style.background='rgba(255,0,0,0.05)';grp.style.borderRadius='8px';setTimeout(function(){grp.style.background=''},2000)}return}}
         var m=_fm(selectedAttributes);if(m.length>0&&m.every(function(v){return _oos(v)}))return;
         if(origATC)origATC.apply(this,arguments);
@@ -20977,7 +21043,7 @@ function fixContrast(){
       var s = document.createElement('style');
       s.id = 'zappy-variant-visual-css';
       s.textContent =
-        /* Text variant options: gray + text strikethrough */
+        /* False variant options: gray + text strikethrough */
         '.variant-option.disabled { opacity: 0.4 !important; cursor: pointer !important; text-decoration: line-through !important; }' +
         '.variant-option.disabled::after, .variant-option.disabled::before { content: none !important; }' +
         /* Color swatches: only opacity, no strikethrough */
@@ -20985,7 +21051,9 @@ function fixContrast(){
         /* Out-of-stock: same treatment */
         '.variant-option.out-of-stock { opacity: 0.4 !important; cursor: pointer !important; text-decoration: line-through !important; }' +
         '.variant-option.out-of-stock::after, .variant-option.out-of-stock::before { content: none !important; }' +
-        '.variant-option.color-swatch.out-of-stock { text-decoration: none !important; }';
+        '.variant-option.color-swatch.out-of-stock { text-decoration: none !important; }' +
+        /* Incomplete selection prompt (must not look like hard OOS) */
+        '.product-info .product-stock.select-required { color: #d97706 !important; }';
       document.head.appendChild(s);
     }
 
@@ -20999,8 +21067,8 @@ function fixContrast(){
         _initOverridden = true;
       }
       window.initVariantSelection = function(product, t) {
-        // Store product data for our fix
-        if (product && product.variants && product.variants.length > 0) {
+        // Store product data for our fix (variants[] OR card_variants.matrix)
+        if (product && ((product.variants && product.variants.length > 0) || _hasMatrix(product))) {
           _variantProduct = _augmentProductFromCardVariants(product);
           var trans = t || {};
           // Ensure pleaseSelect is available (for sites generated before this key was added)
@@ -21033,7 +21101,33 @@ function fixContrast(){
     
     function _getVariants() {
       if (!_variantProduct) return [];
-      return (_variantProduct.variants || []).filter(function(v) { return v.is_active !== false; });
+      var rows = (_variantProduct.variants || []).filter(function(v) { return v && v.is_active !== false; });
+      if (rows.length) return rows;
+      // Matrix-only / incomplete variants[] — same fallback as updateVariantUI / V12 overlay.
+      var m = _variantProduct.card_variants && Array.isArray(_variantProduct.card_variants.matrix)
+        ? _variantProduct.card_variants.matrix : [];
+      return m.filter(function(r) { return r && r.is_active !== false; });
+    }
+
+    function _hasMatrix(p) {
+      return !!(p && p.card_variants && Array.isArray(p.card_variants.matrix) && p.card_variants.matrix.length > 0);
+    }
+
+    /** True when any purchasable variant/matrix row remains (incomplete-selection gate). */
+    function _anyVariantAvailable() {
+      var rows = _getVariants();
+      if (rows.some(function(v) { return !_isOOS(v); })) return true;
+      var p = _variantProduct || window.currentProduct;
+      var m = p && p.card_variants && Array.isArray(p.card_variants.matrix) ? p.card_variants.matrix : [];
+      if (m.length) return m.some(function(r) { return r && r.available !== false && r.is_active !== false; });
+      return false;
+    }
+
+    function _selectVariantMessage() {
+      var t = _variantTranslations || {};
+      if (typeof getEcomText === 'function') return getEcomText('selectVariant', t.selectVariant || 'Select option');
+      var rtl = document.documentElement.getAttribute('dir') === 'rtl' || document.body.getAttribute('dir') === 'rtl';
+      return t.selectVariant || (rtl ? 'בחר אפשרות' : 'Select option');
     }
 
     function _augmentProductFromCardVariants(product) {
@@ -21195,6 +21289,9 @@ function fixContrast(){
     function _isOOS(v) {
       if (window.zappyVariantMatrix) return window.zappyVariantMatrix.isUnavailable(v);
       if (!v) return true;
+      // Matrix rows often only set `available` (no stock_status / inventory).
+      if (typeof v.available === 'boolean') return !v.available;
+      if (v.is_active === false) return true;
       if (v.stock_status === 'out_of_stock') return true;
       var i = v.inventory_quantity != null ? v.inventory_quantity : v.inventoryQuantity;
       if (i != null && i !== '') {
@@ -21290,7 +21387,9 @@ function fixContrast(){
       var product = _variantProduct;
       if (!product) return;
       var keys = _getAttributeKeys();
-      var allSelected = keys.every(function(k) { return selectedAttributes.hasOwnProperty(k); });
+      // keys.length===0 must NOT vacuous-true allSelected — that used to resolve
+      // the first (often OOS) variant and flash "Out of Stock" before a pick.
+      var allSelected = keys.length > 0 && keys.every(function(k) { return selectedAttributes.hasOwnProperty(k); });
       var stockDisplay = document.getElementById('product-stock-display');
       var priceDisplay = document.getElementById('product-price-display');
       var addBtn = document.getElementById('add-to-cart-btn');
@@ -21416,11 +21515,23 @@ function fixContrast(){
           var skuLabel2 = (typeof getEcomText === 'function') ? getEcomText('sku', t.sku || 'SKU') : (t.sku || 'SKU');
           skuDisplay2.textContent = skuLabel2 + ': ' + product.sku;
         }
+        // Incomplete selection: prompt to pick an option when any variant is still
+        // purchasable. Never echo parent stock_status / blanket "In Stock" here —
+        // that flashed OOS or In Stock before the shopper chose (preview path).
+        var avail = _anyVariantAvailable();
         if (stockDisplay) {
-          stockDisplay.className = 'product-stock in-stock';
-          stockDisplay.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>' + (t.inStock || 'In Stock');
+          if (avail) {
+            stockDisplay.className = 'product-stock select-required';
+            stockDisplay.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>' + _selectVariantMessage();
+          } else {
+            stockDisplay.className = 'product-stock out-of-stock';
+            stockDisplay.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>' + (t.outOfStock || 'Out of Stock');
+          }
         }
-        if (addBtn) { addBtn.disabled = false; addBtn.style.opacity = ''; addBtn.style.cursor = ''; }
+        if (addBtn) {
+          if (avail) { addBtn.disabled = false; addBtn.style.opacity = ''; addBtn.style.cursor = ''; }
+          else { addBtn.disabled = true; addBtn.style.opacity = '0.5'; addBtn.style.cursor = 'not-allowed'; }
+        }
         // Reset price to initial state (Starting at / base price). Same
         // customer-discount path as the variant-matched branch above; without
         // this, partially-selecting a variant and then deselecting another
@@ -21537,8 +21648,10 @@ function fixContrast(){
           var name = lbl ? lbl.textContent.replace(/[:\s]+$/, '').trim() : keys[i];
           var sd = document.getElementById('product-stock-display');
           if (sd) {
-            sd.className = 'product-stock out-of-stock';
-            sd.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>' +
+            // select-required (not out-of-stock): i18n patch must not rewrite
+            // "Please select Material" → "Out of Stock".
+            sd.className = 'product-stock select-required';
+            sd.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>' +
               (t.pleaseSelect || 'Please select') + ' ' + name;
           }
           if (grp) {
@@ -21568,7 +21681,8 @@ function fixContrast(){
       
       var product = _variantProduct || window.currentProduct;
       var t = _variantTranslations || window.productTranslations || {};
-      if (!product || !product.variants || product.variants.length === 0) return;
+      if (!product) return;
+      if ((!product.variants || product.variants.length === 0) && !_hasMatrix(product)) return;
       if (document.querySelectorAll('.variant-option').length === 0) return;
       if (window._zappyVariantFixed) return;
       window._zappyVariantFixed = true;
@@ -21674,8 +21788,8 @@ function fixContrast(){
             var name = lbl ? lbl.textContent.replace(/[:\s]+$/, '').trim() : keys[i];
             var sd = document.getElementById('product-stock-display');
             if (sd) {
-              sd.className = 'product-stock out-of-stock';
-              sd.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>' +
+              sd.className = 'product-stock select-required';
+              sd.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>' +
                 (t.pleaseSelect || 'Please select') + ' ' + name;
             }
             if (grp) {
@@ -22044,6 +22158,8 @@ function fixContrast(){
       en: {
         inStock: 'In Stock',
         outOfStock: 'Out of Stock',
+        selectVariant: 'Select option',
+        pleaseSelect: 'Please select',
         color: 'Color',
         size: 'Size',
         material: 'Material',
@@ -22055,6 +22171,8 @@ function fixContrast(){
       he: {
         inStock: 'במלאי',
         outOfStock: 'אזל מהמלאי',
+        selectVariant: 'בחר אפשרות',
+        pleaseSelect: 'נא לבחור',
         color: 'צבע',
         size: 'מידה',
         material: 'חומר',
@@ -22168,10 +22286,31 @@ function fixContrast(){
 
       var stock = document.getElementById('product-stock-display');
       if (stock) {
-        var inStock = stock.classList.contains('in-stock') && !stock.classList.contains('out-of-stock');
+        // Three-state: in-stock / out-of-stock / select-required.
+        // Also preserve "Please select <Attr>" prompts (ATC validation) — those
+        // used to ship with class out-of-stock, and this rewriter then replaced
+        // them with "Out of Stock" ~100ms later via MutationObserver.
         var svg = stock.querySelector('svg');
-        var nextText = inStock ? getText('inStock') : getText('outOfStock');
-        if ((stock.textContent || '').trim() !== nextText) {
+        var current = (stock.textContent || '').trim();
+        var please = getText('pleaseSelect');
+        var isPleasePrompt = !!(current && (
+          current.indexOf(please) === 0
+          || /^please select\b/i.test(current)
+          || current.indexOf('נא לבחור') === 0
+        ));
+        var nextText;
+        if (isPleasePrompt) {
+          nextText = current;
+        } else if (stock.classList.contains('select-required')) {
+          nextText = (typeof getEcomText === 'function')
+            ? getEcomText('selectVariant', getText('selectVariant'))
+            : getText('selectVariant');
+        } else if (stock.classList.contains('in-stock') && !stock.classList.contains('out-of-stock')) {
+          nextText = getText('inStock');
+        } else {
+          nextText = getText('outOfStock');
+        }
+        if (current !== nextText) {
           stock.textContent = '';
           if (svg) stock.appendChild(svg);
           stock.appendChild(document.createTextNode(nextText));
@@ -22532,10 +22671,10 @@ function fixContrast(){
 })();
 
 
-/* ZAPPY_ECOM_LANGUAGE_ROUTING_RUNTIME_V24 */
+/* ZAPPY_ECOM_LANGUAGE_ROUTING_RUNTIME_V25 */
 (function() {
-  if (window.__zappyEcomLanguageRoutingRuntime >= 24) return;
-  window.__zappyEcomLanguageRoutingRuntime = 24;
+  if (window.__zappyEcomLanguageRoutingRuntime >= 25) return;
+  window.__zappyEcomLanguageRoutingRuntime = 25;
 
   // Routing strategy: use path-based language URLs for ALL storefront pages
   // (including dynamic /product/:slug and /category/:slug). The publish
@@ -22809,7 +22948,11 @@ function fixContrast(){
       setImportant(li, 'overflow', 'visible');
       setImportant(li, 'box-sizing', 'border-box');
 
-      setImportant(trigger, 'display', 'block');
+      // Match ensureMobileNavMenuItemPadding (12px 16px / 44px tap target).
+      // Legacy padding-inline:8px + CSS padding:0 on .menu-group-title
+      // squashed group labels (סיום והעברות / בלוג) vs sibling <a> rows.
+      setImportant(trigger, 'display', 'flex');
+      setImportant(trigger, 'align-items', 'center');
       setImportant(trigger, 'direction', isRtl ? 'rtl' : 'ltr');
       setImportant(trigger, 'flex', '1 1 0');
       setImportant(trigger, 'min-width', '0');
@@ -22818,9 +22961,30 @@ function fixContrast(){
       setImportant(trigger, 'box-sizing', 'border-box');
       setImportant(trigger, 'white-space', 'normal');
       setImportant(trigger, 'overflow-wrap', 'anywhere');
-      setImportant(trigger, 'padding-inline', '8px');
+      setImportant(trigger, 'padding', '12px 16px');
+      setImportant(trigger, 'min-height', '44px');
+      setImportant(trigger, 'line-height', '1.4');
+      setImportant(trigger, 'font-weight', '600');
       setImportant(trigger, 'text-align', isRtl ? 'right' : 'left');
       setImportant(trigger, 'order', isRtl ? '2' : '1');
+
+      // Open mobile drawer: paint .menu-group-title like sibling links.
+      // Scrolled-nav CSS often sets titles to --frosted-text (near-black),
+      // which is invisible on the dark full-bleed panel (Dubai Plus 2026-07).
+      var menuRoot = li.closest('.nav-menu, #navMenu');
+      if (menuRoot && (menuRoot.classList.contains('active') || menuRoot.classList.contains('open'))) {
+        var sampleLink = menuRoot.querySelector(':scope > li > a');
+        var linkColor = '';
+        try { linkColor = sampleLink ? (window.getComputedStyle(sampleLink).color || '') : ''; } catch (e) {}
+        if (!linkColor || linkColor === 'rgba(0, 0, 0, 0)') {
+          try {
+            linkColor = (window.getComputedStyle(menuRoot).getPropertyValue('--nav-text') || '').trim()
+              || (window.getComputedStyle(document.documentElement).getPropertyValue('--nav-text') || '').trim()
+              || '#fff7ed';
+          } catch (e2) { linkColor = '#fff7ed'; }
+        }
+        setImportant(trigger, 'color', linkColor);
+      }
 
       setImportant(btn, 'display', 'flex');
       setImportant(btn, 'position', 'static');
@@ -22948,12 +23112,12 @@ function fixContrast(){
   // declaration merging that was eating the standalone CSS injection.
   function ensureRuntimeCssInjected() {
     var existing = document.getElementById('zappy-ecom-routing-runtime-css');
-    if (existing && existing.getAttribute('data-v') === '29') return;
+    if (existing && existing.getAttribute('data-v') === '30') return;
     if (existing) existing.remove();
     var style = document.createElement('style');
     style.id = 'zappy-ecom-routing-runtime-css';
     style.setAttribute('data-zappy-runtime', 'ecom-routing');
-    style.setAttribute('data-v', '29');
+    style.setAttribute('data-v', '30');
     style.textContent =
       '@media (min-width: 769px){' +
         'html[dir="ltr"] .nav-container > .nav-brand,body[dir="ltr"] .nav-container > .nav-brand,html[dir="ltr"] .nav-right-group > .nav-brand,body[dir="ltr"] .nav-right-group > .nav-brand{order:-1!important}' +
@@ -22989,7 +23153,10 @@ function fixContrast(){
         // Beat any ".nav-menu.active > li { display:block }" (preview/generated)
         // so non-products dropdowns keep the chevron beside the label.
         '.navbar .nav-menu.active>li:has(>.sub-menu),nav.navbar .nav-menu.active>li:has(>.sub-menu),#navMenu.active>li:has(>.sub-menu),.nav-menu.open>li:has(>.sub-menu),.navbar .nav-menu.active>li.menu-item-has-children,nav.navbar .nav-menu.active>li.menu-item-has-children,#navMenu.active>li.menu-item-has-children,.nav-menu.open>li.menu-item-has-children{display:flex!important;flex-wrap:wrap!important;align-items:center!important;position:relative!important}' +
-        '.nav-menu li:has(.sub-menu)>a,.navbar li:has(.sub-menu)>a,nav li:has(.sub-menu)>a,li:has(.sub-menu)>.menu-group-title{display:block!important;flex:1 1 0!important;order:1!important;width:auto!important;min-width:0!important;max-width:calc(100% - 48px)!important;padding-inline:8px!important;box-sizing:border-box!important;white-space:normal!important;overflow-wrap:anywhere!important;line-height:1.35!important;text-align:left!important;direction:ltr!important}' +
+        '.nav-menu li:has(.sub-menu)>a,.navbar li:has(.sub-menu)>a,nav li:has(.sub-menu)>a,li:has(.sub-menu)>.menu-group-title{display:flex!important;align-items:center!important;flex:1 1 0!important;order:1!important;width:auto!important;min-width:0!important;max-width:calc(100% - 48px)!important;padding:12px 16px!important;min-height:44px!important;box-sizing:border-box!important;white-space:normal!important;overflow-wrap:anywhere!important;line-height:1.4!important;font-weight:600!important;text-align:left!important;direction:ltr!important}' +
+        /* Open drawer: beat .navbar.scrolled frosted-text on .menu-group-title
+           (dark-on-dark missing labels on non-home pages). */
+        '.navbar .nav-menu.active>li>.menu-group-title,.navbar #navMenu.active>li>.menu-group-title,.nav-menu.open>li>.menu-group-title,html body .navbar.scrolled .nav-menu.active>li>.menu-group-title,html body .navbar.scrolled #navMenu.active>li>.menu-group-title{color:var(--nav-text,var(--text-light,#fff7ed))!important}' +
         'html[dir="rtl"] .nav-menu li:has(.sub-menu)>a,body[dir="rtl"] .nav-menu li:has(.sub-menu)>a,html[dir="rtl"] .navbar li:has(.sub-menu)>a,body[dir="rtl"] .navbar li:has(.sub-menu)>a,html[dir="rtl"] nav li:has(.sub-menu)>a,body[dir="rtl"] nav li:has(.sub-menu)>a,html[dir="rtl"] li:has(.sub-menu)>.menu-group-title,body[dir="rtl"] li:has(.sub-menu)>.menu-group-title{direction:rtl!important;text-align:right!important;order:2!important}' +
         '.nav-menu li:has(.sub-menu)>.mobile-submenu-toggle,.navbar li:has(.sub-menu)>.mobile-submenu-toggle,nav li:has(.sub-menu)>.mobile-submenu-toggle{display:flex!important;position:static!important;flex:0 0 48px!important;order:2!important;width:48px!important;height:44px!important;min-height:44px!important;align-items:center!important;justify-content:center!important;z-index:5!important;pointer-events:auto!important;margin:0!important;padding:0!important;background:transparent!important;border:none!important}' +
         'html[dir="rtl"] .nav-menu li:has(.sub-menu)>.mobile-submenu-toggle,body[dir="rtl"] .nav-menu li:has(.sub-menu)>.mobile-submenu-toggle,html[dir="rtl"] .navbar li:has(.sub-menu)>.mobile-submenu-toggle,body[dir="rtl"] .navbar li:has(.sub-menu)>.mobile-submenu-toggle,html[dir="rtl"] nav li:has(.sub-menu)>.mobile-submenu-toggle,body[dir="rtl"] nav li:has(.sub-menu)>.mobile-submenu-toggle{order:1!important}' +

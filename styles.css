@@ -16927,6 +16927,25 @@ html body .navbar.scrolled .nav-icons-left .nav-search-box svg * {
 }
 }
 
+
+
+
+
+@media (max-width: 768px) {
+.navbar .phone-header-btn {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+}
+
+@media (max-width: 768px) {
+.navbar .phone-header-btn {
+  display: none !important;
+}
+}
+
 /* ==ZAPPY V2 E-COMMERCE THEME CSS== */
 /* ═══════════════════════════════════════════════════════════════════════════ */
 /* V2 E-COMMERCE CSS - Clean V2 Variables Only                                  */
@@ -23345,6 +23364,7 @@ a, button {
 .product-info .product-stock { display: flex; align-items: center; gap: 8px; font-weight: 500; }
 .product-info .product-stock.in-stock { color: #10b981; }
 .product-info .product-stock.out-of-stock { color: #ef4444; }
+.product-info .product-stock.select-required { color: #d97706; }
 .product-info .product-stock.low-stock { color: #f59e0b; }
 .product-qty-stock-hint, .zappy-qv-stock-hint { display: block; width: 100%; font-size: 0.875rem; font-weight: 500; color: #b45309; line-height: 1.35; margin: 0 0 0.5rem; }
 .product-qty-stock-hint.is-over, .zappy-qv-stock-hint.is-over { color: #dc2626; }
@@ -25434,10 +25454,26 @@ main,
     gap: 10px !important;
   }
 
-  /* Force-hide desktop search box on mobile (some templates keep it visible) */
+  /* Force-hide desktop search box on mobile (some templates / AI batches keep
+     it visible via higher-specificity .nav-icons-left .nav-search-box rules). */
   nav.navbar .nav-search-box,
-  .navbar .nav-search-box {
+  .navbar .nav-search-box,
+  .navbar .nav-ecommerce-icons .nav-search-box,
+  .navbar .nav-ecommerce-icons.nav-icons-left .nav-search-box,
+  .navbar .nav-container .nav-ecommerce-icons.nav-icons-left .nav-search-box,
+  html body .navbar .nav-ecommerce-icons.nav-icons-left .nav-search-box {
     display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    pointer-events: none !important;
   }
 
   .cart-link,
@@ -25459,16 +25495,28 @@ main,
     background: var(--bg-light, #fff) !important;
   }
 
-  /* Icon color: contrast against the pill surface (luminance-aware). */
+  /* Icon color: contrast against the pill surface (luminance-aware).
+     High-specificity search-toggle selectors beat AI --nav-text SVG paints
+     on .navbar .nav-container .nav-ecommerce-icons.nav-icons-right .nav-search-toggle svg. */
   .cart-link.nav-cart,
   .login-link.nav-login,
-  .nav-search-toggle {
+  .nav-search-toggle,
+  .navbar .nav-search-toggle,
+  .navbar .nav-container .nav-ecommerce-icons.nav-icons-right .nav-search-toggle,
+  html body .navbar .nav-container .nav-ecommerce-icons.nav-icons-right .nav-search-toggle {
     color: var(--text-dark, #1a1a1a) !important;
   }
   .cart-link.nav-cart svg,
   .login-link.nav-login svg,
-  .nav-search-toggle svg {
+  .nav-search-toggle svg,
+  .navbar .nav-search-toggle svg,
+  .navbar .nav-container .nav-ecommerce-icons.nav-icons-right .nav-search-toggle svg,
+  .navbar .nav-container .nav-ecommerce-icons.nav-icons-right .nav-search-toggle svg *,
+  html body .navbar .nav-container .nav-ecommerce-icons.nav-icons-right .nav-search-toggle svg,
+  html body .navbar .nav-container .nav-ecommerce-icons.nav-icons-right .nav-search-toggle svg * {
     stroke: var(--text-dark, #1a1a1a) !important;
+    color: var(--text-dark, #1a1a1a) !important;
+    fill: none !important;
   }
   
   .cart-link svg,
@@ -26146,21 +26194,6 @@ main,
 }
 
 /* ==END ZAPPY V2 E-COMMERCE THEME CSS== */
-
-@media (max-width: 768px) {
-.navbar .phone-header-btn {
-  display: none !important;
-  visibility: hidden !important;
-  width: 0 !important;
-  height: 0 !important;
-}
-}
-
-@media (max-width: 768px) {
-.navbar .phone-header-btn {
-  display: none !important;
-}
-}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
@@ -26414,6 +26447,43 @@ body:has(.zappy-announcement-bar) main > section[class*="hero"]:first-of-type {
   }
 }
 /* END ZAPPY_MOBILE_MENU_FULL_BLEED */
+
+
+/* ZAPPY_MOBILE_MENU_GROUP_TITLE_V1 */
+/* Menu-group titles: match open-drawer link padding + beat scrolled frosted-text. */
+@media (max-width: 768px) {
+  html body .navbar .nav-menu.active > li > .menu-group-title,
+  html body nav.navbar .nav-menu.active > li > .menu-group-title,
+  html body .navbar #navMenu.active > li > .menu-group-title,
+  html body #navMenu.active > li > .menu-group-title,
+  html body .navbar .nav-menu.open > li > .menu-group-title,
+  html body #navMenu.open > li > .menu-group-title,
+  html body .navbar.scrolled .nav-menu.active > li > .menu-group-title,
+  html body .navbar.scrolled #navMenu.active > li > .menu-group-title,
+  html body .navbar.scrolled .nav-menu.open > li > .menu-group-title,
+  html body .navbar.scrolled #navMenu.open > li > .menu-group-title,
+  html body .navbar.scrolled .nav-menu.active > li.menu-group-item > .menu-group-title,
+  html body .navbar.scrolled #navMenu.active > li.menu-group-item > .menu-group-title {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+    padding: 12px 16px !important;
+    min-height: 44px !important;
+    line-height: 1.4 !important;
+    font-weight: 600 !important;
+    font-size: inherit !important;
+    color: var(--nav-text, var(--text-light, #fff7ed)) !important;
+  }
+  html body .navbar .nav-menu.active > li.menu-group-item,
+  html body .navbar #navMenu.active > li.menu-group-item,
+  html body .navbar .nav-menu.open > li.menu-group-item,
+  html body #navMenu.open > li.menu-group-item {
+    margin: 4px 0 !important;
+  }
+}
+/* END ZAPPY_MOBILE_MENU_GROUP_TITLE */
 
 
 /* zappy-nav-child-indent */
