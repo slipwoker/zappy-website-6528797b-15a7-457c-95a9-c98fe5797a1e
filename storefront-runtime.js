@@ -23531,14 +23531,14 @@ function initZappyAccessibilityToolbar() {
         // Detect current page language and direction from <html> element
         // so the toolbar matches the active language on multi-language sites.
         var htmlEl = document.documentElement;
-        var pageLang = (htmlEl.getAttribute('lang') || 'en').toLowerCase().split('-')[0];
+        var pageLang = (htmlEl.getAttribute('lang') || 'he').toLowerCase().split('-')[0];
         var pageDir = (htmlEl.getAttribute('dir') || '').toLowerCase();
         var rtlLangs = ['he', 'ar', 'fa', 'ur', 'yi', 'iw'];
         var isPageRTL = pageDir === 'rtl' || rtlLangs.indexOf(pageLang) !== -1;
         var buttonSide = isPageRTL ? 'left' : 'right';
 
         var langMap = { en: 'en-US', es: 'es-ES', fr: 'fr-FR', de: 'de-DE', it: 'it-IT', pt: 'pt-PT', nl: 'nl-NL', he: 'he-IL', ar: 'ar-SA' };
-        var forceLang = langMap[pageLang] || 'en-US';
+        var forceLang = langMap[pageLang] || 'he-IL';
 
         var iconPos = { bottom: { size: 50, units: 'px' }, type: 'fixed' };
         iconPos[buttonSide] = { size: 20, units: 'px' };
@@ -24754,4 +24754,110 @@ if (document.readyState === 'complete') {
       observeButtons();
     }
   }
+})();
+
+
+/* ZAPPY_MULTI_QTY_BUNDLE_TOTAL */
+;(function(){
+  try {
+    if (window.__zappyMultiQtyBundleTotalInit) return;
+    window.__zappyMultiQtyBundleTotalInit = true;
+
+    function zappyMultiQtyMainContribution(product) {
+      var total = 0;
+      var mainLineCount = 0;
+      var variants = (product && Array.isArray(product.variants)) ? product.variants : [];
+      var matrix = (product && product.card_variants && Array.isArray(product.card_variants.matrix))
+        ? product.card_variants.matrix : [];
+      var inputs = document.querySelectorAll('.multi-qty-input[data-variant-id]');
+      for (var i = 0; i < inputs.length; i++) {
+        var input = inputs[i];
+        if (input.disabled) continue;
+        var qty = parseFloat(input.value) || 0;
+        if (qty <= 0) continue;
+        var vid = input.getAttribute('data-variant-id');
+        var variant = null;
+        for (var vi = 0; vi < variants.length; vi++) {
+          if (String(variants[vi].id) === String(vid)) { variant = variants[vi]; break; }
+        }
+        if (!variant) {
+          for (var mi = 0; mi < matrix.length; mi++) {
+            if (String(matrix[mi].id) === String(vid)) { variant = matrix[mi]; break; }
+          }
+        }
+        var unitPrice = window.productBasePrice || 0;
+        if (variant && variant.price !== null && variant.price !== undefined && variant.price !== '') {
+          var vp = parseFloat(variant.price);
+          if (Number.isFinite(vp)) unitPrice = vp;
+        }
+        total += unitPrice * qty;
+        mainLineCount += 1;
+      }
+      return { total: total, mainLineCount: mainLineCount };
+    }
+
+    function zappyIsMultiQtyProduct(product) {
+      if (window.productIsMultiQuantity) return true;
+      if (typeof window.isProductMultiQuantity === 'function' && window.isProductMultiQuantity(product)) return true;
+      return !!document.querySelector('[data-multi-quantity="true"]');
+    }
+
+    var orig = window.recomputeBundleTotal;
+    window.recomputeBundleTotal = function() {
+      var amountEl = document.getElementById('upsells-total-amount');
+      if (!amountEl) {
+        if (typeof orig === 'function') return orig.apply(this, arguments);
+        return;
+      }
+      var product = window.currentProduct;
+      if (!product || !zappyIsMultiQtyProduct(product)) {
+        if (typeof orig === 'function') return orig.apply(this, arguments);
+        return;
+      }
+      var t = window.productTranslations || {};
+      var main = zappyMultiQtyMainContribution(product);
+      var total = main.total;
+      var mainLineCount = main.mainLineCount;
+      var checkedCount = 0;
+      var checkedBoxes = document.querySelectorAll('.upsell-checkbox:checked');
+      for (var ci = 0; ci < checkedBoxes.length; ci++) {
+        var row = checkedBoxes[ci].closest('.upsell-row');
+        if (!row) continue;
+        var p = parseFloat(row.getAttribute('data-upsell-price')) || 0;
+        total += p;
+        checkedCount += 1;
+      }
+      var fmt = (typeof formatMoney === 'function')
+        ? formatMoney
+        : (typeof window.zappyFormatMoney === 'function' ? window.zappyFormatMoney : function(n){ return String(n); });
+      amountEl.textContent = fmt(total);
+      var btn = document.getElementById('add-to-cart-btn');
+      if (btn) {
+        var baseLabel = (typeof getEcomText === 'function')
+          ? getEcomText('addToCart', t.addToCart || 'Add to Cart')
+          : (t.addToCart || 'Add to Cart');
+        if (checkedCount > 0) {
+          var totalCount = mainLineCount + checkedCount;
+          var bundleLabel = (typeof getEcomText === 'function')
+            ? getEcomText('addBundleToCart', t.addBundleToCart || ('Add ' + totalCount + ' items to cart'))
+            : (t.addBundleToCart || ('Add ' + totalCount + ' items to cart'));
+          bundleLabel = String(bundleLabel).replace(/\{count\}/g, String(totalCount));
+          btn.textContent = bundleLabel;
+        } else {
+          btn.textContent = baseLabel;
+        }
+      }
+    };
+
+    document.addEventListener('input', function(e) {
+      var node = e && e.target;
+      if (!node || !node.classList || !node.classList.contains('multi-qty-input')) return;
+      if (typeof window.recomputeBundleTotal === 'function') window.recomputeBundleTotal();
+    }, true);
+    document.addEventListener('change', function(e) {
+      var node = e && e.target;
+      if (!node || !node.classList || !node.classList.contains('multi-qty-input')) return;
+      if (typeof window.recomputeBundleTotal === 'function') window.recomputeBundleTotal();
+    }, true);
+  } catch (err) {}
 })();
