@@ -1146,9 +1146,7 @@ Dubai Plus · מלונות יוקרה
 JBR · חוף הים
 
 
-
-Jumeirah Beach Residence
-Nad al sheba gardens, Dubai, Uae
+ג'ומיירה ביץ' רזידנס
 
 ### Five Lux JBR
 
@@ -1167,9 +1165,7 @@ Nad al sheba gardens, Dubai, Uae
 פאלם ג'ומיירה
 
 
-
-Palm Jumeirah
-Nad al sheba gardens, Dubai, Uae
+פאלם ג'ומיירה
 
 ### Five Palm Jumeirah
 
@@ -1185,12 +1181,10 @@ Nad al sheba gardens, Dubai, Uae
 
 
 
-Business Bay
-
+ביזנס ביי
 
 
 Business Bay, דובאי
-Nad al sheba gardens, Dubai, Uae
 
 ### SLS Dubai
 
@@ -1209,9 +1203,7 @@ Nad al sheba gardens, Dubai, Uae
 רשת עולמית
 
 
-
 מיקומים מרכזיים, דובאי
-Nad al sheba gardens, Dubai, Uae
 
 ### הילטון דובאי
 
@@ -1230,9 +1222,8 @@ Nad al sheba gardens, Dubai, Uae
 משפחות ופנאי
 
 
-
-Palm Jumeirah
-Nad al sheba gardens, Dubai, Uae
+פאלם ג'ומיירה
+Nad al sheba gardens, דובאי, איחוד האמירויות
 
 ### אטלנטיס דה פאלם
 
@@ -1251,9 +1242,7 @@ Nad al sheba gardens, Dubai, Uae
 נוף לבורג' חליפה
 
 
-
-Downtown Dubai
-Nad al sheba gardens, Dubai, Uae
+דאונטאון דובאי
 
 ### אדרס דאונטאון
 
@@ -1272,9 +1261,8 @@ Nad al sheba gardens, Dubai, Uae
 ריביירה צרפתית
 
 
-
-Palm Jumeirah
-Nad al sheba gardens, Dubai, Uae
+פאלם ג'ומיירה
+Nad al sheba gardens, דובאי, איחוד האמירויות
 
 ### סופיטל דה פאלם
 
@@ -1293,9 +1281,8 @@ Nad al sheba gardens, Dubai, Uae
 טרנדי ואנרגטי
 
 
-
-Palm Jumeirah
-Nad al sheba gardens, Dubai, Uae
+פאלם ג'ומיירה
+Nad al sheba gardens, דובאי, איחוד האמירויות
 
 ### W Dubai — דה פאלם
 
@@ -1314,9 +1301,7 @@ Nad al sheba gardens, Dubai, Uae
 אופנה ויוקרה
 
 
-
 Culture Village, דובאי
-Nad al sheba gardens, Dubai, Uae
 
 ### פלאצו ורסצ'ה
 
@@ -1335,9 +1320,7 @@ Nad al sheba gardens, Dubai, Uae
 ארמון ערבי
 
 
-
 Madinat Jumeirah, דובאי
-Nad al sheba gardens, Dubai, Uae
 
 ### ג'ומיירה אל קסר
 
@@ -1356,9 +1339,7 @@ Nad al sheba gardens, Dubai, Uae
 גנים טרופיים
 
 
-
 Sheikh Rashid Road, דובאי
-Nad al sheba gardens, Dubai, Uae
 
 ### Grand Hyatt Dubai
 
@@ -1377,9 +1358,7 @@ Nad al sheba gardens, Dubai, Uae
 שייח' זאיד
 
 
-
-Al Habtoor City, Sheikh Zayed Road
-Nad al sheba gardens, Dubai, Uae
+Al Habtoor City, שייח' זאיד רוד
 
 ### Hilton Al Habtoor City
 
@@ -1398,9 +1377,7 @@ Nad al sheba gardens, Dubai, Uae
 מרינה · יאכטות
 
 
-
-Dubai Marina
-Nad al sheba gardens, Dubai, Uae
+דובאי מרינה
 
 ### Marriott Marina
 
