@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-23T09:35:33.687Z",
+  "generated_at": "2026-07-23T09:38:51.408Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 45,
@@ -10,6 +10,7 @@
       "slug": "lymvzynh-yvkrtyt-bdvbay-luxury-limousine-dubai-yc5yyp",
       "name": "לימוזינה יוקרתית בדובאי  Luxury Limousine Dubai",
       "name_translations": {
+        "ar": "ليموزين فاخرة في دبي  Luxury Limousine Dubai",
         "en": "Luxury Limousine Dubai",
         "he": "לימוזינה יוקרתית בדובאי  Luxury Limousine Dubai"
       },
@@ -46,13 +47,14 @@
         "העברות בדובאי ואבו דאבי",
         "אקסטרים וטיול מדבר"
       ],
-      "updated_at": "2026-07-23T06:30:05.099Z"
+      "updated_at": "2026-07-23T09:38:16.790Z"
     },
     {
       "id": "eab8d02c-ceba-428b-94a8-046d9328ae7f",
       "slug": "nhg-yvm-shlm-10-shavt-xn1yt4",
       "name": "נהג יום שלם (10 שעות)",
       "name_translations": {
+        "ar": "سائق ليوم كامل (10 ساعات)",
         "en": "Full Day Driver (10 Hours)",
         "he": "נהג יום שלם (10 שעות)"
       },
@@ -73,13 +75,14 @@
       "categories": [
         "העברות בדובאי ואבו דאבי"
       ],
-      "updated_at": "2026-07-23T06:30:05.137Z"
+      "updated_at": "2026-07-23T09:38:16.789Z"
     },
     {
       "id": "dfa9cd09-dec0-49af-9b5f-c23ba3131c5e",
       "slug": "habrh-mal-dvbay-lal-abv-daby-ao88kq",
       "name": "העברה מ/אל דובאי ל/אל אבו דאבי",
       "name_translations": {
+        "ar": "نقل من/إلى دبي من/إلى أبوظبي",
         "en": "Transfer To/From Dubai To/From Abu Dhabi",
         "he": "העברה מ/אל דובאי ל/אל אבו דאבי"
       },
@@ -100,13 +103,14 @@
       "categories": [
         "העברות בדובאי ואבו דאבי"
       ],
-      "updated_at": "2026-07-23T06:30:05.135Z"
+      "updated_at": "2026-07-23T09:38:16.790Z"
     },
     {
       "id": "4238575c-9906-4982-927c-e0c82be6e07b",
       "slug": "habrh-mal-hshdh-tavph-abv-daby-g3a8bu",
       "name": "העברה מ/אל השדה תעופה אבו דאבי",
       "name_translations": {
+        "ar": "نقل من/إلى مطار أبوظبي",
         "en": "Transfer To/From Abu Dhabi Airport",
         "he": "העברה מ/אל השדה תעופה אבו דאבי"
       },
@@ -127,13 +131,14 @@
       "categories": [
         "העברות בדובאי ואבו דאבי"
       ],
-      "updated_at": "2026-07-23T06:30:05.507Z"
+      "updated_at": "2026-07-23T09:38:17.112Z"
     },
     {
       "id": "a58c5a55-5105-4f97-bfdf-7e25d369d15d",
       "slug": "tyvl-spary-mdbr-kshr-kosher-desert-safari-mxg4t5",
       "name": "טיול ספארי מדבר כשר Kosher Desert Safari",
       "name_translations": {
+        "ar": "رحلة سفاري صحراوية كوشر Kosher Desert Safari",
         "en": "Kosher Desert Safari Tour",
         "he": "טיול ספארי מדבר כשר Kosher Desert Safari"
       },
@@ -155,13 +160,14 @@
         "אקסטרים וטיול מדבר",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:05.488Z"
+      "updated_at": "2026-07-23T09:38:17.122Z"
     },
     {
       "id": "6ebc3d50-733e-4754-89ac-c0db5b68937a",
       "slug": "tyvl-mdbr-babv-daby-gmok68",
       "name": "טיול מדבר באבו דאבי",
       "name_translations": {
+        "ar": "رحلة صحراء أبوظبي",
         "en": "Abu Dhabi Desert Tour",
         "he": "טיול מדבר באבו דאבי"
       },
@@ -183,13 +189,14 @@
         "אטרקציות באבו דאבי",
         "אקסטרים וטיול מדבר"
       ],
-      "updated_at": "2026-07-23T06:30:05.498Z"
+      "updated_at": "2026-07-23T09:38:17.106Z"
     },
     {
       "id": "d7ca0ffe-099d-489c-b9b1-4177121d816d",
       "slug": "tysh-bmsvk-mal-abv-daby-e2vrjf",
       "name": "טיסה במסוק מעל אבו דאבי",
       "name_translations": {
+        "ar": "رحلة هليكوبتر فوق أبوظبي",
         "en": "Helicopter Flight Over Abu Dhabi",
         "he": "טיסה במסוק מעל אבו דאבי"
       },
@@ -210,13 +217,14 @@
       "categories": [
         "אטרקציות באבו דאבי"
       ],
-      "updated_at": "2026-07-23T06:30:05.275Z"
+      "updated_at": "2026-07-23T09:38:16.966Z"
     },
     {
       "id": "a17476c3-c72b-4c13-a74b-4f9c58f8e22c",
       "slug": "dinner-in-the-sky-dubai-arvchh-bshmyym-vjn47i",
       "name": "Dinner in the Sky Dubai – ארוחה בשמיים",
       "name_translations": {
+        "ar": "Dinner in the Sky Dubai – عشاء في السماء",
         "en": "Dinner in the Sky Dubai – A Meal in the Skies",
         "he": "Dinner in the Sky Dubai – ארוחה בשמיים"
       },
@@ -238,13 +246,14 @@
         "מגדלים ותצפיות",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:05.652Z"
+      "updated_at": "2026-07-23T09:38:17.377Z"
     },
     {
       "id": "631c7784-b603-40d4-916e-10b5111ea248",
       "slug": "sky-views-edge-walk-hlykh-al-ktsh-hmgdl-rg0nfu",
       "name": "Sky Views Edge Walk – הליכה על קצה המגדל",
       "name_translations": {
+        "ar": "Sky Views Edge Walk – المشي على حافة البرج",
         "en": "Sky Views Edge Walk – Walking on the Edge of the Tower",
         "he": "Sky Views Edge Walk – הליכה על קצה המגדל"
       },
@@ -266,13 +275,14 @@
         "אקסטרים וטיול מדבר",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:05.837Z"
+      "updated_at": "2026-07-23T09:38:17.498Z"
     },
     {
       "id": "ddf2763d-dd6b-478a-97ca-934bdec7b6d8",
       "slug": "flyboard-dubai-plyybvrd-bdvbay-g5ocxh",
       "name": "Flyboard Dubai – פלייבורד בדובאי",
       "name_translations": {
+        "ar": "Flyboard Dubai – فلايبورد في دبي",
         "en": "Flyboard Dubai – Flyboarding in Dubai",
         "he": "Flyboard Dubai – פלייבורד בדובאי"
       },
@@ -294,13 +304,14 @@
         "שייט וספורט ימי אבו דאבי",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:05.859Z"
+      "updated_at": "2026-07-23T09:38:17.547Z"
     },
     {
       "id": "bb4e7ff3-8f4a-4099-813d-7851fa0bf3e3",
       "slug": "ifly-dubai-nq0fdw",
       "name": "ifly dubai",
       "name_translations": {
+        "ar": "ifly dubai",
         "en": "iFly Dubai",
         "he": "ifly dubai"
       },
@@ -321,13 +332,14 @@
       "categories": [
         "אקסטרים וטיול מדבר"
       ],
-      "updated_at": "2026-07-23T06:30:05.859Z"
+      "updated_at": "2026-07-23T09:38:17.596Z"
     },
     {
       "id": "3561af03-0a48-4979-ac0c-06871ee11b84",
       "slug": "love-boats-dubai-shyyt-bsyrvt-hahbh-wgqseq",
       "name": "Love Boats Dubai – שייט בסירות האהבה",
       "name_translations": {
+        "ar": "Love Boats Dubai – الإبحار في قوارب الحب",
         "en": "Love Boats Dubai – Love Boat Cruise",
         "he": "Love Boats Dubai – שייט בסירות האהבה"
       },
@@ -349,13 +361,14 @@
         "שייט ופעילות ימית",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:05.857Z"
+      "updated_at": "2026-07-23T09:38:17.648Z"
     },
     {
       "id": "cae6b05f-be9a-40b1-81ce-0827a7a7b7de",
       "slug": "the-yellow-boats-dubai-hshyyt-bsyrvt-htshvbvt-mf36zq",
       "name": "The Yellow Boats Dubai – השייט בסירות הצהובות",
       "name_translations": {
+        "ar": "The Yellow Boats Dubai – الإبحار بالقوارب الصفراء",
         "en": "The Yellow Boats Dubai – The Yellow Boats Cruise",
         "he": "The Yellow Boats Dubai – השייט בסירות הצהובות"
       },
@@ -377,13 +390,14 @@
         "שייט ופעילות ימית",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:05.891Z"
+      "updated_at": "2026-07-23T09:38:17.680Z"
     },
     {
       "id": "a1b0b35f-db00-464e-ade2-d1d1b9ecd89f",
       "slug": "shyyt-bsyrvt-hshchvrvt-black-boat-8osus2",
       "name": "שייט בסירות השחורות BLACK BOAT",
       "name_translations": {
+        "ar": "رحلة القارب الأسود BLACK BOAT",
         "en": "BLACK BOAT Cruise",
         "he": "שייט בסירות השחורות BLACK BOAT"
       },
@@ -405,13 +419,14 @@
         "שייט ופעילות ימית",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:06.012Z"
+      "updated_at": "2026-07-23T09:38:17.698Z"
     },
     {
       "id": "ba56f8cf-1227-4f41-ac03-03ebdac9f2f9",
       "slug": "habrh-mhshdh-tavph-bdvbay-av-al-hshdh-tavph-xqqarr",
       "name": "העברה מהשדה תעופה בדובאי או אל השדה תעופה ",
       "name_translations": {
+        "ar": "النقل من مطار دبي أو إليه",
         "en": "Transfer from or to Dubai Airport",
         "he": "העברה מהשדה וחזרה"
       },
@@ -432,13 +447,14 @@
       "categories": [
         "העברות בדובאי ואבו דאבי"
       ],
-      "updated_at": "2026-07-23T06:30:06.213Z"
+      "updated_at": "2026-07-23T09:38:17.899Z"
     },
     {
       "id": "1f88e754-5aa2-4343-8ece-65a5e8b9ab87",
       "slug": "shyyt-mshvtp-shah-bmrynh-a02oce",
       "name": "שייט משותף שעה במרינה",
       "name_translations": {
+        "ar": "رحلة بحرية مشتركة لمدة ساعة في المارينا",
         "en": "Shared Marina Yacht Cruise – 1 Hour",
         "he": "שייט משותף שעה במרינה"
       },
@@ -460,13 +476,14 @@
         "אטרקציות בדובאי",
         "שייט ופעילות ימית"
       ],
-      "updated_at": "2026-07-23T06:30:06.222Z"
+      "updated_at": "2026-07-23T09:38:17.950Z"
     },
     {
       "id": "40f55279-1f01-4f27-aed3-4c55215912f9",
       "slug": "mvzyavn-hshavvh-dvbay-madame-tussauds-dubai-c3fgob",
       "name": "מוזיאון השעווה דובאי Madame Tussauds Dubai",
       "name_translations": {
+        "ar": "متحف الشمع دبي Madame Tussauds Dubai",
         "en": "Madame Tussauds Dubai Wax Museum",
         "he": "מוזיאון השעווה דובאי Madame Tussauds Dubai"
       },
@@ -488,13 +505,14 @@
         "מופעים ומוזיאונים",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:06.235Z"
+      "updated_at": "2026-07-23T09:38:18.043Z"
     },
     {
       "id": "a0f38ed9-c444-4f7f-8b0c-1d79d9e324c8",
       "slug": "mvzyavn-olioli-3dgr2c",
       "name": "מוזיאון OLIOLI",
       "name_translations": {
+        "ar": "متحف OLIOLI",
         "en": "OliOli Museum",
         "he": "מוזיאון OLIOLI"
       },
@@ -517,13 +535,14 @@
         "מופעים ומוזיאונים",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:06.257Z"
+      "updated_at": "2026-07-23T09:38:18.146Z"
     },
     {
       "id": "858e0306-35dd-44d1-a44a-400b8a6016b0",
       "slug": "kvkb-hlkt-hyrvk-hl1m6g",
       "name": "כוכב הלכת הירוק",
       "name_translations": {
+        "ar": "الكوكب الأخضر",
         "en": "The Green Planet",
         "he": "כוכב הלכת הירוק"
       },
@@ -545,13 +564,14 @@
         "פארקים וגנים",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:06.264Z"
+      "updated_at": "2026-07-23T09:38:18.151Z"
     },
     {
       "id": "993c441a-d7ec-4c09-945d-42f8b1167369",
       "slug": "shyyt-hlvtvs-lotus-mega-yacht-dinner-cruise-j7oq08",
       "name": "שייט הלוטוס – Lotus Mega Yacht Dinner Cruise",
       "name_translations": {
+        "ar": "رحلة لوتوس – Lotus Mega Yacht Dinner Cruise",
         "en": "Lotus Cruise – Lotus Mega Yacht Dinner Cruise",
         "he": "שייט הלוטוס – Lotus Mega Yacht Dinner Cruise"
       },
@@ -573,13 +593,14 @@
         "שייט ופעילות ימית",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:06.387Z"
+      "updated_at": "2026-07-23T09:38:18.166Z"
     },
     {
       "id": "44dd5553-9444-4881-820d-7e31029dacdc",
       "slug": "mvpa-lh-prl-dvbay-la-perle-by-dragone-fy5jmj",
       "name": "מופע לה פרל דובאי La Perle By Dragone",
       "name_translations": {
+        "ar": "عرض لا بيرل دبي La Perle By Dragone",
         "en": "La Perle Dubai Show – La Perle By Dragone",
         "he": "מופע לה פרל דובאי La Perle By Dragone"
       },
@@ -601,13 +622,14 @@
         "מופעים ומוזיאונים",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:06.439Z"
+      "updated_at": "2026-07-23T09:38:18.182Z"
     },
     {
       "id": "da598194-7288-4fc6-9507-576836626406",
       "slug": "yakth-prtyt-bdvbay-gj9f83",
       "name": "יאכטה פרטית בדובאי",
       "name_translations": {
+        "ar": "يخت خاص في دبي",
         "en": "Private Yacht in Dubai",
         "he": "יאכטה פרטית בדובאי"
       },
@@ -629,13 +651,14 @@
         "שייט ופעילות ימית",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:06.474Z"
+      "updated_at": "2026-07-23T09:38:18.201Z"
     },
     {
       "id": "70013942-8198-4af4-b23e-60a25b128b2f",
       "slug": "tyvl-spary-bmdbr-safari-desert-xguyq2",
       "name": "טיול ספארי במדבר SAFARI DESERT",
       "name_translations": {
+        "ar": "رحلة سفاري في الصحراء SAFARI DESERT",
         "en": "Desert Safari Tour SAFARI DESERT",
         "he": "טיול ספארי במדבר SAFARI DESERT"
       },
@@ -657,13 +680,14 @@
         "אקסטרים וטיול מדבר",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:06.557Z"
+      "updated_at": "2026-07-23T09:38:18.298Z"
     },
     {
       "id": "8c18b03b-f213-444d-9f55-0bcfa68ae571",
       "slug": "parky-abv-daby-yas-island-abu-dhabi-s62cak",
       "name": "פארקי אבו דאבי - Yas Island Abu Dhabi",
       "name_translations": {
+        "ar": "حدائق أبوظبي - Yas Island Abu Dhabi",
         "en": "Abu Dhabi Parks - Yas Island Abu Dhabi",
         "he": "פארקים אבו דאבי yas abu dhabi"
       },
@@ -685,13 +709,14 @@
         "פארקים אבו דאבי",
         "אטרקציות באבו דאבי"
       ],
-      "updated_at": "2026-07-23T06:30:06.561Z"
+      "updated_at": "2026-07-23T09:38:18.301Z"
     },
     {
       "id": "49c2216e-a934-4be0-adbb-2013bbc383a2",
       "slug": "rkb-al-hmym-acyqlw",
       "name": "רכב על המים ",
       "name_translations": {
+        "ar": "السيارة المائية",
         "en": "Water Car",
         "he": "רכב על המים "
       },
@@ -713,13 +738,14 @@
         "שייט ופעילות ימית",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:06.578Z"
+      "updated_at": "2026-07-23T09:38:18.401Z"
     },
     {
       "id": "f12769f8-2273-4006-beba-2f47b3f1d7bf",
       "slug": "tysh-bmsvk-00kz1c",
       "name": "טיסה במסוק ",
       "name_translations": {
+        "ar": "رحلة بالمروحية",
         "en": "Helicopter Flight",
         "he": "טיסה במסוק "
       },
@@ -741,13 +767,14 @@
         "אקסטרים וטיול מדבר",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:06.602Z"
+      "updated_at": "2026-07-23T09:38:18.489Z"
     },
     {
       "id": "04319c4a-6967-479e-9657-1d21977932ce",
       "slug": "bvrg-chlyph-burj-khalifa-vik7c6",
       "name": "בורג׳ חליפה burj khalifa",
       "name_translations": {
+        "ar": "برج خليفة burj khalifa",
         "en": "Burj Khalifa בורג׳ חליפה",
         "he": "בורג׳ חליפה burj khalifa"
       },
@@ -769,13 +796,14 @@
         "מגדלים ותצפיות",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:06.635Z"
+      "updated_at": "2026-07-23T09:38:18.499Z"
     },
     {
       "id": "19c8a419-8c39-4705-9089-0917b234b974",
       "slug": "avpnva-ym-jet-ski-0yrwwn",
       "name": "אופנוע ים JET SKI",
       "name_translations": {
+        "ar": "جت سكي JET SKI",
         "en": "Jet Ski",
         "he": "אופנוע ים JET SKI"
       },
@@ -797,13 +825,14 @@
         "שייט ופעילות ימית",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:06.793Z"
+      "updated_at": "2026-07-23T09:38:18.499Z"
     },
     {
       "id": "609ce2be-525b-400e-800a-d1366c53ab93",
       "slug": "mvpa-dvlpynym-pv79ik",
       "name": "מופע דולפינים ",
       "name_translations": {
+        "ar": "عرض الدلافين",
         "en": "Dolphin Show",
         "he": "מופע דולפינים "
       },
@@ -825,13 +854,14 @@
         "מופעים ומוזיאונים",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:06.795Z"
+      "updated_at": "2026-07-23T09:38:18.505Z"
     },
     {
       "id": "3dc6927f-c911-40fb-b641-bc2e7a714a53",
       "slug": "sky-dvbay-t6l2lm",
       "name": "סקי דובאי",
       "name_translations": {
+        "ar": "سكي دبي",
         "en": "Ski Dubai",
         "he": "סקי דובאי"
       },
@@ -853,13 +883,14 @@
         "פארקים וגנים",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:06.857Z"
+      "updated_at": "2026-07-23T09:38:18.540Z"
     },
     {
       "id": "087ccefa-9045-4d4b-8013-5ba960f9f128",
       "slug": "tysh-bkdvr-pvrch-atlntys-the-dubai-balloon-at-atlantis-wwilq3",
       "name": "טיסה בכדור פורח אטלנטיס The Dubai Balloon at Atlantis",
       "name_translations": {
+        "ar": "رحلة بالمنطاد The Dubai Balloon at Atlantis",
         "en": "Hot Air Balloon Ride – The Dubai Balloon at Atlantis",
         "he": "טיסה בכדור פורח אטלנטיס The Dubai Balloon at Atlantis"
       },
@@ -882,13 +913,14 @@
         "מגדלים ותצפיות",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:06.883Z"
+      "updated_at": "2026-07-23T09:38:18.653Z"
     },
     {
       "id": "b662f53d-4d97-424e-b6ca-faa0a9fdc7cd",
       "slug": "park-img-worlds-of-adventure-o7d3vn",
       "name": "פארק IMG Worlds of Adventure",
       "name_translations": {
+        "ar": "حديقة IMG Worlds of Adventure",
         "en": "IMG Worlds of Adventure Park",
         "he": "פארק IMG Worlds of Adventure"
       },
@@ -910,13 +942,14 @@
         "פארקים וגנים",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:06.907Z"
+      "updated_at": "2026-07-23T09:38:18.745Z"
     },
     {
       "id": "0bceda7e-64e9-40ba-8fde-ce8bee1f3144",
       "slug": "tysh-bkdvr-pvrch-bmdbr-jpjv0i",
       "name": "טיסה בכדור פורח  במדבר ",
       "name_translations": {
+        "ar": "رحلة بالمنطاد في الصحراء",
         "en": "Hot Air Balloon Flight in the Desert",
         "he": "טיסה בכדור פורח  במדבר "
       },
@@ -938,13 +971,14 @@
         "אקסטרים וטיול מדבר",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:06.945Z"
+      "updated_at": "2026-07-23T09:38:18.817Z"
     },
     {
       "id": "f9370460-56e4-40f8-b5de-e2ef7c47b6b1",
       "slug": "mvzyavn-hatyd-museum-of-the-future-cf21aj",
       "name": "מוזיאון העתיד MUSEUM OF THE FUTURE",
       "name_translations": {
+        "ar": "متحف المستقبل MUSEUM OF THE FUTURE",
         "en": "Museum of the Future MUSEUM OF THE FUTURE",
         "he": "מוזיאון העתיד MUSEUM OF THE FUTURE"
       },
@@ -965,13 +999,14 @@
       "categories": [
         "מופעים ומוזיאונים"
       ],
-      "updated_at": "2026-07-23T06:30:06.967Z"
+      "updated_at": "2026-07-23T09:38:18.855Z"
     },
     {
       "id": "406f9578-43eb-413c-b142-6448f84a36af",
       "slug": "ttspyt-skyy-vvyv-sky-views-observatory-lrfl6w",
       "name": "תצפית סקיי וויו  Sky Views Observatory",
       "name_translations": {
+        "ar": "منصة مراقبة سكاي فيو  Sky Views Observatory",
         "en": "Sky Views Observatory",
         "he": "תצפית סקיי וויו  Sky Views Observatory"
       },
@@ -993,13 +1028,14 @@
         "מגדלים ותצפיות",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:07.036Z"
+      "updated_at": "2026-07-23T09:38:18.896Z"
     },
     {
       "id": "b11f23aa-4bd7-4aed-81ff-e2e03caab93f",
       "slug": "aya-universe-dubai-jms12x",
       "name": "AYA UNIVERSE DUBAI",
       "name_translations": {
+        "ar": "AYA UNIVERSE DUBAI",
         "en": "AYA UNIVERSE DUBAI",
         "he": "AYA UNIVERSE DUBAI"
       },
@@ -1021,13 +1057,14 @@
         "פארקים וגנים",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:07.150Z"
+      "updated_at": "2026-07-23T09:38:18.899Z"
     },
     {
       "id": "336496ed-8111-4598-ba66-cd16d54a40c4",
       "slug": "msgrt-dvbay-dubai-frame-t7fzid",
       "name": "מסגרת דובאי DUBAI FRAME",
       "name_translations": {
+        "ar": "إطار دبي DUBAI FRAME",
         "en": "DUBAI FRAME",
         "he": "מסגרת דובאי DUBAI FRAME"
       },
@@ -1049,13 +1086,14 @@
         "מגדלים ותצפיות",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:07.184Z"
+      "updated_at": "2026-07-23T09:38:18.936Z"
     },
     {
       "id": "999daca1-ed04-4ba4-ad9d-e50677ea4c93",
       "slug": "ttspyt-hdklym-the-view-at-the-palm-c0qbgm",
       "name": "תצפית הדקלים - The View at The Palm",
       "name_translations": {
+        "ar": "منصة مشاهدة النخيل - The View at The Palm",
         "en": "Palm View - The View at The Palm",
         "he": "תצפית הדקלים - The View at The Palm"
       },
@@ -1077,13 +1115,14 @@
         "מגדלים ותצפיות",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:07.200Z"
+      "updated_at": "2026-07-23T09:38:19.006Z"
     },
     {
       "id": "3a8154de-2df5-4d1d-b4ff-ac179450c7a9",
       "slug": "park-hmym-atlntys-aquaventure-waterpark-bxh7vu",
       "name": "פארק המים אטלנטיס  Aquaventure Waterpark",
       "name_translations": {
+        "ar": "حديقة المياه أتلانتيس Aquaventure Waterpark",
         "en": "Atlantis Water Park - Aquaventure Waterpark",
         "he": "פארק המים אטלנטיס  Aquaventure Waterpark"
       },
@@ -1105,13 +1144,14 @@
         "פארקים וגנים",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:07.254Z"
+      "updated_at": "2026-07-23T09:38:19.012Z"
     },
     {
       "id": "2467644c-5568-47ce-8b9b-129e37e02b81",
       "slug": "kydznyh-kidzanya-dubai-kf24bs",
       "name": "קידזניה KIDZANYA DUBAI",
       "name_translations": {
+        "ar": "كيدزانيا KIDZANYA DUBAI",
         "en": "KidZania KIDZANIA DUBAI",
         "he": "קידזניה KIDZANYA DUBAI"
       },
@@ -1134,13 +1174,14 @@
         "פארקים וגנים",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:07.298Z"
+      "updated_at": "2026-07-23T09:38:19.210Z"
     },
     {
       "id": "a1426ada-b585-459e-98ee-c5050e683b3e",
       "slug": "nhygh-atsmyt-bmdbr-qwgfv9",
       "name": "נהיגה עצמית במדבר",
       "name_translations": {
+        "ar": "القيادة الذاتية في الصحراء",
         "en": "Self-Drive Desert Experience",
         "he": "נהיגה עצמית במדבר"
       },
@@ -1162,13 +1203,14 @@
         "אקסטרים וטיול מדבר",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:07.347Z"
+      "updated_at": "2026-07-23T09:38:19.286Z"
     },
     {
       "id": "d1945946-37fd-42d4-a2b7-4a799a47af9e",
       "slug": "mvzyavn-hashlyvt-v7sy7l",
       "name": "מוזיאון האשליות",
       "name_translations": {
+        "ar": "متحف الأوهام",
         "en": "Museum of Illusions",
         "he": "מוזיאון האשליות"
       },
@@ -1190,13 +1232,14 @@
         "מופעים ומוזיאונים",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T06:30:07.368Z"
+      "updated_at": "2026-07-23T09:38:19.361Z"
     },
     {
       "id": "75d00d6b-1860-4428-89ec-f899d9ea1e10",
       "slug": "gn-hprprym-sniteu",
       "name": "גן הפרפרים",
       "name_translations": {
+        "ar": "حديقة الفراشات",
         "en": "Butterfly Garden",
         "he": "גן הפרפרים"
       },
@@ -1213,13 +1256,14 @@
       "stock_status": "out_of_stock",
       "url": "https://dubai-plus.co.il/product/gn-hprprym-sniteu",
       "categories": [],
-      "updated_at": "2026-07-23T06:30:07.432Z"
+      "updated_at": "2026-07-23T09:38:19.370Z"
     },
     {
       "id": "e8275da6-11af-4c0c-8351-78f14878f660",
       "slug": "hgn-hzvhr-miracle-garden-ch3dx5",
       "name": "הגן הזוהר - Miracle Garden",
       "name_translations": {
+        "ar": "الحديقة المعجزة - Miracle Garden",
         "en": "The Miracle Garden",
         "he": "הגן הזוהר - Miracle Garden"
       },
@@ -1236,13 +1280,14 @@
       "stock_status": "out_of_stock",
       "url": "https://dubai-plus.co.il/product/hgn-hzvhr-miracle-garden-ch3dx5",
       "categories": [],
-      "updated_at": "2026-07-23T06:30:07.606Z"
+      "updated_at": "2026-07-23T09:38:19.497Z"
     },
     {
       "id": "9c6d9d12-9607-4aa4-9406-8d4f6ad270cc",
       "slug": "glvbl-vylg-krtys-yvmy-wxh8fp",
       "name": "גלובל וילג - כרטיס יומי",
       "name_translations": {
+        "ar": "غلوبال فيلدج - تذكرة يومية",
         "en": "Global Village - Daily Ticket",
         "he": "גלובל וילג - כרטיס יומי"
       },
@@ -1259,7 +1304,7 @@
       "stock_status": "out_of_stock",
       "url": "https://dubai-plus.co.il/product/glvbl-vylg-krtys-yvmy-wxh8fp",
       "categories": [],
-      "updated_at": "2026-07-23T06:30:07.608Z"
+      "updated_at": "2026-07-23T09:38:19.497Z"
     }
   ]
 }
