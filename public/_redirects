@@ -1,5 +1,5 @@
 # Clean URL redirects for Render static hosting
-# Generated: 2026-07-23T13:42:47.872Z
+# Generated: 2026-07-23T16:28:15.095Z
 # NOTE: Render uses render.yaml for routing, not _redirects (that is Netlify)
 # This file is kept for reference only
 
@@ -20,12 +20,12 @@
 /restaurants  /restaurants.html  200!
 /dubai-magazine-for-israeli-travelers  /dubai-magazine-for-israeli-travelers.html  200!
 /blog/dubai-dining-nightlife  /blog/dubai-dining-nightlife.html  200!
-/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt  /dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt.html  200!
 /dubai-must-see-attractions  /dubai-must-see-attractions.html  200!
 /blog/dubai-shopping-guide  /blog/dubai-shopping-guide.html  200!
-/blog/dubai-transportation-smart-guide  /blog/dubai-transportation-smart-guide.html  200!
 /blog/kosher-dubai  /blog/kosher-dubai.html  200!
 /menu-group-1784805717078  /menu-group-1784805717078.html  200!
+/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt  /dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt.html  200!
+/blog/dubai-transportation-smart-guide  /blog/dubai-transportation-smart-guide.html  200!
 /dubai-hotels-marina-downtown-palm  /dubai-hotels-marina-downtown-palm.html  200!
 /blog/kosher-dubai/kosher-restaurants  /blog/kosher-dubai/kosher-restaurants.html  200!
 /blog/kosher-dubai/jewish-life  /blog/kosher-dubai/jewish-life.html  200!
@@ -51,8 +51,8 @@
 /en/terms  /en/terms.html  200!
 /en/restaurants  /en/restaurants.html  200!
 /en/dubai-magazine-for-israeli-travelers  /en/dubai-magazine-for-israeli-travelers.html  200!
-/en/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt  /en/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt.html  200!
 /en/dubai-must-see-attractions  /en/dubai-must-see-attractions.html  200!
+/en/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt  /en/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt.html  200!
 /en/dubai-hotels-marina-downtown-palm  /en/dubai-hotels-marina-downtown-palm.html  200!
 /en/contact  /en/contact.html  200!
 /en  /en/index.html  200!
@@ -73,8 +73,8 @@
 /ar/terms  /ar/terms.html  200!
 /ar/restaurants  /ar/restaurants.html  200!
 /ar/dubai-magazine-for-israeli-travelers  /ar/dubai-magazine-for-israeli-travelers.html  200!
-/ar/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt  /ar/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt.html  200!
 /ar/dubai-must-see-attractions  /ar/dubai-must-see-attractions.html  200!
+/ar/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt  /ar/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt.html  200!
 /ar/dubai-hotels-marina-downtown-palm  /ar/dubai-hotels-marina-downtown-palm.html  200!
 /ar/contact  /ar/contact.html  200!
 /ar  /ar/index.html  200!
@@ -95,8 +95,8 @@
 /fr/terms  /fr/terms.html  200!
 /fr/restaurants  /fr/restaurants.html  200!
 /fr/dubai-magazine-for-israeli-travelers  /fr/dubai-magazine-for-israeli-travelers.html  200!
-/fr/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt  /fr/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt.html  200!
 /fr/dubai-must-see-attractions  /fr/dubai-must-see-attractions.html  200!
+/fr/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt  /fr/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt.html  200!
 /fr/dubai-hotels-marina-downtown-palm  /fr/dubai-hotels-marina-downtown-palm.html  200!
 /fr/contact  /fr/contact.html  200!
 /fr  /fr/index.html  200!
@@ -117,8 +117,8 @@
 /ru/terms  /ru/terms.html  200!
 /ru/restaurants  /ru/restaurants.html  200!
 /ru/dubai-magazine-for-israeli-travelers  /ru/dubai-magazine-for-israeli-travelers.html  200!
-/ru/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt  /ru/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt.html  200!
 /ru/dubai-must-see-attractions  /ru/dubai-must-see-attractions.html  200!
+/ru/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt  /ru/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt.html  200!
 /ru/dubai-hotels-marina-downtown-palm  /ru/dubai-hotels-marina-downtown-palm.html  200!
 /ru/contact  /ru/contact.html  200!
 /ru  /ru/index.html  200!

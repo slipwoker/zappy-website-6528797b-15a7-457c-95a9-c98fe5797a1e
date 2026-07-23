@@ -69,10 +69,6 @@ Sarah laloum tourism llc - מגזין דובאי למטייל הישראלי
 https://dubai-plus.co.il/blog/dubai-dining-nightlife
 איך לבחור מסעדות בדובאי, מתי להזמין מקום, ואיך לשלב בין נוף, אוכל, אווירה וחיי ערב.
 
-### דובאי בפעם הראשונה: איך לבנות חופשה חכמה, נעימה ויוקרתית
-https://dubai-plus.co.il/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt
-מדריך פרקטי למטייל הישראלי שמגיע לדובאי בפעם הראשונה ורוצה לתכנן חופשה נוחה, יוקרתית ומדויקת.
-
 ### אטרקציות בדובאי שלא כדאי לפספס — ומה מתאים לכל סוג מטייל
 https://dubai-plus.co.il/dubai-must-see-attractions
 מדריך לבחירת אטרקציות בדובאי לפי סגנון החופשה, גיל המטיילים וקצב הטיול הרצוי.
@@ -81,16 +77,20 @@ https://dubai-plus.co.il/dubai-must-see-attractions
 https://dubai-plus.co.il/blog/dubai-shopping-guide
 Sarah laloum tourism llc - שופינג בדובאי: איך ליהנות מקניונים, שווקים ובוטיקים בלי להתפזר
 
-### התניידות בדובאי: איך לעבור בין אזורים, חופים וקניונים בצורה חכמה
-https://dubai-plus.co.il/blog/dubai-transportation-smart-guide
-Sarah laloum tourism llc - התניידות בדובאי: איך לעבור בין אזורים, חופים וקניונים בצורה חכמה
-
 ### כשרות בדובאי
 https://dubai-plus.co.il/blog/kosher-dubai
 Sarah laloum tourism llc - כשרות בדובאי
 
 ### Page
 https://dubai-plus.co.il/menu-group-1784805717078
+
+### דובאי בפעם הראשונה: איך לבנות חופשה חכמה, נעימה ויוקרתית
+https://dubai-plus.co.il/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt
+מדריך פרקטי למטייל הישראלי שמגיע לדובאי בפעם הראשונה ורוצה לתכנן חופשה נוחה, יוקרתית ומדויקת.
+
+### התניידות בדובאי: איך לעבור בין אזורים, חופים וקניונים בצורה חכמה
+https://dubai-plus.co.il/blog/dubai-transportation-smart-guide
+Sarah laloum tourism llc - התניידות בדובאי: איך לעבור בין אזורים, חופים וקניונים בצורה חכמה
 
 ### המלונות בדובאי: איך לבחור נכון בין חוף, מרינה, דאונטאון ופאלם
 https://dubai-plus.co.il/dubai-hotels-marina-downtown-palm
