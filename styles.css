@@ -25739,6 +25739,165 @@ main,
   font-size: 0.9rem;
 }
 }
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 36px;
+  justify-content: center;
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  background: var(--primary, var(--background-color, var(--background, var(--bg-light, #201A2E))));
+  color: var(--text-light, #FFF7ED) !important;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-nav-btn:hover {
+  background: var(--secondary, var(--secondary-color, var(--secondary, #FF8A3D)));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 138, 61, 0.3);
+  color: #fff !important;
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 24px 0 40px;
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 32px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06), 0 8px 30px rgba(0,0,0,0.04);
+  border: 1px solid var(--border-light, #E8DCCD);
+  transition: all 0.3s ease;
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1), 0 12px 40px rgba(0,0,0,0.06);
+  transform: translateY(-2px);
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-card-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary, var(--background-color, var(--background, var(--bg-light, #201A2E))));
+  margin: 0 0 16px;
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-card-name a {
+  color: var(--primary, var(--background-color, var(--background, var(--bg-light, #201A2E))));
+  text-decoration: none;
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-card-name a:hover {
+  color: var(--secondary, var(--secondary-color, var(--secondary, #FF8A3D)));
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-card-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: var(--text-dark, #221C2F);
+  flex-wrap: wrap;
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-card-row:last-child {
+  margin-bottom: 0;
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-card-label {
+  flex: 0 1 auto;
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-card-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-icon-link:hover {
+  transform: scale(1.15);
+  opacity: 0.85;
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-icon-link img {
+  display: block;
+  width: 22px;
+  height: 22px;
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-card--coming {
+  background: linear-gradient(135deg, #fdfaf5 0%, #fdf5e6 100%);
+  border: 2px dashed var(--border-light, #E8DCCD);
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-card-note {
+  font-size: 0.95rem;
+  color: var(--text-muted, #8E849C);
+  margin: 0;
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-card-note a {
+  color: var(--secondary, var(--secondary-color, var(--secondary, #FF8A3D)));
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-nav {
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-nav-btn {
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  border-radius: 24px;
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-card {
+  padding: 20px 18px;
+  border-radius: 12px;
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-card-name {
+  font-size: 1.1rem;
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-card-row {
+  font-size: 0.88rem;
+}
+}
+/* zappy-self-heal */
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-nav { gap: 10px !important; }
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-nav { margin: 0 0 36px !important; }
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-card { background: #fff !important; }
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-card { border: 1px solid var(--border-light, #E8DCCD) !important; }
+
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
