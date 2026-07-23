@@ -11721,8 +11721,11 @@ body:has(.zappy-announcement-bar) main > section[class*="hero"]:first-of-type {
   // and stored preference must NOT win over it (or visiting /en/... while
   // localStorage holds 'he' from a previous Hebrew session keeps the cart
   // drawer / product detail / checkout strings rendering in Hebrew).
-  // Stored preference is only consulted when no URL signal exists, falling
-  // back to the site default last.
+  // When the URL has no language signal (typical preview default page), the
+  // server-rendered html[lang] MUST beat localStorage — a prior English
+  // session leaves zappy_lang='en', which made detectLanguage() report 'en'
+  // on a Hebrew page and caused navigateToLanguage('en') to no-op (English
+  // option "not clickable" on home).
   function detectLanguage() {
     try {
       var pathLang = (window.location.pathname.match(/^\/([a-z]{2})(?:\/|$)/i) || [])[1];
@@ -11738,9 +11741,45 @@ body:has(.zappy-announcement-bar) main > section[class*="hero"]:first-of-type {
         return resolvedQueryLang;
       }
     } catch (e) {}
+    try {
+      var htmlLang = (document.documentElement.getAttribute('lang') || '').split('-')[0].toLowerCase();
+      if (htmlLang && availableLanguages.includes(htmlLang)) {
+        try { localStorage.setItem('zappy_lang', htmlLang); } catch (e2) {}
+        return htmlLang;
+      }
+    } catch (e3) {}
     var stored = localStorage.getItem('zappy_lang');
     if (stored && availableLanguages.includes(stored)) return stored;
     return 'he';
+  }
+
+  // True when the current URL already represents targetLang (query/path),
+  // independent of the in-memory zappyI18n.language which can drift via
+  // stale localStorage. Must mirror detectLanguage's URL signals — including
+  // ?lang= on published courses/dynamic routes — or navigateToLanguage(default)
+  // no-ops while a non-default ?lang= remains.
+  function isLanguageActiveInUrl(targetLang) {
+    try {
+      var path = window.location.pathname || '/';
+      if (path.indexOf('/api/website/preview') === 0) {
+        var q = new URLSearchParams(window.location.search).get('lang');
+        var effective = (q && availableLanguages.includes(String(q).toLowerCase()))
+          ? String(q).toLowerCase()
+          : 'he';
+        return effective === targetLang;
+      }
+      var pathLang = (path.match(/^\/([a-z]{2})(?=\/|$)/i) || [])[1];
+      if (pathLang && availableLanguages.includes(pathLang.toLowerCase())) {
+        return pathLang.toLowerCase() === targetLang;
+      }
+      var queryLang = new URLSearchParams(window.location.search).get('lang');
+      if (queryLang && availableLanguages.includes(String(queryLang).toLowerCase())) {
+        return String(queryLang).toLowerCase() === targetLang;
+      }
+      return targetLang === 'he';
+    } catch (e) {
+      return false;
+    }
   }
 
   // Build the URL for a target language and navigate. The URL pattern mirrors
@@ -11757,7 +11796,13 @@ body:has(.zappy-announcement-bar) main > section[class*="hero"]:first-of-type {
   // page reloads in the same language the user just picked.
   function navigateToLanguage(targetLang) {
     if (!targetLang || !availableLanguages.includes(targetLang)) return;
-    if (targetLang === zappyI18n.language) return;
+    // Gate on the URL, NOT zappyI18n.language — stale localStorage can make
+    // language==='en' while the page is still Hebrew (no ?lang=), which used
+    // to early-return and leave the English option appearing unclickable.
+    if (isLanguageActiveInUrl(targetLang)) {
+      zappyI18n.language = targetLang;
+      return;
+    }
     try { localStorage.setItem('zappy_lang', targetLang); } catch (e) {}
 
     var path = window.location.pathname || '/';
@@ -12288,18 +12333,19 @@ body:has(.zappy-announcement-bar) main > section[class*="hero"]:first-of-type {
       el.style.removeProperty('margin-right');
     });
     
-    // CRITICAL FIX FOR E-COMMERCE SITES: Move lang-switcher inside nav-icons-left
-    // E-commerce sites have a nav-icons-left container with search box.
-    // For RTL: lang-switcher should appear to the RIGHT of search box
-    // For LTR: lang-switcher should appear to the LEFT of search box
+      // CRITICAL FIX FOR E-COMMERCE SITES: Move lang-switcher inside nav-icons-left
+    // immediately AFTER the search box. Flex order CSS (search=1, lang=2,
+    // login=3, cart=4) keeps the globe to the right of search in LTR and
+    // mirrored correctly in RTL — inserting BEFORE search + order:0 left the
+    // globe as the outermost icon. Also reorder when already inside but before search.
     document.querySelectorAll('.lang-switcher').forEach(function(el) {
-      var navIconsLeft = document.querySelector('.nav-icons-left');
+      var navIconsLeft = document.querySelector('.nav-icons-left') || document.querySelector('.nav-ecommerce-icons');
       var searchBox = document.querySelector('.nav-search-box');
-      
-      // Only move if not already inside nav-icons-left and the elements exist
-      if (navIconsLeft && searchBox && !el.closest('.nav-icons-left')) {
-        // Insert before search box - in RTL this visually appears to the RIGHT
-        navIconsLeft.insertBefore(el, searchBox);
+      if (!navIconsLeft || !searchBox || searchBox.parentNode !== navIconsLeft) return;
+      var inside = el.closest('.nav-icons-left') || el.closest('.nav-ecommerce-icons');
+      var beforeSearch = !!(searchBox.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_PRECEDING);
+      if (!inside || beforeSearch) {
+        navIconsLeft.insertBefore(el, searchBox.nextSibling);
       }
     });
     
@@ -12364,6 +12410,22 @@ body:has(.zappy-announcement-bar) main > section[class*="hero"]:first-of-type {
           var hrefAttr = this.getAttribute('href');
           if (this.tagName === 'A' && hrefAttr && hrefAttr !== '#') {
             e.stopPropagation();
+            // Preview iframe cannot follow /en/... hrefs (404s on the API
+            // host). Convert to ?lang= via navigateToLanguage instead.
+            var previewPath = window.location.pathname || '/';
+            if (previewPath.indexOf('/api/website/preview') === 0) {
+              e.preventDefault();
+              var hrefLang = langAttr;
+              if (!hrefLang) {
+                var hm = (hrefAttr.match(/^\/([a-z]{2})(?:\/|$)/i) || [])[1];
+                if (hm) hrefLang = hm.toLowerCase();
+              }
+              if (hrefLang) navigateToLanguage(hrefLang);
+              dropdown.style.opacity = '0';
+              dropdown.style.visibility = 'hidden';
+              dropdown.style.transform = 'translateY(-8px)';
+              return;
+            }
             try { if (langAttr) localStorage.setItem('zappy_lang', langAttr); } catch (_) {}
             dropdown.style.opacity = '0';
             dropdown.style.visibility = 'hidden';
@@ -12453,6 +12515,22 @@ body:has(.zappy-announcement-bar) main > section[class*="hero"]:first-of-type {
           var hrefAttr = this.getAttribute('href');
           if (this.tagName === 'A' && hrefAttr && hrefAttr !== '#') {
             e.stopPropagation();
+            // Preview iframe cannot follow /en/... hrefs (404s on the API
+            // host). Convert to ?lang= via navigateToLanguage instead.
+            var previewPath = window.location.pathname || '/';
+            if (previewPath.indexOf('/api/website/preview') === 0) {
+              e.preventDefault();
+              var hrefLang = langAttr;
+              if (!hrefLang) {
+                var hm = (hrefAttr.match(/^\/([a-z]{2})(?:\/|$)/i) || [])[1];
+                if (hm) hrefLang = hm.toLowerCase();
+              }
+              if (hrefLang) navigateToLanguage(hrefLang);
+              dropdown.style.opacity = '0';
+              dropdown.style.visibility = 'hidden';
+              dropdown.style.transform = 'translateY(-8px)';
+              return;
+            }
             try { if (langAttr) localStorage.setItem('zappy_lang', langAttr); } catch (_) {}
             dropdown.style.opacity = '0';
             dropdown.style.visibility = 'hidden';
@@ -12681,6 +12759,15 @@ body:has(.zappy-announcement-bar) main > section[class*="hero"]:first-of-type {
   // LANGUAGE SWITCHER ICON COLOR DETECTION
   // (shared source — see getFixLanguageSwitcherColorSource)
   // ============================================
+  // Keep Search → Globe → Login → Cart even when site CSS predates the order fix.
+  (function ensureLangSwitcherOrderCss() {
+    if (document.getElementById('zappy-lang-switcher-order-css')) return;
+    var s = document.createElement('style');
+    s.id = 'zappy-lang-switcher-order-css';
+    s.textContent = '@media (min-width:769px){.nav-ecommerce-icons .nav-search-box{order:1!important}.nav-ecommerce-icons .lang-switcher{order:2!important}.nav-ecommerce-icons .login-link.nav-login{order:3!important}.nav-ecommerce-icons .cart-link.nav-cart{order:4!important}}';
+    (document.head || document.documentElement).appendChild(s);
+  })();
+
   function fixLanguageSwitcherColor() {
     /* ZAPPY_LANG_SWITCHER_COLOR_FIX_V4 */
     var switcher = document.querySelector('.lang-switcher-current');
@@ -13023,9 +13110,9 @@ body:has(.zappy-announcement-bar) main > section[class*="hero"]:first-of-type {
       window.addEventListener('scroll',onS,{passive:true});
       window.addEventListener('resize',onS,{passive:true});
       onS();
-      var heroEl=document.querySelector('section[class*="hero"],[data-hero-type],main:not(.courses-page-main)>section:first-child');
+      var heroEl=document.querySelector('section[class*="hero"],section[class*="Hero"],[data-hero-type],[data-zappy-section="hero"]');if(!heroEl){var _cs=document.querySelectorAll('main:not(.courses-page-main)>section,main:not(.courses-page-main) section,body>section,.zappy-page-sections>section');for(var _si=0;_si<Math.min(_cs.length,4);_si++){var _s=_cs[_si];var _cl=((_s.className||'')+'').toLowerCase();if(/announce|ticker|marquee|promo-bar|top-bar|notification/.test(_cl))continue;if(_s.getAttribute('data-zappy-section')==='announcement')continue;heroEl=_s;break;}}
       var hasDH=false;
-      if(heroEl){var hCs=getComputedStyle(heroEl);var hBI=hCs.backgroundImage;if(hBI&&hBI!=='none'){if(hBI.indexOf('url(')!==-1){var hM2=hCs.backgroundColor.match(/\d+/g);if(hM2&&hM2.length>=3){hasDH=sLum(parseInt(hM2[0]),parseInt(hM2[1]),parseInt(hM2[2]))<0.4;}else{hasDH=true;}}else if(hBI.indexOf('gradient')!==-1){var cM=hBI.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/g);if(cM&&cM.length>0){var tLm=0;for(var ci=0;ci<cM.length;ci++){var pts=cM[ci].match(/\d+/g);tLm+=sLum(parseInt(pts[0]),parseInt(pts[1]),parseInt(pts[2]));}hasDH=(tLm/cM.length)<0.4;}else{hasDH=true;}}else{hasDH=true;}}else{var hM=hCs.backgroundColor.match(/\d+/g);if(hM&&hM.length>=3){hasDH=sLum(parseInt(hM[0]),parseInt(hM[1]),parseInt(hM[2]))<0.4;}if(!hasDH&&heroEl.querySelector('img,video,[data-hero-bg],.zappy-section-video-bg,.zappy-section-video')){hasDH=true;}}}
+      if(heroEl){var hCs=getComputedStyle(heroEl);var hBI=hCs.backgroundImage;if(hBI&&hBI!=='none'){if(hBI.indexOf('url(')!==-1){var hM2=hCs.backgroundColor.match(/\d+/g);if(hM2&&hM2.length>=3){hasDH=sLum(parseInt(hM2[0]),parseInt(hM2[1]),parseInt(hM2[2]))<0.4;}else{hasDH=true;}}else if(hBI.indexOf('gradient')!==-1){var cM=hBI.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/g);if(cM&&cM.length>0){var tLm=0;for(var ci=0;ci<cM.length;ci++){var pts=cM[ci].match(/\d+/g);tLm+=sLum(parseInt(pts[0]),parseInt(pts[1]),parseInt(pts[2]));}hasDH=(tLm/cM.length)<0.4;}else{hasDH=true;}}else{hasDH=true;}}else{var hM=hCs.backgroundColor.match(/\d+/g);if(hM&&hM.length>=3){hasDH=sLum(parseInt(hM[0]),parseInt(hM[1]),parseInt(hM[2]))<0.4;}if(!hasDH){if(heroEl.querySelector('[data-hero-bg],[data-hero-background],.zappy-section-video-bg,.zappy-section-video')){hasDH=true;}else{var _mk=heroEl.querySelectorAll('img,video');for(var _mi=0;_mi<_mk.length;_mi++){var _mp=getComputedStyle(_mk[_mi]).position;if(_mp==='absolute'||_mp==='fixed'){hasDH=true;break;}}}}}}
       if(!hasDH){window.removeEventListener('scroll',onS);window.removeEventListener('resize',onS);applyScrolled();window._zappyNavNoDarkHero=true;}
     })();
     </script>
