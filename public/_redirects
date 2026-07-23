@@ -1,5 +1,5 @@
 # Clean URL redirects for Render static hosting
-# Generated: 2026-07-23T09:49:38.451Z
+# Generated: 2026-07-23T10:02:36.661Z
 # NOTE: Render uses render.yaml for routing, not _redirects (that is Netlify)
 # This file is kept for reference only
 
@@ -77,6 +77,28 @@
 /ar/dubai-hotels-marina-downtown-palm  /ar/dubai-hotels-marina-downtown-palm.html  200!
 /ar/contact  /ar/contact.html  200!
 /ar  /ar/index.html  200!
+/fr  /fr/index.html  200!
+/fr/hotels  /fr/hotels.html  200!
+/fr/sim-card  /fr/sim-card.html  200!
+/fr/airport-transfers  /fr/airport-transfers.html  200!
+/fr/attractions  /fr/attractions.html  200!
+/fr/products  /fr/products.html  200!
+/fr/cart  /fr/cart.html  200!
+/fr/checkout  /fr/checkout.html  200!
+/fr/login  /fr/login.html  200!
+/fr/account  /fr/account.html  200!
+/fr/order-success  /fr/order-success.html  200!
+/fr/return-policy  /fr/return-policy.html  200!
+/fr/privacy  /fr/privacy.html  200!
+/fr/accessibility  /fr/accessibility.html  200!
+/fr/terms  /fr/terms.html  200!
+/fr/restaurants  /fr/restaurants.html  200!
+/fr/dubai-magazine-for-israeli-travelers  /fr/dubai-magazine-for-israeli-travelers.html  200!
+/fr/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt  /fr/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt.html  200!
+/fr/dubai-must-see-attractions  /fr/dubai-must-see-attractions.html  200!
+/fr/dubai-hotels-marina-downtown-palm  /fr/dubai-hotels-marina-downtown-palm.html  200!
+/fr/contact  /fr/contact.html  200!
+/fr  /fr/index.html  200!
 
 # Legal pages - redirect old .html URLs to friendly URLs
 /privacy.html  /privacy  301
@@ -92,3 +114,5 @@
 /en/category/*  /en/category/index.html  200!
 /ar/product/*  /ar/product/index.html  200!
 /ar/category/*  /ar/category/index.html  200!
+/fr/product/*  /fr/product/index.html  200!
+/fr/category/*  /fr/category/index.html  200!
