@@ -1,5 +1,5 @@
 # Clean URL redirects for Render static hosting
-# Generated: 2026-07-23T10:02:36.661Z
+# Generated: 2026-07-23T13:42:50.260Z
 # NOTE: Render uses render.yaml for routing, not _redirects (that is Netlify)
 # This file is kept for reference only
 
@@ -24,8 +24,9 @@
 /dubai-must-see-attractions  /dubai-must-see-attractions.html  200!
 /blog/dubai-shopping-guide  /blog/dubai-shopping-guide.html  200!
 /blog/dubai-transportation-smart-guide  /blog/dubai-transportation-smart-guide.html  200!
-/dubai-hotels-marina-downtown-palm  /dubai-hotels-marina-downtown-palm.html  200!
 /blog/kosher-dubai  /blog/kosher-dubai.html  200!
+/menu-group-1784805717078  /menu-group-1784805717078.html  200!
+/dubai-hotels-marina-downtown-palm  /dubai-hotels-marina-downtown-palm.html  200!
 /blog/kosher-dubai/kosher-restaurants  /blog/kosher-dubai/kosher-restaurants.html  200!
 /blog/kosher-dubai/jewish-life  /blog/kosher-dubai/jewish-life.html  200!
 /blog/kosher-dubai/shabbat-guide  /blog/kosher-dubai/shabbat-guide.html  200!
@@ -99,6 +100,28 @@
 /fr/dubai-hotels-marina-downtown-palm  /fr/dubai-hotels-marina-downtown-palm.html  200!
 /fr/contact  /fr/contact.html  200!
 /fr  /fr/index.html  200!
+/ru  /ru/index.html  200!
+/ru/hotels  /ru/hotels.html  200!
+/ru/sim-card  /ru/sim-card.html  200!
+/ru/airport-transfers  /ru/airport-transfers.html  200!
+/ru/attractions  /ru/attractions.html  200!
+/ru/products  /ru/products.html  200!
+/ru/cart  /ru/cart.html  200!
+/ru/checkout  /ru/checkout.html  200!
+/ru/login  /ru/login.html  200!
+/ru/account  /ru/account.html  200!
+/ru/order-success  /ru/order-success.html  200!
+/ru/return-policy  /ru/return-policy.html  200!
+/ru/privacy  /ru/privacy.html  200!
+/ru/accessibility  /ru/accessibility.html  200!
+/ru/terms  /ru/terms.html  200!
+/ru/restaurants  /ru/restaurants.html  200!
+/ru/dubai-magazine-for-israeli-travelers  /ru/dubai-magazine-for-israeli-travelers.html  200!
+/ru/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt  /ru/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt.html  200!
+/ru/dubai-must-see-attractions  /ru/dubai-must-see-attractions.html  200!
+/ru/dubai-hotels-marina-downtown-palm  /ru/dubai-hotels-marina-downtown-palm.html  200!
+/ru/contact  /ru/contact.html  200!
+/ru  /ru/index.html  200!
 
 # Legal pages - redirect old .html URLs to friendly URLs
 /privacy.html  /privacy  301
@@ -116,3 +139,5 @@
 /ar/category/*  /ar/category/index.html  200!
 /fr/product/*  /fr/product/index.html  200!
 /fr/category/*  /fr/category/index.html  200!
+/ru/product/*  /ru/product/index.html  200!
+/ru/category/*  /ru/category/index.html  200!
