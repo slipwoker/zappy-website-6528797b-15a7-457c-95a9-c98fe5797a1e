@@ -57,6 +57,13 @@ https://dubai-plus.co.il/product/:slug
 https://dubai-plus.co.il/category/:slug
 מוצרים - Sarah laloum tourism llc
 
+### כשרות בדובאי
+https://dubai-plus.co.il/blog/kosher-dubai
+Sarah laloum tourism llc - כשרות בדובאי
+
+### Page
+https://dubai-plus.co.il/menu-group-1784805717078
+
 ### מסעדות דובאי שישאירו אותך פעור פה — Duabi plus
 https://dubai-plus.co.il/restaurants
 חוויות קולינריות בלתי נשכחות בדובאי — ממסעדות שף עולמיות ועד מטבח מקומי אותנטי. גלה המלצות מסעדות נבחרות לישראלים עם תפריטים, מיקומים והזמנת מקום!
@@ -76,13 +83,6 @@ https://dubai-plus.co.il/dubai-must-see-attractions
 ### שופינג בדובאי: איך ליהנות מקניונים, שווקים ובוטיקים בלי להתפזר
 https://dubai-plus.co.il/blog/dubai-shopping-guide
 Sarah laloum tourism llc - שופינג בדובאי: איך ליהנות מקניונים, שווקים ובוטיקים בלי להתפזר
-
-### כשרות בדובאי
-https://dubai-plus.co.il/blog/kosher-dubai
-Sarah laloum tourism llc - כשרות בדובאי
-
-### Page
-https://dubai-plus.co.il/menu-group-1784805717078
 
 ### דובאי בפעם הראשונה: איך לבנות חופשה חכמה, נעימה ויוקרתית
 https://dubai-plus.co.il/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt
@@ -111,6 +111,9 @@ https://dubai-plus.co.il/blog/kosher-dubai/shabbat-guide
 ### חגים ואירועים יהודיים בדובאי: מה חשוב לדעת לפני שמזמינים
 https://dubai-plus.co.il/blog/kosher-dubai/jewish-holidays
 מדריך לתכנון חגים ואירועים יהודיים בדובאי, כולל פסח, ראש השנה, חנוכה, בר מצווה, שבת חתן ואירועים משפחתיים.
+
+### Page
+https://dubai-plus.co.il/menu-group-1784824160279
 
 ### דברו איתנו ותכננו את הטיול המושלם — Duabi plus
 https://dubai-plus.co.il/contact
