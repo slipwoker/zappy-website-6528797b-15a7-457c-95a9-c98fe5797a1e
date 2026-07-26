@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-26T11:41:34.237Z",
+  "generated_at": "2026-07-26T11:42:57.903Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 46,
@@ -1224,7 +1224,7 @@
     },
     {
       "id": "3a8154de-2df5-4d1d-b4ff-ac179450c7a9",
-      "slug": "park-hmym-atlntys-aquaventure-waterpark-bxh7vu",
+      "slug": "park-hmym-atlntys-aquaventure-waterpark-8znj0g",
       "name": "פארק המים אטלנטיס  Aquaventure Waterpark",
       "name_translations": {
         "ar": "حديقة المياه أتلانتيس Aquaventure Waterpark",
@@ -1237,8 +1237,8 @@
       "short_description": "פארק המים אטלנטיס – Aquaventure Waterpark הוא פארק המים הגדול ביותר בעולם ומציע יום מלא באדרנלין, מגלשות ענק, נהרות אבובים, חוף פרטי ואטרקציות לכל המשפחה. חוויה מושלמת לילדים, זוגות ומבוגרים באחד הפארקים הטובים בעולם.",
       "sku": null,
       "brand": null,
-      "price": 230,
-      "base_price": 230,
+      "price": 189,
+      "base_price": 189,
       "sale_price": null,
       "currency": "ILS",
       "images": [
@@ -1246,12 +1246,12 @@
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/park-hmym-atlntys-aquaventure-waterpark-bxh7vu",
+      "url": "https://dubai-plus.co.il/product/park-hmym-atlntys-aquaventure-waterpark-8znj0g",
       "categories": [
         "פארקים וגנים",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T10:06:44.322Z"
+      "updated_at": "2026-07-26T11:42:18.687Z"
     },
     {
       "id": "2467644c-5568-47ce-8b9b-129e37e02b81",
