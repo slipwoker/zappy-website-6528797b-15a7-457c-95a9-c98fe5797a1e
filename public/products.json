@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-26T09:58:54.202Z",
+  "generated_at": "2026-07-26T09:59:39.484Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 46,
@@ -11,7 +11,7 @@
       "name": "וורדים ROSES",
       "name_translations": {
         "ar": "وورديم ROSES",
-        "en": "Roses וורדים",
+        "en": "Roses ROSES",
         "fr": "Roses ROSES",
         "he": "וורדים ROSES",
         "ru": "Розы ROSES"
@@ -33,7 +33,7 @@
       "categories": [
         "תוספות"
       ],
-      "updated_at": "2026-07-26T09:58:18.968Z"
+      "updated_at": "2026-07-26T09:59:04.028Z"
     },
     {
       "id": "8c638269-fba7-480f-99ba-f3d4e256fd1b",
