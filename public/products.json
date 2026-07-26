@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-26T11:42:57.903Z",
+  "generated_at": "2026-07-26T11:45:29.448Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 46,
@@ -1228,7 +1228,7 @@
       "name": "פארק המים אטלנטיס  Aquaventure Waterpark",
       "name_translations": {
         "ar": "حديقة المياه أتلانتيس Aquaventure Waterpark",
-        "en": "Atlantis Water Park - Aquaventure Waterpark",
+        "en": "Atlantis Aquaventure Waterpark",
         "fr": "Parc Aquatique Atlantis Aquaventure Waterpark",
         "he": "פארק המים אטלנטיס  Aquaventure Waterpark",
         "ru": "Аквапарк Атлантис Aquaventure Waterpark"
@@ -1251,7 +1251,7 @@
         "פארקים וגנים",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-26T11:42:18.687Z"
+      "updated_at": "2026-07-26T11:44:55.022Z"
     },
     {
       "id": "2467644c-5568-47ce-8b9b-129e37e02b81",
