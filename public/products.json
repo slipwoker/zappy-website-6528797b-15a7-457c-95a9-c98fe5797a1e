@@ -1,10 +1,32 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-23T16:47:33.852Z",
+  "generated_at": "2026-07-26T09:45:14.905Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
-  "count": 45,
+  "count": 46,
   "products": [
+    {
+      "id": "d4e10a6b-2d2b-47a0-8bc8-ef9ca3528a20",
+      "slug": "vvrdym-roses-nmxjg2",
+      "name": "וורדים ROSES",
+      "name_translations": {},
+      "description": "<p>הפתיעו את מי שאתם אוהבים עם זר מרשים של <strong>50 ורדים איכותיים וטריים</strong>, המסודרים בקפידה ליצירת מראה יוקרתי ומלא נוכחות.</p><p>הזר מגיע באריזת פרימיום אלגנטית עם סרט תואם, ומתאים למגוון אירועים:</p><ul><li>❤️ יום הולדת</li><li>💍 הצעת נישואין</li><li>❤️ יום נישואין</li><li>🎉 חגיגות ואירועים מיוחדים</li><li>🌹 מחווה רומנטית או מתנה מרגשת</li></ul><p><strong>לבחירה ב-3 צבעים:</strong></p><ul><li>🌹 אדום</li><li>🤍 לבן</li><li>🌸 ורוד</li></ul><p><strong>כולל:</strong></p><ul><li>50 ורדים טריים ואיכותיים</li><li>אריזת מתנה יוקרתית</li><li>סידור מקצועי ומרשים</li><li>מתאים למשלוח או לאיסוף</li></ul><p><em>ייתכנו שינויים קלים בגוון הפרחים או בסגנון האריזה בהתאם לזמינות העונתית, תוך שמירה על המראה היוקרתי והאיכות הגבוהה של הזר.</em></p><p><br></p>",
+      "short_description": "זר יוקרתי של 50\\100\\200\\500\\1000 ורדים טריים בצבע לבחירתכם – אדום, לבן או ורוד. הזר עטוף באריזת פרימיום אלגנטית ומוכן להעניק מתנה מרשימה לכל אירוע מיוחד.",
+      "sku": null,
+      "brand": null,
+      "price": 0,
+      "base_price": 0,
+      "sale_price": null,
+      "currency": "ILS",
+      "images": [
+        "https://dubai-plus.co.il/assets/product-1785059019369-h65rq.webp"
+      ],
+      "in_stock": true,
+      "stock_status": "in_stock",
+      "url": "https://dubai-plus.co.il/product/vvrdym-roses-nmxjg2",
+      "categories": [],
+      "updated_at": "2026-07-26T09:44:33.943Z"
+    },
     {
       "id": "8c638269-fba7-480f-99ba-f3d4e256fd1b",
       "slug": "lymvzynh-yvkrtyt-bdvbay-luxury-limousine-dubai-yc5yyp",
