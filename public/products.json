@@ -1,13 +1,13 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-26T09:57:29.079Z",
+  "generated_at": "2026-07-26T09:58:34.500Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 46,
   "products": [
     {
       "id": "d4e10a6b-2d2b-47a0-8bc8-ef9ca3528a20",
-      "slug": "vvrdym-roses-ktrnwn",
+      "slug": "vvrdym-roses-fzxmi6",
       "name": "וורדים ROSES",
       "name_translations": {
         "ar": "وورديم ROSES",
@@ -29,9 +29,11 @@
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/vvrdym-roses-ktrnwn",
-      "categories": [],
-      "updated_at": "2026-07-26T09:56:45.056Z"
+      "url": "https://dubai-plus.co.il/product/vvrdym-roses-fzxmi6",
+      "categories": [
+        "תוספות"
+      ],
+      "updated_at": "2026-07-26T09:58:18.968Z"
     },
     {
       "id": "8c638269-fba7-480f-99ba-f3d4e256fd1b",
