@@ -1,13 +1,13 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-27T19:11:54.882Z",
+  "generated_at": "2026-07-28T08:18:52.263Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 46,
   "products": [
     {
       "id": "d4e10a6b-2d2b-47a0-8bc8-ef9ca3528a20",
-      "slug": "vvrdym-roses-s9ic4g",
+      "slug": "vvrdym-roses-gop9nm",
       "name": "וורדים ROSES",
       "name_translations": {
         "ar": "وورديم ROSES",
@@ -28,11 +28,11 @@
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/vvrdym-roses-s9ic4g",
+      "url": "https://dubai-plus.co.il/product/vvrdym-roses-gop9nm",
       "categories": [
         "תוספות"
       ],
-      "updated_at": "2026-07-26T10:15:30.432Z"
+      "updated_at": "2026-07-28T08:17:42.000Z"
     },
     {
       "id": "8c638269-fba7-480f-99ba-f3d4e256fd1b",
@@ -1035,7 +1035,7 @@
         "פארקים וגנים",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-27T19:09:48.647Z"
+      "updated_at": "2026-07-27T19:11:08.485Z"
     },
     {
       "id": "0bceda7e-64e9-40ba-8fde-ce8bee1f3144",
