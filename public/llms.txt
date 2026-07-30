@@ -139,11 +139,13 @@ Information about WCAG compliance and accessibility features.
 
 **Total active products: 47**
 
-### אקווריום קניון דובאי
-https://dubai-plus.co.il/product/akvvryvm-knyvn-dvbay-w3hqz2
-- Price: 0.00 ILS
+### אקווריום קניון דובאי Aquarium Dubai Mall
+https://dubai-plus.co.il/product/akvvryvm-knyvn-dvbay-aquarium-dubai-mall-tcrbeq
+- Price: 125.00 ILS
 - Availability: In stock
+- Category: אטרקציות בדובאי
 - Description: אקווריום דובאי הוא אחד האקווריומים הגדולים והמרשימים בעולם, הממוקם בתוך קניון דובאי. במהלך הביקור תוכלו לצעוד במנהרת זכוכית מרהיבה, לצפות באלפי בעלי חיים ימיים, כרישים וחתולי ים, וליהנות מחוויה מרתקת לכל המשפחה.
+- Image: https://dubai-plus.co.il/assets/product-1785408060013-3orpy.webp
 
 ### וורדים ROSES
 https://dubai-plus.co.il/product/vvrdym-roses-gop9nm

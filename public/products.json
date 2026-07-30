@@ -1,14 +1,14 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-30T10:42:52.173Z",
+  "generated_at": "2026-07-30T10:45:12.272Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 47,
   "products": [
     {
       "id": "89e09675-6a2c-4812-91f7-eb42dd90c7e6",
-      "slug": "akvvryvm-knyvn-dvbay-w3hqz2",
-      "name": "אקווריום קניון דובאי",
+      "slug": "akvvryvm-knyvn-dvbay-aquarium-dubai-mall-tcrbeq",
+      "name": "אקווריום קניון דובאי Aquarium Dubai Mall",
       "name_translations": {
         "ar": "أكواريوم دبي مول",
         "en": "Dubai Mall Aquarium",
@@ -20,16 +20,21 @@
       "short_description": "אקווריום דובאי הוא אחד האקווריומים הגדולים והמרשימים בעולם, הממוקם בתוך קניון דובאי. במהלך הביקור תוכלו לצעוד במנהרת זכוכית מרהיבה, לצפות באלפי בעלי חיים ימיים, כרישים וחתולי ים, וליהנות מחוויה מרתקת לכל המשפחה.",
       "sku": null,
       "brand": null,
-      "price": 0,
-      "base_price": 0,
+      "price": 125,
+      "base_price": 125,
       "sale_price": null,
       "currency": "ILS",
-      "images": [],
+      "images": [
+        "https://dubai-plus.co.il/assets/product-1785408060013-3orpy.webp"
+      ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/akvvryvm-knyvn-dvbay-w3hqz2",
-      "categories": [],
-      "updated_at": "2026-07-30T10:42:17.339Z"
+      "url": "https://dubai-plus.co.il/product/akvvryvm-knyvn-dvbay-aquarium-dubai-mall-tcrbeq",
+      "categories": [
+        "אטרקציות בדובאי",
+        "פארקים וגנים"
+      ],
+      "updated_at": "2026-07-30T10:43:55.811Z"
     },
     {
       "id": "d4e10a6b-2d2b-47a0-8bc8-ef9ca3528a20",
