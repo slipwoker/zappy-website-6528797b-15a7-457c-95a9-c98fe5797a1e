@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-08-04T16:45:32.410Z",
+  "generated_at": "2026-08-04T16:51:53.007Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 47,
@@ -698,7 +698,7 @@
     },
     {
       "id": "44dd5553-9444-4881-820d-7e31029dacdc",
-      "slug": "mvpa-lh-prl-dvbay-la-perle-by-dragone-fy5jmj",
+      "slug": "mvpa-lh-prl-dvbay-la-perle-by-dragone-vvtos1",
       "name": "מופע לה פרל דובאי La Perle By Dragone",
       "name_translations": {
         "ar": "عرض لا بيرل دبي La Perle By Dragone",
@@ -720,12 +720,12 @@
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/mvpa-lh-prl-dvbay-la-perle-by-dragone-fy5jmj",
+      "url": "https://dubai-plus.co.il/product/mvpa-lh-prl-dvbay-la-perle-by-dragone-vvtos1",
       "categories": [
         "מופעים ומוזיאונים",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T10:06:43.366Z"
+      "updated_at": "2026-08-04T16:51:39.547Z"
     },
     {
       "id": "da598194-7288-4fc6-9507-576836626406",
