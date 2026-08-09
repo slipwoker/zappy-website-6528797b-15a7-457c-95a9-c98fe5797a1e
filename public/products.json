@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-08-04T16:54:48.045Z",
+  "generated_at": "2026-08-09T08:26:03.383Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 47,
@@ -946,7 +946,7 @@
     },
     {
       "id": "609ce2be-525b-400e-800a-d1366c53ab93",
-      "slug": "mvpa-dvlpynym-pv79ik",
+      "slug": "mvpa-dvlpynym-81nw6p",
       "name": "מופע דולפינים ",
       "name_translations": {
         "ar": "عرض الدلافين",
@@ -968,12 +968,12 @@
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/mvpa-dvlpynym-pv79ik",
+      "url": "https://dubai-plus.co.il/product/mvpa-dvlpynym-81nw6p",
       "categories": [
         "מופעים ומוזיאונים",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-07-23T10:06:43.714Z"
+      "updated_at": "2026-08-09T08:25:26.747Z"
     },
     {
       "id": "3dc6927f-c911-40fb-b641-bc2e7a714a53",
