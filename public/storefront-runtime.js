@@ -17329,6 +17329,86 @@ async function loadRelatedProducts(currentProduct, t) {
 }
 /* ==ZAPPY E-COMMERCE JS END== */
 
+/* ZAPPY_CUSTOM_JS_START:527f3cad01b6 */
+(function () {
+  function __zappyCustomInit() {
+    try {
+// Auto-rotating promo banner carousel
+(function() {
+  const slider = document.getElementById('promo-banner-slider');
+  const dots = document.querySelectorAll('.promo-dot');
+  if (!slider || !dots.length) return;
+
+  let currentIndex = 0;
+  const totalSlides = dots.length;
+  let interval;
+
+  function goToSlide(index) {
+    currentIndex = index;
+    slider.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
+    dots.forEach(function(dot, i) {
+      dot.style.background = i === currentIndex ? 'var(--secondary, #FF8A3D)' : 'rgba(255,255,255,0.4)';
+      if (i === currentIndex) dot.classList.add('active');
+      else dot.classList.remove('active');
+    });
+  }
+
+  function nextSlide() {
+    goToSlide((currentIndex + 1) % totalSlides);
+  }
+
+  // Click dots
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      var idx = parseInt(this.getAttribute('data-index'));
+      if (!isNaN(idx)) goToSlide(idx);
+    });
+  });
+
+  // Auto rotate every 4 seconds
+  function startAuto() {
+    stopAuto();
+    interval = setInterval(nextSlide, 4000);
+  }
+
+  function stopAuto() {
+    if (interval) clearInterval(interval);
+  }
+
+  // Pause on hover
+  slider.addEventListener('mouseenter', stopAuto);
+  slider.addEventListener('mouseleave', startAuto);
+
+  // Touch swipe support
+  var touchStartX = 0;
+  slider.addEventListener('touchstart', function(e) {
+    touchStartX = e.touches[0].clientX;
+    stopAuto();
+  }, {passive: true});
+
+  slider.addEventListener('touchend', function(e) {
+    var diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) goToSlide((currentIndex + 1) % totalSlides);
+      else goToSlide((currentIndex - 1 + totalSlides) % totalSlides);
+    }
+    startAuto();
+  });
+
+  startAuto();
+})();
+    } catch (e) {
+      if (typeof console !== 'undefined' && console.warn) { console.warn('[zappy-custom-js]', e); }
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', __zappyCustomInit);
+  } else {
+    __zappyCustomInit();
+  }
+})();
+/* ZAPPY_CUSTOM_JS_END:527f3cad01b6 */
+
 
 /* ZAPPY_PUBLISHED_LIGHTBOX_RUNTIME */
 (function(){
