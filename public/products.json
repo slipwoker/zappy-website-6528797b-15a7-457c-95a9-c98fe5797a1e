@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-08-09T08:49:03.652Z",
+  "generated_at": "2026-08-09T08:50:33.496Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 47,
@@ -1106,7 +1106,7 @@
       "name": "מוזיאון העתיד MUSEUM OF THE FUTURE",
       "name_translations": {
         "ar": "متحف المستقبل MUSEUM OF THE FUTURE",
-        "en": "Museum of the Future MUSEUM OF THE FUTURE",
+        "en": "Museum of the Future מוזיאון העתיד",
         "fr": "Musée du Futur MUSEUM OF THE FUTURE",
         "he": "מוזיאון העתיד MUSEUM OF THE FUTURE",
         "ru": "Музей будущего MUSEUM OF THE FUTURE"
@@ -1128,7 +1128,7 @@
       "categories": [
         "מופעים ומוזיאונים"
       ],
-      "updated_at": "2026-08-09T08:48:26.299Z"
+      "updated_at": "2026-08-09T08:49:55.521Z"
     },
     {
       "id": "406f9578-43eb-413c-b142-6448f84a36af",
