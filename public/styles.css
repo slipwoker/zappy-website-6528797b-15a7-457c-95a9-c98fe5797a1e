@@ -25932,6 +25932,22 @@ main,
 }
 
 /* ==END ZAPPY V2 E-COMMERCE THEME CSS== */
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-card-name::before {
+  content: "🍽️";
+  margin-left: 8px;
+  font-size: 1.2rem;
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-card-name:has(a[href*="fantastico"])::before,
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-card-name:has(a[href*="lefournil"])::before {
+  content: "🥐";
+}
+
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-card-name:has(a[href*="kikkos"])::before,
+.blog-kosher-dubai-kosher-restaurants-blog-article-section .kosher-card-name:has(a[href*="meatos"])::before {
+  content: "🥩";
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
