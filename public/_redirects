@@ -1,5 +1,5 @@
 # Clean URL redirects for Render static hosting
-# Generated: 2026-08-09T22:22:33.729Z
+# Generated: 2026-08-09T22:36:34.452Z
 # NOTE: Render uses render.yaml for routing, not _redirects (that is Netlify)
 # This file is kept for reference only
 
@@ -33,6 +33,11 @@
 /blog/kosher-dubai/shabbat-guide  /blog/kosher-dubai/shabbat-guide.html  200!
 /blog/kosher-dubai/jewish-holidays  /blog/kosher-dubai/jewish-holidays.html  200!
 /contact  /contact.html  200!
+/blog  /blog.html  200!
+/blog/first-time-dubai  /blog/first-time-dubai.html  200!
+/blog/dubai-hotels-areas  /blog/dubai-hotels-areas.html  200!
+/blog/dubai-attractions-guide  /blog/dubai-attractions-guide.html  200!
+/blog/dubai-dining-nightlife-9259  /blog/dubai-dining-nightlife-9259.html  200!
 
 # Language slug rewrites for SEO
 /en  /en/index.html  200!
@@ -56,6 +61,7 @@
 /en/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt  /en/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt.html  200!
 /en/dubai-hotels-marina-downtown-palm  /en/dubai-hotels-marina-downtown-palm.html  200!
 /en/contact  /en/contact.html  200!
+/en/blog  /en/blog.html  200!
 /en  /en/index.html  200!
 /ar  /ar/index.html  200!
 /ar/hotels  /ar/hotels.html  200!
@@ -78,6 +84,7 @@
 /ar/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt  /ar/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt.html  200!
 /ar/dubai-hotels-marina-downtown-palm  /ar/dubai-hotels-marina-downtown-palm.html  200!
 /ar/contact  /ar/contact.html  200!
+/ar/blog  /ar/blog.html  200!
 /ar  /ar/index.html  200!
 /fr  /fr/index.html  200!
 /fr/hotels  /fr/hotels.html  200!
@@ -100,6 +107,7 @@
 /fr/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt  /fr/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt.html  200!
 /fr/dubai-hotels-marina-downtown-palm  /fr/dubai-hotels-marina-downtown-palm.html  200!
 /fr/contact  /fr/contact.html  200!
+/fr/blog  /fr/blog.html  200!
 /fr  /fr/index.html  200!
 /ru  /ru/index.html  200!
 /ru/hotels  /ru/hotels.html  200!
@@ -122,6 +130,7 @@
 /ru/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt  /ru/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt.html  200!
 /ru/dubai-hotels-marina-downtown-palm  /ru/dubai-hotels-marina-downtown-palm.html  200!
 /ru/contact  /ru/contact.html  200!
+/ru/blog  /ru/blog.html  200!
 /ru  /ru/index.html  200!
 
 # Legal pages - redirect old .html URLs to friendly URLs
