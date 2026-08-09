@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-08-09T08:44:18.725Z",
+  "generated_at": "2026-08-09T08:49:03.652Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 47,
@@ -1102,7 +1102,7 @@
     },
     {
       "id": "f9370460-56e4-40f8-b5de-e2ef7c47b6b1",
-      "slug": "mvzyavn-hatyd-museum-of-the-future-cf21aj",
+      "slug": "mvzyavn-hatyd-museum-of-the-future-z7vrlz",
       "name": "מוזיאון העתיד MUSEUM OF THE FUTURE",
       "name_translations": {
         "ar": "متحف المستقبل MUSEUM OF THE FUTURE",
@@ -1124,11 +1124,11 @@
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/mvzyavn-hatyd-museum-of-the-future-cf21aj",
+      "url": "https://dubai-plus.co.il/product/mvzyavn-hatyd-museum-of-the-future-z7vrlz",
       "categories": [
         "מופעים ומוזיאונים"
       ],
-      "updated_at": "2026-07-23T10:06:43.950Z"
+      "updated_at": "2026-08-09T08:48:26.299Z"
     },
     {
       "id": "406f9578-43eb-413c-b142-6448f84a36af",
