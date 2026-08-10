@@ -1,8 +1,8 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-08-10T23:42:39.849Z",
+  "generated_at": "2026-08-10T23:42:09.092Z",
   "base_url": "https://dubai-plus.co.il",
-  "currency": "USD",
+  "currency": "ILS",
   "count": 47,
   "products": [
     {
@@ -23,7 +23,7 @@
       "price": 135,
       "base_price": 135,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1785408060013-3orpy.webp"
       ],
@@ -54,7 +54,7 @@
       "price": 400,
       "base_price": 400,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1785059019369-h65rq.webp"
       ],
@@ -84,7 +84,7 @@
       "price": 800,
       "base_price": 800,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1784123372057-5p18g.webp",
         "https://dubai-plus.co.il/assets/product-1784123425536-zazsf.webp",
@@ -130,7 +130,7 @@
       "price": 0,
       "base_price": 0,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1784050792952-9up41e.webp"
       ],
@@ -160,7 +160,7 @@
       "price": 0,
       "base_price": 0,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1784049497514-qfdmec.webp"
       ],
@@ -190,7 +190,7 @@
       "price": 185,
       "base_price": 185,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1784048888593-4d1m9c.webp"
       ],
@@ -220,7 +220,7 @@
       "price": 350,
       "base_price": 350,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1784030828929-tpspw9.webp"
       ],
@@ -251,7 +251,7 @@
       "price": 215,
       "base_price": 215,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783881859413-zkretn.webp"
       ],
@@ -282,7 +282,7 @@
       "price": 750,
       "base_price": 750,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783882227404-iuzij4.webp"
       ],
@@ -312,7 +312,7 @@
       "price": 750,
       "base_price": 750,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783876576539-3ey0x.webp"
       ],
@@ -343,7 +343,7 @@
       "price": 490,
       "base_price": 490,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783876310772-vuc1j8.webp"
       ],
@@ -374,7 +374,7 @@
       "price": 390,
       "base_price": 390,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783875950865-3lm21s.webp"
       ],
@@ -405,7 +405,7 @@
       "price": 180,
       "base_price": 180,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783875688266-j0g3m.webp"
       ],
@@ -435,7 +435,7 @@
       "price": 100,
       "base_price": 100,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783874774939-0clcw4.webp"
       ],
@@ -466,7 +466,7 @@
       "price": 150,
       "base_price": 150,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783873666415-q5hy8r.webp"
       ],
@@ -497,7 +497,7 @@
       "price": 95,
       "base_price": 95,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783872893712-7x6w3.webp"
       ],
@@ -528,7 +528,7 @@
       "price": 0,
       "base_price": 0,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1784036471035-mjf35h.webp"
       ],
@@ -558,7 +558,7 @@
       "price": 89,
       "base_price": 120,
       "sale_price": 89,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783533431648-rc8vz.webp"
       ],
@@ -589,7 +589,7 @@
       "price": 67,
       "base_price": 67,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783532929895-4adrdg.webp"
       ],
@@ -620,7 +620,7 @@
       "price": 128,
       "base_price": 128,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783532380906-nb2ybc.webp"
       ],
@@ -652,7 +652,7 @@
       "price": 139,
       "base_price": 139,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783531803994-cid689.webp"
       ],
@@ -683,7 +683,7 @@
       "price": 250,
       "base_price": 250,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783426028874-y4vimu.webp"
       ],
@@ -714,7 +714,7 @@
       "price": 159,
       "base_price": 159,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-ai-fit-1783442770784-80jv28.webp"
       ],
@@ -745,7 +745,7 @@
       "price": 580,
       "base_price": 580,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/image-product-image-1783372707052-2ee127.webp"
       ],
@@ -776,7 +776,7 @@
       "price": 144,
       "base_price": 144,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783445465948-oym4oo.webp"
       ],
@@ -807,7 +807,7 @@
       "price": 270,
       "base_price": 270,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783356638006-zxr0g7.webp"
       ],
@@ -838,7 +838,7 @@
       "price": 399,
       "base_price": 399,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-ai-fit-1783445904413-52z7nh.webp"
       ],
@@ -869,7 +869,7 @@
       "price": 650,
       "base_price": 650,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783445993153-t2ofsd.webp"
       ],
@@ -899,7 +899,7 @@
       "price": 550,
       "base_price": 550,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-ai-fit-1783447685631-sdq9k8.webp"
       ],
@@ -930,7 +930,7 @@
       "price": 280,
       "base_price": 280,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783430928197-llbwhi.webp"
       ],
@@ -961,7 +961,7 @@
       "price": 89,
       "base_price": 89,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-ai-fit-1783444275128-c6xqcx.webp"
       ],
@@ -992,7 +992,7 @@
       "price": 230,
       "base_price": 230,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-ai-fit-1783499540562-tqu82f.webp"
       ],
@@ -1023,7 +1023,7 @@
       "price": 179,
       "base_price": 179,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783511208204-owy4e.webp"
       ],
@@ -1055,7 +1055,7 @@
       "price": 185,
       "base_price": 185,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783509278391-0xxtl.webp"
       ],
@@ -1086,7 +1086,7 @@
       "price": 850,
       "base_price": 850,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783512352004-ipm6zy.webp"
       ],
@@ -1117,7 +1117,7 @@
       "price": 150,
       "base_price": 150,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-ai-fit-1783510125521-cj2nzq.webp"
       ],
@@ -1147,7 +1147,7 @@
       "price": 75,
       "base_price": 75,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783513535295-f0iap.webp"
       ],
@@ -1178,7 +1178,7 @@
       "price": 94,
       "base_price": 94,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783514674207-lll82.webp"
       ],
@@ -1209,7 +1209,7 @@
       "price": 45,
       "base_price": 45,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783517133930-szldwf.webp"
       ],
@@ -1240,7 +1240,7 @@
       "price": 84,
       "base_price": 84,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783518884326-y5yane.webp"
       ],
@@ -1271,7 +1271,7 @@
       "price": 189,
       "base_price": 189,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783521351890-9kxnks.webp"
       ],
@@ -1302,7 +1302,7 @@
       "price": 153,
       "base_price": 153,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783525786305-nhhoy3.webp"
       ],
@@ -1334,7 +1334,7 @@
       "price": 150,
       "base_price": 150,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783526370225-mwy4pn.webp"
       ],
@@ -1365,7 +1365,7 @@
       "price": 79,
       "base_price": 79,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1783530951541-ewzoam.webp"
       ],
@@ -1396,7 +1396,7 @@
       "price": 59,
       "base_price": 59,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [],
       "in_stock": false,
       "stock_status": "out_of_stock",
@@ -1422,7 +1422,7 @@
       "price": 79,
       "base_price": 79,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [],
       "in_stock": false,
       "stock_status": "out_of_stock",
@@ -1448,7 +1448,7 @@
       "price": 25,
       "base_price": 25,
       "sale_price": null,
-      "currency": "USD",
+      "currency": "ILS",
       "images": [],
       "in_stock": true,
       "stock_status": "in_stock",
