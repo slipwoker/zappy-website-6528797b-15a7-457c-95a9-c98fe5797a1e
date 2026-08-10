@@ -18,35 +18,35 @@ https://dubai-plus.co.il/hotels
 https://dubai-plus.co.il/attractions
 ברג&#39; ח&#39;ליפה, ספארי מדבר, גלובל וילג&#39;, גן הפרחים ויאכטות פרטיות — הזמן כרטיסים לאטרקציות דובאי המרהיבות ביותר בקלות ובמחיר הטוב ביותר. חוויה שלא תשכח!
 
-### Products
+### מוצרים
 https://dubai-plus.co.il/products
 המוצרים שלנו - Sarah laloum tourism llc
 
-### Cart
+### עגלת קניות
 https://dubai-plus.co.il/cart
 עגלת הקניות שלך
 
-### Checkout
+### תשלום
 https://dubai-plus.co.il/checkout
 תשלום
 
-### Login
+### התחברות
 https://dubai-plus.co.il/login
 התחברות לקוחות
 
-### Account
+### החשבון שלי
 https://dubai-plus.co.il/account
 החשבון שלי
 
-### Order Success
+### ההזמנה התקבלה!
 https://dubai-plus.co.il/order-success
 תודה על ההזמנה
 
-### Product Detail
+### פרטי המוצר
 https://dubai-plus.co.il/product/:slug
 פרטי המוצר - Sarah laloum tourism llc
 
-### Category
+### מוצרים
 https://dubai-plus.co.il/category/:slug
 מוצרים - Sarah laloum tourism llc
 
@@ -64,12 +64,32 @@ https://dubai-plus.co.il/sim-card
 https://dubai-plus.co.il/blog/kosher-dubai
 Sarah laloum tourism llc - כשרות בדובאי
 
-### Page
-https://dubai-plus.co.il/menu-group-1784805717078
+### מגזין דובאי למטייל הישראלי
+https://dubai-plus.co.il/blog
+Sarah laloum tourism llc - מגזין דובאי למטייל הישראלי
 
 ### מסעדות דובאי שישאירו אותך פעור פה — Duabi plus
 https://dubai-plus.co.il/restaurants
 חוויות קולינריות בלתי נשכחות בדובאי — ממסעדות שף עולמיות ועד מטבח מקומי אותנטי. גלה המלצות מסעדות נבחרות לישראלים עם תפריטים, מיקומים והזמנת מקום!
+
+### דובאי בפעם הראשונה: איך לבנות חופשה חכמה, נעימה ויוקרתית
+https://dubai-plus.co.il/blog/first-time-dubai
+מדריך מעשי למטייל הישראלי שמגיע לדובאי בפעם הראשונה ורוצה לתכנן חופשה אלגנטית, רגועה ומדויקת.
+
+### המלונות בדובאי: איך לבחור נכון בין חוף, מרינה, דאונטאון ופאלם
+https://dubai-plus.co.il/blog/dubai-hotels-areas
+מדריך לבחירת אזור הלינה הנכון בדובאי לפי סגנון החופשה, רמת היוקרה, הנגישות והאווירה.
+
+### אטרקציות בדובאי שלא כדאי לפספס — ומה מתאים לכל סוג מטייל
+https://dubai-plus.co.il/blog/dubai-attractions-guide
+סקירה חכמה של אטרקציות בדובאי לפי סגנון המטייל: משפחות, זוגות, חובבי יוקרה, מדבר, קניות ונופים.
+
+### מסעדות וחיי ערב בדובאי: מדריך אלגנטי לחוויה קולינרית בלתי נשכחת
+https://dubai-plus.co.il/blog/dubai-dining-nightlife-9259
+מדריך לבחירת מסעדות וחוויות ערב בדובאי לפי אווירה, נוף, סגנון אירוח ואופי החופשה.
+
+### Page
+https://dubai-plus.co.il/menu-group-1784805717078
 
 ### מגזין דובאי למטייל הישראלי
 https://dubai-plus.co.il/dubai-magazine-for-israeli-travelers
@@ -118,26 +138,6 @@ https://dubai-plus.co.il/blog/kosher-dubai/jewish-holidays
 ### דברו איתנו ותכננו את הטיול המושלם — Duabi plus
 https://dubai-plus.co.il/contact
 יש לכם שאלות על טיול דובאי? צוות המומחים שלנו זמין עבורכם. צרו קשר עכשיו לייעוץ אישי חינם, ושירותים חדשים בדרך — השאירו פרטים ותהיו הראשונים לדעת!
-
-### מגזין דובאי למטייל הישראלי
-https://dubai-plus.co.il/blog
-Sarah laloum tourism llc - מגזין דובאי למטייל הישראלי
-
-### פעם ראשונה
-https://dubai-plus.co.il/blog/first-time-dubai
-מדריך מעשי למטייל הישראלי שמגיע לדובאי בפעם הראשונה ורוצה לתכנן חופשה אלגנטית, רגועה ומדויקת.
-
-### מלונות
-https://dubai-plus.co.il/blog/dubai-hotels-areas
-מדריך לבחירת אזור הלינה הנכון בדובאי לפי סגנון החופשה, רמת היוקרה, הנגישות והאווירה.
-
-### אטרקציות
-https://dubai-plus.co.il/blog/dubai-attractions-guide
-סקירה חכמה של אטרקציות בדובאי לפי סגנון המטייל: משפחות, זוגות, חובבי יוקרה, מדבר, קניות ונופים.
-
-### קולינריה
-https://dubai-plus.co.il/blog/dubai-dining-nightlife-9259
-מדריך לבחירת מסעדות וחוויות ערב בדובאי לפי אווירה, נוף, סגנון אירוח ואופי החופשה.
 
 ## Legal & Policy
 

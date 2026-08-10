@@ -1,5 +1,5 @@
 # Clean URL redirects for Render static hosting
-# Generated: 2026-08-10T11:26:20.020Z
+# Generated: 2026-08-10T12:12:10.408Z
 # NOTE: Render uses render.yaml for routing, not _redirects (that is Netlify)
 # This file is kept for reference only
 
@@ -19,8 +19,13 @@
 /airport-transfers  /airport-transfers.html  200!
 /sim-card  /sim-card.html  200!
 /blog/kosher-dubai  /blog/kosher-dubai.html  200!
-/menu-group-1784805717078  /menu-group-1784805717078.html  200!
+/blog  /blog.html  200!
 /restaurants  /restaurants.html  200!
+/blog/first-time-dubai  /blog/first-time-dubai.html  200!
+/blog/dubai-hotels-areas  /blog/dubai-hotels-areas.html  200!
+/blog/dubai-attractions-guide  /blog/dubai-attractions-guide.html  200!
+/blog/dubai-dining-nightlife-9259  /blog/dubai-dining-nightlife-9259.html  200!
+/menu-group-1784805717078  /menu-group-1784805717078.html  200!
 /dubai-magazine-for-israeli-travelers  /dubai-magazine-for-israeli-travelers.html  200!
 /blog/dubai-dining-nightlife  /blog/dubai-dining-nightlife.html  200!
 /dubai-must-see-attractions  /dubai-must-see-attractions.html  200!
@@ -33,11 +38,6 @@
 /blog/kosher-dubai/shabbat-guide  /blog/kosher-dubai/shabbat-guide.html  200!
 /blog/kosher-dubai/jewish-holidays  /blog/kosher-dubai/jewish-holidays.html  200!
 /contact  /contact.html  200!
-/blog  /blog.html  200!
-/blog/first-time-dubai  /blog/first-time-dubai.html  200!
-/blog/dubai-hotels-areas  /blog/dubai-hotels-areas.html  200!
-/blog/dubai-attractions-guide  /blog/dubai-attractions-guide.html  200!
-/blog/dubai-dining-nightlife-9259  /blog/dubai-dining-nightlife-9259.html  200!
 
 # Language slug rewrites for SEO
 /en  /en/index.html  200!
@@ -55,13 +55,13 @@
 /en/terms  /en/terms.html  200!
 /en/airport-transfers  /en/airport-transfers.html  200!
 /en/sim-card  /en/sim-card.html  200!
+/en/blog  /en/blog.html  200!
 /en/restaurants  /en/restaurants.html  200!
 /en/dubai-magazine-for-israeli-travelers  /en/dubai-magazine-for-israeli-travelers.html  200!
 /en/dubai-must-see-attractions  /en/dubai-must-see-attractions.html  200!
 /en/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt  /en/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt.html  200!
 /en/dubai-hotels-marina-downtown-palm  /en/dubai-hotels-marina-downtown-palm.html  200!
 /en/contact  /en/contact.html  200!
-/en/blog  /en/blog.html  200!
 /en  /en/index.html  200!
 /ar  /ar/index.html  200!
 /ar/hotels  /ar/hotels.html  200!
@@ -78,13 +78,13 @@
 /ar/terms  /ar/terms.html  200!
 /ar/airport-transfers  /ar/airport-transfers.html  200!
 /ar/sim-card  /ar/sim-card.html  200!
+/ar/blog  /ar/blog.html  200!
 /ar/restaurants  /ar/restaurants.html  200!
 /ar/dubai-magazine-for-israeli-travelers  /ar/dubai-magazine-for-israeli-travelers.html  200!
 /ar/dubai-must-see-attractions  /ar/dubai-must-see-attractions.html  200!
 /ar/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt  /ar/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt.html  200!
 /ar/dubai-hotels-marina-downtown-palm  /ar/dubai-hotels-marina-downtown-palm.html  200!
 /ar/contact  /ar/contact.html  200!
-/ar/blog  /ar/blog.html  200!
 /ar  /ar/index.html  200!
 /fr  /fr/index.html  200!
 /fr/hotels  /fr/hotels.html  200!
@@ -101,13 +101,13 @@
 /fr/terms  /fr/terms.html  200!
 /fr/airport-transfers  /fr/airport-transfers.html  200!
 /fr/sim-card  /fr/sim-card.html  200!
+/fr/blog  /fr/blog.html  200!
 /fr/restaurants  /fr/restaurants.html  200!
 /fr/dubai-magazine-for-israeli-travelers  /fr/dubai-magazine-for-israeli-travelers.html  200!
 /fr/dubai-must-see-attractions  /fr/dubai-must-see-attractions.html  200!
 /fr/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt  /fr/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt.html  200!
 /fr/dubai-hotels-marina-downtown-palm  /fr/dubai-hotels-marina-downtown-palm.html  200!
 /fr/contact  /fr/contact.html  200!
-/fr/blog  /fr/blog.html  200!
 /fr  /fr/index.html  200!
 /ru  /ru/index.html  200!
 /ru/hotels  /ru/hotels.html  200!
@@ -124,13 +124,13 @@
 /ru/terms  /ru/terms.html  200!
 /ru/airport-transfers  /ru/airport-transfers.html  200!
 /ru/sim-card  /ru/sim-card.html  200!
+/ru/blog  /ru/blog.html  200!
 /ru/restaurants  /ru/restaurants.html  200!
 /ru/dubai-magazine-for-israeli-travelers  /ru/dubai-magazine-for-israeli-travelers.html  200!
 /ru/dubai-must-see-attractions  /ru/dubai-must-see-attractions.html  200!
 /ru/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt  /ru/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt.html  200!
 /ru/dubai-hotels-marina-downtown-palm  /ru/dubai-hotels-marina-downtown-palm.html  200!
 /ru/contact  /ru/contact.html  200!
-/ru/blog  /ru/blog.html  200!
 /ru  /ru/index.html  200!
 
 # Legal pages - redirect old .html URLs to friendly URLs
