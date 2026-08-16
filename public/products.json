@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-08-16T19:31:10.805Z",
+  "generated_at": "2026-08-16T19:32:27.032Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 47,
@@ -663,7 +663,7 @@
         "פארקים וגנים",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-08-16T19:30:09.762Z"
+      "updated_at": "2026-08-16T19:31:36.931Z"
     },
     {
       "id": "993c441a-d7ec-4c09-945d-42f8b1167369",
@@ -1229,7 +1229,7 @@
       "name_translations": {
         "ar": "منظر النخيل - The View at The Palm",
         "en": "Palm View - The View at The Palm",
-        "fr": "Belvédère des Palmiers - The View at The Palm",
+        "fr": "Panorama des Palmiers - The View at The Palm",
         "he": "תצפית הדקלים - The View at The Palm",
         "ru": "Смотровая площадка Пальм - The View at The Palm"
       },
@@ -1251,7 +1251,7 @@
         "מגדלים ותצפיות",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-08-16T19:30:36.565Z"
+      "updated_at": "2026-08-16T19:31:51.967Z"
     },
     {
       "id": "3a8154de-2df5-4d1d-b4ff-ac179450c7a9",
