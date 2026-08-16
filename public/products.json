@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-08-16T19:32:27.032Z",
+  "generated_at": "2026-08-16T19:33:05.898Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 47,
@@ -1380,7 +1380,7 @@
     },
     {
       "id": "75d00d6b-1860-4428-89ec-f899d9ea1e10",
-      "slug": "gn-hprprym-uyg2f9",
+      "slug": "gn-hprprym-emf35w",
       "name": "גן הפרפרים",
       "name_translations": {
         "ar": "حديقة الفراشات",
@@ -1393,18 +1393,18 @@
       "short_description": "גן הפרפרים של דובאי – חוויה צבעונית וקסומה לכל המשפחה, עם אלפי פרפרים מרהיבים בסביבה טרופית ומיוחדת. 🦋�\n",
       "sku": null,
       "brand": null,
-      "price": 59,
-      "base_price": 59,
+      "price": 49,
+      "base_price": 49,
       "sale_price": null,
       "currency": "ILS",
       "images": [
         "https://dubai-plus.co.il/assets/product-1786908171067-5dkvx.webp"
       ],
-      "in_stock": false,
-      "stock_status": "out_of_stock",
-      "url": "https://dubai-plus.co.il/product/gn-hprprym-uyg2f9",
+      "in_stock": true,
+      "stock_status": "in_stock",
+      "url": "https://dubai-plus.co.il/product/gn-hprprym-emf35w",
       "categories": [],
-      "updated_at": "2026-08-16T19:29:33.615Z"
+      "updated_at": "2026-08-16T19:32:32.634Z"
     },
     {
       "id": "e8275da6-11af-4c0c-8351-78f14878f660",
