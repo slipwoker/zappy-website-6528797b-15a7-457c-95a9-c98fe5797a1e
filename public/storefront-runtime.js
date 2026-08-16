@@ -21017,6 +21017,114 @@ function fixContrast(){
 })();
 
 
+/* ZAPPY_CARD_TAG_COLORS_V1 */
+;(function(){
+  try {
+    if (window.__zappyCardTagColorsInit) return;
+    window.__zappyCardTagColorsInit = true;
+
+    if (!document.getElementById('zappy-card-tag-colors-css')) {
+      var st = document.createElement('style');
+      st.id = 'zappy-card-tag-colors-css';
+      st.textContent = "/* ZAPPY_CARD_TAG_COLORS */\n.product-tag.tag-sale { background: #ef4444 !important; color: #fff !important; }\n.product-tag.tag-new { background: #22c55e !important; color: #fff !important; }\n.product-tag.tag-featured { background: #f59e0b !important; color: #fff !important; }\n.product-tag.tag-bestseller { background: #a855f7 !important; color: #fff !important; }\n.product-tag.tag-limited { background: #f43f5e !important; color: #fff !important; }\n.product-tag.tag-eco-friendly { background: #14b8a6 !important; color: #fff !important; }\n.product-tag.tag-color-green { background: #22c55e !important; color: #fff !important; }\n.product-tag.tag-color-red { background: #ef4444 !important; color: #fff !important; }\n.product-tag.tag-color-amber { background: #f59e0b !important; color: #fff !important; }\n.product-tag.tag-color-purple { background: #a855f7 !important; color: #fff !important; }\n.product-tag.tag-color-rose { background: #f43f5e !important; color: #fff !important; }\n.product-tag.tag-color-teal { background: #14b8a6 !important; color: #fff !important; }\n.product-tag.tag-color-sky { background: #0ea5e9 !important; color: #fff !important; }\n.product-tag.tag-color-indigo { background: #6366f1 !important; color: #fff !important; }\n.product-tag.tag-color-orange { background: #f97316 !important; color: #fff !important; }\n.product-tag.tag-color-pink { background: #ec4899 !important; color: #fff !important; }\n.product-tag.tag-color-slate { background: #64748b !important; color: #fff !important; }";
+      document.head.appendChild(st);
+    }
+
+    var ALLOWED = { green:1, red:1, amber:1, purple:1, rose:1, teal:1, sky:1, indigo:1, orange:1, pink:1, slate:1 };
+
+    function normalizeColors(raw) {
+      var out = {};
+      if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return out;
+      Object.keys(raw).forEach(function(name) {
+        var tag = String(name || '').trim().toLowerCase();
+        var key = String(raw[name] || '').trim().toLowerCase();
+        if (tag && ALLOWED[key]) out[tag] = key;
+      });
+      return out;
+    }
+
+    window.ZAPPY_TAG_COLORS = window.ZAPPY_TAG_COLORS || {};
+    window.zappyResolveProductTagClass = function(tag) {
+      var tagLower = String(tag || '').toLowerCase();
+      if (tagLower === 'sale' || tagLower === '\u05de\u05d1\u05e6\u05e2') return 'product-tag tag-sale';
+      if (tagLower === 'new' || tagLower === '\u05d7\u05d3\u05e9') return 'product-tag tag-new';
+      if (tagLower === 'featured' || tagLower === '\u05de\u05d5\u05de\u05dc\u05e5') return 'product-tag tag-featured';
+      if (tagLower === 'bestseller' || tagLower === '\u05e8\u05d1 \u05de\u05db\u05e8') return 'product-tag tag-bestseller';
+      if (tagLower === 'limited' || tagLower === '\u05de\u05d5\u05d2\u05d1\u05dc') return 'product-tag tag-limited';
+      if (tagLower === 'eco-friendly' || tagLower === '\u05d9\u05d3\u05d9\u05d3\u05d5\u05ea\u05d9 \u05dc\u05e1\u05d1\u05d9\u05d1\u05d4') return 'product-tag tag-eco-friendly';
+      var key = (window.ZAPPY_TAG_COLORS && window.ZAPPY_TAG_COLORS[tagLower]) || 'pink';
+      if (!ALLOWED[key]) key = 'pink';
+      return 'product-tag tag-color-' + key;
+    };
+
+    window.zappyRefreshCardTagColors = function(scope) {
+      var root = (scope && scope.querySelectorAll) ? scope : document;
+      try {
+        root.querySelectorAll('.product-tag').forEach(function(el) {
+          if (el.classList.contains('tag-out-of-stock')) return;
+          el.className = window.zappyResolveProductTagClass((el.textContent || '').trim());
+        });
+      } catch (e) {}
+    };
+
+    function wrapBuilder() {
+      var orig = window.zappyBuildCardTagsHtml;
+      if (typeof orig !== 'function' || orig.__zappyTagColors) return;
+      window.zappyBuildCardTagsHtml = function(p, t) {
+        var html = orig(p, t);
+        if (!html) return html;
+        return html.replace(/<span class="product-tag(?:\s+([^"]*))?">([^<]*)<\/span>/g, function(m, cls, text) {
+          if ((' ' + (cls || '') + ' ').indexOf(' tag-out-of-stock ') !== -1) return m;
+          return '<span class="' + window.zappyResolveProductTagClass(text) + '">' + text + '</span>';
+        });
+      };
+      window.zappyBuildCardTagsHtml.__zappyTagColors = true;
+    }
+    wrapBuilder();
+    setTimeout(wrapBuilder, 0);
+    setTimeout(wrapBuilder, 500);
+
+    function ingest(payload) {
+      var raw = null;
+      if (payload && payload.data && payload.data.tagColors) raw = payload.data.tagColors;
+      else if (payload && payload.tagColors) raw = payload.tagColors;
+      window.ZAPPY_TAG_COLORS = normalizeColors(raw);
+      window.zappyRefreshCardTagColors();
+    }
+    if (window.__zappyStoreSettingsData) ingest(window.__zappyStoreSettingsData);
+
+    try {
+      if (window.fetch && !window.fetch.__zappyTagColors) {
+        var origFetch = window.fetch;
+        window.fetch = function(input, init) {
+          var url = '';
+          try { url = typeof input === 'string' ? input : (input && input.url) || ''; } catch (e0) {}
+          var p = origFetch.apply(this, arguments);
+          if (url && url.indexOf('/storefront/settings') !== -1) {
+            p.then(function(res) {
+              try {
+                res.clone().json().then(function(data) {
+                  if (data && data.success && data.data) ingest(data);
+                }).catch(function(){});
+              } catch (e1) {}
+              return res;
+            }).catch(function(){});
+          }
+          return p;
+        };
+        window.fetch.__zappyTagColors = true;
+      }
+    } catch (e2) {}
+
+    var _origAfter = window.zappyAfterCardsRendered;
+    window.zappyAfterCardsRendered = function(scope) {
+      if (typeof _origAfter === 'function') { try { _origAfter(scope); } catch (e3) {} }
+      window.zappyRefreshCardTagColors(scope);
+    };
+  } catch (e) {}
+})();
+
+
 /* ZAPPY_PRODUCTS_MENU_LABEL_LANG_GUARD_V2 */
 (function(){
   var RTL_RE = /[\u0590-\u05FF\u0600-\u06FF]/;
