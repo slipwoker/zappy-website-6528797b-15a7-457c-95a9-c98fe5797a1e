@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-08-16T19:25:00.853Z",
+  "generated_at": "2026-08-16T19:28:51.445Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 47,
@@ -1408,7 +1408,7 @@
     },
     {
       "id": "e8275da6-11af-4c0c-8351-78f14878f660",
-      "slug": "hgn-hzvhr-miracle-garden-ch3dx5",
+      "slug": "hgn-hzvhr-miracle-garden-v7371h",
       "name": "הגן הזוהר - Miracle Garden",
       "name_translations": {
         "ar": "الحديقة المعجزة - Miracle Garden",
@@ -1417,20 +1417,25 @@
         "he": "הגן הזוהר - Miracle Garden",
         "ru": "Сияющий сад - Miracle Garden"
       },
-      "description": "<p>הגן הזוהר של דובאי - Dubai Miracle Garden. מיליוני פרחים בצבעים עזים יוצרים שטיחי פרחים מרהיבים — הגן הטבעי הגדול בעולם.</p>",
-      "short_description": null,
+      "description": "<p class=\"ql-align-right\">גן הזוהר של דובאי (Dubai Garden Glow) ✨🌈 הוא אטרקציית ערב צבעונית ומיוחדת, המציעה חוויה מרהיבה של אורות, צבעים ומיצגים מוארים.</p><p class=\"ql-align-right\">עם רדת החשכה, המתחם מתעורר לחיים עם מגוון עצום של פסלים ומיצגים זוהרים, דמויות צבעוניות, פרחים מוארים ומתחמים מיוחדים שיוצרים אווירה קסומה.</p><p class=\"ql-align-right\">זהו מקום נהדר לטיול ערב עם הילדים, עם המון נקודות צילום וחוויה שמתאימה לכל המשפחה.</p><p class=\"ql-align-right\">🌟 מיצגי אור מרהיבים וצבעוניים</p><p class=\"ql-align-right\">👨‍👩‍👧‍👦 מתאים לכל המשפחה ולילדים</p><p class=\"ql-align-right\">📸 מגוון פינות צילום מיוחדות</p><p class=\"ql-align-right\">🌙 מומלץ לביקור בשעות הערב והלילה</p><p class=\"ql-align-right\">✨ חוויה צבעונית ושונה בנוף של דובאי</p><p>Dubai Garden Glow הוא בחירה מצוינת למי שמחפש אטרקציה משפחתית מיוחדת לשעות הערב בדובאי.</p><p></p>",
+      "short_description": "גן הזוהר של דובאי – עולם קסום של אורות, צבעים ומיצגים מרהיבים שהופכים את הערב לחוויה מיוחדת לכל המשפחה. ✨�\n",
       "sku": null,
       "brand": null,
-      "price": 79,
-      "base_price": 79,
+      "price": 60,
+      "base_price": 60,
       "sale_price": null,
       "currency": "ILS",
-      "images": [],
+      "images": [
+        "https://dubai-plus.co.il/assets/product-1786908458737-7ddxt.webp"
+      ],
       "in_stock": false,
       "stock_status": "out_of_stock",
-      "url": "https://dubai-plus.co.il/product/hgn-hzvhr-miracle-garden-ch3dx5",
-      "categories": [],
-      "updated_at": "2026-07-23T10:06:44.469Z"
+      "url": "https://dubai-plus.co.il/product/hgn-hzvhr-miracle-garden-v7371h",
+      "categories": [
+        "פארקים וגנים",
+        "אטרקציות בדובאי"
+      ],
+      "updated_at": "2026-08-16T19:28:14.720Z"
     },
     {
       "id": "9c6d9d12-9607-4aa4-9406-8d4f6ad270cc",
