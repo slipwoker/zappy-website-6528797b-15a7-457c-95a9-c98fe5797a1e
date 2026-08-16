@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-08-16T19:12:50.460Z",
+  "generated_at": "2026-08-16T19:24:26.336Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 47,
@@ -1380,29 +1380,31 @@
     },
     {
       "id": "75d00d6b-1860-4428-89ec-f899d9ea1e10",
-      "slug": "gn-hprprym-sniteu",
+      "slug": "gn-hprprym-u9n2qq",
       "name": "גן הפרפרים",
       "name_translations": {
         "ar": "حديقة الفراشات",
-        "en": "Butterfly Garden",
+        "en": "The Butterfly Garden",
         "fr": "Le Jardin des Papillons",
         "he": "גן הפרפרים",
         "ru": "Сад бабочек"
       },
-      "description": "<p>גן הפרפרים דובאי - Butterfly Garden. מאות סוגי פרפרים צבעוניים בסביבה טרופית מרהיבה — חוויה קסומה לכל המשפחה.</p>",
-      "short_description": null,
+      "description": "<p class=\"ql-align-right\">גן הפרפרים של דובאי (Dubai Butterfly Garden) 🦋🌸 הוא אטרקציה מיוחדת וצבעונית שמתאימה לכל המשפחה.</p><p class=\"ql-align-right\">במתחם תוכלו ליהנות מאלפי פרפרים ממינים שונים, המתעופפים בחופשיות בתוך כיפות גדולות וממוזגות המעוצבות עם צמחייה, פרחים ופינות צילום מיוחדות.</p><p class=\"ql-align-right\">המבקרים יכולים לראות את הפרפרים מקרוב, ללמוד על מחזור החיים שלהם וליהנות מחוויה רגועה ומהנה במיוחד עם הילדים.</p><p class=\"ql-align-right\">📍 מיקום: Dubai Butterfly Garden, ליד Dubai Miracle Garden</p><p class=\"ql-align-right\">👨‍👩‍👧‍👦 מתאים למשפחות ולילדים</p><p class=\"ql-align-right\">🦋 אלפי פרפרים ממינים שונים</p><p class=\"ql-align-right\">🌿 מתחמים סגורים וממוזגים</p><p class=\"ql-align-right\">📸 מגוון פינות צילום צבעוניות</p><p class=\"ql-align-right\">אטרקציה מומלצת למי שמחפש פעילות משפחתית, נעימה ומיוחדת במהלך החופשה בדובאי.</p><p></p>",
+      "short_description": "גן הפרפרים של דובאי – חוויה צבעונית וקסומה לכל המשפחה, עם אלפי פרפרים מרהיבים בסביבה טרופית ומיוחדת. 🦋�\n",
       "sku": null,
       "brand": null,
       "price": 59,
       "base_price": 59,
       "sale_price": null,
       "currency": "ILS",
-      "images": [],
-      "in_stock": false,
-      "stock_status": "out_of_stock",
-      "url": "https://dubai-plus.co.il/product/gn-hprprym-sniteu",
+      "images": [
+        "https://dubai-plus.co.il/assets/product-1786908171067-5dkvx.webp"
+      ],
+      "in_stock": true,
+      "stock_status": "in_stock",
+      "url": "https://dubai-plus.co.il/product/gn-hprprym-u9n2qq",
       "categories": [],
-      "updated_at": "2026-07-23T10:06:44.419Z"
+      "updated_at": "2026-08-16T19:24:23.383Z"
     },
     {
       "id": "e8275da6-11af-4c0c-8351-78f14878f660",
