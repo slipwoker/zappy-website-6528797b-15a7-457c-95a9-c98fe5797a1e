@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-08-16T19:29:30.723Z",
+  "generated_at": "2026-08-16T19:30:10.883Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 47,
@@ -636,7 +636,7 @@
     },
     {
       "id": "858e0306-35dd-44d1-a44a-400b8a6016b0",
-      "slug": "kvkb-hlkt-hyrvk-cf9tbq",
+      "slug": "kvkb-hlkt-hyrvk-fjo99u",
       "name": "כוכב הלכת הירוק",
       "name_translations": {
         "ar": "الكوكب الأخضر",
@@ -656,14 +656,14 @@
       "images": [
         "https://dubai-plus.co.il/assets/product-1783531803994-cid689.webp"
       ],
-      "in_stock": true,
-      "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/kvkb-hlkt-hyrvk-cf9tbq",
+      "in_stock": false,
+      "stock_status": "out_of_stock",
+      "url": "https://dubai-plus.co.il/product/kvkb-hlkt-hyrvk-fjo99u",
       "categories": [
         "פארקים וגנים",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-08-09T08:41:41.073Z"
+      "updated_at": "2026-08-16T19:30:09.762Z"
     },
     {
       "id": "993c441a-d7ec-4c09-945d-42f8b1167369",
@@ -1404,7 +1404,7 @@
       "stock_status": "out_of_stock",
       "url": "https://dubai-plus.co.il/product/gn-hprprym-uyg2f9",
       "categories": [],
-      "updated_at": "2026-08-16T19:28:57.704Z"
+      "updated_at": "2026-08-16T19:29:33.615Z"
     },
     {
       "id": "e8275da6-11af-4c0c-8351-78f14878f660",
