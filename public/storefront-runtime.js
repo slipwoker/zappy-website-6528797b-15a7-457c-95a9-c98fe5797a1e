@@ -26545,6 +26545,127 @@ loadFeaturedProducts = zappyLoadFeaturedProductsPaged;
 window.loadFeaturedProducts = zappyLoadFeaturedProductsPaged;
 
 
+
+/* ZAPPY_CATALOG_CHIP_IMAGES_V3 */
+function zappyExtractProductIdFromHref(href) {
+  if (!href) return null;
+  var path = String(href).split('?')[0].split('#')[0];
+  var marker = path.lastIndexOf('/product/');
+  if (marker < 0) return null;
+  var tail = path.slice(marker + '/product/'.length);
+  var match = tail.match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i);
+  return match ? match[0].toLowerCase() : null;
+}
+function zappyFirstCatalogImage(product) {
+  if (!product) return '';
+  var images = product.images;
+  if (!Array.isArray(images) || !images.length) return '';
+  var first = images[0];
+  if (first && typeof first === 'object') first = first.url || first.src || first.href || '';
+  return first || '';
+}
+function zappyEscapeChipText(value) {
+  return String(value || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+function zappyFormatChipPrice(product) {
+  var sale = parseFloat(product && (product.sale_price || product.salePrice));
+  var price = parseFloat(product && product.price);
+  var amount = (isFinite(sale) && isFinite(price) && sale < price) ? sale : price;
+  if (!isFinite(amount)) return '';
+  var symbol = (window.ZAPPY_STORE_SETTINGS && window.ZAPPY_STORE_SETTINGS.currencySymbol) || '₪';
+  return symbol + (Math.round(amount) === amount ? String(amount) : amount.toFixed(2));
+}
+async function hydrateCatalogChipImages() {
+  var nodes = document.querySelectorAll('a.cat-product-chip[href*="/product/"]');
+  if (!nodes.length) return;
+  var websiteId = window.ZAPPY_WEBSITE_ID;
+  if (!websiteId) return;
+  if (typeof buildApiUrlWithLang !== 'function') return;
+  var ids = [];
+  var seen = Object.create(null);
+  for (var i = 0; i < nodes.length; i++) {
+    if (nodes[i].closest && nodes[i].closest('[data-zappy-category-products]')) continue;
+    var id = zappyExtractProductIdFromHref(nodes[i].getAttribute('href'));
+    if (!id || seen[id]) continue;
+    seen[id] = true;
+    ids.push(id);
+  }
+  if (!ids.length) return;
+  var byId = Object.create(null);
+  var IDS_MAX = 48;
+  for (var offset = 0; offset < ids.length; offset += IDS_MAX) {
+    var chunk = ids.slice(offset, offset + IDS_MAX);
+    try {
+      var res = await fetch(buildApiUrlWithLang('/api/ecommerce/storefront/products?websiteId=' + websiteId + '&ids=' + chunk.join(',')));
+      if (!res.ok) continue;
+      var data = await res.json();
+      var products = (data && data.success && Array.isArray(data.data)) ? data.data : [];
+      for (var j = 0; j < products.length; j++) {
+        if (products[j] && products[j].id) byId[String(products[j].id).toLowerCase()] = products[j];
+      }
+    } catch (e) {}
+  }
+  for (var k = 0; k < nodes.length; k++) {
+    if (nodes[k].closest && nodes[k].closest('[data-zappy-category-products]')) continue;
+    var productId = zappyExtractProductIdFromHref(nodes[k].getAttribute('href'));
+    var product = productId ? byId[productId] : null;
+    var image = zappyFirstCatalogImage(product);
+    if (!image) continue;
+    var resolved = typeof resolveProductImageUrl === 'function' ? resolveProductImageUrl(image) : image;
+    var img = nodes[k].querySelector('img.chip-img') || nodes[k].querySelector('img');
+    if (img && resolved && img.getAttribute('src') !== resolved) img.setAttribute('src', resolved);
+  }
+}
+async function loadCategoryProductShowcases() {
+  var strips = document.querySelectorAll('[data-zappy-category-products]');
+  if (!strips.length) return;
+  var websiteId = window.ZAPPY_WEBSITE_ID;
+  if (!websiteId || typeof buildApiUrlWithLang !== 'function') return;
+  for (var i = 0; i < strips.length; i++) {
+    await loadOneCategoryProductShowcase(strips[i], websiteId);
+  }
+}
+async function loadOneCategoryProductShowcase(strip, websiteId) {
+  var categoryId = strip.getAttribute('data-category-id');
+  var limit = parseInt(strip.getAttribute('data-limit'), 10) || 5;
+  if (limit < 1) limit = 5;
+  if (limit > 24) limit = 24;
+  var sort = strip.getAttribute('data-sort') || 'store_order';
+  if (!categoryId) return;
+  var sortParam = (sort === 'price_desc' || sort === 'price_asc' || sort === 'newest') ? '&sort=' + encodeURIComponent(sort) : '';
+  try {
+    var res = await fetch(buildApiUrlWithLang('/api/ecommerce/storefront/products?websiteId=' + websiteId + '&categoryId=' + encodeURIComponent(categoryId) + '&limit=' + limit + sortParam));
+    var data = await res.json();
+    var products = (data && data.success && Array.isArray(data.data)) ? data.data : [];
+    products = products.slice(0, limit);
+    if (!products.length) { strip.innerHTML = '<div class="no-featured-products"></div>'; return; }
+    strip.innerHTML = products.map(function(product) {
+      var href = (typeof buildStorefrontPath === 'function' ? buildStorefrontPath('/product/' + (product.slug || product.id)) : '/product/' + (product.slug || product.id));
+      var image = typeof resolveProductImageUrl === 'function' ? resolveProductImageUrl(zappyFirstCatalogImage(product)) : zappyFirstCatalogImage(product);
+      var name = zappyEscapeChipText(product.name);
+      var price = zappyEscapeChipText(zappyFormatChipPrice(product));
+      return '<a href="' + href + '" class="cat-product-chip">' +
+        (image ? '<img class="chip-img" src="' + image + '" alt="' + name + '">' : '') +
+        '<span class="chip-name">' + name + '</span>' +
+        (price ? '<span class="chip-price">' + price + '</span>' : '') +
+      '</a>';
+    }).join('');
+  } catch (e) {}
+}
+function zappyBootCatalogChipImages() {
+  if (typeof hydrateCatalogChipImages === 'function') hydrateCatalogChipImages();
+  if (typeof loadCategoryProductShowcases === 'function') loadCategoryProductShowcases();
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', zappyBootCatalogChipImages);
+} else {
+  zappyBootCatalogChipImages();
+}
+if (typeof zappyI18n !== 'undefined' && typeof zappyI18n.onLanguageChange === 'function') {
+  zappyI18n.onLanguageChange(function() { zappyBootCatalogChipImages(); });
+}
+
+
 /* ZAPPY_CUSTOMER_DISCOUNT_CONFIG_FALLBACK_V3 */
 
 /* ZAPPY_CUSTOMER_DISCOUNT_PRODUCT_DETAIL_RACE_V1 */
