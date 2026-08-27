@@ -1,9 +1,10 @@
 # Clean URL redirects for Render static hosting
-# Generated: 2026-08-27T23:15:08.177Z
+# Generated: 2026-08-27T23:18:05.611Z
 # NOTE: Render uses render.yaml for routing, not _redirects (that is Netlify)
 # This file is kept for reference only
 
 /hotels  /hotels.html  200!
+/hilton-al-bator-city-hotel  /hilton-al-bator-city-hotel.html  200!
 /five  /five.html  200!
 /attractions  /attractions.html  200!
 /products  /products.html  200!
@@ -39,11 +40,11 @@
 /blog/kosher-dubai/shabbat-guide  /blog/kosher-dubai/shabbat-guide.html  200!
 /blog/kosher-dubai/jewish-holidays  /blog/kosher-dubai/jewish-holidays.html  200!
 /contact  /contact.html  200!
-/hotels/hilton-dubai-al-habtoor-city  /hotels/hilton-dubai-al-habtoor-city.html  200!
 
 # Language slug rewrites for SEO
 /en  /en/index.html  200!
 /en/hotels  /en/hotels.html  200!
+/en/hilton-al-bator-city-hotel  /en/hilton-al-bator-city-hotel.html  200!
 /en/five  /en/five.html  200!
 /en/attractions  /en/attractions.html  200!
 /en/products  /en/products.html  200!
@@ -68,6 +69,7 @@
 /en  /en/index.html  200!
 /ar  /ar/index.html  200!
 /ar/hotels  /ar/hotels.html  200!
+/ar/hilton-al-bator-city-hotel  /ar/hilton-al-bator-city-hotel.html  200!
 /ar/five  /ar/five.html  200!
 /ar/attractions  /ar/attractions.html  200!
 /ar/products  /ar/products.html  200!
@@ -92,6 +94,7 @@
 /ar  /ar/index.html  200!
 /fr  /fr/index.html  200!
 /fr/hotels  /fr/hotels.html  200!
+/fr/hilton-al-bator-city-hotel  /fr/hilton-al-bator-city-hotel.html  200!
 /fr/five  /fr/five.html  200!
 /fr/attractions  /fr/attractions.html  200!
 /fr/products  /fr/products.html  200!
@@ -116,6 +119,7 @@
 /fr  /fr/index.html  200!
 /ru  /ru/index.html  200!
 /ru/hotels  /ru/hotels.html  200!
+/ru/hilton-al-bator-city-hotel  /ru/hilton-al-bator-city-hotel.html  200!
 /ru/five  /ru/five.html  200!
 /ru/attractions  /ru/attractions.html  200!
 /ru/products  /ru/products.html  200!
