@@ -5765,10 +5765,14 @@ html[dir="ltr"] .lang-switcher {
     return 'zappy_purchase_fired_' + String(orderId || '');
   }
 
+  function purchaseMetaDedupKey(orderId) {
+    return 'zappy_purchase_meta_fired_' + String(orderId || '');
+  }
+
   function alreadyFiredPurchase(orderId) {
     if (!orderId) return false;
     try {
-      return sessionStorage.getItem(purchaseDedupKey(orderId)) === '1';
+      return window.sessionStorage.getItem(purchaseDedupKey(orderId)) === '1';
     } catch (e) {
       return false;
     }
@@ -5776,8 +5780,77 @@ html[dir="ltr"] .lang-switcher {
 
   function markPurchaseFired(orderId) {
     if (!orderId) return;
-    try { sessionStorage.setItem(purchaseDedupKey(orderId), '1'); } catch (e) {}
+    try { window.sessionStorage.setItem(purchaseDedupKey(orderId), '1'); } catch (e) {}
   }
+
+  function alreadyFiredPurchaseMeta(orderId) {
+    if (!orderId) return false;
+    try {
+      return window.sessionStorage.getItem(purchaseMetaDedupKey(orderId)) === '1';
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function markPurchaseMetaFired(orderId) {
+    if (!orderId) return;
+    try { window.sessionStorage.setItem(purchaseMetaDedupKey(orderId), '1'); } catch (e) {}
+  }
+
+  function getPendingMetaEvents() {
+    try {
+      if (!Array.isArray(window.__zappyPendingMetaEvents)) {
+        window.__zappyPendingMetaEvents = [];
+      }
+      return window.__zappyPendingMetaEvents;
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function enqueueMetaEvent(eventName, params, orderId) {
+    var q = getPendingMetaEvents();
+    if (orderId) {
+      for (var i = 0; i < q.length; i++) {
+        if (q[i] && q[i].orderId === orderId && q[i].eventName === eventName) return;
+      }
+    }
+    q.push({ eventName: eventName, params: params || {}, orderId: orderId || null });
+  }
+
+  /**
+   * Live sites replace the eager Meta snippet with a consent-gated lazy
+   * loader. Payment providers bounce the shopper back to /order-success
+   * before CookieConsent hydrates, so confirm-order used to fire Purchase
+   * while window.fbq was still undefined — then sessionStorage blocked a
+   * retry. Queue until fbq exists, then flush.
+   */
+  function flushPendingMetaEvents() {
+    if (typeof window.fbq !== 'function') return;
+    var q = getPendingMetaEvents().slice();
+    try { window.__zappyPendingMetaEvents = []; } catch (e) {}
+    for (var i = 0; i < q.length; i++) {
+      var item = q[i];
+      if (!item || !item.eventName) continue;
+      if (item.orderId && alreadyFiredPurchaseMeta(item.orderId)) continue;
+      try {
+        window.fbq('track', item.eventName, item.params || {});
+        if (item.orderId) markPurchaseMetaFired(item.orderId);
+      } catch (e2) {}
+    }
+  }
+  window.zappyFlushPendingMetaEvents = flushPendingMetaEvents;
+
+  var metaFlushAttempts = 0;
+  var metaFlushTimer = setInterval(function() {
+    metaFlushAttempts++;
+    flushPendingMetaEvents();
+    var pendingLen = 0;
+    try { pendingLen = (window.__zappyPendingMetaEvents || []).length; } catch (e) {}
+    if ((pendingLen === 0 && typeof window.fbq === 'function') || metaFlushAttempts > 60) {
+      clearInterval(metaFlushTimer);
+    }
+  }, 500);
 
   /**
    * Fire a marketing event to first-party analytics + GA4/GTM/Meta when present.
@@ -5797,15 +5870,19 @@ html[dir="ltr"] .lang-switcher {
         metadata.pagePath = pagePath();
       }
 
+      var oid = '';
+      var purchaseAlreadySent = false;
+      var purchaseMetaAlreadySent = false;
       if (eventId === 'checkout_complete') {
-        var oid = String(metadata.orderId || metadata.order_id || metadata.transaction_id || '');
-        if (oid && alreadyFiredPurchase(oid)) return;
-        if (oid) markPurchaseFired(oid);
+        oid = String(metadata.orderId || metadata.order_id || metadata.transaction_id || '');
+        purchaseAlreadySent = !!(oid && alreadyFiredPurchase(oid));
+        purchaseMetaAlreadySent = !!(oid && alreadyFiredPurchaseMeta(oid));
+        if (purchaseAlreadySent && purchaseMetaAlreadySent) return;
       }
 
       // First-party (skip when already tracked via zappyTrackEcomAnalytics path
       // that opts out, or when caller already recorded under a different name)
-      if (!opts.skipFirstParty) {
+      if (!opts.skipFirstParty && !purchaseAlreadySent) {
         try {
           if (window.zappyAnalytics && typeof window.zappyAnalytics.track === 'function') {
             window.zappyAnalytics.track(eventId, metadata);
@@ -5814,40 +5891,53 @@ html[dir="ltr"] .lang-switcher {
       }
 
       // GTM / dataLayer — platform-standard ecommerce event names
-      try {
-        window.dataLayer = window.dataLayer || [];
-        if (plat.ecom) {
-          var ga4ForGtm = buildGa4Params(eventId, metadata);
-          var ecommerce = {};
-          if (ga4ForGtm.transaction_id) ecommerce.transaction_id = ga4ForGtm.transaction_id;
-          if (ga4ForGtm.value != null) ecommerce.value = ga4ForGtm.value;
-          if (ga4ForGtm.currency) ecommerce.currency = ga4ForGtm.currency;
-          if (ga4ForGtm.items) ecommerce.items = ga4ForGtm.items;
-          window.dataLayer.push({ event: plat.gtm, ecommerce: ecommerce });
-          // Secondary Zappy-specific trigger for merchants who want it
-          if (eventId === 'checkout_complete' || eventId === 'checkout_started') {
-            window.dataLayer.push({ event: eventId, ecommerce: ecommerce });
+      if (!purchaseAlreadySent) {
+        try {
+          window.dataLayer = window.dataLayer || [];
+          if (plat.ecom) {
+            var ga4ForGtm = buildGa4Params(eventId, metadata);
+            var ecommerce = {};
+            if (ga4ForGtm.transaction_id) ecommerce.transaction_id = ga4ForGtm.transaction_id;
+            if (ga4ForGtm.value != null) ecommerce.value = ga4ForGtm.value;
+            if (ga4ForGtm.currency) ecommerce.currency = ga4ForGtm.currency;
+            if (ga4ForGtm.items) ecommerce.items = ga4ForGtm.items;
+            window.dataLayer.push({ event: plat.gtm, ecommerce: ecommerce });
+            // Secondary Zappy-specific trigger for merchants who want it
+            if (eventId === 'checkout_complete' || eventId === 'checkout_started') {
+              window.dataLayer.push({ event: eventId, ecommerce: ecommerce });
+            }
+          } else {
+            var dl = { event: plat.gtm };
+            for (var k in metadata) {
+              if (Object.prototype.hasOwnProperty.call(metadata, k)) dl[k] = metadata[k];
+            }
+            window.dataLayer.push(dl);
           }
+        } catch (e2) {}
+
+        // GA4 gtag
+        try {
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', plat.ga4, buildGa4Params(eventId, metadata));
+          }
+        } catch (e3) {}
+
+        if (oid) markPurchaseFired(oid);
+      }
+
+      // Meta Pixel — live sites lazy-load fbq after marketing consent. If the
+      // stub is not defined yet, queue and flush when the pixel arrives.
+      try {
+        if (purchaseMetaAlreadySent) {
+          // already delivered to Meta
         } else {
-          var dl = { event: plat.gtm };
-          for (var k in metadata) {
-            if (Object.prototype.hasOwnProperty.call(metadata, k)) dl[k] = metadata[k];
+          var metaParams = buildMetaParams(eventId, metadata);
+          if (typeof window.fbq === 'function') {
+            window.fbq('track', plat.meta, metaParams);
+            if (oid) markPurchaseMetaFired(oid);
+          } else {
+            enqueueMetaEvent(plat.meta, metaParams, eventId === 'checkout_complete' ? oid : null);
           }
-          window.dataLayer.push(dl);
-        }
-      } catch (e2) {}
-
-      // GA4 gtag
-      try {
-        if (typeof window.gtag === 'function') {
-          window.gtag('event', plat.ga4, buildGa4Params(eventId, metadata));
-        }
-      } catch (e3) {}
-
-      // Meta Pixel (only when fbq is loaded — consent-gated lazy loader)
-      try {
-        if (typeof window.fbq === 'function') {
-          window.fbq('track', plat.meta, buildMetaParams(eventId, metadata));
         }
       } catch (e4) {}
     } catch (err) {}
@@ -5980,7 +6070,7 @@ html[dir="ltr"] .lang-switcher {
     </div>
   
 <script>window.ZAPPY_WEBSITE_ID = "6528797b-15a7-457c-95a9-c98fe5797a1e";window.ZAPPY_API_BASE = "https://api.zappy5.com"</script><a class="skip-link" href="#main">Skip to main content</a>
-  <nav class="navbar" style="margin-bottom: 0px; position: fixed !important; left: 0px !important; right: 0px !important; z-index: 100000 !important"> <button class="mobile-toggle" id="mobileToggle" aria-label="Menu" style="position: absolute !important; top: 0px !important; bottom: 0px !important; margin-top: auto !important; margin-bottom: auto !important; transform: none !important; z-index: 1001 !important;" data-element-type="button" data-element-id="btn-1779032266906-wlkobwavi" data-native-element="true" data-i18n-aria-label="blog_kosher_dubai_kosher_restaurants_aria_label_306"> <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="width: 24px !important; height: 24px !important;display:block !important"> <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/> </svg> <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="width: 24px !important; height: 24px !important;display:none !important"> <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/> </svg> </button> <button class="phone-header-btn" data-phone="+972522212578" aria-label="Call" style="position: absolute !important; top: 0px !important; bottom: 0px !important; margin-top: auto !important; margin-bottom: auto !important; transform: none !important; z-index: 1001 !important;" data-element-type="button" data-element-id="btn-1779032266906-5r5dtd9y6" data-native-element="true" data-i18n-aria-label="blog_kosher_dubai_kosher_restaurants_aria_label_307"> <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px;"> <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/> </svg> </button> <div class="nav-container"> <div class="nav-right-group"><div class="nav-brand"> <a href="/en" class="logo-link"><img class="logo" src="/assets/site-----image-1.webp" alt="Sarah laloum tourism llc" data-image-type="logo" /></a> </div><ul class="nav-menu" id="navMenu"><li><a href="/en/hotels">Hotels</a></li><li><a href="/en/attractions">Attractions</a></li><li class="menu-item-has-children zappy-products-dropdown"> <a href="/en/products">Products</a> <ul class="sub-menu" id="zappy-nav-category-links" dir="ltr"> <li style="display:none"><a href="/en/products">Products</a></li> <!-- Categories will be loaded dynamically --> <li class="zappy-nav-parent" data-category-id="62ffd1af-2b1d-4128-83ab-94c45150beee" data-category-slug="abu-dhabi-attractions"><a href="/category/abu-dhabi-attractions?lang=en" dir="ltr">Attractions in Abu Dhabi</a></li><li class="zappy-nav-child" data-category-id="7c3c420e-1106-40f0-9265-e418868b6469" data-category-slug="abu-dhabi-parks"><a href="/category/abu-dhabi-parks?lang=en" dir="ltr">Abu Dhabi Parks</a></li><li data-category-id="908e4e55-6765-4827-b6ce-21e677f4003a" data-category-slug="transter-to-hotel"><a href="/category/transter-to-hotel?lang=en" dir="ltr">Transfers in Dubai and Abu Dhabi</a></li><li class="zappy-nav-parent" data-category-id="73505e0a-2a55-4970-88f0-cf38141b9dc0" data-category-slug="dubai-attractions"><a href="/category/dubai-attractions?lang=en" dir="ltr">Attractions in Dubai</a></li><li class="zappy-nav-child" data-category-id="4671dcef-3263-4001-9084-826d61053752" data-category-slug="childrens-attractions"><a href="/category/childrens-attractions?lang=en" dir="ltr">Attractions for Children</a></li><li class="zappy-nav-child" data-category-id="a0b51b76-3f67-4a7f-bd0b-cbabd435fe91" data-category-slug="extreme-and-desert-tours"><a href="/category/extreme-and-desert-tours?lang=en" dir="ltr">Extreme &amp; Desert Tours</a></li><li class="zappy-nav-child" data-category-id="07784dce-3c4d-4f66-a13c-452ed39fb764" data-category-slug="towers-and-lookouts"><a href="/category/towers-and-lookouts?lang=en" dir="ltr">Towers &amp; Observation Decks</a></li><li class="zappy-nav-child" data-category-id="3cdf8d1b-6290-4198-99c2-e673a9205382" data-category-slug="performances-and-museums"><a href="/category/performances-and-museums?lang=en" dir="ltr">Shows &amp; Museums</a></li><li class="zappy-nav-child" data-category-id="ff37d09e-0d64-43ee-8ff6-fd60f8fbe301" data-category-slug="parks-and-gardens"><a href="/category/parks-and-gardens?lang=en" dir="ltr">Parks &amp; Gardens</a></li><li class="zappy-nav-child" data-category-id="056a2680-4af7-4339-bc71-9180bf4961aa" data-category-slug="boating-and-marine-activities"><a href="/category/boating-and-marine-activities?lang=en" dir="ltr">Cruises &amp; Water Activities</a></li></ul> </li><li class="menu-group-item"><span class="menu-group-title">Transfers and SIM</span><ul class="sub-menu"><li><a href="/en/airport-transfers">Airport Transfers</a></li><li><a href="/en/sim-card">SIM</a></li></ul></li><li><a href="/en/blog/kosher-dubai" class="nav-link">Kosher in Dubai</a><ul class="sub-menu"><li><a href="/en/blog/kosher-dubai/kosher-restaurants">Kosher Restaurants in Dubai: How to Choose Wisely and Eat with Peace of Mind</a></li><li><a href="/en/blog/kosher-dubai/jewish-life">Jewish Life in Dubai: Community, Synagogues, and a Jewish Experience in a Modern City</a></li><li><a href="/en/blog/kosher-dubai/shabbat-guide">Shabbat in Dubai: A Relaxed Guide to Planning a Shabbat-Observant Vacation</a></li><li><a href="/en/blog/kosher-dubai/jewish-holidays">Jewish Holidays and Events in Dubai: What You Need to Know Before You Book</a></li></ul></li><li><a href="/en/blog" class="nav-link">Magazine<br />    <br />    <br />      </a><ul class="sub-menu"><li><a href="/en/restaurants">Restaurants</a></li><li><a href="/en/blog/first-time-dubai">Dubai for the First Time: How to Plan a Smart, Enjoyable, and Luxurious Vacation</a></li><li><a href="/en/blog/dubai-hotels-areas">Dubai Hotels: How to Choose Wisely Between the Beach, Marina, Downtown, and Palm</a></li><li><a href="/en/blog/dubai-attractions-guide">Dubai Attractions You Shouldn't Miss — and What Suits Every Type of Traveler</a></li><li><a href="/en/blog/dubai-dining-nightlife-9259">Restaurants &amp; Nightlife in Dubai: An Elegant Guide to an Unforgettable Culinary Experience</a></li></ul></li><li class="menu-group-item"><span class="menu-group-title">Blog</span><ul class="sub-menu"><li><a href="/en/dubai-magazine-for-israeli-travelers">Dubai Magazine for the Israeli Traveler</a></li><li><a href="/en/blog/dubai-dining-nightlife">Restaurants &amp; Nightlife in Dubai: An Elegant Guide to an Unforgettable Culinary Experience</a></li><li><a href="/en/dubai-must-see-attractions">Must-See Attractions in Dubai – and What Suits Every Type of Traveler</a></li><li><a href="/en/blog/dubai-shopping-guide">Shopping in Dubai: How to Enjoy Malls, Markets, and Boutiques Without Getting Overwhelmed</a></li><li><a href="/en/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt">Dubai for the First Time: How to Plan a Smart, Enjoyable, and Luxurious Vacation</a></li><li><a href="/en/blog/dubai-transportation-smart-guide">Getting Around Dubai: How to Move Between Neighborhoods, Beaches, and Malls the Smart Way</a></li><li><a href="/en/dubai-hotels-marina-downtown-palm">Dubai Hotels: How to Choose Wisely Between Marina, Downtown, and Palm</a></li></ul></li><li><a href="/en/contact">Contact Us</a></li></ul><div class="nav-ecommerce-icons nav-icons-left"><a href="/en/login" class="login-link nav-login" title="התחברות"><svg class="login-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a><a href="#cart" class="cart-link nav-cart" id="cart-drawer-toggle" title="עגלת קניות"><svg class="cart-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span class="cart-count">0</span></a><div class="nav-search-box"> <input type="text" class="nav-search-input" id="nav-search-input" placeholder="חיפוש מוצרים..." autocomplete="off" /> <button class="nav-search-btn" id="nav-search-btn" title="חיפוש"> <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg> </button> <div class="nav-search-results" id="nav-search-results"></div> </div></div><div class="nav-ecommerce-icons nav-icons-right"><button class="nav-search-toggle" id="mobile-search-toggle" title="חיפוש"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></button></div> <script data-no-icon-edit="true">(function(){function f(){var b=document.querySelector('.lang-switcher-current');if(!b)return;var n=b.closest('nav')||b.closest('header')||b.closest('.navbar');if(!n)return;var a=n.querySelector('.nav-menu a,.nav-links a');if(!a)a=n.querySelector('a:not(.lang-option):not(.lang-switcher-current):not([class*="logo"])');if(a){var c=getComputedStyle(a).color;if(c&&c!=='rgb(0, 0, 0)'&&c!=='rgba(0, 0, 0, 0)'){b.style.color=c;return;}}var s=getComputedStyle(n).backgroundColor;if(s&&s!=='rgba(0, 0, 0, 0)'&&s!=='transparent'){var m=s.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/);if(m){var l=(0.299*parseInt(m[1])+0.587*parseInt(m[2])+0.114*parseInt(m[3]))/255;b.style.color=l>0.5?'#1a1a1a':'#F3FAFF';}}}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',f);}else{setTimeout(f,0);}})()</script> <script data-no-icon-edit="true">(function(){function f(){var b=document.querySelector('.lang-switcher-current');if(!b)return;var n=b.closest('nav')||b.closest('header')||b.closest('.navbar');if(!n)return;var a=n.querySelector('.nav-menu a,.nav-links a');if(!a)a=n.querySelector('a:not(.lang-option):not(.lang-switcher-current):not([class*="logo"])');if(a){var c=getComputedStyle(a).color;if(c&&c!=='rgb(0, 0, 0)'&&c!=='rgba(0, 0, 0, 0)'){b.style.color=c;return;}}var s=getComputedStyle(n).backgroundColor;if(s&&s!=='rgba(0, 0, 0, 0)'&&s!=='transparent'){var m=s.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/);if(m){var l=(0.299*parseInt(m[1])+0.587*parseInt(m[2])+0.114*parseInt(m[3]))/255;b.style.color=l>0.5?'#1a1a1a':'#F3FAFF';}}}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',f);}else{setTimeout(f,0);}})()</script> <script data-no-icon-edit="true">(function(){function f(){var b=document.querySelector('.lang-switcher-current');if(!b)return;var n=b.closest('nav')||b.closest('header')||b.closest('.navbar');if(!n)return;var a=n.querySelector('.nav-menu a,.nav-links a');if(!a)a=n.querySelector('a:not(.lang-option):not(.lang-switcher-current):not([class*="logo"])');if(a){var c=getComputedStyle(a).color;if(c&&c!=='rgb(0, 0, 0)'&&c!=='rgba(0, 0, 0, 0)'){b.style.color=c;return;}}var s=getComputedStyle(n).backgroundColor;if(s&&s!=='rgba(0, 0, 0, 0)'&&s!=='transparent'){var m=s.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/);if(m){var l=(0.299*parseInt(m[1])+0.587*parseInt(m[2])+0.114*parseInt(m[3]))/255;b.style.color=l>0.5?'#1a1a1a':'#F3FAFF';}}}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',f);}else{setTimeout(f,0);}})()</script> <script data-no-icon-edit="true">(function(){function f(){var b=document.querySelector('.lang-switcher-current');if(!b)return;var n=b.closest('nav')||b.closest('header')||b.closest('.navbar');if(!n)return;var a=n.querySelector('.nav-menu a,.nav-links a');if(!a)a=n.querySelector('a:not(.lang-option):not(.lang-switcher-current):not([class*="logo"])');if(a){var c=getComputedStyle(a).color;if(c&&c!=='rgb(0, 0, 0)'&&c!=='rgba(0, 0, 0, 0)'){b.style.color=c;return;}}var s=getComputedStyle(n).backgroundColor;if(s&&s!=='rgba(0, 0, 0, 0)'&&s!=='transparent'){var m=s.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/);if(m){var l=(0.299*parseInt(m[1])+0.587*parseInt(m[2])+0.114*parseInt(m[3]))/255;b.style.color=l>0.5?'#1a1a1a':'#F3FAFF';}}}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',f);}else{setTimeout(f,0);}})()</script></div> </div> </nav>
+  <nav class="navbar" style="margin-bottom: 0px; position: fixed !important; left: 0px !important; right: 0px !important; z-index: 100000 !important"> <button class="mobile-toggle" id="mobileToggle" aria-label="Menu" style="position: absolute !important; top: 0px !important; bottom: 0px !important; margin-top: auto !important; margin-bottom: auto !important; transform: none !important; z-index: 1001 !important;" data-element-type="button" data-element-id="btn-1779032266906-wlkobwavi" data-native-element="true" data-i18n-aria-label="blog_kosher_dubai_kosher_restaurants_aria_label_306"> <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="width: 24px !important; height: 24px !important;display:block !important"> <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/> </svg> <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="width: 24px !important; height: 24px !important;display:none !important"> <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/> </svg> </button> <button class="phone-header-btn" data-phone="+972522212578" aria-label="Call" style="position: absolute !important; top: 0px !important; bottom: 0px !important; margin-top: auto !important; margin-bottom: auto !important; transform: none !important; z-index: 1001 !important;" data-element-type="button" data-element-id="btn-1779032266906-5r5dtd9y6" data-native-element="true" data-i18n-aria-label="blog_kosher_dubai_kosher_restaurants_aria_label_307"> <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px;"> <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/> </svg> </button> <div class="nav-container"> <div class="nav-right-group"><div class="nav-brand"> <a href="/en" class="logo-link"><img class="logo" src="/assets/site-----image-1.webp" alt="Sarah laloum tourism llc" data-image-type="logo" /></a> </div><ul class="nav-menu" id="navMenu"><li><a href="/en/hotels">Hotels</a></li><li><a href="/en/attractions">Attractions</a></li><li class="menu-item-has-children zappy-products-dropdown"> <a href="/en/products">Products</a> <ul class="sub-menu" id="zappy-nav-category-links" dir="ltr"> <li style="display:none"><a href="/en/products">Products</a></li> <!-- Categories will be loaded dynamically --> <li class="zappy-nav-parent" data-category-id="62ffd1af-2b1d-4128-83ab-94c45150beee" data-category-slug="abu-dhabi-attractions"><a href="/category/abu-dhabi-attractions?lang=en" dir="ltr">Attractions in Abu Dhabi</a></li><li class="zappy-nav-child" data-category-id="7c3c420e-1106-40f0-9265-e418868b6469" data-category-slug="abu-dhabi-parks"><a href="/category/abu-dhabi-parks?lang=en" dir="ltr">Abu Dhabi Parks</a></li><li data-category-id="908e4e55-6765-4827-b6ce-21e677f4003a" data-category-slug="transter-to-hotel"><a href="/category/transter-to-hotel?lang=en" dir="ltr">Transfers in Dubai and Abu Dhabi</a></li><li class="zappy-nav-parent" data-category-id="73505e0a-2a55-4970-88f0-cf38141b9dc0" data-category-slug="dubai-attractions"><a href="/category/dubai-attractions?lang=en" dir="ltr">Attractions in Dubai</a></li><li class="zappy-nav-child" data-category-id="4671dcef-3263-4001-9084-826d61053752" data-category-slug="childrens-attractions"><a href="/category/childrens-attractions?lang=en" dir="ltr">Attractions for Children</a></li><li class="zappy-nav-child" data-category-id="a0b51b76-3f67-4a7f-bd0b-cbabd435fe91" data-category-slug="extreme-and-desert-tours"><a href="/category/extreme-and-desert-tours?lang=en" dir="ltr">Extreme &amp; Desert Tours</a></li><li class="zappy-nav-child" data-category-id="07784dce-3c4d-4f66-a13c-452ed39fb764" data-category-slug="towers-and-lookouts"><a href="/category/towers-and-lookouts?lang=en" dir="ltr">Towers &amp; Observation Decks</a></li><li class="zappy-nav-child" data-category-id="3cdf8d1b-6290-4198-99c2-e673a9205382" data-category-slug="performances-and-museums"><a href="/category/performances-and-museums?lang=en" dir="ltr">Shows &amp; Museums</a></li><li class="zappy-nav-child" data-category-id="ff37d09e-0d64-43ee-8ff6-fd60f8fbe301" data-category-slug="parks-and-gardens"><a href="/category/parks-and-gardens?lang=en" dir="ltr">Parks &amp; Gardens</a></li><li class="zappy-nav-child" data-category-id="056a2680-4af7-4339-bc71-9180bf4961aa" data-category-slug="boating-and-marine-activities"><a href="/category/boating-and-marine-activities?lang=en" dir="ltr">Cruises &amp; Water Activities</a></li></ul> </li><li class="menu-group-item"><span class="menu-group-title">Transfers and SIM</span><ul class="sub-menu"><li><a href="/en/airport-transfers">Airport Transfers</a></li><li><a href="/en/sim-card">SIM</a></li></ul></li><li><a href="/en/blog/kosher-dubai" class="nav-link">Kosher in Dubai</a><ul class="sub-menu"><li><a href="/en/blog/kosher-dubai/kosher-restaurants">Kosher Restaurants in Dubai: How to Choose Wisely and Eat with Peace of Mind</a></li><li><a href="/en/blog/kosher-dubai/jewish-life">Jewish Life in Dubai: Community, Synagogues, and a Jewish Experience in a Modern City</a></li><li><a href="/en/blog/kosher-dubai/shabbat-guide">Shabbat in Dubai: A Relaxed Guide to Planning a Shabbat-Observant Vacation</a></li><li><a href="/en/blog/kosher-dubai/jewish-holidays">Jewish Holidays and Events in Dubai: What You Need to Know Before You Book</a></li></ul></li><li><a href="/en/blog" class="nav-link">Magazine<br />    <br />    <br />      </a><ul class="sub-menu"><li><a href="/en/restaurants">Restaurants</a></li><li><a href="/en/blog/first-time-dubai">Dubai for the First Time: How to Plan a Smart, Enjoyable, and Luxurious Vacation</a></li><li><a href="/en/blog/dubai-hotels-areas">Dubai Hotels: How to Choose Wisely Between the Beach, Marina, Downtown, and Palm</a></li><li><a href="/en/blog/dubai-attractions-guide">Dubai Attractions You Shouldn't Miss — and What Suits Every Type of Traveler</a></li><li><a href="/en/blog/dubai-dining-nightlife-9259">Restaurants &amp; Nightlife in Dubai: An Elegant Guide to an Unforgettable Culinary Experience</a></li></ul></li><li class="menu-group-item"><span class="menu-group-title">Blog</span><ul class="sub-menu"><li><a href="/en/dubai-magazine-for-israeli-travelers">Dubai Magazine for the Israeli Traveler</a></li><li><a href="/en/blog/dubai-dining-nightlife">Restaurants &amp; Nightlife in Dubai: An Elegant Guide to an Unforgettable Culinary Experience</a></li><li><a href="/en/dubai-must-see-attractions">Must-See Attractions in Dubai – and What Suits Every Type of Traveler</a></li><li><a href="/en/blog/dubai-shopping-guide">Shopping in Dubai: How to Enjoy Malls, Markets, and Boutiques Without Getting Overwhelmed</a></li><li><a href="/en/dvbay-bpam-hrashvnh-ayk-lbnvt-chvpshh-chkmh-naymh-vyvkrtyt">Dubai for the First Time: How to Plan a Smart, Enjoyable, and Luxurious Vacation</a></li><li><a href="/en/blog/dubai-transportation-smart-guide">Getting Around Dubai: How to Move Between Neighborhoods, Beaches, and Malls the Smart Way</a></li><li><a href="/en/dubai-hotels-marina-downtown-palm">Dubai Hotels: How to Choose Wisely Between Marina, Downtown, and Palm</a></li></ul></li><li><a href="/en/contact">Contact Us</a></li><li><a href="/en/five-dubai-discount-code" class="nav-link">FIVE</a></li></ul><div class="nav-ecommerce-icons nav-icons-left"><a href="/en/login" class="login-link nav-login" title="התחברות"><svg class="login-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a><a href="#cart" class="cart-link nav-cart" id="cart-drawer-toggle" title="עגלת קניות"><svg class="cart-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span class="cart-count">0</span></a><div class="nav-search-box"> <input type="text" class="nav-search-input" id="nav-search-input" placeholder="חיפוש מוצרים..." autocomplete="off" /> <button class="nav-search-btn" id="nav-search-btn" title="חיפוש"> <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg> </button> <div class="nav-search-results" id="nav-search-results"></div> </div></div><div class="nav-ecommerce-icons nav-icons-right"><button class="nav-search-toggle" id="mobile-search-toggle" title="חיפוש"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></button></div> <script data-no-icon-edit="true">(function(){function f(){var b=document.querySelector('.lang-switcher-current');if(!b)return;var n=b.closest('nav')||b.closest('header')||b.closest('.navbar');if(!n)return;var a=n.querySelector('.nav-menu a,.nav-links a');if(!a)a=n.querySelector('a:not(.lang-option):not(.lang-switcher-current):not([class*="logo"])');if(a){var c=getComputedStyle(a).color;if(c&&c!=='rgb(0, 0, 0)'&&c!=='rgba(0, 0, 0, 0)'){b.style.color=c;return;}}var s=getComputedStyle(n).backgroundColor;if(s&&s!=='rgba(0, 0, 0, 0)'&&s!=='transparent'){var m=s.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/);if(m){var l=(0.299*parseInt(m[1])+0.587*parseInt(m[2])+0.114*parseInt(m[3]))/255;b.style.color=l>0.5?'#1a1a1a':'#F3FAFF';}}}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',f);}else{setTimeout(f,0);}})()</script> <script data-no-icon-edit="true">(function(){function f(){var b=document.querySelector('.lang-switcher-current');if(!b)return;var n=b.closest('nav')||b.closest('header')||b.closest('.navbar');if(!n)return;var a=n.querySelector('.nav-menu a,.nav-links a');if(!a)a=n.querySelector('a:not(.lang-option):not(.lang-switcher-current):not([class*="logo"])');if(a){var c=getComputedStyle(a).color;if(c&&c!=='rgb(0, 0, 0)'&&c!=='rgba(0, 0, 0, 0)'){b.style.color=c;return;}}var s=getComputedStyle(n).backgroundColor;if(s&&s!=='rgba(0, 0, 0, 0)'&&s!=='transparent'){var m=s.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/);if(m){var l=(0.299*parseInt(m[1])+0.587*parseInt(m[2])+0.114*parseInt(m[3]))/255;b.style.color=l>0.5?'#1a1a1a':'#F3FAFF';}}}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',f);}else{setTimeout(f,0);}})()</script> <script data-no-icon-edit="true">(function(){function f(){var b=document.querySelector('.lang-switcher-current');if(!b)return;var n=b.closest('nav')||b.closest('header')||b.closest('.navbar');if(!n)return;var a=n.querySelector('.nav-menu a,.nav-links a');if(!a)a=n.querySelector('a:not(.lang-option):not(.lang-switcher-current):not([class*="logo"])');if(a){var c=getComputedStyle(a).color;if(c&&c!=='rgb(0, 0, 0)'&&c!=='rgba(0, 0, 0, 0)'){b.style.color=c;return;}}var s=getComputedStyle(n).backgroundColor;if(s&&s!=='rgba(0, 0, 0, 0)'&&s!=='transparent'){var m=s.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/);if(m){var l=(0.299*parseInt(m[1])+0.587*parseInt(m[2])+0.114*parseInt(m[3]))/255;b.style.color=l>0.5?'#1a1a1a':'#F3FAFF';}}}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',f);}else{setTimeout(f,0);}})()</script> <script data-no-icon-edit="true">(function(){function f(){var b=document.querySelector('.lang-switcher-current');if(!b)return;var n=b.closest('nav')||b.closest('header')||b.closest('.navbar');if(!n)return;var a=n.querySelector('.nav-menu a,.nav-links a');if(!a)a=n.querySelector('a:not(.lang-option):not(.lang-switcher-current):not([class*="logo"])');if(a){var c=getComputedStyle(a).color;if(c&&c!=='rgb(0, 0, 0)'&&c!=='rgba(0, 0, 0, 0)'){b.style.color=c;return;}}var s=getComputedStyle(n).backgroundColor;if(s&&s!=='rgba(0, 0, 0, 0)'&&s!=='transparent'){var m=s.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/);if(m){var l=(0.299*parseInt(m[1])+0.587*parseInt(m[2])+0.114*parseInt(m[3]))/255;b.style.color=l>0.5?'#1a1a1a':'#F3FAFF';}}}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',f);}else{setTimeout(f,0);}})()</script></div> </div> </nav>
 
     <nav class="zappy-catalog-menu ltr" id="zappy-catalog-menu" style="display:none" dir="ltr">
       <div class="catalog-menu-container">
@@ -7112,6 +7202,10 @@ html[dir="ltr"] .lang-switcher {
       "new_a_885": "טיול ספארי במדבר SAFARI DESERT",
       "new_a_887": "טיול מדבר בדובאי הוא אחת האטרקציות המבוקשות ביותר באיחוד האמירויות. החוויה כוללת נסיעה בדיונות, מופעי בידור, ארוחת ערב בסגנון בדואי ואפשרות לרכיבה על גמלים, גלישת חול ופעילויות נוספות. שילוב מושלם של אדרנלין, נופים מרהיבים ואווירה מדברית אותנטית – חוויה שאסור לפספס בביקור בדובאי.",
       "new_a_911": "לחצו כאן לשליחת הודעה",
+      "new_a_930": "FIVE",
+      "new_a_933": "FIVE Luxe JBR",
+      "new_a_934": "FIVE Palm Jumeirah",
+      "new_a_935": "Dubai On The House",
       "new_p_407": "סופרמרקטים כשרים בדובאי — פרטים מלאים יופיעו כאן בקרוב. 📞 לבירורים: +972 52-221-2578",
       "new_p_410": "שירותי קייטרינג כשר בדובאי — פרטים מלאים יופיעו כאן בקרוב. 📞 לבירורים: +972 52-221-2578",
       "new_p_413": "מסעדות כשרות באבו דאבי — פרטים מלאים יופיעו כאן בקרוב. 📞 לבירורים: +972 52-221-2578",
@@ -7216,6 +7310,14 @@ html[dir="ltr"] .lang-switcher {
       "new_p_910": "<strong>וואטסאפ:</strong> <a href=\"https://wa.me/972522212578\" target=\"_blank\">לחצו כאן לשליחת הודעה</a>",
       "new_p_919": "<strong>אימייל:</strong> <a href=\"mailto:laloumdubai@gmail.com\">laloumdubai@gmail.com</a>",
       "new_p_920": "<strong>וואטסאפ:</strong> <a href=\"https://wa.me/972522212578\" target=\"_blank\">לחצו כאן לשליחת הודעה</a>",
+      "new_p_938": "חווית אירוח יוצאת דופן בלב מרינת דובאי, עם קוד הנחה מיוחד השמור רק לכם.",
+      "new_p_940": "מלון FIVE Luxe JBR ממוקם באזור הטיילת התוססת של ג'ומיירה ביץ' רזידנס (JBR), אחד האזורים המבוקשים ביותר בעיר. המלון מציע גישה ישירה לחוף הים הפרטי, בריכות אינסוף מרהיבות, ומגוון מסעדות וברים המהווים מוקד משיכה לבליינים ותיירים מכל העולם.",
+      "new_p_941": "האווירה במלון היא שילוב מנצח של יוקרה מודרנית ואנרגיה צעירה ותוססת. זהו המקום המושלם עבור זוגות, קבוצות חברים ומשפחות המחפשות חופשה דינמית ובלתי נשכחת. החדרים והסוויטות מעוצבים בסגנון עכשווי עם נופים פנורמיים עוצרי נשימה של הים, המרינה או קו הרקיע המרהיב של דובאי.",
+      "new_p_942": "בין שלל המתקנים והשירותים תמצאו ספא מפנק, חדר כושר מאובזר, מועדון חוף, ומגוון רחב של פעילויות ספורט ימי. מיקומו המרכזי של המלון מאפשר גישה נוחה ומהירה לאטרקציות המובילות של העיר, ביניהן אי התצפית \"The View at The Palm\", קניון מרינה מול, והחוף המפורסם של JBR.",
+      "new_p_956": "<strong>יתרונות:</strong> גישה לטרקלין, מיני בר מפנק, מכונת אספרסו",
+      "new_p_963": "<strong>יתרונות:</strong> סלון נפרד, חדר רחצה מפואר עם אמבטיה",
+      "new_p_970": "<strong>יתרונות:</strong> שירות באטלר אישי, ג'קוזי פרטי במרפסת",
+      "new_p_972": "מלון יוקרה אייקוני על קו החוף של פאלם ג'ומיירה, המשלב עיצוב נועז, חיי לילה תוססים ואירוח ברמה הגבוהה ביותר. חווית פנאי מושלמת למטיילים הישראלים המחפשים את הטוב ביותר שדובאי מציעה.",
       "cart_li_57": "ימים א’–ה’ 09:00–23:00",
       "cart_li_58": "יום ו’ 09:00–16:00",
       "cart_li_59": "שבת 21:00–23:00",
@@ -7261,6 +7363,7 @@ html[dir="ltr"] .lang-switcher {
       "login_h3_3": "ניווט מהיר",
       "login_h3_4": "צור קשר",
       "login_h3_5": "שעות פעילות",
+      "new_a_1004": "<i class=\"fa-brands fa-whatsapp\" aria-hidden=\"true\"></i>\n        To receive a discount code for FIVE Palm on WhatsApp",
       "new_h1_739": "דובאי מעבר לחלום",
       "new_h1_841": "גלו את דובאי\nבדרך שלכם",
       "new_h1_851": "דובאי מחכה לך",
@@ -7300,6 +7403,8 @@ html[dir="ltr"] .lang-switcher {
       "new_h2_899": "🚐 העברות",
       "new_h2_902": "🏨 מלונות",
       "new_h2_907": "📞 יצירת קשר",
+      "new_h2_937": "FIVE Luxe JBR",
+      "new_h2_971": "FIVE Palm Jumeirah",
       "new_h3_385": "KIKKOS SUSHI & MEAT",
       "new_h3_406": "מידע בהמשך",
       "new_h3_409": "מידע בהמשך",
@@ -7322,6 +7427,18 @@ html[dir="ltr"] .lang-switcher {
       "new_h3_868": "וורדים ROSES",
       "new_h3_873": "לימוזינה יוקרתית בדובאי  Luxury Limousine Dubai",
       "new_h3_884": "טיול ספארי במדבר SAFARI DESERT",
+      "new_h3_932": "קבלו גישה לקוד הנחה בלעדי למלונות FIVE המפוארים והזמינו את החדר שלכם ישירות בוואטסאפ",
+      "new_h3_939": "ברוכים הבאים ללב הפועם של דובאי",
+      "new_h3_943": "עיקרי החוויה",
+      "new_h3_949": "סוגי חדרים וסוויטות",
+      "new_h3_973": "הכל על המלון",
+      "new_h3_982": "Rooms & Suites",
+      "new_h4_950": "חדר דלוקס עם נוף למרינה",
+      "new_h4_957": "סוויטת פרימיום עם נוף לים",
+      "new_h4_964": "סוויטת סקיי עם נוף לקו הרקיע",
+      "new_h4_983": "Deluxe Room with Sea View",
+      "new_h4_990": "Panorama Suite",
+      "new_h4_997": "Penthouse Suite",
       "new_li_896": "רכישת אטרקציות היא <strong>עסקה סופית</strong> — לאחר הרכישה לא יתאפשר ביטול או החזר כספי.",
       "new_li_897": "תנאי הביטול כפופים ל<strong>תנאי הספק</strong> ובהתאם לחוקי איחוד האמירויות.",
       "new_li_898": "במקרה של <strong>ביטולי טיסות כתוצאה ממלחמה או מצב חירום</strong>: שרה ללום תיירות תפנה לספק להאריך את תוקף הכרטיס. הארכת התוקף <strong>נתונה לשיקול דעתו הבלעדית של ספק האטרקציה</strong> — לא מובטח אישור.",
@@ -7331,6 +7448,64 @@ html[dir="ltr"] .lang-switcher {
       "new_li_904": "במקרים שיידרש ביטול: שרה ללום תיירות <strong>תגיש בקשה לביטול מול המלון</strong>.",
       "new_li_905": "במידה ויאושר — <strong>יתקבל זיכוי עם תוקף לשנה אחת בלבד</strong> ממועד ההזמנה המקורי.",
       "new_li_906": "<strong>לא יתקבל החזר כספי</strong> על תשלום ששולם עבור הזמנת מלון.",
+      "new_li_951": "<strong>גודל:</strong> 45 מ\"ר",
+      "new_li_952": "<strong>אורחים:</strong> עד 2 מבוגרים וילד",
+      "new_li_953": "<strong>מיטות:</strong> קינג סייז",
+      "new_li_954": "<strong>נוף:</strong> מרינה",
+      "new_li_955": "<strong>מרפסת:</strong> כן",
+      "new_li_958": "<strong>גודל:</strong> 80 מ\"ר",
+      "new_li_959": "<strong>אורחים:</strong> עד 3 מבוגרים",
+      "new_li_960": "<strong>מיטות:</strong> קינג סייז + סofa bed",
+      "new_li_961": "<strong>נוף:</strong> ים",
+      "new_li_962": "<strong>מרפסת:</strong> כן, רחבת ידיים",
+      "new_li_965": "<strong>גודל:</strong> 120 מ\"ר",
+      "new_li_966": "<strong>אורחים:</strong> עד 4 מבוגרים",
+      "new_li_967": "<strong>מיטות:</strong> 2 קינג סייז",
+      "new_li_968": "<strong>נוף:</strong> קו הרקיע והאי פאלם",
+      "new_li_969": "<strong>מרפסת:</strong> כן, ענקית",
+      "new_li_974": "<strong>מיקום:</strong> פאלם ג'ומיירה, דובאי – גישה ישירה לחוף הפרטי ולטיילת.",
+      "new_li_975": "<strong>חוף ובריכות:</strong> חוף פרטי לבן, בריכת אינפיניטי מרהיבה ובריכות נוספות.",
+      "new_li_976": "<strong>מסעדות ובילוי:</strong> מסעדות שף, ברים, מועדון לילה ואזורי בילוי יוקרתיים.",
+      "new_li_977": "<strong>אווירה:</strong> צעירה, תוססת ומלאת סטייל – מושלם לזוגות וחברים.",
+      "new_li_978": "<strong>חדרים וסוויטות:</strong> חדרים מרווחים בעיצוב מודרני, סוויטות עם נוף לים.",
+      "new_li_979": "<strong>נוף ומרפסות:</strong> מרפסות פרטיות עם נוף פנורמי למפרץ או לקו הרקיע.",
+      "new_li_980": "<strong>Facilities & Services:</strong> Spa, gym, 24/7 room service, and multilingual staff.",
+      "new_li_981": "<strong>Nearby Attractions:</strong> A short distance from Aquaventure, the beach club, and the promenade.",
+      "new_li_984": "<strong>Size:</strong> 45 sqm",
+      "new_li_985": "<strong>Guests:</strong> Up to 2 adults + child",
+      "new_li_986": "<strong>Beds:</strong> King Size",
+      "new_li_987": "<strong>View:</strong> Sea and bay",
+      "new_li_988": "<strong>Balcony:</strong> Yes, private",
+      "new_li_989": "<strong>Highlights:</strong> Luxurious bathroom, coffee machine, mini bar",
+      "new_li_991": "<strong>Size:</strong> 70 sqm",
+      "new_li_992": "<strong>Guests:</strong> Up to 3 adults",
+      "new_li_993": "<strong>Beds:</strong> King + sofa bed",
+      "new_li_994": "<strong>View:</strong> Panoramic sea and Palm view",
+      "new_li_995": "<strong>Balcony:</strong> Yes, spacious",
+      "new_li_996": "<strong>Highlights:</strong> Private lounge, personal concierge service",
+      "new_li_998": "<strong>Size:</strong> 120 sqm",
+      "new_li_999": "<strong>Guests:</strong> Up to 4 adults",
+      "new_p_1006": "An exclusive luxury offer for our clients — receive exclusive benefits at FIVE Hotels in Dubai. All details and bookings directly via WhatsApp.",
+      "new_p_1009": "Unique benefits tailored for FIVE Hotels guests, including upgrades, credits, and indulgent treats.",
+      "new_p_1011": "The offer is available at selected FIVE Hotels in Dubai, subject to availability and booking terms.",
+      "new_p_1013": "A minimum stay of several nights may be required to enjoy the benefits. Details will be confirmed with the hotel.",
+      "new_p_1015": "The hospitality experience may include access to selected attractions, spa credit, or unique dining experiences.",
+      "new_p_1017": "Contacting us directly on WhatsApp will ensure you receive the discount code and full guidance through the booking process.",
+      "new_p_1019": "The offer is valid for specific dates only, subject to availability and hotel policy at any given time.",
+      "new_p_1021": "Benefits are subject to hotel terms, room type, availability, and booking date. Do not rely on unverified information.",
+      "new_p_1023": "The possibility of combining benefits with the discount code can be explored. Details will be confirmed with a hotel representative.",
+      "new_p_1024": "Benefits, availability, and offer terms may vary depending on stay dates, room type, and hotel conditions.",
+      "new_p_1026": "Three simple steps to your perfect vacation at FIVE Hotels in Dubai — no brokerage fees, directly with the hotel.",
+      "new_p_1028": "Click one of the WhatsApp buttons on the page and send us a message. Our team is available for any question you may have.",
+      "new_p_1030": "נחזור אליכם במהירות עם קוד הנחה ייחודי ובלעדי, המותאם במיוחד עבורכם ועבור מועד החופשה שלכם.",
+      "new_p_1032": "בוחרים מלון, תאריכים וחדר באתר הרשמי של FIVE Hotels & Resorts, ומזינים את הקוד בשדה Promo Code.",
+      "new_p_1034": "כן, ההזמנה והתשלום מתבצעים ישירות מול האתר הרשמי של מלונות FIVE. אנו מספקים לכם את קוד ההנחה והליווי המקצועי, אך העסקה עצמה נסגרת מול המלון.",
+      "new_p_1036": "במהלך תהליך ההזמנה באתר הרשמי, חפשו את שדה \"קוד פרומו\" או \"קוד קופון\". את הקוד שתקבלו מאיתנו בוואטסאפ, יש להדביק בשדה זה לפני סיום התשלום.",
+      "new_p_1038": "הזמינות משתנה בהתאם לתאריכים ולעומס במלון. הקוד עשוי שלא להיות תקף בתאריכי שיא או באירועים מיוחדים. מומלץ לבדוק את הזמינות באתר הרשמי.",
+      "new_p_1040": "הקוד תקף למגוון רחב של חדרים וסוויטות, אך ייתכנו הגבלות על סוגי חדרים מסוימים. התנאים המדויקים מפורטים באתר הרשמי של FIVE בעת ביצוע ההזמנה.",
+      "new_p_1042": "הטבות והנחות אינן ניתנות לשילוב אלא אם צוין אחרת במפורש. יש לוודא את תנאי השילוב מול צוות ההזמנות של המלון או באתר הרשמי.",
+      "new_p_1044": "בהחלט! אנו מתמחים בחוויית FIVE בדובאי ונשמח לעזור לכם לבחור את המלון והחדר המתאימים ביותר לצרכים שלכם. פנו אלינו בוואטסאפ לייעוץ אישי ללא עלות.",
+      "new_p_1046": "כל שינוי, ביטול או בקשה מיוחדת מטופלים ישירות מול צוות ההזמנות של מלונות FIVE, בהתאם למדיניות ולתנאים המפורטים באתר הרשמי בעת ביצוע ההזמנה.",
       "terms_h1_1": "תנאי שימוש",
       "terms_h2_2": "1. הגדרות",
       "terms_h2_3": "2. תיאור השירותים",
@@ -7475,6 +7650,31 @@ html[dir="ltr"] .lang-switcher {
       "new_div_916": "<span>סה\"כ:</span>\n      <span id=\"cart-drawer-total\">₪0</span>",
       "new_div_927": "<span class=\"blog-blog-grid-section__card-date\">8 ינואר 2025</span>\n        <span class=\"blog-blog-grid-section__card-dot\" style=\"color: #1A1A1A !important\">·</span>\n        <span class=\"blog-blog-grid-section__card-read-time\">5 דקות קריאה</span>",
       "new_div_929": "<span class=\"blog-blog-grid-section__card-date\">1 ינואר 2025</span>\n        <span class=\"blog-blog-grid-section__card-dot\" style=\"color: #1A1A1A !important\">·</span>\n        <span class=\"blog-blog-grid-section__card-read-time\">5 דקות קריאה</span>",
+      "new_h2_1005": "דובאי על הבית",
+      "new_h2_1025": "How Do You Get and Use the Code?",
+      "new_h2_1047": "רוצים לקבל את קוד ההנחה או עזרה בבחירת מלון FIVE?",
+      "new_h3_1008": "What's Included in the Offer",
+      "new_h3_1010": "Which Hotels Are Eligible",
+      "new_h3_1012": "Minimum Number of Nights",
+      "new_h3_1014": "Included Benefits or Attractions",
+      "new_h3_1016": "How to Book the Benefits",
+      "new_h3_1018": "Offer Dates",
+      "new_h3_1020": "Terms & Exclusions",
+      "new_h3_1022": "Combining with the Discount Code",
+      "new_h3_1027": "Contact Us on WhatsApp",
+      "new_h3_1029": "Receive a Personal Discount Code",
+      "new_h3_1031": "מזינים את הקוד באתר הרשמי",
+      "new_h3_1033": "האם ההזמנה מתבצעת ישירות באתר הרשמי של FIVE?",
+      "new_h3_1035": "איפה מזינים את קוד ההנחה?",
+      "new_h3_1037": "האם הקוד מתאים לכל התאריכים?",
+      "new_h3_1039": "האם הקוד תקף לכל סוגי החדרים?",
+      "new_h3_1041": "האם ניתן לשלב את הקוד עם Dubai On The House?",
+      "new_h3_1043": "האם אפשר לקבל עזרה בבחירת המלון והחדר?",
+      "new_h3_1045": "מי אחראי על שינוי או ביטול ההזמנה?",
+      "new_li_1000": "<strong>Beds:</strong> 2 King Size",
+      "new_li_1001": "<strong>View:</strong> 360 degrees",
+      "new_li_1002": "<strong>Balcony:</strong> Private rooftop with jacuzzi",
+      "new_li_1003": "<strong>Highlights:</strong> Private pool, fully equipped kitchen, dedicated driver",
       "terms_h2_10": "9. שינוי תנאי השימוש",
       "terms_h2_11": "10. סיום השירות",
       "terms_h2_12": "11. דין חל ויישוב סכסוכים",
@@ -7716,6 +7916,13 @@ html[dir="ltr"] .lang-switcher {
       "new_span_833": "חופשת חלומות",
       "new_span_837": "הרפתקה יוקרתית",
       "new_span_840": "חווית יוקרה",
+      "new_span_931": "הצעת פרימיום מוגבלת",
+      "new_span_936": "הטבה בלעדית לקוראי האתר",
+      "new_span_944": "מיקום מנצח על טיילת JBR",
+      "new_span_945": "נוף פנורמי לים ולמרינה",
+      "new_span_946": "חוף פרטי ובריכות אינסוף",
+      "new_span_947": "מסעדות שף וברים אופנתיים",
+      "new_span_948": "קרבה לאטרקציות המובילות",
       "privacy_h1_1": "מדיניות פרטיות",
       "privacy_h2_2": "1. איסוף מידע",
       "privacy_h2_3": "2. שימוש במידע",
@@ -7843,6 +8050,8 @@ html[dir="ltr"] .lang-switcher {
       "login_span_32": "-₪0",
       "login_span_36": "-₪0",
       "login_span_40": "₪0",
+      "new_span_1007": "Details must be based solely on official and up-to-date sources from FIVE Hotels.",
+      "new_span_1048": "לקבלת הקוד בוואטסאפ",
       "privacy_h3_10": "ניווט מהיר",
       "privacy_h3_11": "צור קשר",
       "privacy_h3_12": "שעות פעילות",
@@ -8251,7 +8460,7 @@ html[dir="ltr"] .lang-switcher {
       "contact_span_55": "פתרון לכל בקשה",
       "contact_span_57": "laloumdubai@gmail.com",
       "contact_span_58": "Nad al sheba gardens, Dubai, Uae",
-      "home_page_title": "מגזין",
+      "home_page_title": "מלונות FIVE בדובאי – קוד הנחה מיוחד",
       "hotels_link_105": "דלג לתוכן הראשי",
       "hotels_link_106": "הזמינו דרך וואטסאפ",
       "hotels_link_107": "בקשו קוד הנחה מיוחד",
@@ -9539,7 +9748,7 @@ html[dir="ltr"] .lang-switcher {
       "category__slug_nav_86": "חגים ואירועים יהודיים בדובאי: מה חשוב לדעת לפני שמזמינים",
       "category__slug_nav_87": "צרו קשר",
       "category__slug_nav_88": "כל המוצרים",
-      "home_meta_description": "Sarah laloum tourism llc - מגזין דובאי למטייל הישראלי",
+      "home_meta_description": "Sarah laloum tourism llc - מלונות FIVE בדובאי – קוד הנחה מיוחד",
       "hotels_aria_label_205": "תפריט",
       "hotels_aria_label_206": "התקשר",
       "hotels_aria_label_207": "כותרת תחתונה של האתר",
@@ -11897,6 +12106,10 @@ html[dir="ltr"] .lang-switcher {
       "new_a_885": "Desert Safari Tour SAFARI DESERT",
       "new_a_887": "A desert safari in Dubai is one of the most sought-after attractions in the United Arab Emirates. The experience includes dune bashing, entertainment shows, a Bedouin-style dinner, and the option of camel riding, sandboarding, and more activities. A perfect combination of adrenaline, stunning scenery, and an authentic desert atmosphere – an experience you must not miss when visiting Dubai.",
       "new_a_911": "Click here to send a message",
+      "new_a_930": "FIVE",
+      "new_a_933": "FIVE Luxe JBR",
+      "new_a_934": "FIVE Palm Jumeirah",
+      "new_a_935": "Dubai On The House",
       "new_p_407": "Kosher supermarkets in Dubai — full details will appear here soon. 📞 Inquiries: +972 52-221-2578",
       "new_p_410": "Kosher catering services in Dubai — full details will appear here soon. 📞 Inquiries: +972 52-221-2578",
       "new_p_413": "Kosher restaurants in Abu Dhabi — full details will appear here soon. 📞 Inquiries: +972 52-221-2578",
@@ -12001,6 +12214,14 @@ html[dir="ltr"] .lang-switcher {
       "new_p_910": "<strong>WhatsApp:</strong> <a href=\"https://wa.me/972522212578\" target=\"_blank\">Click here to send a message</a>",
       "new_p_919": "<strong>Email:</strong> <a href=\"mailto:laloumdubai@gmail.com\">laloumdubai@gmail.com</a>",
       "new_p_920": "<strong>WhatsApp:</strong> <a href=\"https://wa.me/972522212578\" target=\"_blank\">Click here to send a message</a>",
+      "new_p_938": "חווית אירוח יוצאת דופן בלב מרינת דובאי, עם קוד הנחה מיוחד השמור רק לכם.",
+      "new_p_940": "מלון FIVE Luxe JBR ממוקם באזור הטיילת התוססת של ג'ומיירה ביץ' רեզידנס (JBR), אחד האזורים המבוקשים ביותר בעיר. המלון מציע גישה ישירה לחוף הים הפרטי, בריכות אינסוף מרהיבות, ומגוון מסעדות וברים המהווים מוקד משיכה לבליינים ותיירים מכל העולם.",
+      "new_p_941": "האווירה במלון היא שילוב מנצח של יוקרה מודרנית ואנרגיה צעירה ותוססת. זהו המקום המושלם עבור זוגות, קבוצות חברים ומשפחות המחפשות חופשה דינמית ובלתי נשכחת. החדרים והסוויטות מעוצבים בסגנון עכשווי עם נופים פנורמיים עוצרי נשימה של הים, המרינה או קו הרקיע המרהיב של דובאי.",
+      "new_p_942": "בין שלל המתקנים והשירותים תמצאו ספא מפנק, חדר כושר מאובזר, מועדון חוף, ומגוון רחב של פעילויות ספורט ימי. מיקומו המרכזי של המלון מאפשר גישה נוחה ומהירה לאטרקציות המובילות של העיר, ביניהן אי התצפית \"The View at The Palm\", קניון מרינה מול, והחוף המפורסם של JBR.",
+      "new_p_956": "<strong>יתרונות:</strong> גישה לטרקלין, מיני בר מפנק, מכונת אספרסו",
+      "new_p_963": "<strong>יתרונות:</strong> סלון נפרד, חדר רחצה מפואר עם אמבטיה",
+      "new_p_970": "<strong>יתרונות:</strong> שירות באטלר אישי, ג'קוזי פרטי במרפסת",
+      "new_p_972": "מלון יוקרה אייקוני על קו החוף של פאלם ג'ומיירה, המשלב עיצוב נועז, חיי לילה תוססים ואירוח ברמה הגבוהה ביותר. חווית פנאי מושלמת למטיילים הישראלים המחפשים את הטוב ביותר שדובאי מציעה.",
       "cart_li_57": "Sun–Thu 09:00–23:00",
       "cart_li_58": "Fri 09:00–16:00",
       "cart_li_59": "Sat 21:00–23:00",
@@ -12046,6 +12267,7 @@ html[dir="ltr"] .lang-switcher {
       "login_h3_3": "Quick Navigation",
       "login_h3_4": "Contact Us",
       "login_h3_5": "Business Hours",
+      "new_a_1004": "<i class=\"fa-brands fa-whatsapp\" aria-hidden=\"true\"></i>\n        לקבלת קוד הנחה ל־FIVE Palm בוואטסאפ",
       "new_h1_739": "Dubai Beyond the Dream",
       "new_h1_841": "Discover Dubai\nYour Way",
       "new_h1_851": "Dubai Awaits You",
@@ -12085,6 +12307,8 @@ html[dir="ltr"] .lang-switcher {
       "new_h2_899": "🚐 Transfers",
       "new_h2_902": "🏨 Hotels",
       "new_h2_907": "📞 Contact Us",
+      "new_h2_937": "FIVE Luxe JBR",
+      "new_h2_971": "FIVE Palm Jumeirah",
       "new_h3_385": "KIKKOS SUSHI & MEAT",
       "new_h3_406": "More Information Coming Soon",
       "new_h3_409": "More Information Coming Soon",
@@ -12107,6 +12331,18 @@ html[dir="ltr"] .lang-switcher {
       "new_h3_868": "Roses ROSES",
       "new_h3_873": "Luxury Limousine Dubai  Luxury Limousine Dubai",
       "new_h3_884": "Desert Safari Tour SAFARI DESERT",
+      "new_h3_932": "קבלו גישה לקוד הנחה בלעדי למלונות FIVE המפוארים והזמינו את החדר שלכם ישירות בוואטסאפ",
+      "new_h3_939": "ברוכים הבאים ללב הפועם של דובאי",
+      "new_h3_943": "עיקרי החוויה",
+      "new_h3_949": "סוגי חדרים וסוויטות",
+      "new_h3_973": "הכל על המלון",
+      "new_h3_982": "חדרים וסוויטות",
+      "new_h4_950": "חדר דלוקס עם נוף למרינה",
+      "new_h4_957": "סוויטת פרימיום עם נוף לים",
+      "new_h4_964": "סוויטת סקיי עם נוף לקו הרקיע",
+      "new_h4_983": "חדר דלוקס עם נוף לים",
+      "new_h4_990": "סוויטת פנורמה",
+      "new_h4_997": "סוויטת פנטהאוז",
       "new_li_896": "Purchasing attractions is a <strong>final transaction</strong> — once purchased, no cancellation or refund will be permitted.",
       "new_li_897": "Cancellation terms are subject to the <strong>supplier's terms</strong> and in accordance with UAE laws.",
       "new_li_898": "In the event of <strong>flight cancellations due to war or a state of emergency</strong>: Sarah Laloum Tourism will contact the supplier to extend the ticket's validity. The extension is <strong>at the sole discretion of the attraction supplier</strong> — approval is not guaranteed.",
@@ -12116,6 +12352,64 @@ html[dir="ltr"] .lang-switcher {
       "new_li_904": "In cases where cancellation is required: Sarah Laloum Tourism will <strong>submit a cancellation request to the hotel</strong>.",
       "new_li_905": "If approved — <strong>a credit valid for one year only</strong> from the original booking date will be issued.",
       "new_li_906": "<strong>No monetary refund</strong> will be issued for any payment made for a hotel booking.",
+      "new_li_951": "<strong>גודל:</strong> 45 מ\"ר",
+      "new_li_952": "<strong>אורחים:</strong> עד 2 מבוגרים וילד",
+      "new_li_953": "<strong>מיטות:</strong> קינג סייז",
+      "new_li_954": "<strong>נוף:</strong> מרינה",
+      "new_li_955": "<strong>מרפסת:</strong> כן",
+      "new_li_958": "<strong>גודל:</strong> 80 מ\"ר",
+      "new_li_959": "<strong>אורחים:</strong> עד 3 מבוגרים",
+      "new_li_960": "<strong>מיטות:</strong> קינג סייז + סofa bed",
+      "new_li_961": "<strong>נוף:</strong> ים",
+      "new_li_962": "<strong>מרפסת:</strong> כן, רחבת ידיים",
+      "new_li_965": "<strong>גודל:</strong> 120 מ\"ר",
+      "new_li_966": "<strong>אורחים:</strong> עד 4 מבוגרים",
+      "new_li_967": "<strong>מיטות:</strong> 2 קינג סייז",
+      "new_li_968": "<strong>נוף:</strong> קו הרקיע והאי פאלם",
+      "new_li_969": "<strong>מרפסת:</strong> כן, ענקית",
+      "new_li_974": "<strong>מיקום:</strong> פאלם ג'ומיירה, דובאי – גישה ישירה לחוף הפרטי ולטיילת.",
+      "new_li_975": "<strong>חוף ובריכות:</strong> חוף פרטי לבן, בריכת אינפיניטי מרהיבה ובריכות נוספות.",
+      "new_li_976": "<strong>מסעדות ובילוי:</strong> מסעדות שף, ברים, מועדון לילה ואזורי בילוי יוקרתיים.",
+      "new_li_977": "<strong>אווירה:</strong> צעירה, תוססת ומלאת סטייל – מושלם לזוגות וחברים.",
+      "new_li_978": "<strong>חדרים וסוויטות:</strong> חדרים מרווחים בעיצוב מודרני, סוויטות עם נוף לים.",
+      "new_li_979": "<strong>נוף ומרפסות:</strong> מרפסות פרטיות עם נוף פנורמי למפרץ או לקו הרקיע.",
+      "new_li_980": "<strong>מתקנים ושירותים:</strong> ספא, חדר כושר, שירות חדרים 24/7 וצוות רב-לשוני.",
+      "new_li_981": "<strong>אטרקציות קרובות:</strong> מרחק קצר מאקווה-וונצ'ר, מועדון החוף והטיילת.",
+      "new_li_984": "<strong>גודל:</strong> 45 מ\"ר",
+      "new_li_985": "<strong>אורחים:</strong> עד 2 מבוגרים + ילד",
+      "new_li_986": "<strong>מיטות:</strong> קינג סייז",
+      "new_li_987": "<strong>נוף:</strong> ים ומפרץ",
+      "new_li_988": "<strong>מרפסת:</strong> כן, פרטית",
+      "new_li_989": "<strong>יתרונות:</strong> חדר רחצה מפואר, מכונת קפה, מיני בר",
+      "new_li_991": "<strong>גודל:</strong> 70 מ\"ר",
+      "new_li_992": "<strong>אורחים:</strong> עד 3 מבוגרים",
+      "new_li_993": "<strong>מיטות:</strong> קינג + ספה נפתחת",
+      "new_li_994": "<strong>נוף:</strong> פנורמי לים ופאלם",
+      "new_li_995": "<strong>מרפסת:</strong> כן, רחבת ידיים",
+      "new_li_996": "<strong>יתרונות:</strong> טרקלין פרטי, שירות קונסיירז' אישי",
+      "new_li_998": "<strong>גודל:</strong> 120 מ\"ר",
+      "new_li_999": "<strong>אורחים:</strong> עד 4 מבוגרים",
+      "new_p_1006": "מבצע יוקרתי במיוחד ללקוחותינו — קבלו הטבות בלעדיות במלונות FIVE בדובאי. כל הפרטים וההזמנה ישירות בוואטסאפ.",
+      "new_p_1009": "הטבות ייחודיות המותאמות לאורחי מלונות FIVE, כולל שדרוגים, קרדיטים ופינוקים מפנקים.",
+      "new_p_1011": "המבצע זמין במלונות הנבחרים של רשת FIVE בדובאי, הנתונים לזמינות ולתנאי ההזמנה.",
+      "new_p_1013": "ייתכן ותידרש שהות מינימלית של מספר לילות כדי ליהנות מההטבות. הפרטים יאומתו מול המלון.",
+      "new_p_1015": "חוויית האירוח עשויה לכלול גישה לאטרקציות נבחרות, קרדיט לספא או חוויות אוכל ייחודיות.",
+      "new_p_1017": "יצירת קשר ישירה איתנו בוואטסאפ תבטיח קבלת קוד ההנחה והכוונה מלאה לתהליך ההזמנה.",
+      "new_p_1019": "המבצע תקף לתאריכים ספציפיים בלבד, הנתונים לזמינות ולמדיניות המלון בכל רגע נתון.",
+      "new_p_1021": "ההטבות כפופות לתנאי המלון, סוג החדר, זמינות ומועד ההזמנה. אין להסתמך על מידע שאינו מאומת.",
+      "new_p_1023": "ניתן לבדוק אפשרות לשילוב ההטבות עם קוד ההנחה. הפרטים יאומתו מול נציג המלון.",
+      "new_p_1024": "ההטבות, הזמינות ותנאי המבצע עשויים להשתנות בהתאם לתאריכי השהייה, לסוג החדר ולתנאי המלון.",
+      "new_p_1026": "שלושה צעדים פשוטים אל החופשה המושלמת במלונות FIVE בדובאי – ללא דמי תיווך, ישירות מול המלון.",
+      "new_p_1028": "לוחצים על אחד מכפתורי הוואטסאפ שבעמוד ושולחים לנו הודעה. הצוות שלנו זמין עבורכם לכל שאלה.",
+      "new_p_1030": "נחזור אליכם במהירות עם קוד הנחה ייחודי ובלעדי, המותאם במיוחד עבורכם ועבור מועד החופשה שלכם.",
+      "new_p_1032": "בוחרים מלון, תאריכים וחדר באתר הרשמי של FIVE Hotels & Resorts, ומזינים את הקוד בשדה Promo Code.",
+      "new_p_1034": "כן, ההזמנה והתשלום מתבצעים ישירות מול האתר הרשמי של מלונות FIVE. אנו מספקים לכם את קוד ההנחה והליווי המקצועי, אך העסקה עצמה נסגרת מול המלון.",
+      "new_p_1036": "במהלך תהליך ההזמנה באתר הרשמי, חפשו את שדה \"קוד פרומו\" או \"קוד קופון\". את הקוד שתקבלו מאיתנו בוואטסאפ, יש להדביק בשדה זה לפני סיום התשלום.",
+      "new_p_1038": "הזמינות משתנה בהתאם לתאריכים ולעומס במלון. הקוד עשוי שלא להיות תקף בתאריכי שיא או באירועים מיוחדים. מומלץ לבדוק את הזמינות באתר הרשמי.",
+      "new_p_1040": "הקוד תקף למגוון רחב של חדרים וסוויטות, אך ייתכנו הגבלות על סוגי חדרים מסוימים. התנאים המדויקים מפורטים באתר הרשמי של FIVE בעת ביצוע ההזמנה.",
+      "new_p_1042": "הטבות והנחות אינן ניתנות לשילוב אלא אם צוין אחרת במפורש. יש לוודא את תנאי השילוב מול צוות ההזמנות של המלון או באתר הרשמי.",
+      "new_p_1044": "בהחלט! אנו מתמחים בחוויית FIVE בדובאי ונשמח לעזור לכם לבחור את המלון והחדר המתאימים ביותר לצרכים שלכם. פנו אלינו בוואטסאפ לייעוץ אישי ללא עלות.",
+      "new_p_1046": "כל שינוי, ביטול או בקשה מיוחדת מטופלים ישירות מול צוות ההזמנות של מלונות FIVE, בהתאם למדיניות ולתנאים המפורטים באתר הרשמי בעת ביצוע ההזמנה.",
       "terms_h1_1": "Terms of Use",
       "terms_h2_2": "1. Definitions",
       "terms_h2_3": "2. Description of Services",
@@ -12260,6 +12554,31 @@ html[dir="ltr"] .lang-switcher {
       "new_div_916": "<span>Total:</span>\n      <span id=\"cart-drawer-total\">₪0</span>",
       "new_div_927": "<span class=\"blog-blog-grid-section__card-date\">January 8, 2025</span>\n        <span class=\"blog-blog-grid-section__card-dot\" style=\"color: #1A1A1A !important\">·</span>\n        <span class=\"blog-blog-grid-section__card-read-time\">5 min read</span>",
       "new_div_929": "<span class=\"blog-blog-grid-section__card-date\">January 1, 2025</span>\n        <span class=\"blog-blog-grid-section__card-dot\" style=\"color: #1A1A1A !important\">·</span>\n        <span class=\"blog-blog-grid-section__card-read-time\">5 min read</span>",
+      "new_h2_1005": "Dubai On The House",
+      "new_h2_1025": "איך מקבלים ומשתמשים בקוד?",
+      "new_h2_1047": "רוצים לקבל את קוד ההנחה או עזרה בבחירת מלון FIVE?",
+      "new_h3_1008": "מה מקבלים במסגרת המבצע",
+      "new_h3_1010": "באילו מלונות המבצע תקף",
+      "new_h3_1012": "מספר לילות מינימלי",
+      "new_h3_1014": "הטבות או אטרקציות כלולות",
+      "new_h3_1016": "כיצד מזמינים את ההטבות",
+      "new_h3_1018": "תאריכי המבצע",
+      "new_h3_1020": "תנאים והחרגות",
+      "new_h3_1022": "שילוב עם קוד ההנחה",
+      "new_h3_1027": "יוצרים קשר בוואטסאפ",
+      "new_h3_1029": "מקבלים קוד הנחה אישי",
+      "new_h3_1031": "מזינים את הקוד באתר הרשמי",
+      "new_h3_1033": "האם ההזמנה מתבצעת ישירות באתר הרשמי של FIVE?",
+      "new_h3_1035": "איפה מזינים את קוד ההנחה?",
+      "new_h3_1037": "האם הקוד מתאים לכל התאריכים?",
+      "new_h3_1039": "האם הקוד תקף לכל סוגי החדרים?",
+      "new_h3_1041": "האם ניתן לשלב את הקוד עם Dubai On The House?",
+      "new_h3_1043": "האם אפשר לקבל עזרה בבחירת המלון והחדר?",
+      "new_h3_1045": "מי אחראי על שינוי או ביטול ההזמנה?",
+      "new_li_1000": "<strong>מיטות:</strong> 2 קינג סייז",
+      "new_li_1001": "<strong>נוף:</strong> 360 מעלות",
+      "new_li_1002": "<strong>מרפסת:</strong> גג פרטי עם ג'קוזי",
+      "new_li_1003": "<strong>יתרונות:</strong> בריכה פרטית, מטבח מאובזר, נהג צמוד",
       "terms_h2_10": "9. Changes to Terms of Use",
       "terms_h2_11": "10. Termination of Service",
       "terms_h2_12": "11. Governing Law and Dispute Resolution",
@@ -12501,6 +12820,13 @@ html[dir="ltr"] .lang-switcher {
       "new_span_833": "Dream Vacation",
       "new_span_837": "Luxurious Adventure",
       "new_span_840": "Luxury Experience",
+      "new_span_931": "הצעת פרימיום מוגבלת",
+      "new_span_936": "הטבה בלעדית לקוראי האתר",
+      "new_span_944": "מיקום מנצח על טיילת JBR",
+      "new_span_945": "נוף פנורמי לים ולמרינה",
+      "new_span_946": "חוף פרטי ובריכות אינסוף",
+      "new_span_947": "מסעדות שף וברים אופנתיים",
+      "new_span_948": "קרבה לאטרקציות המובילות",
       "privacy_h1_1": "Privacy Policy",
       "privacy_h2_2": "1. Information Collection",
       "privacy_h2_3": "2. Use of Information",
@@ -12628,6 +12954,8 @@ html[dir="ltr"] .lang-switcher {
       "login_span_32": "-₪0",
       "login_span_36": "-₪0",
       "login_span_40": "₪0",
+      "new_span_1007": "הפרטים חייבים להתבסס רק על מקור רשמי ועדכני של מלונות FIVE.",
+      "new_span_1048": "לקבלת הקוד בוואטסאפ",
       "privacy_h3_10": "Quick Navigation",
       "privacy_h3_11": "Contact Us",
       "privacy_h3_12": "Business Hours",
@@ -13036,7 +13364,7 @@ html[dir="ltr"] .lang-switcher {
       "contact_span_55": "A solution for every request",
       "contact_span_57": "laloumdubai@gmail.com",
       "contact_span_58": "Nad al sheba gardens, Dubai, Uae",
-      "home_page_title": "Magazine",
+      "home_page_title": "מלונות FIVE בדובאי – קוד הנחה מיוחד",
       "hotels_link_105": "Skip to main content",
       "hotels_link_106": "Book via WhatsApp",
       "hotels_link_107": "Request a special discount code",
@@ -14324,7 +14652,7 @@ html[dir="ltr"] .lang-switcher {
       "category__slug_nav_86": "Jewish Holidays and Events in Dubai: What You Need to Know Before You Book",
       "category__slug_nav_87": "Contact Us",
       "category__slug_nav_88": "All Products",
-      "home_meta_description": "Sarah laloum tourism llc - Dubai Magazine for the Israeli Traveler",
+      "home_meta_description": "Sarah laloum tourism llc - מלונות FIVE בדובאי – קוד הנחה מיוחד",
       "hotels_aria_label_205": "Menu",
       "hotels_aria_label_206": "Call",
       "hotels_aria_label_207": "Website Footer",
@@ -16682,6 +17010,10 @@ html[dir="ltr"] .lang-switcher {
       "new_a_885": "رحلة سفاري في الصحراء SAFARI DESERT",
       "new_a_887": "رحلة الصحراء في دبي هي واحدة من أكثر الأنشطة السياحية طلباً في الإمارات العربية المتحدة. تشمل التجربة التزلج على الكثبان الرملية، عروض الترفيه، عشاء على الطراز البدوي وإمكانية ركوب الجمال، التزلج على الرمال وأنشطة أخرى. مزيج مثالي من الأدرينالين، المناظر الخلابة والأجواء الصحراوية الأصيلة – تجربة لا يجب تفويتها عند زيارة دبي.",
       "new_a_911": "اضغط هنا لإرسال رسالة",
+      "new_a_930": "فايف",
+      "new_a_933": "فايف لوكس جي بي آر",
+      "new_a_934": "فايف نخلة جميرا",
+      "new_a_935": "دبي أون ذا هاوس",
       "new_p_407": "سوبرماركت كوشير في دبي — ستظهر التفاصيل الكاملة هنا قريباً. 📞 للاستفسار: +972 52-221-2578",
       "new_p_410": "خدمات تموين كوشير في دبي — ستظهر التفاصيل الكاملة هنا قريباً. 📞 للاستفسار: +972 52-221-2578",
       "new_p_413": "مطاعم كوشير في أبوظبي — ستظهر التفاصيل الكاملة هنا قريباً. 📞 للاستفسار: +972 52-221-2578",
@@ -16786,6 +17118,14 @@ html[dir="ltr"] .lang-switcher {
       "new_p_910": "<strong>واتساب:</strong> <a href=\"https://wa.me/972522212578\" target=\"_blank\">اضغط هنا لإرسال رسالة</a>",
       "new_p_919": "<strong>البريد الإلكتروني:</strong> <a href=\"mailto:laloumdubai@gmail.com\">laloumdubai@gmail.com</a>",
       "new_p_920": "<strong>واتساب:</strong> <a href=\"https://wa.me/972522212578\" target=\"_blank\">اضغط هنا لإرسال رسالة</a>",
+      "new_p_938": "تجربة إقامة استثنائية في قلب مرسى دبي، مع رمز خصم مميز محجوز لكم وحدكم.",
+      "new_p_940": "يقع فندق FIVE Luxe JBR في منطقة كورنيش جميرا بيتش ريزيدنس (JBR) الصاخبة، وهي من أكثر المناطق طلباً في المدينة. يوفر الفندق وصولاً مباشراً إلى الشاطئ الخاص، وبرك سباحة لا نهاية لها رائعة، ومجموعة متنوعة من المطاعم والبارات التي تُعدّ وجهة جذب لعشاق الترفيه والسياح من جميع أنحاء العالم.",
+      "new_p_941": "تتميز أجواء الفندق بمزيج رائع من الفخامة العصرية والطاقة الشبابية المتدفقة. إنه المكان المثالي للأزواج ومجموعات الأصدقاء والعائلات الباحثة عن إجازة ديناميكية لا تُنسى. تتميز الغرف والأجنحة بتصميم معاصر مع إطلالات بانورامية خلابة على البحر أو المرسى أو الأفق الرائع لمدينة دبي.",
+      "new_p_942": "من بين المرافق والخدمات المتعددة ستجدون سبا مدلل، وصالة لياقة بدنية مجهزة، ونادياً للشاطئ، ومجموعة واسعة من الأنشطة الرياضية البحرية. يتيح الموقع المركزي للفندق وصولاً سهلاً وسريعاً إلى أبرز معالم المدينة، من بينها منصة المشاهدة \"The View at The Palm\"، ومركز تسوق مارينا مول، والشاطئ الشهير لـ JBR.",
+      "new_p_956": "<strong>المميزات:</strong> دخول إلى الصالة المخصصة، ميني بار فاخر، ماكينة إسبريسو",
+      "new_p_963": "<strong>المميزات:</strong> غرفة معيشة منفصلة، حمام فاخر مع بانيو",
+      "new_p_970": "<strong>المميزات:</strong> خدمة بتلر شخصية، جاكوزي خاص في الشرفة",
+      "new_p_972": "فندق فاخر أيقوني على خط شاطئ نخلة جميرا، يجمع بين التصميم الجريء والحياة الليلية الصاخبة والضيافة على أعلى مستوى. تجربة ترفيهية مثالية للمسافرين الباحثين عن أفضل ما تقدمه دبي.",
       "cart_li_57": "الأحد–الخميس 09:00–23:00",
       "cart_li_58": "الجمعة 09:00–16:00",
       "cart_li_59": "السبت 21:00–23:00",
@@ -16831,6 +17171,7 @@ html[dir="ltr"] .lang-switcher {
       "login_h3_3": "تنقل سريع",
       "login_h3_4": "تواصل معنا",
       "login_h3_5": "ساعات العمل",
+      "new_a_1004": "<i class=\"fa-brands fa-whatsapp\" aria-hidden=\"true\"></i>\n        للحصول على كود الخصم لـ FIVE Palm عبر واتساب",
       "new_h1_739": "دبي ما وراء الحلم",
       "new_h1_841": "اكتشف دبي\nبطريقتك",
       "new_h1_851": "دبي تنتظرك",
@@ -16870,6 +17211,8 @@ html[dir="ltr"] .lang-switcher {
       "new_h2_899": "🚐 خدمات النقل",
       "new_h2_902": "🏨 الفنادق",
       "new_h2_907": "📞 تواصل معنا",
+      "new_h2_937": "فايف لوكس جي بي آر",
+      "new_h2_971": "فايف نخلة جميرا",
       "new_h3_385": "KIKKOS SUSHI & MEAT",
       "new_h3_406": "معلومات قريباً",
       "new_h3_409": "معلومات قريباً",
@@ -16892,6 +17235,18 @@ html[dir="ltr"] .lang-switcher {
       "new_h3_868": "وردود ROSES",
       "new_h3_873": "ليموزين فاخر في دبي  Luxury Limousine Dubai",
       "new_h3_884": "رحلة سفاري في الصحراء SAFARI DESERT",
+      "new_h3_932": "احصل على رمز خصم حصري لفنادق FIVE الفاخرة واحجز غرفتك مباشرة عبر واتساب",
+      "new_h3_939": "مرحباً بكم في قلب دبي النابض",
+      "new_h3_943": "أبرز مميزات التجربة",
+      "new_h3_949": "أنواع الغرف والأجنحة",
+      "new_h3_973": "كل شيء عن الفندق",
+      "new_h3_982": "الغرف والأجنحة",
+      "new_h4_950": "غرفة ديلوكس بإطلالة على المرسى",
+      "new_h4_957": "جناح بريميوم بإطلالة على البحر",
+      "new_h4_964": "جناح سكاي بإطلالة على الأفق",
+      "new_h4_983": "غرفة ديلوكس بإطلالة على البحر",
+      "new_h4_990": "جناح بانوراما",
+      "new_h4_997": "جناح بنتهاوس",
       "new_li_896": "شراء الأنشطة السياحية هو <strong>معاملة نهائية</strong> — لا يمكن الإلغاء أو استرداد المبلغ بعد الشراء.",
       "new_li_897": "تخضع شروط الإلغاء <strong>لشروط المورد</strong> ووفقاً لقوانين الإمارات العربية المتحدة.",
       "new_li_898": "في حالة <strong>إلغاء الرحلات الجوية بسبب الحرب أو حالات الطوارئ</strong>: ستتواصل Sarah laloum tourism مع المورد لتمديد صلاحية التذكرة. تمديد الصلاحية <strong>يخضع للسلطة التقديرية الحصرية لمورد النشاط</strong> — ولا يُضمن الموافقة.",
@@ -16901,6 +17256,64 @@ html[dir="ltr"] .lang-switcher {
       "new_li_904": "في الحالات التي يستلزم فيها الإلغاء: ستقوم Sarah laloum tourism <strong>بتقديم طلب إلغاء إلى الفندق</strong>.",
       "new_li_905": "في حال الموافقة — <strong>سيتم منح رصيد صالح لمدة سنة واحدة فقط</strong> من تاريخ الحجز الأصلي.",
       "new_li_906": "<strong>لن يتم استرداد أي مبلغ مالي</strong> مدفوع مقابل حجز فندق.",
+      "new_li_951": "<strong>المساحة:</strong> 45 م²",
+      "new_li_952": "<strong>الضيوف:</strong> حتى بالغَين وطفل",
+      "new_li_953": "<strong>الأسرّة:</strong> كينج سايز",
+      "new_li_954": "<strong>الإطلالة:</strong> المرسى",
+      "new_li_955": "<strong>الشرفة:</strong> نعم",
+      "new_li_958": "<strong>المساحة:</strong> 80 م²",
+      "new_li_959": "<strong>الضيوف:</strong> حتى 3 بالغين",
+      "new_li_960": "<strong>الأسرّة:</strong> كينج سايز + sofa bed",
+      "new_li_961": "<strong>الإطلالة:</strong> البحر",
+      "new_li_962": "<strong>الشرفة:</strong> نعم، فسيحة",
+      "new_li_965": "<strong>المساحة:</strong> 120 م²",
+      "new_li_966": "<strong>الضيوف:</strong> حتى 4 بالغين",
+      "new_li_967": "<strong>الأسرّة:</strong> 2 كينج سايز",
+      "new_li_968": "<strong>الإطلالة:</strong> الأفق وجزيرة النخلة",
+      "new_li_969": "<strong>الشرفة:</strong> نعم، ضخمة",
+      "new_li_974": "<strong>الموقع:</strong> نخلة جميرا، دبي – وصول مباشر إلى الشاطئ الخاص والكورنيش.",
+      "new_li_975": "<strong>الشاطئ والبرك:</strong> شاطئ خاص أبيض، وبركة سباحة إنفينيتي رائعة وبرك إضافية.",
+      "new_li_976": "<strong>المطاعم والترفيه:</strong> مطاعم الشيف، والبارات، والنادي الليلي، ومناطق ترفيه فاخرة.",
+      "new_li_977": "<strong>الأجواء:</strong> شبابية وصاخبة ومليئة بالأناقة – مثالية للأزواج والأصدقاء.",
+      "new_li_978": "<strong>الغرف والأجنحة:</strong> غرف واسعة بتصميم عصري، وأجنحة بإطلالة على البحر.",
+      "new_li_979": "<strong>الإطلالة والشرفات:</strong> شرفات خاصة بإطلالة بانورامية على الخليج أو الأفق.",
+      "new_li_980": "<strong>المرافق والخدمات:</strong> سبا، صالة رياضية، خدمة غرف على مدار الساعة وطاقم متعدد اللغات.",
+      "new_li_981": "<strong>المعالم القريبة:</strong> على مسافة قصيرة من أكوا-فنتشر، نادي الشاطئ والكورنيش.",
+      "new_li_984": "<strong>المساحة:</strong> 45 م²",
+      "new_li_985": "<strong>الضيوف:</strong> حتى بالغَين + طفل",
+      "new_li_986": "<strong>الأسرّة:</strong> كينج سايز",
+      "new_li_987": "<strong>الإطلالة:</strong> البحر والخليج",
+      "new_li_988": "<strong>الشرفة:</strong> نعم، خاصة",
+      "new_li_989": "<strong>المميزات:</strong> حمام فاخر، ماكينة قهوة، ميني بار",
+      "new_li_991": "<strong>المساحة:</strong> 70 م²",
+      "new_li_992": "<strong>الضيوف:</strong> حتى 3 بالغين",
+      "new_li_993": "<strong>الأسرّة:</strong> كينج + أريكة قابلة للفتح",
+      "new_li_994": "<strong>الإطلالة:</strong> بانورامية على البحر والنخلة",
+      "new_li_995": "<strong>الشرفة:</strong> نعم، فسيحة",
+      "new_li_996": "<strong>المميزات:</strong> صالة خاصة، خدمة كونسيرج شخصية",
+      "new_li_998": "<strong>المساحة:</strong> 120 م²",
+      "new_li_999": "<strong>الضيوف:</strong> حتى 4 بالغين",
+      "new_p_1006": "عرض فاخر حصري لعملائنا — احصلوا على مزايا حصرية في فنادق FIVE بدبي. جميع التفاصيل والحجز مباشرة عبر واتساب.",
+      "new_p_1009": "مزايا حصرية مصممة لضيوف فنادق FIVE، تشمل الترقيات والاعتمادات والامتيازات المميزة.",
+      "new_p_1011": "العرض متاح في فنادق مختارة من سلسلة FIVE في دبي، وفقاً للتوفر وشروط الحجز.",
+      "new_p_1013": "قد يُشترط إقامة لحد أدنى من الليالي للاستفادة من المزايا. سيتم التحقق من التفاصيل مع الفندق.",
+      "new_p_1015": "قد تشمل تجربة الإقامة الوصول إلى أنشطة مختارة، أو رصيد للسبا، أو تجارب طعام فريدة.",
+      "new_p_1017": "التواصل المباشر معنا عبر واتساب يضمن لك الحصول على كود الخصم والإرشاد الكامل لعملية الحجز.",
+      "new_p_1019": "العرض ساري لتواريخ محددة فقط، وفقاً للتوفر وسياسة الفندق في كل وقت.",
+      "new_p_1021": "المزايا خاضعة لشروط الفندق ونوع الغرفة والتوفر وتاريخ الحجز. لا يُعتمد على معلومات غير موثقة.",
+      "new_p_1023": "يمكن استفسار إمكانية دمج المزايا مع كود الخصم. سيتم التحقق من التفاصيل مع ممثل الفندق.",
+      "new_p_1024": "قد تتغير المزايا والتوفر وشروط العرض وفقاً لتواريخ الإقامة ونوع الغرفة وشروط الفندق.",
+      "new_p_1026": "ثلاث خطوات بسيطة نحو إجازتك المثالية في فنادق FIVE بدبي – بدون رسوم وساطة، مباشرة مع الفندق.",
+      "new_p_1028": "اضغط على أحد أزرار واتساب في الصفحة وأرسل لنا رسالة. فريقنا متاح لك للإجابة على جميع استفساراتك.",
+      "new_p_1030": "سنعود إليكم بسرعة مع رمز خصم فريد وحصري، مصمم خصيصاً لكم ولموعد إجازتكم.",
+      "new_p_1032": "اختاروا الفندق والتواريخ والغرفة على الموقع الرسمي لـ FIVE Hotels & Resorts، وأدخلوا الرمز في حقل Promo Code.",
+      "new_p_1034": "نعم، يتم الحجز والدفع مباشرةً عبر الموقع الرسمي لفنادق FIVE. نحن نزوّدكم برمز الخصم والدعم المهني، غير أن الصفقة نفسها تُبرم مع الفندق مباشرةً.",
+      "new_p_1036": "خلال عملية الحجز على الموقع الرسمي، ابحثوا عن حقل \"Promo Code\" أو \"كود الكوبون\". الرمز الذي ستتلقونه منا عبر واتساب يجب لصقه في هذا الحقل قبل إتمام الدفع.",
+      "new_p_1038": "تتفاوت الإتاحة بحسب التواريخ ومستوى الإشغال في الفندق. قد لا يكون الرمز صالحاً في مواسم الذروة أو خلال الفعاليات الخاصة. يُنصح بالتحقق من الإتاحة على الموقع الرسمي.",
+      "new_p_1040": "الرمز صالح لمجموعة واسعة من الغرف والأجنحة، غير أنه قد تكون هناك قيود على بعض أنواع الغرف. الشروط التفصيلية موضحة على الموقع الرسمي لـ FIVE عند إتمام الحجز.",
+      "new_p_1042": "لا يمكن دمج المزايا والخصومات إلا إذا نُصّ على ذلك صراحةً. يجب التحقق من شروط الدمج مع فريق حجوزات الفندق أو عبر الموقع الرسمي.",
+      "new_p_1044": "بالتأكيد! نحن متخصصون في تجربة FIVE في دبي ويسعدنا مساعدتكم في اختيار الفندق والغرفة الأنسب لاحتياجاتكم. تواصلوا معنا عبر واتساب للحصول على استشارة شخصية مجانية.",
+      "new_p_1046": "تُعالَج جميع التعديلات والإلغاءات والطلبات الخاصة مباشرةً مع فريق حجوزات فنادق FIVE، وفقاً للسياسة والشروط المفصّلة على الموقع الرسمي عند إتمام الحجز.",
       "terms_h1_1": "شروط الاستخدام",
       "terms_h2_2": "1. التعريفات",
       "terms_h2_3": "2. وصف الخدمات",
@@ -17045,6 +17458,31 @@ html[dir="ltr"] .lang-switcher {
       "new_div_916": "<span>الإجمالي:</span>\n      <span id=\"cart-drawer-total\">₪0</span>",
       "new_div_927": "<span class=\"blog-blog-grid-section__card-date\">8 يناير 2025</span>\n        <span class=\"blog-blog-grid-section__card-dot\" style=\"color: #1A1A1A !important\">·</span>\n        <span class=\"blog-blog-grid-section__card-read-time\">5 دقائق قراءة</span>",
       "new_div_929": "<span class=\"blog-blog-grid-section__card-date\">1 يناير 2025</span>\n        <span class=\"blog-blog-grid-section__card-dot\" style=\"color: #1A1A1A !important\">·</span>\n        <span class=\"blog-blog-grid-section__card-read-time\">5 دقائق قراءة</span>",
+      "new_h2_1005": "دبي على حسابنا",
+      "new_h2_1025": "كيف تحصل على الكود وتستخدمه؟",
+      "new_h2_1047": "هل تريدون الحصول على رمز الخصم أو المساعدة في اختيار فندق FIVE؟",
+      "new_h3_1008": "ما الذي تحصل عليه ضمن العرض",
+      "new_h3_1010": "في أي فنادق يسري العرض",
+      "new_h3_1012": "الحد الأدنى لعدد الليالي",
+      "new_h3_1014": "المزايا أو الأنشطة المشمولة",
+      "new_h3_1016": "كيفية حجز المزايا",
+      "new_h3_1018": "تواريخ العرض",
+      "new_h3_1020": "الشروط والاستثناءات",
+      "new_h3_1022": "الدمج مع كود الخصم",
+      "new_h3_1027": "تواصل معنا عبر واتساب",
+      "new_h3_1029": "احصل على كود خصم شخصي",
+      "new_h3_1031": "أدخلوا الرمز على الموقع الرسمي",
+      "new_h3_1033": "هل يتم الحجز مباشرةً على الموقع الرسمي لـ FIVE؟",
+      "new_h3_1035": "أين يتم إدخال رمز الخصم؟",
+      "new_h3_1037": "هل الرمز صالح لجميع التواريخ؟",
+      "new_h3_1039": "هل الرمز صالح لجميع أنواع الغرف؟",
+      "new_h3_1041": "هل يمكن دمج الرمز مع Dubai On The House؟",
+      "new_h3_1043": "هل يمكن الحصول على مساعدة في اختيار الفندق والغرفة؟",
+      "new_h3_1045": "من المسؤول عن تعديل أو إلغاء الحجز؟",
+      "new_li_1000": "<strong>الأسرّة:</strong> 2 كينج سايز",
+      "new_li_1001": "<strong>الإطلالة:</strong> 360 درجة",
+      "new_li_1002": "<strong>الشرفة:</strong> سطح خاص مع جاكوزي",
+      "new_li_1003": "<strong>المميزات:</strong> مسبح خاص، مطبخ مجهز بالكامل، سائق خاص",
       "terms_h2_10": "9. تعديل شروط الاستخدام",
       "terms_h2_11": "10. إنهاء الخدمة",
       "terms_h2_12": "11. القانون المطبق وتسوية النزاعات",
@@ -17286,6 +17724,13 @@ html[dir="ltr"] .lang-switcher {
       "new_span_833": "إجازة الأحلام",
       "new_span_837": "مغامرة فاخرة",
       "new_span_840": "تجربة فاخرة",
+      "new_span_931": "عرض بريميوم محدود",
+      "new_span_936": "مزية حصرية لقراء الموقع",
+      "new_span_944": "موقع متميز على كورنيش JBR",
+      "new_span_945": "إطلالة بانورامية على البحر والمرسى",
+      "new_span_946": "شاطئ خاص وبرك سباحة لا نهاية لها",
+      "new_span_947": "مطاعم الشيف والبارات العصرية",
+      "new_span_948": "قرب من أبرز المعالم السياحية",
       "privacy_h1_1": "سياسة الخصوصية",
       "privacy_h2_2": "1. جمع المعلومات",
       "privacy_h2_3": "2. استخدام المعلومات",
@@ -17413,6 +17858,8 @@ html[dir="ltr"] .lang-switcher {
       "login_span_32": "-₪0",
       "login_span_36": "-₪0",
       "login_span_40": "₪0",
+      "new_span_1007": "يجب أن تستند التفاصيل فقط إلى المصدر الرسمي والمحدّث لفنادق FIVE.",
+      "new_span_1048": "للحصول على الرمز عبر واتساب",
       "privacy_h3_10": "تصفح سريع",
       "privacy_h3_11": "تواصل معنا",
       "privacy_h3_12": "ساعات العمل",
@@ -17821,7 +18268,7 @@ html[dir="ltr"] .lang-switcher {
       "contact_span_55": "حل لكل طلب",
       "contact_span_57": "laloumdubai@gmail.com",
       "contact_span_58": "Nad al sheba gardens, Dubai, Uae",
-      "home_page_title": "مجلة",
+      "home_page_title": "فنادق FIVE في دبي – رمز خصم مميز",
       "hotels_link_105": "انتقل إلى المحتوى الرئيسي",
       "hotels_link_106": "احجز عبر واتساب",
       "hotels_link_107": "اطلب كود خصم خاص",
@@ -19109,7 +19556,7 @@ html[dir="ltr"] .lang-switcher {
       "category__slug_nav_86": "الأعياد والفعاليات اليهودية في دبي: ما يجب معرفته قبل الحجز",
       "category__slug_nav_87": "تواصل معنا",
       "category__slug_nav_88": "جميع المنتجات",
-      "home_meta_description": "Sarah laloum tourism llc - مجلة دبي للمسافر الإسرائيلي",
+      "home_meta_description": "Sarah laloum tourism llc - فنادق FIVE في دبي – رمز خصم مميز",
       "hotels_aria_label_205": "القائمة",
       "hotels_aria_label_206": "اتصل",
       "hotels_aria_label_207": "تذييل الموقع",
@@ -21467,6 +21914,10 @@ html[dir="ltr"] .lang-switcher {
       "new_a_885": "Safari dans le désert SAFARI DESERT",
       "new_a_887": "Le safari dans le désert de Dubaï est l'une des attractions les plus prisées des Émirats arabes unis. L'expérience comprend une balade sur les dunes, des spectacles de divertissement, un dîner de style bédouin et la possibilité de faire du chameau, du sandboard et d'autres activités. Un mélange parfait d'adrénaline, de paysages époustouflants et d'une atmosphère désertique authentique – une expérience à ne pas manquer lors de votre visite à Dubaï.",
       "new_a_911": "Cliquez ici pour envoyer un message",
+      "new_a_930": "FIVE",
+      "new_a_933": "FIVE Luxe JBR",
+      "new_a_934": "FIVE Palm Jumeirah",
+      "new_a_935": "Dubaï à la Maison",
       "new_p_407": "Supermarchés casher à Dubaï — les détails complets apparaîtront ici prochainement. 📞 Renseignements : +972 52-221-2578",
       "new_p_410": "Services de traiteur casher à Dubaï — les détails complets apparaîtront ici prochainement. 📞 Renseignements : +972 52-221-2578",
       "new_p_413": "Restaurants casher à Abu Dhabi — les détails complets apparaîtront ici prochainement. 📞 Renseignements : +972 52-221-2578",
@@ -21571,6 +22022,14 @@ html[dir="ltr"] .lang-switcher {
       "new_p_910": "<strong>WhatsApp :</strong> <a href=\"https://wa.me/972522212578\" target=\"_blank\">Cliquez ici pour envoyer un message</a>",
       "new_p_919": "<strong>Email :</strong> <a href=\"mailto:laloumdubai@gmail.com\">laloumdubai@gmail.com</a>",
       "new_p_920": "<strong>WhatsApp :</strong> <a href=\"https://wa.me/972522212578\" target=\"_blank\">Cliquez ici pour envoyer un message</a>",
+      "new_p_938": "Une expérience d'hébergement exceptionnelle au cœur de la marina de Dubaï, avec un code de réduction spécial réservé uniquement à vous.",
+      "new_p_940": "L'hôtel FIVE Luxe JBR est situé dans le quartier animé de la promenade de Jumeirah Beach Residence (JBR), l'un des secteurs les plus prisés de la ville. L'hôtel offre un accès direct à la plage privée, des piscines à débordement époustouflantes, ainsi qu'une variété de restaurants et de bars qui constituent un pôle d'attraction pour les fêtards et les touristes du monde entier.",
+      "new_p_941": "L'atmosphère de l'hôtel est un mélange gagnant de luxe moderne et d'énergie jeune et dynamique. C'est l'endroit idéal pour les couples, les groupes d'amis et les familles à la recherche de vacances dynamiques et inoubliables. Les chambres et suites sont décorées dans un style contemporain avec des vues panoramiques à couper le souffle sur la mer, la marina ou la skyline impressionnante de Dubaï.",
+      "new_p_942": "Parmi les nombreuses installations et services, vous trouverez un spa luxueux, une salle de sport bien équipée, un beach club, et une large gamme d'activités nautiques. L'emplacement central de l'hôtel permet un accès facile et rapide aux principales attractions de la ville, notamment le belvédère \"The View at The Palm\", le Marina Mall et la célèbre plage de JBR.",
+      "new_p_956": "<strong>Avantages :</strong> Accès au salon, mini-bar luxueux, machine à expresso",
+      "new_p_963": "<strong>Avantages :</strong> Salon séparé, salle de bain luxueuse avec baignoire",
+      "new_p_970": "<strong>Avantages :</strong> Service de butler personnel, jacuzzi privé sur le balcon",
+      "new_p_972": "Un hôtel de luxe iconique sur le front de mer de Palm Jumeirah, alliant un design audacieux, une vie nocturne animée et un hébergement au plus haut niveau. Une expérience de loisirs parfaite pour les voyageurs israéliens à la recherche de ce que Dubaï a de mieux à offrir.",
       "cart_li_57": "Dimanche–Jeudi 09h00–23h00",
       "cart_li_58": "Vendredi 09h00–16h00",
       "cart_li_59": "Samedi 21h00–23h00",
@@ -21616,6 +22075,7 @@ html[dir="ltr"] .lang-switcher {
       "login_h3_3": "Navigation rapide",
       "login_h3_4": "Contactez-nous",
       "login_h3_5": "Heures d'ouverture",
+      "new_a_1004": "<i class=\"fa-brands fa-whatsapp\" aria-hidden=\"true\"></i>\n        Recevoir un code de réduction pour FIVE Palm sur WhatsApp",
       "new_h1_739": "Dubaï au-delà du rêve",
       "new_h1_841": "Découvrez Dubaï\nÀ votre façon",
       "new_h1_851": "Dubaï vous attend",
@@ -21655,6 +22115,8 @@ html[dir="ltr"] .lang-switcher {
       "new_h2_899": "🚐 Transferts",
       "new_h2_902": "🏨 Hôtels",
       "new_h2_907": "📞 Contactez-nous",
+      "new_h2_937": "FIVE Luxe JBR",
+      "new_h2_971": "FIVE Palm Jumeirah",
       "new_h3_385": "KIKKOS SUSHI & MEAT",
       "new_h3_406": "Informations à venir",
       "new_h3_409": "Informations à venir",
@@ -21677,6 +22139,18 @@ html[dir="ltr"] .lang-switcher {
       "new_h3_868": "Roses ROSES",
       "new_h3_873": "Limousine de luxe à Dubaï  Luxury Limousine Dubai",
       "new_h3_884": "Safari dans le désert SAFARI DESERT",
+      "new_h3_932": "Obtenez l'accès à un code de réduction exclusif pour les luxueux hôtels FIVE et réservez votre chambre directement sur WhatsApp",
+      "new_h3_939": "Bienvenue au cœur battant de Dubaï",
+      "new_h3_943": "Les points forts de l'expérience",
+      "new_h3_949": "Types de chambres et suites",
+      "new_h3_973": "Tout sur l'hôtel",
+      "new_h3_982": "Chambres et suites",
+      "new_h4_950": "Chambre Deluxe avec vue sur la marina",
+      "new_h4_957": "Suite Premium avec vue sur la mer",
+      "new_h4_964": "Suite Sky avec vue sur la skyline",
+      "new_h4_983": "Chambre Deluxe avec vue sur la mer",
+      "new_h4_990": "Suite Panorama",
+      "new_h4_997": "Suite Penthouse",
       "new_li_896": "L'achat d'attractions est une <strong>transaction définitive</strong> — aucune annulation ni remboursement ne sera possible après l'achat.",
       "new_li_897": "Les conditions d'annulation sont soumises aux <strong>conditions du prestataire</strong> et conformément aux lois des Émirats arabes unis.",
       "new_li_898": "En cas d'<strong>annulations de vols dues à une guerre ou à un état d'urgence</strong> : Sarah laloum tourism contactera le prestataire pour prolonger la validité du billet. La prolongation de validité <strong>est soumise à la seule discrétion du prestataire de l'attraction</strong> — aucune approbation n'est garantie.",
@@ -21686,6 +22160,64 @@ html[dir="ltr"] .lang-switcher {
       "new_li_904": "Dans les cas où une annulation sera nécessaire : Sarah laloum tourism <strong>soumettra une demande d'annulation auprès de l'hôtel</strong>.",
       "new_li_905": "Si elle est approuvée — <strong>un avoir sera émis avec une validité d'un an seulement</strong> à compter de la date de réservation initiale.",
       "new_li_906": "<strong>Aucun remboursement ne sera effectué</strong> pour un paiement versé pour une réservation d'hôtel.",
+      "new_li_951": "<strong>Superficie :</strong> 45 m²",
+      "new_li_952": "<strong>Occupants :</strong> jusqu'à 2 adultes et un enfant",
+      "new_li_953": "<strong>Lits :</strong> King size",
+      "new_li_954": "<strong>Vue :</strong> Marina",
+      "new_li_955": "<strong>Balcon :</strong> Oui",
+      "new_li_958": "<strong>Superficie :</strong> 80 m²",
+      "new_li_959": "<strong>Occupants :</strong> jusqu'à 3 adultes",
+      "new_li_960": "<strong>Lits :</strong> King size + sofa bed",
+      "new_li_961": "<strong>Vue :</strong> Mer",
+      "new_li_962": "<strong>Balcon :</strong> Oui, spacieux",
+      "new_li_965": "<strong>Superficie :</strong> 120 m²",
+      "new_li_966": "<strong>Occupants :</strong> jusqu'à 4 adultes",
+      "new_li_967": "<strong>Lits :</strong> 2 King size",
+      "new_li_968": "<strong>Vue :</strong> La skyline et Palm Island",
+      "new_li_969": "<strong>Balcon :</strong> Oui, immense",
+      "new_li_974": "<strong>Emplacement :</strong> Palm Jumeirah, Dubaï – accès direct à la plage privée et à la promenade.",
+      "new_li_975": "<strong>Plage et piscines :</strong> Plage privée de sable blanc, magnifique piscine à débordement et piscines supplémentaires.",
+      "new_li_976": "<strong>Restaurants et divertissements :</strong> Restaurants de chef, bars, boîte de nuit et espaces de loisirs luxueux.",
+      "new_li_977": "<strong>Ambiance :</strong> Jeune, dynamique et pleine de style – parfait pour les couples et les amis.",
+      "new_li_978": "<strong>Chambres et suites :</strong> Chambres spacieuses au design moderne, suites avec vue sur la mer.",
+      "new_li_979": "<strong>Vue et balcons :</strong> Balcons privés avec vue panoramique sur la baie ou sur la skyline.",
+      "new_li_980": "<strong>Équipements et services :</strong> Spa, salle de sport, service en chambre 24h/24 et personnel multilingue.",
+      "new_li_981": "<strong>Attractions à proximité :</strong> À quelques pas d'Aqua-Venture, du beach club et de la promenade.",
+      "new_li_984": "<strong>Superficie :</strong> 45 m²",
+      "new_li_985": "<strong>Occupants :</strong> Jusqu'à 2 adultes + 1 enfant",
+      "new_li_986": "<strong>Literie :</strong> King size",
+      "new_li_987": "<strong>Vue :</strong> Mer et baie",
+      "new_li_988": "<strong>Balcon :</strong> Oui, privé",
+      "new_li_989": "<strong>Avantages :</strong> Salle de bain luxueuse, machine à café, mini-bar",
+      "new_li_991": "<strong>Superficie :</strong> 70 m²",
+      "new_li_992": "<strong>Occupants :</strong> Jusqu'à 3 adultes",
+      "new_li_993": "<strong>Literie :</strong> King + canapé-lit",
+      "new_li_994": "<strong>Vue :</strong> Vue panoramique sur la mer et Palm",
+      "new_li_995": "<strong>Balcon :</strong> Oui, spacieux",
+      "new_li_996": "<strong>Avantages :</strong> Salon privé, service de conciergerie personnalisé",
+      "new_li_998": "<strong>Superficie :</strong> 120 m²",
+      "new_li_999": "<strong>Occupants :</strong> Jusqu'à 4 adultes",
+      "new_p_1006": "Une offre luxueuse exclusive pour nos clients — bénéficiez d'avantages exclusifs dans les hôtels FIVE à Dubaï. Tous les détails et réservations directement sur WhatsApp.",
+      "new_p_1009": "Des avantages exclusifs adaptés aux clients des hôtels FIVE, incluant des surclassements, des crédits et des attentions haut de gamme.",
+      "new_p_1011": "L'offre est disponible dans les hôtels sélectionnés du groupe FIVE à Dubaï, sous réserve de disponibilité et des conditions de réservation.",
+      "new_p_1013": "Un séjour minimum de plusieurs nuits peut être requis pour bénéficier des avantages. Les détails seront confirmés avec l'hôtel.",
+      "new_p_1015": "L'expérience d'hébergement peut inclure l'accès à des attractions sélectionnées, un crédit spa ou des expériences gastronomiques uniques.",
+      "new_p_1017": "Nous contacter directement sur WhatsApp vous garantit de recevoir le code de réduction et un accompagnement complet tout au long du processus de réservation.",
+      "new_p_1019": "L'offre est valable uniquement pour des dates spécifiques, sous réserve de disponibilité et de la politique de l'hôtel à tout moment.",
+      "new_p_1021": "Les avantages sont soumis aux conditions de l'hôtel, au type de chambre, à la disponibilité et à la date de réservation. Ne pas se fier à des informations non vérifiées.",
+      "new_p_1023": "Il est possible de vérifier la possibilité de combiner les avantages avec le code de réduction. Les détails seront confirmés avec un représentant de l'hôtel.",
+      "new_p_1024": "Les avantages, la disponibilité et les conditions de l'offre peuvent varier en fonction des dates de séjour, du type de chambre et des conditions de l'hôtel.",
+      "new_p_1026": "Trois étapes simples vers le séjour parfait dans les hôtels FIVE à Dubaï — sans frais d'intermédiaire, directement avec l'hôtel.",
+      "new_p_1028": "Cliquez sur l'un des boutons WhatsApp de la page et envoyez-nous un message. Notre équipe est disponible pour répondre à toutes vos questions.",
+      "new_p_1030": "Nous vous recontacterons rapidement avec un code de réduction unique et exclusif, spécialement adapté pour vous et pour les dates de vos vacances.",
+      "new_p_1032": "Choisissez un hôtel, des dates et une chambre sur le site officiel de FIVE Hotels & Resorts, puis saisissez le code dans le champ Promo Code.",
+      "new_p_1034": "Oui, la réservation et le paiement s'effectuent directement via le site officiel des hôtels FIVE. Nous vous fournissons le code de réduction et un accompagnement professionnel, mais la transaction elle-même est conclue avec l'hôtel.",
+      "new_p_1036": "Lors du processus de réservation sur le site officiel, recherchez le champ « Code promo » ou « Code coupon ». Le code que vous recevrez de notre part via WhatsApp doit être collé dans ce champ avant de finaliser le paiement.",
+      "new_p_1038": "La disponibilité varie en fonction des dates et du taux d'occupation de l'hôtel. Le code peut ne pas être valable pendant les périodes de pointe ou lors d'événements spéciaux. Il est recommandé de vérifier la disponibilité sur le site officiel.",
+      "new_p_1040": "Le code est valable pour une large gamme de chambres et de suites, mais certaines restrictions peuvent s'appliquer à certains types de chambres. Les conditions exactes sont détaillées sur le site officiel de FIVE lors de la réservation.",
+      "new_p_1042": "Les avantages et réductions ne sont pas cumulables, sauf indication contraire explicite. Veuillez vérifier les conditions de cumul auprès de l'équipe des réservations de l'hôtel ou sur le site officiel.",
+      "new_p_1044": "Absolument ! Nous sommes spécialisés dans l'expérience FIVE à Dubaï et nous serons ravis de vous aider à choisir l'hôtel et la chambre les mieux adaptés à vos besoins. Contactez-nous sur WhatsApp pour un conseil personnalisé et gratuit.",
+      "new_p_1046": "Toute modification, annulation ou demande spéciale est traitée directement avec l'équipe des réservations des hôtels FIVE, conformément à la politique et aux conditions détaillées sur le site officiel lors de la réservation.",
       "terms_h1_1": "Conditions d'utilisation",
       "terms_h2_2": "1. Définitions",
       "terms_h2_3": "2. Description des services",
@@ -21830,6 +22362,31 @@ html[dir="ltr"] .lang-switcher {
       "new_div_916": "<span>Total :</span>\n      <span id=\"cart-drawer-total\">₪0</span>",
       "new_div_927": "<span class=\"blog-blog-grid-section__card-date\">8 janvier 2025</span>\n        <span class=\"blog-blog-grid-section__card-dot\" style=\"color: #1A1A1A !important\">·</span>\n        <span class=\"blog-blog-grid-section__card-read-time\">5 minutes de lecture</span>",
       "new_div_929": "<span class=\"blog-blog-grid-section__card-date\">1 janvier 2025</span>\n        <span class=\"blog-blog-grid-section__card-dot\" style=\"color: #1A1A1A !important\">·</span>\n        <span class=\"blog-blog-grid-section__card-read-time\">5 minutes de lecture</span>",
+      "new_h2_1005": "Dubaï Offert",
+      "new_h2_1025": "Comment obtenir et utiliser le code ?",
+      "new_h2_1047": "Vous souhaitez obtenir le code de réduction ou de l'aide pour choisir un hôtel FIVE ?",
+      "new_h3_1008": "Ce que comprend l'offre",
+      "new_h3_1010": "Dans quels hôtels l'offre est-elle valable",
+      "new_h3_1012": "Nombre de nuits minimum",
+      "new_h3_1014": "Avantages ou attractions inclus",
+      "new_h3_1016": "Comment réserver les avantages",
+      "new_h3_1018": "Dates de l'offre",
+      "new_h3_1020": "Conditions et exclusions",
+      "new_h3_1022": "Combinaison avec le code de réduction",
+      "new_h3_1027": "Contactez-nous sur WhatsApp",
+      "new_h3_1029": "Recevez votre code de réduction personnalisé",
+      "new_h3_1031": "Saisissez le code sur le site officiel",
+      "new_h3_1033": "La réservation s'effectue-t-elle directement sur le site officiel de FIVE ?",
+      "new_h3_1035": "Où saisir le code de réduction ?",
+      "new_h3_1037": "Le code est-il valable pour toutes les dates ?",
+      "new_h3_1039": "Le code est-il valable pour tous les types de chambres ?",
+      "new_h3_1041": "Est-il possible de combiner le code avec Dubai On The House ?",
+      "new_h3_1043": "Est-il possible d'obtenir de l'aide pour choisir l'hôtel et la chambre ?",
+      "new_h3_1045": "Qui est responsable de la modification ou de l'annulation de la réservation ?",
+      "new_li_1000": "<strong>Literie :</strong> 2 King size",
+      "new_li_1001": "<strong>Vue :</strong> 360 degrés",
+      "new_li_1002": "<strong>Balcon :</strong> Toit-terrasse privé avec jacuzzi",
+      "new_li_1003": "<strong>Avantages :</strong> Piscine privée, cuisine équipée, chauffeur attitré",
       "terms_h2_10": "9. Modification des conditions d'utilisation",
       "terms_h2_11": "10. Résiliation du service",
       "terms_h2_12": "11. Droit applicable et règlement des litiges",
@@ -22071,6 +22628,13 @@ html[dir="ltr"] .lang-switcher {
       "new_span_833": "Vacances de rêve",
       "new_span_837": "Aventure de luxe",
       "new_span_840": "Expérience de luxe",
+      "new_span_931": "Offre premium limitée",
+      "new_span_936": "Avantage exclusif pour les lecteurs du site",
+      "new_span_944": "Emplacement idéal sur la promenade JBR",
+      "new_span_945": "Vue panoramique sur la mer et la marina",
+      "new_span_946": "Plage privée et piscines à débordement",
+      "new_span_947": "Restaurants de chef et bars tendance",
+      "new_span_948": "Proximité des principales attractions",
       "privacy_h1_1": "Politique de confidentialité",
       "privacy_h2_2": "1. Collecte d'informations",
       "privacy_h2_3": "2. Utilisation des informations",
@@ -22198,6 +22762,8 @@ html[dir="ltr"] .lang-switcher {
       "login_span_32": "-₪0",
       "login_span_36": "-₪0",
       "login_span_40": "₪0",
+      "new_span_1007": "Les informations doivent être basées uniquement sur des sources officielles et à jour des hôtels FIVE.",
+      "new_span_1048": "Recevoir le code par WhatsApp",
       "privacy_h3_10": "Navigation rapide",
       "privacy_h3_11": "Contactez-nous",
       "privacy_h3_12": "Heures d'ouverture",
@@ -22606,7 +23172,7 @@ html[dir="ltr"] .lang-switcher {
       "contact_span_55": "Une solution pour chaque demande",
       "contact_span_57": "laloumdubai@gmail.com",
       "contact_span_58": "Nad al sheba gardens, Dubai, Uae",
-      "home_page_title": "Magazine",
+      "home_page_title": "Hôtels FIVE à Dubaï – Code de réduction spécial",
       "hotels_link_105": "Passer au contenu principal",
       "hotels_link_106": "Réservez via WhatsApp",
       "hotels_link_107": "Demandez un code de réduction spécial",
@@ -23894,7 +24460,7 @@ html[dir="ltr"] .lang-switcher {
       "category__slug_nav_86": "Fêtes et événements juifs à Dubaï : ce qu'il faut savoir avant de réserver",
       "category__slug_nav_87": "Contactez-nous",
       "category__slug_nav_88": "Tous les produits",
-      "home_meta_description": "Sarah laloum tourism llc - Magazine de Dubaï pour le voyageur israélien",
+      "home_meta_description": "Sarah laloum tourism llc - Hôtels FIVE à Dubaï – Code de réduction spécial",
       "hotels_aria_label_205": "Menu",
       "hotels_aria_label_206": "Appeler",
       "hotels_aria_label_207": "Pied de page du site",
@@ -26252,6 +26818,10 @@ html[dir="ltr"] .lang-switcher {
       "new_a_885": "Сафари в пустыне SAFARI DESERT",
       "new_a_887": "Тур по пустыне в Дубае – одна из самых популярных достопримечательностей ОАЭ. Опыт включает езду по дюнам, развлекательные шоу, ужин в бедуинском стиле и возможность катания на верблюдах, сэндбординга и других активностей. Идеальное сочетание адреналина, захватывающих пейзажей и аутентичной атмосферы пустыни – впечатление, которое нельзя пропустить во время визита в Дубай.",
       "new_a_911": "Нажмите здесь, чтобы отправить сообщение",
+      "new_a_930": "FIVE",
+      "new_a_933": "FIVE Luxe JBR",
+      "new_a_934": "FIVE Palm Jumeirah",
+      "new_a_935": "Дубай На Халяву",
       "new_p_407": "Кошерные супермаркеты в Дубае — подробная информация появится здесь в ближайшее время. 📞 По вопросам: +972 52-221-2578",
       "new_p_410": "Услуги кошерного кейтеринга в Дубае — подробная информация появится здесь в ближайшее время. 📞 По вопросам: +972 52-221-2578",
       "new_p_413": "Кошерные рестораны в Абу-Даби — подробная информация появится здесь в ближайшее время. 📞 По вопросам: +972 52-221-2578",
@@ -26356,6 +26926,14 @@ html[dir="ltr"] .lang-switcher {
       "new_p_910": "<strong>WhatsApp:</strong> <a href=\"https://wa.me/972522212578\" target=\"_blank\">Нажмите здесь, чтобы отправить сообщение</a>",
       "new_p_919": "<strong>Электронная почта:</strong> <a href=\"mailto:laloumdubai@gmail.com\">laloumdubai@gmail.com</a>",
       "new_p_920": "<strong>WhatsApp:</strong> <a href=\"https://wa.me/972522212578\" target=\"_blank\">Нажмите здесь, чтобы отправить сообщение</a>",
+      "new_p_938": "Исключительный опыт гостеприимства в самом сердце Дубай Марины, со специальным кодом скидки, предназначенным только для вас.",
+      "new_p_940": "Отель FIVE Luxe JBR расположен в оживлённом районе набережной Jumeirah Beach Residence (JBR) — одном из самых востребованных мест города. Отель предлагает прямой выход на частный пляж, потрясающие бассейны с эффектом бесконечности, а также разнообразные рестораны и бары, притягивающие любителей ночной жизни и туристов со всего мира.",
+      "new_p_941": "Атмосфера отеля — это выигрышное сочетание современной роскоши и молодой, кипучей энергии. Это идеальное место для пар, компаний друзей и семей, ищущих динамичный и незабываемый отдых. Номера и сьюты оформлены в современном стиле с захватывающими панорамными видами на море, марину или впечатляющий горизонт Дубая.",
+      "new_p_942": "Среди множества удобств и услуг вы найдёте роскошный спа-центр, хорошо оснащённый тренажёрный зал, пляжный клуб и широкий выбор водных видов спорта. Центральное расположение отеля обеспечивает удобный и быстрый доступ к главным достопримечательностям города, включая смотровую площадку «The View at The Palm», торговый центр Marina Mall и знаменитый пляж JBR.",
+      "new_p_956": "<strong>Преимущества:</strong> доступ в лаунж, роскошный мини-бар, кофемашина эспрессо",
+      "new_p_963": "<strong>Преимущества:</strong> отдельная гостиная, роскошная ванная комната с ванной",
+      "new_p_970": "<strong>Преимущества:</strong> персональный дворецкий, частное джакузи на балконе",
+      "new_p_972": "Культовый роскошный отель на берегу Palm Jumeirah, сочетающий смелый дизайн, яркую ночную жизнь и гостеприимство высочайшего уровня. Идеальный отдых для путешественников, ищущих всё лучшее, что может предложить Дубай.",
       "cart_li_57": "Понедельник–Четверг 09:00–23:00",
       "cart_li_58": "Пятница 09:00–16:00",
       "cart_li_59": "Суббота 21:00–23:00",
@@ -26401,6 +26979,7 @@ html[dir="ltr"] .lang-switcher {
       "login_h3_3": "Быстрая навигация",
       "login_h3_4": "Связаться с нами",
       "login_h3_5": "Часы работы",
+      "new_a_1004": "<i class=\"fa-brands fa-whatsapp\" aria-hidden=\"true\"></i>\n        Получить код скидки на FIVE Palm в WhatsApp",
       "new_h1_739": "Дубай за пределами мечты",
       "new_h1_841": "Откройте Дубай\nпо-своему",
       "new_h1_851": "Дубай ждёт тебя",
@@ -26440,6 +27019,8 @@ html[dir="ltr"] .lang-switcher {
       "new_h2_899": "🚐 Трансферы",
       "new_h2_902": "🏨 Отели",
       "new_h2_907": "📞 Связаться с нами",
+      "new_h2_937": "FIVE Luxe JBR",
+      "new_h2_971": "FIVE Palm Jumeirah",
       "new_h3_385": "KIKKOS SUSHI & MEAT",
       "new_h3_406": "Информация скоро",
       "new_h3_409": "Информация скоро",
@@ -26462,6 +27043,18 @@ html[dir="ltr"] .lang-switcher {
       "new_h3_868": "Розы ROSES",
       "new_h3_873": "Роскошный лимузин в Дубае Luxury Limousine Dubai",
       "new_h3_884": "Сафари в пустыне SAFARI DESERT",
+      "new_h3_932": "Получите доступ к эксклюзивному коду скидки на роскошные отели FIVE и забронируйте номер напрямую через WhatsApp",
+      "new_h3_939": "Добро пожаловать в пульсирующее сердце Дубая",
+      "new_h3_943": "Основные особенности",
+      "new_h3_949": "Типы номеров и сьютов",
+      "new_h3_973": "Всё об отеле",
+      "new_h3_982": "Номера и сюиты",
+      "new_h4_950": "Номер Делюкс с видом на марину",
+      "new_h4_957": "Премиальный сьют с видом на море",
+      "new_h4_964": "Сьют Sky с видом на горизонт",
+      "new_h4_983": "Делюкс с видом на море",
+      "new_h4_990": "Панорамная сюита",
+      "new_h4_997": "Сюита Пентхаус",
       "new_li_896": "Покупка аттракционов является <strong>окончательной сделкой</strong> — после покупки отмена или возврат денежных средств невозможны.",
       "new_li_897": "Условия отмены подчиняются <strong>условиям поставщика</strong> и законодательству ОАЭ.",
       "new_li_898": "В случае <strong>отмены рейсов вследствие войны или чрезвычайной ситуации</strong>: Sarah laloum tourism обратится к поставщику с просьбой продлить срок действия билета. Продление срока действия <strong>остаётся на усмотрении поставщика аттракциона</strong> — одобрение не гарантируется.",
@@ -26471,6 +27064,64 @@ html[dir="ltr"] .lang-switcher {
       "new_li_904": "В случаях, когда потребуется отмена: Sarah laloum tourism <strong>подаст запрос на отмену в отель</strong>.",
       "new_li_905": "В случае одобрения — <strong>будет предоставлен кредит сроком действия только один год</strong> с даты первоначального бронирования.",
       "new_li_906": "<strong>Возврат денежных средств не производится</strong> за оплату, внесённую за бронирование отеля.",
+      "new_li_951": "<strong>Площадь:</strong> 45 м²",
+      "new_li_952": "<strong>Гости:</strong> до 2 взрослых и ребёнка",
+      "new_li_953": "<strong>Кровати:</strong> King Size",
+      "new_li_954": "<strong>Вид:</strong> марина",
+      "new_li_955": "<strong>Балкон:</strong> да",
+      "new_li_958": "<strong>Площадь:</strong> 80 м²",
+      "new_li_959": "<strong>Гости:</strong> до 3 взрослых",
+      "new_li_960": "<strong>Кровати:</strong> King Size + sofa bed",
+      "new_li_961": "<strong>Вид:</strong> море",
+      "new_li_962": "<strong>Балкон:</strong> да, просторный",
+      "new_li_965": "<strong>Площадь:</strong> 120 м²",
+      "new_li_966": "<strong>Гости:</strong> до 4 взрослых",
+      "new_li_967": "<strong>Кровати:</strong> 2 King Size",
+      "new_li_968": "<strong>Вид:</strong> горизонт города и остров Палм",
+      "new_li_969": "<strong>Балкон:</strong> да, огромный",
+      "new_li_974": "<strong>Расположение:</strong> Palm Jumeirah, Дубай — прямой выход на частный пляж и набережную.",
+      "new_li_975": "<strong>Пляж и бассейны:</strong> белоснежный частный пляж, потрясающий инфинити-бассейн и дополнительные бассейны.",
+      "new_li_976": "<strong>Рестораны и развлечения:</strong> авторские рестораны, бары, ночной клуб и роскошные зоны отдыха.",
+      "new_li_977": "<strong>Атмосфера:</strong> молодая, динамичная и стильная — идеально для пар и друзей.",
+      "new_li_978": "<strong>Номера и сьюты:</strong> просторные номера в современном дизайне, сьюты с видом на море.",
+      "new_li_979": "<strong>Вид и балконы:</strong> частные балконы с панорамным видом на залив или горизонт города.",
+      "new_li_980": "<strong>Удобства и услуги:</strong> спа, тренажёрный зал, круглосуточное обслуживание номеров и многоязычный персонал.",
+      "new_li_981": "<strong>Ближайшие достопримечательности:</strong> в нескольких минутах от Aqua-Venture, пляжного клуба и набережной.",
+      "new_li_984": "<strong>Площадь:</strong> 45 м²",
+      "new_li_985": "<strong>Гости:</strong> до 2 взрослых + ребёнок",
+      "new_li_986": "<strong>Кровати:</strong> King Size",
+      "new_li_987": "<strong>Вид:</strong> море и залив",
+      "new_li_988": "<strong>Балкон:</strong> да, частный",
+      "new_li_989": "<strong>Преимущества:</strong> роскошная ванная комната, кофемашина, мини-бар",
+      "new_li_991": "<strong>Площадь:</strong> 70 м²",
+      "new_li_992": "<strong>Гости:</strong> до 3 взрослых",
+      "new_li_993": "<strong>Кровати:</strong> King + раскладной диван",
+      "new_li_994": "<strong>Вид:</strong> панорамный вид на море и Palm",
+      "new_li_995": "<strong>Балкон:</strong> да, просторный",
+      "new_li_996": "<strong>Преимущества:</strong> частная гостиная, персональный консьерж-сервис",
+      "new_li_998": "<strong>Площадь:</strong> 120 м²",
+      "new_li_999": "<strong>Гости:</strong> до 4 взрослых",
+      "new_p_1006": "Эксклюзивное предложение для наших клиентов — получите уникальные привилегии в отелях FIVE в Дубае. Все подробности и бронирование напрямую в WhatsApp.",
+      "new_p_1009": "Уникальные привилегии, разработанные специально для гостей отелей FIVE, включая апгрейды, кредиты и приятные бонусы.",
+      "new_p_1011": "Акция доступна в избранных отелях сети FIVE в Дубае, в зависимости от наличия мест и условий бронирования.",
+      "new_p_1013": "Для получения привилегий может потребоваться минимальное пребывание в течение нескольких ночей. Детали уточняются непосредственно с отелем.",
+      "new_p_1015": "Пребывание может включать доступ к избранным аттракциям, кредит на спа-услуги или уникальные гастрономические впечатления.",
+      "new_p_1017": "Свяжитесь с нами напрямую в WhatsApp — мы предоставим код скидки и полное сопровождение в процессе бронирования.",
+      "new_p_1019": "Акция действует только в определённые даты, в зависимости от наличия мест и политики отеля в каждый конкретный момент.",
+      "new_p_1021": "Привилегии зависят от условий отеля, типа номера, наличия мест и даты бронирования. Не следует полагаться на непроверенную информацию.",
+      "new_p_1023": "Возможность совмещения привилегий с кодом скидки уточняется у представителя отеля.",
+      "new_p_1024": "Привилегии, доступность и условия акции могут изменяться в зависимости от дат пребывания, типа номера и условий отеля.",
+      "new_p_1026": "Три простых шага к идеальному отдыху в отелях FIVE в Дубае — без посреднических комиссий, напрямую с отелем.",
+      "new_p_1028": "Нажмите на одну из кнопок WhatsApp на странице и отправьте нам сообщение. Наша команда готова ответить на любые ваши вопросы.",
+      "new_p_1030": "Мы свяжемся с вами в ближайшее время и предоставим уникальный эксклюзивный код скидки, специально подобранный для вас и дат вашего отпуска.",
+      "new_p_1032": "Выберите отель, даты и номер на официальном сайте FIVE Hotels & Resorts и введите код в поле Promo Code.",
+      "new_p_1034": "Да, бронирование и оплата производятся напрямую через официальный сайт отелей FIVE. Мы предоставляем вам код скидки и профессиональное сопровождение, однако сама сделка заключается непосредственно с отелем.",
+      "new_p_1036": "В процессе бронирования на официальном сайте найдите поле «Промокод» или «Код купона». Код, полученный от нас в WhatsApp, необходимо вставить в это поле до завершения оплаты.",
+      "new_p_1038": "Доступность зависит от дат и загруженности отеля. Код может не действовать в пиковые даты или во время особых мероприятий. Рекомендуем проверить доступность на официальном сайте.",
+      "new_p_1040": "Код действителен для широкого спектра номеров и сьютов, однако на некоторые категории номеров могут распространяться ограничения. Точные условия указаны на официальном сайте FIVE при оформлении бронирования.",
+      "new_p_1042": "Акции и скидки не суммируются, если иное не указано явно. Условия совмещения следует уточнять у команды по бронированию отеля или на официальном сайте.",
+      "new_p_1044": "Конечно! Мы специализируемся на опыте пребывания в FIVE в Дубае и будем рады помочь вам выбрать наиболее подходящий отель и номер под ваши потребности. Свяжитесь с нами в WhatsApp для бесплатной персональной консультации.",
+      "new_p_1046": "Любые изменения, отмены или особые запросы обрабатываются напрямую командой по бронированию отелей FIVE в соответствии с политикой и условиями, указанными на официальном сайте при оформлении бронирования.",
       "terms_h1_1": "Условия использования",
       "terms_h2_2": "1. Определения",
       "terms_h2_3": "2. Описание услуг",
@@ -26615,6 +27266,31 @@ html[dir="ltr"] .lang-switcher {
       "new_div_916": "<span>Итого:</span>\n      <span id=\"cart-drawer-total\">₪0</span>",
       "new_div_927": "<span class=\"blog-blog-grid-section__card-date\">8 января 2025</span>\n        <span class=\"blog-blog-grid-section__card-dot\" style=\"color: #1A1A1A !important\">·</span>\n        <span class=\"blog-blog-grid-section__card-read-time\">5 минут чтения</span>",
       "new_div_929": "<span class=\"blog-blog-grid-section__card-date\">1 января 2025</span>\n        <span class=\"blog-blog-grid-section__card-dot\" style=\"color: #1A1A1A !important\">·</span>\n        <span class=\"blog-blog-grid-section__card-read-time\">5 минут чтения</span>",
+      "new_h2_1005": "Дубай за счёт заведения",
+      "new_h2_1025": "Как получить и использовать код?",
+      "new_h2_1047": "Хотите получить код скидки или помощь в выборе отеля FIVE?",
+      "new_h3_1008": "Что включает акция",
+      "new_h3_1010": "В каких отелях действует акция",
+      "new_h3_1012": "Минимальное количество ночей",
+      "new_h3_1014": "Включённые привилегии и аттракции",
+      "new_h3_1016": "Как воспользоваться привилегиями",
+      "new_h3_1018": "Даты проведения акции",
+      "new_h3_1020": "Условия и исключения",
+      "new_h3_1022": "Совмещение с кодом скидки",
+      "new_h3_1027": "Свяжитесь с нами в WhatsApp",
+      "new_h3_1029": "Получите персональный код скидки",
+      "new_h3_1031": "Вводите код на официальном сайте",
+      "new_h3_1033": "Бронирование осуществляется напрямую через официальный сайт FIVE?",
+      "new_h3_1035": "Где вводить код скидки?",
+      "new_h3_1037": "Действует ли код на все даты?",
+      "new_h3_1039": "Действует ли код на все типы номеров?",
+      "new_h3_1041": "Можно ли совмещать код с Dubai On The House?",
+      "new_h3_1043": "Можно ли получить помощь в выборе отеля и номера?",
+      "new_h3_1045": "Кто отвечает за изменение или отмену бронирования?",
+      "new_li_1000": "<strong>Кровати:</strong> 2 King Size",
+      "new_li_1001": "<strong>Вид:</strong> 360 градусов",
+      "new_li_1002": "<strong>Балкон:</strong> частная крыша с джакузи",
+      "new_li_1003": "<strong>Преимущества:</strong> частный бассейн, оборудованная кухня, личный водитель",
       "terms_h2_10": "9. Изменение условий использования",
       "terms_h2_11": "10. Прекращение обслуживания",
       "terms_h2_12": "11. Применимое право и разрешение споров",
@@ -26856,6 +27532,13 @@ html[dir="ltr"] .lang-switcher {
       "new_span_833": "Отпуск мечты",
       "new_span_837": "Роскошное приключение",
       "new_span_840": "Роскошный опыт",
+      "new_span_931": "Ограниченное премиальное предложение",
+      "new_span_936": "Эксклюзивное преимущество для читателей сайта",
+      "new_span_944": "Выгодное расположение на набережной JBR",
+      "new_span_945": "Панорамный вид на море и марину",
+      "new_span_946": "Частный пляж и бассейны с эффектом бесконечности",
+      "new_span_947": "Авторские рестораны и модные бары",
+      "new_span_948": "Близость к главным достопримечательностям",
       "privacy_h1_1": "Политика конфиденциальности",
       "privacy_h2_2": "1. Сбор информации",
       "privacy_h2_3": "2. Использование информации",
@@ -26983,6 +27666,8 @@ html[dir="ltr"] .lang-switcher {
       "login_span_32": "-₪0",
       "login_span_36": "-₪0",
       "login_span_40": "₪0",
+      "new_span_1007": "Информация должна основываться исключительно на официальных и актуальных источниках отелей FIVE.",
+      "new_span_1048": "Получить код в WhatsApp",
       "privacy_h3_10": "Быстрая навигация",
       "privacy_h3_11": "Связаться с нами",
       "privacy_h3_12": "Часы работы",
@@ -27391,7 +28076,7 @@ html[dir="ltr"] .lang-switcher {
       "contact_span_55": "Решение для любого запроса",
       "contact_span_57": "laloumdubai@gmail.com",
       "contact_span_58": "Nad al sheba gardens, Дубай, ОАЭ",
-      "home_page_title": "Журнал",
+      "home_page_title": "Отели FIVE в Дубае – специальный код скидки",
       "hotels_link_105": "Перейти к основному содержимому",
       "hotels_link_106": "Забронировать через WhatsApp",
       "hotels_link_107": "Запросить специальный код скидки",
@@ -28679,7 +29364,7 @@ html[dir="ltr"] .lang-switcher {
       "category__slug_nav_86": "Еврейские праздники и мероприятия в Дубае: что важно знать перед бронированием",
       "category__slug_nav_87": "Свяжитесь с нами",
       "category__slug_nav_88": "Все продукты",
-      "home_meta_description": "Sarah laloum tourism llc - Журнал Дубая для израильского путешественника",
+      "home_meta_description": "Sarah laloum tourism llc - Отели FIVE в Дубае – специальный код скидки",
       "hotels_aria_label_205": "Меню",
       "hotels_aria_label_206": "Позвонить",
       "hotels_aria_label_207": "Нижний колонтитул сайта",
@@ -32247,6 +32932,6 @@ html[dir="ltr"] .lang-switcher {
   window.addEventListener('resize', fixLanguageSwitcherColor);
 })();
 </script>    <script id="zappy-facebook-pixel-lazy-loader">
-(function(){var pixelIds=["1910654976521483"];if(!pixelIds.length||window.__zappyFacebookPixelLazyLoader)return;window.__zappyFacebookPixelLazyLoader=true;var loaded=false;function hasMarketingConsent(){try{var cc=window.CookieConsent;if(!cc||typeof cc.acceptedCategory!=='function')return false;return !!cc.acceptedCategory('marketing');}catch(e){return false;}}function load(){if(loaded||!hasMarketingConsent())return;loaded=true;!function(f,b,e,v,n,t,s){if(f.fbq&&f.fbq.loaded)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');pixelIds.forEach(function(id){try{fbq('init',id);}catch(e){}});try{fbq('track','PageView');}catch(e){}}function tryLoad(){load();}['cc:onConsent','cc:onChange','cc:onFirstConsent'].forEach(function(evt){window.addEventListener(evt,tryLoad);});var attempts=0;var timer=setInterval(function(){attempts++;tryLoad();if(loaded||attempts>60)clearInterval(timer);},500);if('requestIdleCallback'in window){requestIdleCallback(tryLoad,{timeout:8000});}else{setTimeout(tryLoad,6000);}})();
+(function(){var pixelIds=["1910654976521483"];if(!pixelIds.length||window.__zappyFacebookPixelLazyLoader)return;window.__zappyFacebookPixelLazyLoader=true;var loaded=false;function hasMarketingConsent(){try{var cc=window.CookieConsent;if(!cc||typeof cc.acceptedCategory!=='function')return false;return !!cc.acceptedCategory('marketing');}catch(e){return false;}}function load(){if(loaded||!hasMarketingConsent())return;loaded=true;!function(f,b,e,v,n,t,s){if(f.fbq&&f.fbq.loaded)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');pixelIds.forEach(function(id){try{fbq('init',id);}catch(e){}});try{fbq('track','PageView');}catch(e){}try{if(typeof window.zappyFlushPendingMetaEvents==='function'){window.zappyFlushPendingMetaEvents();}else if(window.__zappyPendingMetaEvents&&window.__zappyPendingMetaEvents.length){var q=window.__zappyPendingMetaEvents;window.__zappyPendingMetaEvents=[];for(var i=0;i<q.length;i++){try{fbq('track',q[i].eventName,q[i].params||{});}catch(e2){}}}}catch(e3){}}function tryLoad(){load();}['cc:onConsent','cc:onChange','cc:onFirstConsent'].forEach(function(evt){window.addEventListener(evt,tryLoad);});var attempts=0;var timer=setInterval(function(){attempts++;tryLoad();if(loaded||attempts>60)clearInterval(timer);},500);if('requestIdleCallback'in window){requestIdleCallback(tryLoad,{timeout:8000});}else{setTimeout(tryLoad,6000);}})();
 </script>
 </body></html>
