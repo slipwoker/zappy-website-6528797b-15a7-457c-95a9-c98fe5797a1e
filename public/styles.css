@@ -27526,6 +27526,14 @@ main,
   object-position: 50% 50% !important;
 }
 }
+
+#five-luxe .five-showcase-room-figure img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  max-width: none !important;
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
