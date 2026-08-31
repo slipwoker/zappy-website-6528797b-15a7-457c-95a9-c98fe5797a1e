@@ -942,7 +942,7 @@
   "login_nav_89": "Свяжитесь с нами",
   "login_nav_90": "Все продукты",
   "new_div_1093": "<span class=\"hero-badge\">Роскошный отель 5 звёзд</span>\n          <span class=\"hero-badge hero-badge-outline\">Al Habtoor City</span>",
-  "new_div_1098": "<span class=\"hero-tag\"><i class=\"fas fa-star\" aria-hidden=\"true\"></i> 5 звёзд</span>\n          <span class=\"hero-tag\"><i class=\"fas fa-city\" aria-hidden=\"true\"></i> Al Habtoor City</span>\n          <span class=\"hero-tag\"><i class=\"fas fa-water\" aria-hidden=\"true\"></i> Канал Дубая</span>\n          <span class=\"hero-tag\"><i class=\"fas fa-users\" aria-hidden=\"true\"></i> Подходит для семей</span>",
+  "new_div_1098": "<span class=\"hilton-hero-tag\">5 звёзд</span>\n          <span class=\"hilton-hero-tag\">Al Habtoor City</span>\n          <span class=\"hilton-hero-tag\">Канал Дубая</span>\n          <span class=\"hilton-hero-tag\">Подходит для семей</span>",
   "new_div_1113": "<span class=\"about-address-label\">Адрес:</span>\n            <span class=\"about-address-text\">Al Habtoor City, Sheikh Zayed Road, Dubai, UAE</span>",
   "new_span_391": "📞 +971 58 577 3053",
   "new_span_394": "📞 +97154113322",
