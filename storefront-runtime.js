@@ -17865,6 +17865,69 @@ async function loadRelatedProducts(currentProduct, t) {
 })();
 /* ZAPPY_CUSTOM_JS_END:93e1d6c9d085 */
 
+/* ZAPPY_CUSTOM_JS_START:48ac8747443c */
+(function () {
+  function __zappyCustomInit() {
+    try {
+(function(){
+  function trackWhatsApp(el){
+    try {
+      if (window.dataLayer) window.dataLayer.push({event:'whatsapp_click'});
+    } catch(e){}
+    try {
+      if (typeof gtag === 'function') gtag('event','whatsapp_click');
+    } catch(e){}
+    try {
+      if (typeof fbq === 'function') fbq('track','whatsapp_click');
+    } catch(e){}
+  }
+  function bindAll(){
+    document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach(function(a){
+      if (a.__waBound) return;
+      a.__waBound = true;
+      a.addEventListener('click', function(){ trackWhatsApp(a); }, true);
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bindAll);
+  } else {
+    bindAll();
+  }
+  // re-bind for dynamically added nodes
+  if (window.MutationObserver) {
+    var obs = new MutationObserver(bindAll);
+    obs.observe(document.body, {childList:true, subtree:true});
+  }
+
+  // Mobile sticky WhatsApp button
+  function ensureMobileSticky(){
+    if (document.getElementById('five-mobile-wa-sticky')) return;
+    if (window.innerWidth > 768) return;
+    var a = document.createElement('a');
+    a.id = 'five-mobile-wa-sticky';
+    a.href = 'https://wa.me/972507681777';
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.setAttribute('aria-label', 'WhatsApp');
+    a.innerHTML = '<i class="fab fa-whatsapp" aria-hidden="true"></i><span>בדיקת מחיר ל-FIVE ב-WhatsApp</span>';
+    a.addEventListener('click', function(){ trackWhatsApp(a); }, true);
+    document.body.appendChild(a);
+  }
+  ensureMobileSticky();
+  window.addEventListener('resize', ensureMobileSticky);
+})();
+    } catch (e) {
+      if (typeof console !== 'undefined' && console.warn) { console.warn('[zappy-custom-js]', e); }
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', __zappyCustomInit);
+  } else {
+    __zappyCustomInit();
+  }
+})();
+/* ZAPPY_CUSTOM_JS_END:48ac8747443c */
+
 
 /* ZAPPY_PUBLISHED_LIGHTBOX_RUNTIME */
 (function(){
