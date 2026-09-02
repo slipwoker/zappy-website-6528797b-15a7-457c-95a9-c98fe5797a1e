@@ -2317,9 +2317,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-NB672QJF');</script>
 <!-- ZAPPY_INTEGRATION_END analytics:add_google_tag_manager -->
-      <!-- ZAPPY_INTEGRATION_START analytics:add_facebook_pixel -->
-<!-- Facebook Pixel -->
-<!-- ZAPPY_INTEGRATION_END analytics:add_facebook_pixel -->
+      
   <style id="zappy-multilang-css">
 /* ============================================
    DIRECTION OVERRIDE STYLES
@@ -5744,7 +5742,10 @@ html[dir="rtl"] body {
 }
 
 </style>
-
+    <!-- ZAPPY_INTEGRATION_START analytics:add_facebook_pixel -->
+<!-- Facebook Pixel -->
+<!-- ZAPPY_INTEGRATION_END analytics:add_facebook_pixel -->
+  
     <style id="zppb-promo-banner-styles">
     .zppb-overlay { display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.45); align-items: flex-end; justify-content: center; padding-bottom: 60px; }
     .zppb-overlay.zppb-visible { display:flex; }
@@ -33502,7 +33503,7 @@ body:has(.zappy-announcement-bar) main > section[class*="hero"]:first-of-type {
 (function(){function load(el){var css=el.getAttribute('data-zappy-lazy-bg');if(!css)return;el.style.cssText=(el.getAttribute('style')||'').replace(/;?\s*$/,';')+css;el.removeAttribute('data-zappy-lazy-bg');el.classList.remove('zappy-lazy-bg');}function init(){var els=[].slice.call(document.querySelectorAll('[data-zappy-lazy-bg]'));if(!els.length)return;if(!('IntersectionObserver'in window)){els.forEach(load);return;}var io=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){io.unobserve(entry.target);load(entry.target);}});},{rootMargin:'300px 0px'});els.forEach(function(el){io.observe(el);});setTimeout(function(){els.forEach(function(el){if(el.hasAttribute('data-zappy-lazy-bg'))load(el);});},9000);}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init,{once:true});}else{init();}})();
 </script>
     <script id="zappy-facebook-pixel-lazy-loader">
-(function(){var pixelIds=["1910654976521483"];if(!pixelIds.length||window.__zappyFacebookPixelLazyLoader)return;window.__zappyFacebookPixelLazyLoader=true;var loaded=false;function hasMarketingConsent(){try{var cc=window.CookieConsent;if(!cc||typeof cc.acceptedCategory!=='function')return false;return !!cc.acceptedCategory('marketing');}catch(e){return false;}}function load(){if(loaded||!hasMarketingConsent())return;loaded=true;!function(f,b,e,v,n,t,s){if(f.fbq&&f.fbq.loaded)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');pixelIds.forEach(function(id){try{fbq('init',id);}catch(e){}});try{fbq('track','PageView');}catch(e){}try{if(typeof window.zappyFlushPendingMetaEvents==='function'){window.zappyFlushPendingMetaEvents();}else if(window.__zappyPendingMetaEvents&&window.__zappyPendingMetaEvents.length){var q=window.__zappyPendingMetaEvents;window.__zappyPendingMetaEvents=[];for(var i=0;i<q.length;i++){try{fbq('track',q[i].eventName,q[i].params||{});}catch(e2){}}}}catch(e3){}}function tryLoad(){load();}['cc:onConsent','cc:onChange','cc:onFirstConsent'].forEach(function(evt){window.addEventListener(evt,tryLoad);});var attempts=0;var timer=setInterval(function(){attempts++;tryLoad();if(loaded||attempts>60)clearInterval(timer);},500);if('requestIdleCallback'in window){requestIdleCallback(tryLoad,{timeout:8000});}else{setTimeout(tryLoad,6000);}})();
+(function(){var pixelIds=["1779666193155707"];if(!pixelIds.length||window.__zappyFacebookPixelLazyLoader)return;window.__zappyFacebookPixelLazyLoader=true;var loaded=false;function hasMarketingConsent(){try{var cc=window.CookieConsent;if(!cc||typeof cc.acceptedCategory!=='function')return false;return !!cc.acceptedCategory('marketing');}catch(e){return false;}}function load(){if(loaded||!hasMarketingConsent())return;loaded=true;!function(f,b,e,v,n,t,s){if(f.fbq&&f.fbq.loaded)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');pixelIds.forEach(function(id){try{fbq('init',id);}catch(e){}});try{fbq('track','PageView');}catch(e){}try{if(typeof window.zappyFlushPendingMetaEvents==='function'){window.zappyFlushPendingMetaEvents();}else if(window.__zappyPendingMetaEvents&&window.__zappyPendingMetaEvents.length){var q=window.__zappyPendingMetaEvents;window.__zappyPendingMetaEvents=[];for(var i=0;i<q.length;i++){try{fbq('track',q[i].eventName,q[i].params||{});}catch(e2){}}}}catch(e3){}}function tryLoad(){load();}['cc:onConsent','cc:onChange','cc:onFirstConsent'].forEach(function(evt){window.addEventListener(evt,tryLoad);});var attempts=0;var timer=setInterval(function(){attempts++;tryLoad();if(loaded||attempts>60)clearInterval(timer);},500);if('requestIdleCallback'in window){requestIdleCallback(tryLoad,{timeout:8000});}else{setTimeout(tryLoad,6000);}})();
 </script>
     <script id="zappy-font-awesome-loader">
 (function(){if(window.__zappyFontAwesomeLoader)return;window.__zappyFontAwesomeLoader=true;var href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';function load(){if(document.querySelector('link[href*="font-awesome"][href*="all.min.css"]'))return;var l=document.createElement('link');l.rel='stylesheet';l.href=href;l.crossOrigin='anonymous';l.referrerPolicy='no-referrer';document.head.appendChild(l);}function schedule(){if('requestIdleCallback'in window){requestIdleCallback(load,{timeout:5000});}else{setTimeout(load,3500);}}['pointerdown','keydown','touchstart','mouseover'].forEach(function(evt){window.addEventListener(evt,load,{once:true,passive:true});});schedule();})();
