@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-09-02T09:10:59.291Z",
+  "generated_at": "2026-09-14T17:30:57.708Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 47,
@@ -1439,7 +1439,7 @@
     },
     {
       "id": "9c6d9d12-9607-4aa4-9406-8d4f6ad270cc",
-      "slug": "glvbl-vylg-krtys-yvmy-a3o5rd",
+      "slug": "glvbl-vylg-krtys-yvmy-7ipyxh",
       "name": "גלובל וילג - כרטיס יומי",
       "name_translations": {
         "ar": "القرية العالمية - تذكرة يومية",
@@ -1459,9 +1459,9 @@
       "images": [],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/glvbl-vylg-krtys-yvmy-a3o5rd",
+      "url": "https://dubai-plus.co.il/product/glvbl-vylg-krtys-yvmy-7ipyxh",
       "categories": [],
-      "updated_at": "2026-07-23T10:28:26.542Z"
+      "updated_at": "2026-09-14T17:30:16.110Z"
     }
   ]
 }
