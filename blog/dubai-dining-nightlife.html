@@ -32385,6 +32385,9 @@ body:has(.zappy-announcement-bar) main > section[class*="hero"]:first-of-type {
       var key = el.getAttribute('data-i18n');
       var translation = zappyI18n.t(key);
       if (!translation || translation === key) return;
+      translation = String(translation)
+        .replace(/&nbsp;/gi, String.fromCharCode(160))
+        .replace(/&nbsp;/gi, String.fromCharCode(160));
 
       // Skip parent elements whose children have their own data-i18n keys
       // (e.g., <li data-i18n="key1"><a data-i18n="key2">text</a></li>)
