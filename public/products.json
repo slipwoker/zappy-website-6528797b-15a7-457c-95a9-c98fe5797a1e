@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-09-30T08:30:03.682Z",
+  "generated_at": "2026-09-30T08:45:57.451Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 47,
@@ -1439,14 +1439,14 @@
     },
     {
       "id": "d5724241-ce76-46f0-b53f-fda0f3f9cf54",
-      "slug": "gn-hprchym-dvbay-eifcuc",
+      "slug": "gn-hprchym-dvbay-bdbd0v",
       "name": "גן הפרחים דובאי",
       "name_translations": {
         "ar": "حديقة الزهور دبي",
-        "en": "Dubai Flower Garden",
-        "fr": "Le Jardin Floral de Dubaï",
+        "en": "Dubai Miracle Garden",
+        "fr": "Le Jardin des Fleurs de Dubaï",
         "he": "גן הפרחים דובאי",
-        "ru": "Цветочный сад Дубая"
+        "ru": "Сад цветов Дубай"
       },
       "description": "<p class=\"ql-align-right\"></p><p>🌸 Dubai Miracle Garden – גן הפרחים של דובאי</p><p>אחת האטרקציות הצבעוניות והמיוחדות ביותר בדובאי. גן הפרחים מציע חוויה מרשימה עם מיליוני פרחים המסודרים במיצגים ענקיים, פסלים, דמויות ומבנים מיוחדים.</p><p>במהלך הביקור תוכלו לטייל בין שבילים צבעוניים, מנהרות לבבות מפורסמות, מיצגים ענקיים המכוסים בפרחים ופינות צילום מיוחדות. אחד המיצגים המזוהים ביותר עם המקום הוא מטוס Emirates הענק המכוסה בפרחים.</p><p>🌺 מיליוני פרחים בשלל צבעים</p><p>✈️ מיצג מטוס Emirates הענק</p><p>❤️ מנהרות לבבות ומתחמי צילום</p><p>🌸 פסלים ומיצגים מרהיבים מפרחים</p><p>👨‍👩‍👧‍👦 מתאים למשפחות, זוגות וילדים</p><p>📸 מגוון גדול של נקודות צילום מיוחדות</p><p>הגן הוא אטרקציה עונתית ופועל בעיקר בחודשים שבהם מזג האוויר בדובאי נוח יותר. מומלץ להגיע בשעות אחר הצהריים כדי ליהנות מהגן באור יום ולהישאר לקראת הערב.</p><p class=\"ql-align-right\">🎟️ ניתן להזמין כרטיסים ל-Dubai Miracle Garden דרך Dubai Plus.</p><p class=\"ql-align-right\"></p><p class=\"ql-align-right\"></p><p class=\"ql-align-right\"></p><p class=\"ql-align-right\"></p><p class=\"ql-align-right\"></p><p class=\"ql-align-right\"></p><p class=\"ql-align-right\"></p>",
       "short_description": "Dubai Miracle Garden – גן הפרחים המפורסם של דובאי, עם מיליוני פרחים, מיצגים ענקיים, פסלים צבעוניים ומתחמי צילום מרהיבים. אטרקציה מומלצת למשפחות, זוגות וילדים.\n",
@@ -1461,12 +1461,12 @@
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/gn-hprchym-dvbay-eifcuc",
+      "url": "https://dubai-plus.co.il/product/gn-hprchym-dvbay-bdbd0v",
       "categories": [
         "פארקים וגנים",
         "אטרקציות בדובאי"
       ],
-      "updated_at": "2026-09-30T08:25:40.200Z"
+      "updated_at": "2026-09-30T08:45:18.069Z"
     }
   ]
 }
