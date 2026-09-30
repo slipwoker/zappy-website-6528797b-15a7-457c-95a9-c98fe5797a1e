@@ -165,7 +165,7 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 46**
+**Total active products: 47**
 
 ### אקווריום קניון דובאי Aquarium Dubai Mall
 https://dubai-plus.co.il/product/akvvryvm-knyvn-dvbay-aquarium-dubai-mall-d8weq7
@@ -533,6 +533,14 @@ https://dubai-plus.co.il/product/hgn-hzvhr-miracle-garden-v7371h
 - Category: פארקים וגנים
 - Description: גן הזוהר של דובאי – עולם קסום של אורות, צבעים ומיצגים מרהיבים שהופכים את הערב לחוויה מיוחדת לכל המשפחה. ✨�
 - Image: https://dubai-plus.co.il/assets/product-1786908458737-7ddxt.webp
+
+### גן הפרחים דובאי
+https://dubai-plus.co.il/product/gn-hprchym-dvbay-eifcuc
+- Price: 79.00 ILS
+- Availability: In stock
+- Category: פארקים וגנים
+- Description: Dubai Miracle Garden – גן הפרחים המפורסם של דובאי, עם מיליוני פרחים, מיצגים ענקיים, פסלים צבעוניים ומתחמי צילום מרהיבים. אטרקציה מומלצת למשפחות, זוגות וילדים.
+- Image: https://dubai-plus.co.il/assets/product-1790756545429-zl6ki.webp
 
 ---
 
