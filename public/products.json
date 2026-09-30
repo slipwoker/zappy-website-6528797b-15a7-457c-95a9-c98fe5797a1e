@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-09-30T08:50:36.150Z",
+  "generated_at": "2026-09-30T08:53:50.932Z",
   "base_url": "https://dubai-plus.co.il",
   "currency": "ILS",
   "count": 48,
@@ -1439,7 +1439,7 @@
     },
     {
       "id": "9c6d9d12-9607-4aa4-9406-8d4f6ad270cc",
-      "slug": "glvbl-vylg-dpvhiv",
+      "slug": "glvbl-vylg-u4bl6h",
       "name": "גלובל וילג ",
       "name_translations": {
         "ar": "غلوبال فيلدج",
@@ -1461,9 +1461,9 @@
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://dubai-plus.co.il/product/glvbl-vylg-dpvhiv",
+      "url": "https://dubai-plus.co.il/product/glvbl-vylg-u4bl6h",
       "categories": [],
-      "updated_at": "2026-09-30T08:50:00.137Z"
+      "updated_at": "2026-09-30T08:52:20.264Z"
     },
     {
       "id": "d5724241-ce76-46f0-b53f-fda0f3f9cf54",
